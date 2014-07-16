@@ -7,8 +7,522 @@
     editorPluginID="at.bachmann.plc.st.editor" runtimeVersion="2.10">
   <genPackages prefix="StLanguage" basePackage="at.bachmann.plc.st" disposableProviderFactory="true"
       fileExtensions="st" ecorePackage="STLanguage.ecore#/">
-    <genClasses ecoreClass="STLanguage.ecore#//test">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//test/test"/>
+    <genClasses ecoreClass="STLanguage.ecore#//ST_Program"/>
+    <genClasses ecoreClass="STLanguage.ecore#//Data_Type_Decl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Data_Type_Decl/typeDeclarations"/>
     </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Struct_Decl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Struct_Decl/overlap"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Struct_Decl/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Type_Decl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Type_Decl/type"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Simple_Type_Decl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Simple_Type_Decl/initialization"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Subrange_Type_Decl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Subrange_Type_Decl/initialization"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Enum_Type_Decl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Enum_Type_Decl/initialization"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Array_Type_Decl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Array_Type_Decl/initialization"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Struct_Type_Decl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Struct_Type_Decl/initialization"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Struct_Elem_Decl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Struct_Elem_Decl/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Struct_Elem_Decl/location"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Struct_Elem_Decl/access"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Struct_Elem_Decl/initialization"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Str_Type_Decl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Str_Type_Decl/initialization"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Str_Type_Decl/initialValue"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Simple_Spec"/>
+    <genClasses ecoreClass="STLanguage.ecore#//Subrange_Spec">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Subrange_Spec/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Subrange_Spec/range"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Subrange_Spec/refRange"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Enum_Value_Spec">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Enum_Value_Spec/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Enum_Value_Spec/initialValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Enum_Value_Spec/initialization"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Elem_Named_Spec">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Elem_Named_Spec/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Elem_Named_Spec/initialization"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Array_Spec">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Array_Spec/ranges"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Array_Spec/refDataType"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Struct_Spec"/>
+    <genClasses ecoreClass="STLanguage.ecore#//Simple_Spec_Init">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Simple_Spec_Init/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Simple_Spec_Init/initialValue"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Subrange_Spec_Init">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Subrange_Spec_Init/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Subrange_Spec_Init/initialValue"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Subrange">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Subrange/lowBound"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Subrange/upBound"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Named_Spec_Init">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Named_Spec_Init/initialValues"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Named_Spec_Init/value"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Enum_Spec_Init">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Enum_Spec_Init/enumItem"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Enum_Spec_Init/refEnum"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Enum_Spec_Init/value"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Enum_Value">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Enum_Value/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Enum_Value/value"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Array_Spec_Init">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Array_Spec_Init/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Array_Spec_Init/initialValue"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Array_Init">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Array_Init/initialValues"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Array_Elem_Init">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Array_Elem_Init/initialization"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Array_Elem_Init/initialValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Array_Elem_Init/bound"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Array_Elem_Init_Value"/>
+    <genClasses ecoreClass="STLanguage.ecore#//Struct_Spec_Init">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Struct_Spec_Init/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Struct_Spec_Init/initialValue"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Struct_Init">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Struct_Init/elementInits"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Struct_Elem_Init">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Struct_Elem_Init/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Struct_Elem_Init/initialization"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Direct_Variable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Direct_Variable/locationPrefix"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Direct_Variable/sizePrefix"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Direct_Variable/bitIndexes"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Ref_Type_Decl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Ref_Type_Decl/initialization"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Ref_Spec_Init">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Ref_Spec_Init/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Ref_Spec_Init/initialValue"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Ref_Spec">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Ref_Spec/reference"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Ref_Value">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Ref_Value/reference"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Ref_Addr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Ref_Addr/referencedVar"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Ref_Addr/referencedName"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Ref_Assign">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Ref_Assign/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Ref_Assign/initialValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Ref_Assign/initialization"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Ref_Deref">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Ref_Deref/name"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Variable"/>
+    <genClasses ecoreClass="STLanguage.ecore#//Symbolic_Variable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Symbolic_Variable/qualifiers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Symbolic_Variable/variable"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Var_Access">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Var_Access/variable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Var_Access/reference"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Multi_Elem_Var">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Multi_Elem_Var/access"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Multi_Elem_Var/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Subscript_List">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Subscript_List/item"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Subscript"/>
+    <genClasses ecoreClass="STLanguage.ecore#//Struct_Variable"/>
+    <genClasses ecoreClass="STLanguage.ecore#//Struct_Elem_Select"/>
+    <genClasses ecoreClass="STLanguage.ecore#//Input_Decls">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Input_Decls/retainType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Input_Decls/inputs"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Input_Decl"/>
+    <genClasses ecoreClass="STLanguage.ecore#//Edge_Decl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Edge_Decl/variables"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Edge_Decl/edgeType"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Var_Decl_Init">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Var_Decl_Init/variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Var_Decl_Init/initialization"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Ref_Var_Decl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Ref_Var_Decl/variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Ref_Var_Decl/initialization"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Interface_Var_Decl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Interface_Var_Decl/variables"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Interface_Var_Decl/initialization"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Variable_List">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Variable_List/variables"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Array_Var_Decl_Init">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Array_Var_Decl_Init/variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Array_Var_Decl_Init/initialization"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Array_Conformand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Array_Conformand/dataType"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Array_Conform_Decl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Array_Conform_Decl/variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Array_Conform_Decl/conformand"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Struct_Var_Decl_Init">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Struct_Var_Decl_Init/variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Struct_Var_Decl_Init/initialization"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//FB_Decl_No_Init">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//FB_Decl_No_Init/names"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//FB_Decl_No_Init/type"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//FB_Decl_Init">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//FB_Decl_Init/fb"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//FB_Decl_Init/initialization"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Output_Decls">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Output_Decls/retainType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Output_Decls/outputs"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Output_Decl"/>
+    <genClasses ecoreClass="STLanguage.ecore#//In_Out_Decls">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//In_Out_Decls/inouts"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//In_Out_Var_Decl"/>
+    <genClasses ecoreClass="STLanguage.ecore#//Var_Decl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Var_Decl/variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Var_Decl/initialization"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Array_Var_Decl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Array_Var_Decl/variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Array_Var_Decl/initialization"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Struct_Var_Decl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Struct_Var_Decl/variables"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Struct_Var_Decl/initialization"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Var_Decls">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Var_Decls/access"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Var_Decls/variables"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Retain_Var_Decls">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Retain_Var_Decls/access"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Retain_Var_Decls/variables"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Loc_Var_Decls">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Loc_Var_Decls/modifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Loc_Var_Decls/variables"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Loc_Var_Decl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Loc_Var_Decl/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Loc_Var_Decl/location"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Loc_Var_Decl/initialization"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Temp_Var_Decls">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Temp_Var_Decls/variables"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//External_Var_Decls">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//External_Var_Decls/variables"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//External_Decl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//External_Decl/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//External_Decl/initialization"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//External_Decl/type"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Global_Var_Decls">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Global_Var_Decls/modifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Global_Var_Decls/variables"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Global_Var_Decl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Global_Var_Decl/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Global_Var_Decl/initialization"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Global_Var_Decl/type"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Global_Var_Spec">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Global_Var_Spec/variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Global_Var_Spec/location"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Loc_Var_Spec_Init"/>
+    <genClasses ecoreClass="STLanguage.ecore#//Located_At"/>
+    <genClasses ecoreClass="STLanguage.ecore#//Str_Var_Decl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Str_Var_Decl/variables"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//S_Byte_Str_Var_Decl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//S_Byte_Str_Var_Decl/initialization"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//S_Byte_Str_Spec">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//S_Byte_Str_Spec/bound"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//S_Byte_Str_Spec/initialValue"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//D_Byte_Str_Var_Decl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//D_Byte_Str_Var_Decl/initialization"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//D_Byte_Str_Spec">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//D_Byte_Str_Spec/bound"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//D_Byte_Str_Spec/initialValue"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Loc_Partly_Var_Decl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Loc_Partly_Var_Decl/modifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Loc_Partly_Var_Decl/variables"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Loc_Partly_Var">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Loc_Partly_Var/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Loc_Partly_Var/locationPrefix"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Loc_Partly_Var/initialization"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Var_Spec">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Var_Spec/type"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//StringVar_Spec">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//StringVar_Spec/bound"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Func_Decl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Func_Decl/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Func_Decl/returnType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Func_Decl/usings"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Func_Decl/ios"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Func_Decl/variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Func_Decl/temps"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Func_Decl/body"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//IO_Var_Decls"/>
+    <genClasses ecoreClass="STLanguage.ecore#//Func_Var_Decls">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Func_Var_Decls/constant"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Func_Body"/>
+    <genClasses ecoreClass="STLanguage.ecore#//FB_Decl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//FB_Decl/modifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//FB_Decl/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//FB_Decl/usings"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//FB_Decl/extends"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//FB_Decl/implements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//FB_Decl/ios"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//FB_Decl/variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//FB_Decl/temps"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//FB_Decl/others"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//FB_Decl/methods"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//FB_Decl/body"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//FB_IO_Var_Decls"/>
+    <genClasses ecoreClass="STLanguage.ecore#//FB_Input_Decls">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//FB_Input_Decls/modifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//FB_Input_Decls/variables"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//FB_Input_Decl"/>
+    <genClasses ecoreClass="STLanguage.ecore#//FB_Output_Decls">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//FB_Output_Decls/modifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//FB_Output_Decls/variables"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//FB_Output_Decl"/>
+    <genClasses ecoreClass="STLanguage.ecore#//Other_Var_Decls"/>
+    <genClasses ecoreClass="STLanguage.ecore#//No_Retain_Var_Decls">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//No_Retain_Var_Decls/access"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//No_Retain_Var_Decls/variables"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//FB_Body"/>
+    <genClasses ecoreClass="STLanguage.ecore#//Method_Decl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Method_Decl/access"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Method_Decl/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Method_Decl/override"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Method_Decl/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Method_Decl/returnType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Method_Decl/ios"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Method_Decl/variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Method_Decl/temps"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Method_Decl/body"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Class_Decl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Class_Decl/modifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Class_Decl/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Class_Decl/usings"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Class_Decl/extends"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Class_Decl/implements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Class_Decl/variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Class_Decl/others"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Class_Decl/methods"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Interface_Decl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Interface_Decl/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Interface_Decl/usings"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Interface_Decl/extends"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Interface_Decl/methods"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Method_Prototype">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Method_Prototype/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Method_Prototype/returnType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Method_Prototype/ios"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Interface_Spec_Init">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Interface_Spec_Init/variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Interface_Spec_Init/initialization"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Interface_Value">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Interface_Value/variable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Interface_Value/variableName"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Interface_Name_List">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Interface_Name_List/interfaces"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Prog_Decl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Prog_Decl/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Prog_Decl/ios"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Prog_Decl/variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Prog_Decl/temps"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Prog_Decl/others"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Prog_Decl/locals"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Prog_Decl/acesses"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Prog_Decl/body"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Prog_Access_Decls">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Prog_Access_Decls/accesses"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Prog_Access_Decl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Prog_Access_Decl/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Prog_Access_Decl/variable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Prog_Access_Decl/access"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Prog_Access_Decl/dataType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Prog_Access_Decl/direction"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Namespace_H_Name">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Namespace_H_Name/qualifier"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Using_Directive">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Using_Directive/namespaces"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Expression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Expression/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Expression/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Expression/right"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Expression/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Constant_Expr"/>
+    <genClasses ecoreClass="STLanguage.ecore#//Variable_Access">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Variable_Access/variable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Variable_Access/access"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Multibit_Part_Access">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Multibit_Part_Access/accessSize"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Multibit_Part_Access/accessSizeInfo"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Size_Info">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Size_Info/sizePrefix"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Size_Info/size"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Func_Call">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Func_Call/access"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Func_Call/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Stmt_List">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Stmt_List/statement"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Stmt"/>
+    <genClasses ecoreClass="STLanguage.ecore#//Assign_Stmt"/>
+    <genClasses ecoreClass="STLanguage.ecore#//Variable_Assign_Stmt">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Variable_Assign_Stmt/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Variable_Assign_Stmt/right"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Assignment_Attempt">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Assignment_Attempt/leftName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Assignment_Attempt/leftReference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Assignment_Attempt/rightName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Assignment_Attempt/rightReference"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Invocation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Invocation/method"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Invocation/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Param_Assign"/>
+    <genClasses ecoreClass="STLanguage.ecore#//Named_Value">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Named_Value/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Named_Value/value"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Linked_Value">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Linked_Value/negated"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Linked_Value/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Linked_Value/value"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Selection_Stmt"/>
+    <genClasses ecoreClass="STLanguage.ecore#//IF_Stmt">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//IF_Stmt/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//IF_Stmt/statements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//IF_Stmt/elseifs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//IF_Stmt/else"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//ELSEIF_Stmt">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//ELSEIF_Stmt/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//ELSEIF_Stmt/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//ELSE_Stmt">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//ELSE_Stmt/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Case_Stmt">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Case_Stmt/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Case_Stmt/cases"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Case_Stmt/defaultStatements"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Case_Selection">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Case_Selection/values"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Case_Selection/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Case_List">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Case_List/caseValues"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Case_List_Elem"/>
+    <genClasses ecoreClass="STLanguage.ecore#//Iteration_Stmt"/>
+    <genClasses ecoreClass="STLanguage.ecore#//Exit_Stmt"/>
+    <genClasses ecoreClass="STLanguage.ecore#//Continue_Stmt"/>
+    <genClasses ecoreClass="STLanguage.ecore#//For_Stmt">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//For_Stmt/variable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//For_Stmt/bounds"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//For_Stmt/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//For_List">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//For_List/lowBound"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//For_List/upBound"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//For_List/step"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//While_Stmt">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//While_Stmt/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//While_Stmt/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Repeat_Stmt">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Repeat_Stmt/statements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Repeat_Stmt/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Xor_Expr"/>
+    <genClasses ecoreClass="STLanguage.ecore#//And_Expr"/>
+    <genClasses ecoreClass="STLanguage.ecore#//Compare_Expr"/>
+    <genClasses ecoreClass="STLanguage.ecore#//Equ_Expr"/>
+    <genClasses ecoreClass="STLanguage.ecore#//Add_Expr"/>
+    <genClasses ecoreClass="STLanguage.ecore#//Term"/>
+    <genClasses ecoreClass="STLanguage.ecore#//Power_Expr"/>
   </genPackages>
 </genmodel:GenModel>
