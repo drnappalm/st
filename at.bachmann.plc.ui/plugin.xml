@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="at.bachmann.plc.ui.PlcPerspectiveFactory"
+            fixed="true"
+            id="at.bachmann.plc.ui.plc"
+            name="PLC Developer">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="false"
+            class="at.bachmann.plc.ui.views.VariablesView"
+            id="at.bachmann.plc.ui.variablesView"
+            name="Variables View"
+            restorable="true">
+      </view>
+   </extension>
+
+</plugin>

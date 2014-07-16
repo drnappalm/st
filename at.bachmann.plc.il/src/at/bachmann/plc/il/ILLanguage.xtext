@@ -1,0 +1,40 @@
+grammar at.bachmann.plc.il.ILLanguage with org.eclipse.xtext.common.Terminals
+
+generate iLLanguage "http://www.bachmann.at/plc/il/ILLanguage"
+
+dummy: dummy='bla';
+
+//// Table 67 - 70 - Instruction List (IL)
+//Instruction_List : IL_Instruction +;
+//IL_Instruction : ( IL_Label ':' )? ( IL_Simple_Operation | IL_Expr | IL_Jump_Operation
+//| IL_Invocation | IL_Formal_Func_Call
+//| IL_Return_Operator )? EOL +;
+//IL_Simple_Inst : IL_Simple_Operation | IL_Expr | IL_Formal_Func_Call;
+//IL_Label : Identifier;
+//IL_Simple_Operation : IL_Simple_Operator IL_Operand ? | Func_Access IL_Operand_List ?;
+//IL_Expr : IL_Expr_Operator '(' IL_Operand ? EOL + IL_Simple_Inst_List ? ')';
+//IL_Jump_Operation : IL_Jump_Operator IL_Label;
+//IL_Invocation : IL_Call_Operator ((( FB_Instance_Name | Func_Name | Method_Name | 'THIS '
+//| ( ( 'THIS' '.' ( ( FB_Instance_Name | Class_Instance_Name ) '.' )* ) Method_Name ) )
+//( '(' ( ( EOL + IL_Param_List ? ) | IL_Operand_List ? ) ')' )? ) | 'SUPER' '(' ')' );
+//IL_Formal_Func_Call : Func_Access '(' EOL + IL_Param_List ? ')';
+//IL_Operand : Constant | Enum_Value | Variable_Access;
+//IL_Operand_List : IL_Operand ( ',' IL_Operand )*;
+//IL_Simple_Inst_List : IL_Simple_Instruction +;
+//IL_Simple_Instruction : ( IL_Simple_Operation | IL_Expr | IL_Formal_Func_Call ) EOL +;
+//IL_Param_List : IL_Param_Inst * IL_Param_Last_Inst;
+//IL_Param_Inst : ( IL_Param_Assign | IL_Param_Out_Assign ) ',' EOL +;
+//IL_Param_Last_Inst : ( IL_Param_Assign | IL_Param_Out_Assign ) EOL +;
+//IL_Param_Assign : IL_Assignment ( IL_Operand | ( '(' EOL + IL_Simple_Inst_List ')' ) );
+//IL_Param_Out_Assign : IL_Assign_Out_Operator Variable_Access;
+//IL_Simple_Operator : 'LD' | 'LDN' | 'ST' | 'STN' | 'ST?' | 'NOT' | 'S' | 'R'
+//| 'S1' | 'R1' | 'CLK' | 'CU' | 'CD' | 'PV'
+//| 'IN' | 'PT' | IL_Expr_Operator;
+//IL_Expr_Operator : 'AND' | '&' | 'OR' | 'XOR' | 'ANDN' | '&N' | 'ORN'
+//| 'XORN' | 'ADD' | 'SUB' | 'MUL' | 'DIV'
+//| 'MOD' | 'GT' | 'GE' | 'EQ' | 'LT' | 'LE' | 'NE';
+//IL_Assignment : Variable_Name ':=';
+//IL_Assign_Out_Operator : 'NOT' ? Variable_Name '=>';
+//IL_Call_Operator : 'CAL' | 'CALC' | 'CALCN';
+//IL_Return_Operator : 'RT' | 'RETC' | 'RETCN';
+//IL_Jump_Operator : 'JMP' | 'JMPC' | 'JMPCN';

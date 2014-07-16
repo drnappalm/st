@@ -1,0 +1,23 @@
+grammar at.bachmann.plc.sfc.SFCLanguage with org.eclipse.xtext.common.Terminals
+
+generate sFCLanguage "http://www.bachmann.at/plc/sfc/SFCLanguage"
+
+dummy: dummy='bla';
+
+//// Table 54 - 61 - Sequential Function Chart (SFC)
+//SFC : Sfc_Network +;
+//Sfc_Network : Initial_Step ( Step | Transition | Action )*;
+//Initial_Step : 'INITIAL_STEP' Step_Name ':' ( Action_Association ';' )* 'END_STEP';
+//Step : 'STEP' Step_Name ':' ( Action_Association ';' )* 'END_STEP';
+//Step_Name : Identifier;
+//Action_Association : Action_Name '(' Action_Qualifier ? ( ',' Indicator_Name )* ')';
+//Action_Name : Identifier;
+//Action_Qualifier : 'N' | 'R' | 'S' | 'P' | ( ( 'L' | 'D' | 'SD' | 'DS' | 'SL' ) ',' Action_Time );
+//Action_Time : Duration | Variable_Name;
+//Indicator_Name : Variable_Name;
+//Transition : 'TRANSITION' Transition_Name ? ( '(' 'PRIORITY' ':=' Unsigned_Int ')' )?
+//'FROM' Steps 'TO' Steps ':' Transition_Cond 'END_TRANSITION';
+//Transition_Name : Identifier;
+//Steps : Step_Name | '(' Step_Name ( ',' Step_Name )+ ')';
+//Transition_Cond : ':=' Expression ';' | ':' ( FBD_Network | LD_Rung ) | ':=' IL_Simple_Inst;
+//Action : 'ACTION' Action_Name ':' FB_Body 'END_ACTION';
