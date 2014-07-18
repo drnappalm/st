@@ -356,7 +356,7 @@ Date_And_Time_Value: ( 'DATE_AND_TIME' | 'LDATE_AND_TIME' | 'DT' | 'LDT' ) '#' D
 //// *******************************************************
 //// *******************************************************
 //// *******************************************************
-//FB_Body : Stmt_List; //| SFC | Ladder_Diagram | FB_Diagram | Instruction_List | Other_Languages;
+FB_Body : Stmt_List; //| SFC | Ladder_Diagram | FB_Diagram | Instruction_List | Other_Languages;
 //Method_Decl : 'METHOD' access=Access_Spec type=( 'FINAL' | 'ABSTRACT' )? override?='OVERRIDE'?
 //	name=IDENTIFIER ( ':' returnType=Data_Type_Access )? ( ios+=IO_Var_Decls | variables+=Func_Var_Decls | temps+=Temp_Var_Decls )* body=Func_Body 
 //	'END_METHOD';
@@ -379,10 +379,11 @@ Date_And_Time_Value: ( 'DATE_AND_TIME' | 'LDATE_AND_TIME' | 'DT' | 'LDT' ) '#' D
 //Interface_Name_List : interfaces+=Qualified_Name ( ',' interfaces+=Qualified_Name )*;
 //Access_Spec : 'PUBLIC' | 'PROTECTED' | 'PRIVATE' | 'INTERNAL';
 //
-//// Table 47 - Program declaration
-//Prog_Decl : 'PROGRAM' name=IDENTIFIER
+// Table 47 - Program declaration
+Prog_Decl : 'PROGRAM' name=IDENTIFIER
 //	( ios+=IO_Var_Decls | variables+=Func_Var_Decls | temps+=Temp_Var_Decls | others+=Other_Var_Decls | locals+=Loc_Var_Decls | acesses+=Prog_Access_Decls )* 
-//body=FB_Body 'END_PROGRAM';
+	body=FB_Body 
+'END_PROGRAM';
 //Prog_Access_Decls : {Prog_Access_Decls} 'VAR_ACCESS' ( accesses+=Prog_Access_Decl ';' )* 'END_VAR';
 //Prog_Access_Decl : name=IDENTIFIER ':' variable=Symbolic_Variable access=Multibit_Part_Access? ':' dataType=Data_Type_Access direction=Access_Direction?;
 //
@@ -470,7 +471,7 @@ Date_And_Time_Value: ( 'DATE_AND_TIME' | 'LDATE_AND_TIME' | 'DT' | 'LDT' ) '#' D
 //Multibit_Part_Access : Dot ( accessSize=Unsigned_Int | accessSizeInfo=Size_Info );
 //Size_Info : '%' sizePrefix=( 'X' | 'B' | 'W' | 'D' | 'L' ) ? size=Unsigned_Int;
 //Func_Call : access=Qualified_Name '(' ( parameters+=Param_Assign ( ',' parameters+=Param_Assign )* )? ')';
-//Stmt_List : {Stmt_List} ( statement+=Stmt ? ';' )*;
+Stmt_List : {Stmt_List} ( statement+=Stmt? ';' )*;
 //// *******************************************************
 //// *******************************************************
 //// *******************************************************
@@ -480,7 +481,7 @@ Date_And_Time_Value: ( 'DATE_AND_TIME' | 'LDATE_AND_TIME' | 'DT' | 'LDT' ) '#' D
 //// *******************************************************
 //// *******************************************************
 //// *******************************************************
-//// ^ TODO: Uncomment in line below Assign_Stmt | Subprog_Ctrl_Stmt |^
+//// ^ TODO: Uncomment in line below | Subprog_Ctrl_Stmt | Selection_Stmt | Iteration_Stmt ^
 //// *******************************************************
 //// *******************************************************
 //// *******************************************************
@@ -490,9 +491,9 @@ Date_And_Time_Value: ( 'DATE_AND_TIME' | 'LDATE_AND_TIME' | 'DT' | 'LDT' ) '#' D
 //// *******************************************************
 //// *******************************************************
 //// *******************************************************
-//Stmt : /* Assign_Stmt | Subprog_Ctrl_Stmt | */ Selection_Stmt | Iteration_Stmt;
-//Assign_Stmt : Variable_Assign_Stmt | Ref_Assign | Assignment_Attempt;
-//Variable_Assign_Stmt : left=Variable ASSIGNMENT right=Expression;
+Stmt : Assign_Stmt /* | Subprog_Ctrl_Stmt | Selection_Stmt | Iteration_Stmt */;
+Assign_Stmt : Variable_Assign_Stmt | Ref_Assign | Assignment_Attempt;
+Variable_Assign_Stmt : (lvalue=LValueExpression ':=' rvalue=RValueExpression);
 //Assignment_Attempt : ( leftName=IDENTIFIER | leftReference=Ref_Deref ) '?=' ( rightName=IDENTIFIER | rightReference=(Ref_Deref | Ref_Value) );
 //// *******************************************************
 //// *******************************************************

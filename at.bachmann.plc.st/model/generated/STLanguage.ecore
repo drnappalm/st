@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="stLanguage" nsURI="http://www.bachmann.at/plc/st/STLanguage"
+    nsPrefix="stLanguage">
+  <eClassifiers xsi:type="ecore:EClass" name="test">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="test" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Constant">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Numeric_Literal" eSuperTypes="#//Constant"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Int_Literal" eSuperTypes="#//Numeric_Literal"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Unsigned_Int" eSuperTypes="#//Int_Literal"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Signed_Int" eSuperTypes="#//Int_Literal"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Real_Literal" eSuperTypes="#//Numeric_Literal"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Bit_Str_Literal" eSuperTypes="#//Constant"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Bool_Literal" eSuperTypes="#//Constant"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Char_Literal" eSuperTypes="#//Constant"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Time_Literal" eSuperTypes="#//Constant"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Duration" eSuperTypes="#//Time_Literal"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Time_Of_Day" eSuperTypes="#//Time_Literal"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Daytime">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Date" eSuperTypes="#//Time_Literal"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Date_And_Time" eSuperTypes="#//Time_Literal"/>
+</ecore:EPackage>
