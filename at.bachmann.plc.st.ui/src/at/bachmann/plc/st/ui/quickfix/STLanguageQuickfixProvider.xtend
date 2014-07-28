@@ -7,7 +7,7 @@ import org.eclipse.xtext.ui.editor.quickfix.Fix
 import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor
 import org.eclipse.xtext.validation.Issue
 import org.eclipse.emf.ecore.resource.Resource
-import at.bachmann.plc.st.stLanguage.Variables
+//import at.bachmann.plc.st.stLanguage.Variables
 import at.bachmann.plc.st.validation.STLanguageValidator
 
 /**

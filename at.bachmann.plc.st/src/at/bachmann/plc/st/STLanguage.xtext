@@ -1,31 +1,41 @@
-grammar at.bachmann.plc.st.STLanguage hidden(SL_COMMENT, ML_COMMENT_1, ML_COMMENT_2, PRAGMA)
+grammar at.bachmann.plc.st.STLanguage hidden(WS, SL_COMMENT, ML_COMMENT_1, ML_COMMENT_2, PRAGMA)
 
 generate stLanguage "http://www.bachmann.at/plc/st/STLanguage"
 
 import "http://www.eclipse.org/emf/2002/Ecore"
 
-test: test='t';
-//ST_Program: Prog_Decl;
+ST: Prog_Decl | POU_Decl;
+
+POU_Decl : usings+=Using_Directive* 
+	pous+=( /* Global_Var_Decls | Data_Type_Decl | Access_Decls | */ Func_Decl | FB_Decl | Class_Decl | Interface_Decl | Namespace_Decl )+
+;
 
 // Table 1 - Character sets
 // Table 2 - Identifiers
-terminal fragment LETTER : 'A'..'Z' | 'a'..'z' | '_';
-terminal fragment BIT : '0'..'1';
-terminal fragment OCTAL_DIGIT : '0'..'7';
-terminal fragment DIGIT : '0'..'9';
-terminal fragment HEX_DIGIT : '0'..'9' | 'A'..'F';
-terminal IDENTIFIER : LETTER ( LETTER | DIGIT )*;
+terminal fragment LETTER: 'A'..'Z' | 'a'..'z' | '_';
+terminal fragment BIT: '0'..'1';
+terminal fragment OCTAL_DIGIT: '0'..'7';
+terminal fragment DIGIT: '0'..'9';
+terminal fragment HEX_DIGIT: '0'..'9' | 'A'..'F';
+terminal IDENTIFIER returns EString: LETTER ( LETTER | DIGIT )*;
+// ID is just needed so that Xtext don't miss it...but not used as we use IDENTIFIER
+terminal ID: '^'? ('a'..'z' | 'A'..'Z' | '_') ('a'..'z' | 'A'..'Z' | '_' | '0'..'9')*;
+terminal QUALIFIED_ID_PREFIX: (IDENTIFIER '.')+;
+Qualified_Name returns EString: (QUALIFIED_ID_PREFIX IDENTIFIER) | IDENTIFIER;
+This_Qualified_name returns EString: ('THIS' '.')? Qualified_Name;
+terminal ASSIGNMENT: ':=';
 
 
 // Table 3 - Comments
 terminal SL_COMMENT: '//' !( '\n' | '\r' )* '\r'? '\n';
 terminal ML_COMMENT_1: '(*' -> '*)';
 terminal ML_COMMENT_2: '/*' -> '*/';
-terminal fragment WS: ( ' ' | '\t' | '\r' | '\n' ); // white space
-terminal fragment EOL: '\n';
+terminal WS returns EString: ( ' ' | '\t' | '\r' | '\n' ); // white space
+
 
 // Table 4 - Pragma
 terminal PRAGMA: '{' -> '}';
+
 
 // Table 5 - Numeric literal
 terminal BIN_VALUE: '2#' ( '_' ? BIT)+;
@@ -34,10 +44,10 @@ terminal HEX_VALUE: '16#' ( '_' ? HEX_DIGIT )+;
 terminal DEC_VALUE: (DIGIT) (DIGIT | ('_' (DIGIT)))*;
 terminal fragment FIX_POINT: DEC_VALUE '.' DEC_VALUE;
 terminal FLOAT_VALUE: FIX_POINT (('E' | 'e') ('+' | '-')? DEC_VALUE)?;
-Constant : Numeric_Literal | Char_Literal | Time_Literal | Bit_Str_Literal | Bool_Literal;
-Numeric_Literal : Int_Literal | Real_Literal;
+Constant: Numeric_Literal | Char_Literal | Time_Literal | Bit_Str_Literal | Bool_Literal;
+Numeric_Literal: Int_Literal | Real_Literal;
 
-Int_Literal : Signed_Int | Unsigned_Int;
+Int_Literal: Signed_Int | Unsigned_Int;
 Int_Type_Name: Sign_Int_Type_Name | Unsign_Int_Type_Name;
 Unsign_Int_Type_Name: 'USINT' | 
 	'UINT' | 
@@ -53,14 +63,14 @@ Signed_Int: value=Signed_Int_Value;
 Signed_Int_Value: Sign_Int_Type_Name (BIN_VALUE | OCT_VALUE | ('+' | '-')? DEC_VALUE | HEX_VALUE);
 
 Real_Literal: value=Real_Value;
-Real_Type_Name : 'LREAL' | 'REAL';
+Real_Type_Name: 'LREAL' | 'REAL';
 Real_Value: Real_Type_Name ('+' | '-')? FLOAT_VALUE;
 
-Bit_Str_Literal : value=Bit_Str_Value;
-Multibits_Type_Name : 'BYTE' | 'WORD' | 'DWORD' | 'LWORD';
+Bit_Str_Literal: value=Bit_Str_Value;
+Multibits_Type_Name: 'BYTE' | 'WORD' | 'DWORD' | 'LWORD';
 Bit_Str_Value: Multibits_Type_Name '#' (BIN_VALUE | OCT_VALUE | DEC_VALUE | HEX_VALUE);
 
-Bool_Literal : value=Bool_Value;	
+Bool_Literal: value=Bool_Value;	
 Bool_Value: ( Bool_Type_Name '#' )? ( '0' | '1' | 'FALSE' | 'TRUE' );
 Bool_Type_Name: 'BOOL';
 
@@ -68,29 +78,29 @@ Bool_Type_Name: 'BOOL';
 // Table 6 - Character String literals
 
 // Table 7 - Two-character combinations in character strings
-Char_Literal : value=Char_Value;
+Char_Literal: value=Char_Value;
 Char_Value: ('STRING#' )? Char_Str;
 Char_Str: S_Byte_Char_Str | D_Byte_Char_Str;
-S_Byte_Char_Str : "'" S_BYTE_CHAR_VALUE + "'";
-D_Byte_Char_Str : '"' D_BYTE_CHAR_VALUE + '"';
-terminal S_BYTE_CHAR_VALUE : COMMON_CHAR_VALUE | "$'" | '"' | '$' HEX_DIGIT HEX_DIGIT;
-terminal D_BYTE_CHAR_VALUE : COMMON_CHAR_VALUE | "'" | '$"' | '$' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT;
-terminal fragment COMMON_CHAR_VALUE : ' ' | '!' | '#' | 
-	'%' | '&' | '('..'/' | '0'..'9' | ':'..'@' | 'A'..'Z' 
-	| '['..'`' | 'a'..'z' | '{'..'~' | '$$' | '$L' | '$N' | 
-		'$P' | '$R' | '$T'; // any printable characters except $, " and '
+S_Byte_Char_Str: "'" S_BYTE_CHAR_VALUE + "'";
+D_Byte_Char_Str: '"' D_BYTE_CHAR_VALUE + '"';
+terminal S_BYTE_CHAR_VALUE: COMMON_CHAR_VALUE | "$'" | '"' | '$' HEX_DIGIT HEX_DIGIT;
+terminal D_BYTE_CHAR_VALUE: COMMON_CHAR_VALUE | "'" | '$"' | '$' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT;
+terminal fragment COMMON_CHAR_VALUE: ' ' | '!' | '#' |  '%' | '&' | '('..'/' | '0'..'9' | ':'..'@' | 'A'..'Z' 
+	| '['..'`' | 'a'..'z' | '{'..'~' | '$$' | '$L' | '$N' | '$P' | '$R' | '$T'; // any printable characters except $, " and '
+String_Type_Name: 'STRING' ( '[' DEC_VALUE ']' )? | 'WSTRING' ( '[' DEC_VALUE ']' )? | 'CHAR' | 'WCHAR';
 
 
 // Table 8 - Duration literals
+
 // Table 9 – Date and time of day literals
 Time_Type_Name: 'TIME' | 'LTIME';
-Tod_Type_Name : 'TIME_OF_DAY' | 'TOD' | 'LTOD';
-Date_Type_Name : 'DATE' | 'LDATE';
-Dt_Type_Name : 'DATE_AND_TIME' | 'DT' | 'LDT';
+Tod_Type_Name: 'TIME_OF_DAY' | 'TOD' | 'LTOD';
+Date_Type_Name: 'DATE' | 'LDATE';
+Dt_Type_Name: 'DATE_AND_TIME' | 'DT' | 'LDT';
 Time_Literal: Duration | Time_Of_Day | Date | Date_And_Time;
 Duration: value=Duration_Value;
 Duration_Value: ( Time_Type_Name | 'T' | 'LT' ) '#' ( '+' | '-' )? INTERVAL;
-terminal INTERVAL : DAYS? HOURS? MINUTES? SECONDS? MILLISECONDS? MICROSECONDS? NANOSECONDS?;
+terminal INTERVAL: DAYS? HOURS? MINUTES? SECONDS? MILLISECONDS? MICROSECONDS? NANOSECONDS?;
 terminal fragment DAYS: ((FIX_POINT ('d' | 'D')) | (DEC_VALUE ('d' | 'D') '_'?));
 terminal fragment HOURS: ((FIX_POINT ('h' | 'H')) | (DEC_VALUE ('h' | 'H') '_'?));
 terminal fragment MINUTES: ((FIX_POINT ('m' | 'M')) | (DEC_VALUE ('m' | 'M') '_'?));
@@ -109,145 +119,161 @@ Date_And_Time: value=Date_And_Time_Value;
 Date_And_Time_Value: ( 'DATE_AND_TIME' | 'LDATE_AND_TIME' | 'DT' | 'LDT' ) '#' DATE_LITERAL '-' DAYTIME_VALUE;
 
 
-//// Table 11 - Declaration of user-defined data types and initialization
-//Derived_Type_Access : Qualified_Name | 
-//	String_Type_Access
-//;
-//String_Type_Access : Qualified_Prefix String_Type_Name;
-//Qualified_Prefix : ( IDENTIFIER Dot )+ ;
-//Qualified_Name : (Qualified_Prefix IDENTIFIER) | IDENTIFIER;
-//This_Qualified_Name : 'THIS' Dot Qualified_Name;
+// Table 10 - Elementary Data Types
+Data_Type_Access: Elem_Type_Name | Derived_Type_Access;
+Elem_Type_Name: Numeric_Type_Name | Bit_Str_Type_Name | String_Type_Name | Date_Type_Name | Time_Type_Name;
+Numeric_Type_Name: Int_Type_Name | Real_Type_Name;
+Bit_Str_Type_Name: Bool_Type_Name | Multibits_Type_Name;
 
-//Data_Type_Decl : 'TYPE' ( typeDeclarations+=Type_Decl ';' )+ 'END_TYPE';
-//Struct_Decl :'STRUCT' (overlap?='OVERLAP')? ( elements+=Struct_Elem_Decl ';' )+ 'END_STRUCT';
 
-//Type_Decl : Simple_Type_Decl | Subrange_Type_Decl | Enum_Type_Decl | Array_Type_Decl | Struct_Type_Decl | Str_Type_Decl | Ref_Type_Decl;
-//Simple_Type_Decl : type=IDENTIFIER ':' initialization=Simple_Spec_Init;
-//Subrange_Type_Decl : type=IDENTIFIER ':' initialization=Subrange_Spec_Init;
-//Enum_Type_Decl : type=IDENTIFIER ':' initialization=( Elem_Named_Spec | Enum_Spec_Init );
-//Array_Type_Decl : type=IDENTIFIER ':' initialization=Array_Spec_Init;
-//Struct_Type_Decl : type=IDENTIFIER ':' initialization=Struct_Spec;
-//Struct_Elem_Decl : type=IDENTIFIER ( location=Located_At access=Multibit_Part_Access ? )? ':' initialization=( Simple_Spec_Init | Subrange_Spec_Init | Enum_Spec_Init | Array_Spec_Init | Struct_Spec_Init );
-//Str_Type_Decl : type=String_Type_Name ':' initialization=String_Type_Name ( ASSIGNMENT initialValue=Char_Str )?;
-//
-//Simple_Spec : type=(Elem_Type_Name | Qualified_Name);
-//Subrange_Spec : (type=Int_Type_Name '(' range=Subrange ')') | (refRange=Qualified_Name);
-//Enum_Value_Spec : type=IDENTIFIER ( ASSIGNMENT ( initialValue=Int_Literal | initialization=Constant_Expr ) )?;
-//Elem_Named_Spec : type=Elem_Type_Name ? initialization=Named_Spec_Init;
-//Array_Spec : type=(Qualified_Name | 'ARRAY') '[' ranges+=Subrange ( ',' ranges+=Subrange )* ']' 'OF' refDataType=Data_Type_Access;
-//Struct_Spec : Struct_Decl | Struct_Spec_Init;
+// Table 11 - Declaration of user-defined data types and initialization
+Derived_Type_Access: Qualified_Name | String_Type_Access;
+String_Type_Access: QUALIFIED_ID_PREFIX String_Type_Name;
 
-//Simple_Spec_Init : type=Simple_Spec ( ASSIGNMENT initialValue=Constant_Expr )?;
-//Subrange_Spec_Init : type=Subrange_Spec ( ASSIGNMENT initialValue=Signed_Int )?;
-//Subrange : lowBound=Constant_Expr '..' upBound=Constant_Expr;
-//Named_Spec_Init : '(' initialValues+=Enum_Value_Spec ( ',' initialValues+=Enum_Value_Spec )* ')' ( ASSIGNMENT value=Enum_Value )?;
-//
-//Enum_Spec_Init : type=( Enum_Item | Enum_Items | Qualified_Name ) ( ASSIGNMENT value=Enum_Value)?;
-//Enum_Item : '(' IDENTIFIER ')';
-//Enum_Items : '(' IDENTIFIER ( ','  IDENTIFIER )+ ')' ;
-//Enum_Value : value=(Enum_Qualified_Id | IDENTIFIER);
-//Enum_Qualified_Id : Qualified_Name '#' IDENTIFIER;
+Data_Type_Decl: 
+	'TYPE' 
+		( types+=Type_Decl ';' )+ 
+	'END_TYPE';
+Struct_Decl:
+	'STRUCT' (overlap?='OVERLAP')? 
+		( elements+=Struct_Elem_Decl ';' )+ 
+	'END_STRUCT';
+Variable_Decl: Type_Decl;
+Type_Decl: name=IDENTIFIER ':' initialization=(Simple_Spec_Init | Subrange_Spec_Init | /* | Enum_Type_Decl | Array_Type_Decl | Struct_Type_Decl | */ Str_Type_Decl /* | Ref_Type_Decl */ );
+//Enum_Type_Decl: type=IDENTIFIER ':' initialization=( Elem_Named_Spec | Enum_Spec_Init );
+//Array_Type_Decl: type=IDENTIFIER ':' initialization=Array_Spec_Init;
+//Struct_Type_Decl: type=IDENTIFIER ':' initialization=Struct_Spec;
+Struct_Elem_Decl returns Type_Decl: name=IDENTIFIER ( location=Located_At access=Multibit_Part_Access ? )? ':' initialization=Simple_Spec_Init;
+Str_Type_Decl: type=String_Type_Name ':' initialization=String_Type_Name ( ASSIGNMENT initialValue=Char_Str )?;
+Spec_Init: type=Qualified_Name;
+Simple_Spec_Init returns Spec_Init: type=Elem_Type_Name ( ASSIGNMENT initialValue=Constant_Expr )?;
+Subrange_Spec_Init returns Spec_Init: type=Int_Type_Name '(' range=Subrange ')' ( ASSIGNMENT initialValue=Signed_Int )?;
+Subrange: lowBound=[Constant_Expr] '..' upBound=[Constant_Expr];
+//Named_Spec_Init: '(' initialValues+=Enum_Value_Spec ( ',' initialValues+=Enum_Value_Spec )* ')' ( ASSIGNMENT value=Enum_Value )?;
+Enum_Spec_Init: type=( Enum_Items | Qualified_Name ) ( ASSIGNMENT value=Enum_Value)?;
+//Enum_Value_Spec: type=IDENTIFIER ( ASSIGNMENT ( initialValue=Int_Literal | initialization=Constant_Expr ) )?;
+//Elem_Named_Spec: type=Elem_Type_Name ? initialization=Named_Spec_Init;
+//Array_Spec: type=(QUALIFIED_NAME | 'ARRAY') '[' ranges+=Subrange ( ',' ranges+=Subrange )* ']' 'OF' refDataType=Data_Type_Access;
+//Struct_Spec: Struct_Decl | Struct_Spec_Init;
+Enum_Items returns EString: '(' IDENTIFIER ( ','  IDENTIFIER )* ')' ;
+Enum_Value returns Variable: variable=[Variable_Decl | IDENTIFIER];
+Enum_Qualified_Id returns Variable_Decl: name=Enum_Qualified_Id_Name;
+Enum_Qualified_Id_Name returns EString: Qualified_Name '#' IDENTIFIER;
+//Array_Spec_Init: type=Array_Spec ( ASSIGNMENT initialValue=Array_Init )?;
+//Array_Init: '[' initialValues+=Array_Elem_Init ( ',' initialValues+=Array_Elem_Init )* ']';
+//Array_Elem_Init: (initialization=Array_Elem_Init_Value | initialValue=Unsigned_Int) '(' bound=Array_Elem_Init_Value ? ')';
+//Array_Elem_Init_Value: Constant_Expr | Enum_Value | Struct_Init | Array_Init;
+//Struct_Spec_Init: type=QUALIFIED_NAME ( ASSIGNMENT initialValue=Struct_Init )?;
+//Struct_Init: '(' elementInits+=Struct_Elem_Init ( ',' elementInits+=Struct_Elem_Init )* ')';
+//Struct_Elem_Init: type=IDENTIFIER ASSIGNMENT initialization=( /* Constant_Expr | */ Enum_Value | Array_Init | Ref_Value | Struct_Init );
 
-//Array_Spec_Init : type=Array_Spec ( ASSIGNMENT initialValue=Array_Init )?;
-//Array_Init : '[' initialValues+=Array_Elem_Init ( ',' initialValues+=Array_Elem_Init )* ']';
-//Array_Elem_Init : (initialization=Array_Elem_Init_Value | initialValue=Unsigned_Int) '(' bound=Array_Elem_Init_Value ? ')';
-//Array_Elem_Init_Value : Constant_Expr | Enum_Value | Struct_Init | Array_Init;
-//
-//Struct_Spec_Init : type=Qualified_Name ( ASSIGNMENT initialValue=Struct_Init )?;
-//Struct_Init : '(' elementInits+=Struct_Elem_Init ( ',' elementInits+=Struct_Elem_Init )* ')';
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// ^ TODO: uncomment Constant_Expr below ^
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//Struct_Elem_Init : type=IDENTIFIER ASSIGNMENT initialization=( /* Constant_Expr | */ Enum_Value | Array_Init | Ref_Value | Struct_Init );
-//
-//
-//// Table 16 - Directly represented variables
-//Direct_Variable : '%' locationPrefix=( 'I' | 'Q' | 'M' ) sizePrefix=( 'X' | 'B' | 'W' | 'D' | 'L' )? bitIndexes+=Unsigned_Int ( Dot bitIndexes+=Unsigned_Int )*;
-//
-//
-//// Table 12 - Reference operations
-//Ref_Type_Decl : type=IDENTIFIER ':' initialization=Ref_Spec_Init;
-//Ref_Spec_Init : type=Ref_Spec ( ASSIGNMENT initialValue=Ref_Value )?;
-//Ref_Spec : 'REF_TO' + reference=Data_Type_Access;
-//Ref_Value : {Ref_Value} (reference=Ref_Addr | 'NULL');
-//Ref_Addr : 'REF' '(' ( referencedVar=Symbolic_Variable | referencedName=(FB_Instance_Name | Class_Instance_Name ) ) ')';
-//Ref_Assign : type=IDENTIFIER ASSIGNMENT ( initialValue=IDENTIFIER | initialization=(Ref_Deref | Ref_Value) );
-//Ref_Deref : name= IDENTIFIER '^'+;
-//
-//
-//// Table 13 - Declaration of variables/Table 14 – Initialization of variables
-//Variable : Direct_Variable | Symbolic_Variable;
-//Symbolic_Variable : name=This_Qualified_Name variable=( Var_Access | Multi_Elem_Var );
-//Var_Access : {Var_Access} (variable=IDENTIFIER | reference=Ref_Deref);
-//Multi_Elem_Var : access=Var_Access elements+=( Subscript_List | Struct_Variable )+;
-//Subscript_List : '[' item+=Subscript ( ',' item+=Subscript )* ']';
-//Subscript : Expression;
-//Struct_Variable : Dot Struct_Elem_Select;
-//Struct_Elem_Select : Var_Access;
-//Input_Decls : {Input_Decls} 'VAR_INPUT' retainType=( 'RETAIN' | 'NON_RETAIN' )? ( inputs+=Input_Decl ';' )* 'END_VAR';
-//Input_Decl : Var_Decl_Init | Edge_Decl | Array_Conform_Decl;
-//Edge_Decl : variables=Variable_List ':' Bool_Type_Name edgeType=( 'R_EDGE' | 'F_EDGE' );
-//Var_Decl_Init : variables=Variable_List ':' initialization=(( Simple_Spec_Init | Str_Var_Decl | Ref_Spec_Init ) | Array_Var_Decl_Init | Struct_Var_Decl_Init | FB_Decl_Init | Interface_Spec_Init);
-//Ref_Var_Decl : variables=Variable_List ':' initialization=Ref_Spec;
-//Interface_Var_Decl : variables=Variable_List ':' initialization=Qualified_Name;
-//Variable_List : variables+=IDENTIFIER ( ',' variables+=IDENTIFIER )*;
-//Array_Var_Decl_Init : variables=Variable_List ':' initialization=Array_Spec_Init;
-//Array_Conformand : 'ARRAY' '[' '*' ( ',' '*' )* ']' 'OF' dataType=Data_Type_Access;
-//Array_Conform_Decl : variables=Variable_List ':' conformand=Array_Conformand;
-//Struct_Var_Decl_Init : variables=Variable_List ':' initialization=Struct_Spec_Init;
-//FB_Decl_No_Init : (names+=IDENTIFIER ( ',' names+=IDENTIFIER )*) ':' type=FB_Type_Access;
-//FB_Decl_Init : fb=FB_Decl_No_Init ( ASSIGNMENT initialization=Struct_Init )?;
-//FB_Instance_Name : Qualified_Name '^'*;
-//Output_Decls : {Output_Decls} 'VAR_OUTPUT' retainType=( 'RETAIN' | 'NON_RETAIN' )? ( outputs+=Output_Decl ';' )* 
-//	'END_VAR';
-//Output_Decl : Var_Decl_Init | Array_Conform_Decl;
-//In_Out_Decls : {In_Out_Decls} 'VAR_IN_OUT' ( inouts+=In_Out_Var_Decl ';' )* 
-//	'END_VAR';
-//In_Out_Var_Decl : Var_Decl | Array_Conform_Decl | FB_Decl_No_Init;
-//Var_Decl : variables=Variable_List ':' initialization=( Simple_Spec | Str_Var_Decl | Array_Var_Decl | Struct_Var_Decl );
-//Array_Var_Decl : variables=Variable_List ':' initialization=Array_Spec;
-//Struct_Var_Decl : variables=Variable_List ':' initialization=Qualified_Name;
-//Var_Decls : {Var_Decls} 'VAR' (constant?='CONSTANT' ?) access=Access_Spec? ( variables+=Var_Decl_Init ';' )* 'END_VAR';
-//Retain_Var_Decls : {Retain_Var_Decls} 'VAR' 'RETAIN' access=Access_Spec? ( variables+=Var_Decl_Init ';' )* 'END_VAR';
-//Loc_Var_Decls : {Loc_Var_Decls} 'VAR' modifier=( 'CONSTANT' | 'RETAIN' | 'NON_RETAIN' )? ( variables+=Loc_Var_Decl ';' )* 'END_VAR';
-//Loc_Var_Decl : name=IDENTIFIER ? location=Located_At ':' initialization=Loc_Var_Spec_Init;
-//Temp_Var_Decls : {Temp_Var_Decls} 'VAR_TEMP' ( variables+=( Var_Decl | Ref_Var_Decl | Interface_Var_Decl ) ';' )* 'END_VAR';
-//External_Var_Decls : {External_Var_Decls} 'VAR_EXTERNAL' (constant?='Constant' ?) ( variables+=External_Decl ';' )* 'END_VAR';
-//External_Decl : name=IDENTIFIER ':' ( initialization=(Simple_Spec | Array_Spec) | type=(Qualified_Name | FB_Type_Access | Qualified_Name ));
-//Global_Var_Decls : {Global_Var_Decls} 'VAR_GLOBAL' modifier=( 'CONSTANT' | 'RETAIN' )? ( variables+=Global_Var_Decl ';' )* 'END_VAR';
-//Global_Var_Decl : name=Global_Var_Spec ':' ( initialization=Loc_Var_Spec_Init | type=FB_Type_Access );
-//Global_Var_Spec : ( variables+=IDENTIFIER ( ',' variables+=IDENTIFIER )* ) | ( variables+=IDENTIFIER location=Located_At );
-//Loc_Var_Spec_Init : Simple_Spec_Init | Array_Spec_Init | Struct_Spec_Init | S_Byte_Str_Spec | D_Byte_Str_Spec;
-//Located_At : 'AT' Direct_Variable;
-//Str_Var_Decl : S_Byte_Str_Var_Decl | D_Byte_Str_Var_Decl;
-//S_Byte_Str_Var_Decl : variables=Variable_List ':' initialization=S_Byte_Str_Spec;
-//S_Byte_Str_Spec : {S_Byte_Str_Spec} 'STRING' ( '[' bound=Unsigned_Int ']' )? ( ASSIGNMENT initialValue=S_Byte_Char_Str )?;
-//D_Byte_Str_Var_Decl : variables=Variable_List ':' initialization=D_Byte_Str_Spec;
-//D_Byte_Str_Spec : {D_Byte_Str_Spec} 'WSTRING' ( '[' bound=Unsigned_Int ']' )? ( ASSIGNMENT initialValue=D_Byte_Char_Str )?;
-//Loc_Partly_Var_Decl : {Loc_Partly_Var_Decl} 'VAR' modifier=( 'RETAIN' | 'NON_RETAIN' )? variables+=Loc_Partly_Var * 'END_VAR';
-//Loc_Partly_Var : name=IDENTIFIER 'AT' '%' locationPrefix=( 'I' | 'Q' | 'M' ) '*' ':' initialization=Var_Spec ';';
-//Var_Spec : Simple_Spec | Array_Spec | Qualified_Name | StringVar_Spec;
+
+// Table 16 - Directly represented variables
+Variable_Address: '%' type=( 'I' | 'Q' | 'M' ) size=( 'X' | 'B' | 'W' | 'D' | 'L' )? bitIndexes+=DEC_VALUE ('.' bitIndex+=DEC_VALUE)*;
+
+
+// Table 12 - Reference operations
+Ref_Type_Decl  returns Type_Decl: name=IDENTIFIER ':' initialization=Ref_Spec_Init;
+Ref_Spec_Init returns Spec_Init: type='REF_TO' variable=Ref_Spec ( ASSIGNMENT initialValue=Ref_Value )?;
+Ref_Spec: (refTos+='REF_TO')+ reference=Data_Type_Access;
+Ref_Value: variable=(Ref_Addr | Null_Ref);
+Null_Ref returns Variable: {Variable} 'NULL';
+Ref_Addr returns Variable: 'REF' '(' variable=[Variable_Decl | Qualified_Name] ')';
+Ref_Assign returns Variable: variable=[Variable_Decl | IDENTIFIER] ASSIGNMENT ( initialValue=IDENTIFIER | initialization=(Ref_Deref | Ref_Value) );
+Ref_Deref returns Variable: variable=[Variable_Decl | IDENTIFIER] '^'+;
+
+
+// Table 13 - Declaration of variables/Table 14 – Initialization of variables
+Variable: Direct_Variable | Symbolic_Variable;
+Symbolic_Variable returns Variable: Var_Access /* | Multi_Elem_Var */;
+Var_Access returns Variable: Named_Variable | Ref_Deref;
+Named_Variable returns Variable: variable=[Variable_Decl | IDENTIFIER];
+Direct_Variable returns Variable: variable=[Variable_Address];
+//Multi_Elem_Var: [Var_Access] elements+=( Subscript_List | Struct_Variable )+;
+//Subscript_List: '[' item+=Subscript ( ',' item+=Subscript )* ']';
+//Subscript: Expression;
+//Struct_Variable: Dot Struct_Elem_Select;
+//Struct_Elem_Select: Var_Access;
+Input_Decls: {Input_Decls} 
+	'VAR_INPUT' ( retain?='RETAIN' | nonRetain?='NON_RETAIN' )? 
+		( declarations+=Input_Decl ';' )* 
+	'END_VAR'
+;
+Input_Decl: Var_Decl_Init;// | Edge_Decl | Array_Conform_Decl;
+//Edge_Decl: variables=Variable_List ':' Bool_Type_Name edgeType=( 'R_EDGE' | 'F_EDGE' );
+Var_Decl_Init: variables=Variable_List ':' initialization=(
+		( 
+				Simple_Spec_Init | 
+				/*Str_Var_Decl |*/ 
+				Ref_Spec_Init
+		) /* | Array_Var_Decl_Init | 
+		Struct_Var_Decl_Init | 
+		FB_Decl_Init | Interface_Spec_Init */
+	);
+//Ref_Var_Decl: variables=Variable_List ':' initialization=Ref_Spec;
+Interface_Var_Decl: variables=Variable_List ':' initialization=[Interface_Decl];
+Variable_List: names+=IDENTIFIER ( ',' names+=IDENTIFIER )*;
+//Array_Var_Decl_Init: variables=Variable_List ':' initialization=Array_Spec_Init;
+//Array_Conformand: 'ARRAY' '[' '*' ( ',' '*' )* ']' 'OF' dataType=Data_Type_Access;
+//Array_Conform_Decl: variables=Variable_List ':' conformand=Array_Conformand;
+//Struct_Var_Decl_Init: variables=Variable_List ':' initialization=Struct_Spec_Init;
+//FB_Decl_No_Init: (names+=IDENTIFIER ( ',' names+=IDENTIFIER )*) ':' type=FB_Type_Access;
+//FB_Decl_Init: fb=FB_Decl_No_Init ( ASSIGNMENT initialization=Struct_Init )?;
+//FB_Instance_Name: QUALIFIED_NAME '^'*;
+Output_Decls: {Output_Decls} 
+	'VAR_OUTPUT' ( retain?='RETAIN' | nonRetain?='NON_RETAIN' )? 
+		( declarations+=Output_Decl ';' )* 
+	'END_VAR';
+Output_Decl: Var_Decl_Init;// | Array_Conform_Decl;
+In_Out_Decls: {In_Out_Decls} 
+	'VAR_IN_OUT' 
+		( declarations+=In_Out_Var_Decl ';' )* 
+	'END_VAR';
+In_Out_Var_Decl: Var_Decl;// | Array_Conform_Decl | FB_Decl_No_Init;
+Var_Decl: variables=Variable_List ':' initialization=( Elem_Type_Name /* | Str_Var_Decl | Array_Var_Decl | Struct_Var_Decl */ );
+//Array_Var_Decl: variables=Variable_List ':' initialization=Array_Spec;
+//Struct_Var_Decl: variables=Variable_List ':' initialization=QUALIFIED_NAME;
+
+// TODO: implement validation to ensure that:
+//  - in a var/end_var block within a function no retain or non_retain specifier is used
+//  - the access specifiers don't apply to Loc_Var_Decl items
+//  - Loc_Var_Decl items can only be used in the declaration section of a program
+Var_Decls: {Var_Decls} 
+	'VAR' ( constant?='CONSTANT' | retain?='RETAIN' | nonRetain?='NON_RETAIN' )? access=Access_Spec? 
+		( declarations+=(Var_Decl_Init | Loc_Var_Decl) ';' )*
+	'END_VAR'	
+;
+Loc_Var_Decl: {Loc_Var_Decl} variable=IDENTIFIER? location=Located_At ':' initialization=Loc_Var_Spec_Init;
+Temp_Var_Decls: {Temp_Var_Decls}
+	'VAR_TEMP' 
+		( declarations+=( Var_Decl | /* Ref_Var_Decl | */ Interface_Var_Decl ) ';' )* 
+	'END_VAR';
+External_Var_Decls: {External_Var_Decls} 
+	'VAR_EXTERNAL' (constant?='CONSTANT'?) 
+		( declarations+=External_Decl ';' )* 
+	'END_VAR';
+External_Decl: type=IDENTIFIER ':' initialization=( Elem_Type_Name /* | Array_Spec | Struct_Type_Access | FB_Type_Access | Ref_Type_Access */ );
+Global_Var_Decls: {Global_Var_Decls} 
+	'VAR_GLOBAL' ( constant?='CONSTANT' | retain?='RETAIN' )? 
+		( declarations+=Global_Var_Decl ';' )* 
+	'END_VAR';
+Global_Var_Decl: type=Global_Var_Spec ':' ( initialization=Loc_Var_Spec_Init /* | FB_Type_Access */ );
+Global_Var_Spec: ( names+=IDENTIFIER ( ',' names+=IDENTIFIER )* ) | ( names+=IDENTIFIER location=Located_At );
+Loc_Var_Spec_Init: Simple_Spec_Init;// | Array_Spec_Init | Struct_Spec_Init | S_Byte_Str_Spec | D_Byte_Str_Spec;
+Located_At: 'AT' Direct_Variable;
+Str_Var_Decl: S_Byte_Str_Var_Decl | D_Byte_Str_Var_Decl;
+S_Byte_Str_Var_Decl: variables=Variable_List ':' initialization=S_Byte_Str_Spec;
+S_Byte_Str_Spec: {S_Byte_Str_Spec} 'STRING' ( '[' bound=Unsigned_Int ']' )? ( ASSIGNMENT initialValue=S_Byte_Char_Str )?;
+D_Byte_Str_Var_Decl: variables=Variable_List ':' initialization=D_Byte_Str_Spec;
+D_Byte_Str_Spec: {D_Byte_Str_Spec} 'WSTRING' ( '[' bound=Unsigned_Int ']' )? ( ASSIGNMENT initialValue=D_Byte_Char_Str )?;
+//Loc_Partly_Var_Decl: {Loc_Partly_Var_Decl} 'VAR' modifier=( 'RETAIN' | 'NON_RETAIN' )? variables+=Loc_Partly_Var * 'END_VAR';
+//Loc_Partly_Var: name=IDENTIFIER 'AT' '%' locationPrefix=( 'I' | 'Q' | 'M' ) '*' ':' initialization=Var_Spec ';';
+//Var_Spec: Simple_Spec | Array_Spec | QUALIFIED_NAME | StringVar_Spec;
 //StringVar_Spec: type=( 'STRING' | 'WSTRING' ) ( '[' bound=Unsigned_Int ']' )?;
 //
 //// Table 19 - Function declaration
-//Func_Name : Std_Func_Name | IDENTIFIER;
-//Std_Func_Name : 'TRUNC' | 'ABS' | 'SQRT' | 'LN' | 'LOG' | 'EXP' | 
+//Func_Name: Std_Func_Name | IDENTIFIER;
+//Std_Func_Name: 'TRUNC' | 'ABS' | 'SQRT' | 'LN' | 'LOG' | 'EXP' | 
 //	'SIN' | 'COS' | 'TAN' | 'ASIN' | 'ACOS' | 'ATAN' | 'ATAN2 ' | 
 //	'ADD' | 'SUB' | 'MUL' | 'DIV' | 'MOD' | 'EXPT' | 'MOVE ' | 
 //	'SHL' | 'SHR' | 'ROL' | 'ROR' | 'AND' | 'OR'  | 'XOR' | 'NOT' | 
@@ -273,306 +299,172 @@ Date_And_Time_Value: ( 'DATE_AND_TIME' | 'LDATE_AND_TIME' | 'DT' | 'LDT' ) '#' D
 //// *******************************************************
 //// *******************************************************
 //// *******************************************************
-//Func_Decl : 'FUNCTION' name=IDENTIFIER ( ':' returnType=Data_Type_Access )? usings+=Using_Directive* ( ios+=IO_Var_Decls | variables+=Func_Var_Decls | temps+=Temp_Var_Decls )* body=Func_Body 
-//		'END_FUNCTION';
-//IO_Var_Decls : Input_Decls | Output_Decls | In_Out_Decls;
-//Func_Var_Decls : External_Var_Decls | Var_Decls;
-//
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// ^ TODO: other languages on list below ^
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//Func_Body : /*Ladder_Diagram | FB_Diagram | Instruction_List |*/ Stmt_List;// | Other_Languages;
-//
-//
-//// Table 40 – Function block type declaration
-//
-//// Table 41 - Function block instance declaration
-//FB_Type_Name : Std_FB_Name | IDENTIFIER;
-//FB_Type_Access : Qualified_Prefix FB_Type_Name | FB_Type_Name;
-//Std_FB_Name : 'SR' | 'RS' | 'R_TRIG' | 'F_TRIG' | 'CTU'| 'CTD' | 'CTUD' | 'TP' | 'TON' | 'TOF';
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// ^ TODO: complete list above ^
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//FB_Decl : 'FUNCTION_BLOCK' modifier=( 'FINAL' | 'ABSTRACT' )? name=IDENTIFIER usings+=Using_Directive* ( 'EXTENDS' extends=( FB_Type_Access | Qualified_Name ) )?
-//	( 'IMPLEMENTS' implements=Interface_Name_List )? ( ios+=FB_IO_Var_Decls | variables+=Func_Var_Decls | temps+=Temp_Var_Decls | others+=Other_Var_Decls )*
-//	( methods+=Method_Decl )* body=FB_Body ? 
-//	'END_FUNCTION_BLOCK';
-//FB_IO_Var_Decls : FB_Input_Decls | FB_Output_Decls | In_Out_Decls;
-//FB_Input_Decls : {FB_Input_Decls} 'VAR_INPUT' modifier=( 'RETAIN' | 'NON_RETAIN' )? ( variables+=FB_Input_Decl ';' )* 'END_VAR';
-//FB_Input_Decl : Var_Decl_Init | Edge_Decl | Array_Conform_Decl;
-//FB_Output_Decls : {FB_Output_Decls} 'VAR_OUTPUT' modifier=( 'RETAIN' | 'NON_RETAIN' )? ( variables+=FB_Output_Decl ';' )* 'END_VAR';
-//FB_Output_Decl : Var_Decl_Init | Array_Conform_Decl;
-//Other_Var_Decls : Retain_Var_Decls | No_Retain_Var_Decls | Loc_Partly_Var_Decl;
-//No_Retain_Var_Decls : {No_Retain_Var_Decls} 'VAR' 'NON_RETAIN' access=Access_Spec ? ( variables+=Var_Decl_Init ';' )* 'END_VAR';
-//
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// ^ TODO: other languages on list below ^
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-FB_Body : Stmt_List; //| SFC | Ladder_Diagram | FB_Diagram | Instruction_List | Other_Languages;
-//Method_Decl : 'METHOD' access=Access_Spec type=( 'FINAL' | 'ABSTRACT' )? override?='OVERRIDE'?
-//	name=IDENTIFIER ( ':' returnType=Data_Type_Access )? ( ios+=IO_Var_Decls | variables+=Func_Var_Decls | temps+=Temp_Var_Decls )* body=Func_Body 
-//	'END_METHOD';
-//
-//// Table 48 - Class
-//
-//// Table 50 Textual call of methods – Formal and non-formal parameter list
-//Class_Decl : 'CLASS' modifier=( 'FINAL' | 'ABSTRACT' )? name=IDENTIFIER usings+=Using_Directive* ( 'EXTENDS' extends=Qualified_Name )? 
-//	( 'IMPLEMENTS' implements=Interface_Name_List )? ( variables+=Func_Var_Decls | others+=Other_Var_Decls )* ( methods+=Method_Decl )* 
-//	'END_CLASS';
-//Class_Instance_Name : Qualified_Name '^' *;
-//Interface_Decl : 'INTERFACE' name=IDENTIFIER usings+=Using_Directive* 
-//	( 'EXTENDS' extends+=Interface_Name_List )? 
-//	methods+=Method_Prototype* 
-//	'END_INTERFACE';
-//Method_Prototype : 'METHOD' name=IDENTIFIER ( ':' returnType=Data_Type_Access )? ios+=IO_Var_Decls* 
-//	'END_METHOD';
-//Interface_Spec_Init : variables=Variable_List ( ASSIGNMENT initialization=Interface_Value )?;
-//Interface_Value : ((variable=Symbolic_Variable) | variableName=(FB_Instance_Name | Class_Instance_Name | 'NULL'));
-//Interface_Name_List : interfaces+=Qualified_Name ( ',' interfaces+=Qualified_Name )*;
-//Access_Spec : 'PUBLIC' | 'PROTECTED' | 'PRIVATE' | 'INTERNAL';
-//
+Func_Decl: 
+	'FUNCTION' name=IDENTIFIER ( ':' returnType=Data_Type_Access )? usings+=Using_Directive* 
+		( ios+=IO_Var_Decls | variables+=Func_Var_Decls | temps+=Temp_Var_Decls )* 
+		body=Func_Body 
+	'END_FUNCTION';
+IO_Var_Decls: Input_Decls | Output_Decls | In_Out_Decls;
+Func_Var_Decls: External_Var_Decls | Var_Decls;
+// TODO: complete list
+Func_Body: /*Ladder_Diagram | FB_Diagram | Instruction_List |*/ Stmt_List;// | Other_Languages;
+
+
+// Table 40 – Function block type declaration
+
+// Table 41 - Function block instance declaration
+FB_Type_Name: Std_FB_Name | IDENTIFIER;
+FB_Type_Access: (QUALIFIED_ID_PREFIX FB_Type_Name) | FB_Type_Name;
+// TODO: complete list
+Std_FB_Name: 'SR' | 'RS' | 'R_TRIG' | 'F_TRIG' | 'CTU'| 'CTD' | 'CTUD' | 'TP' | 'TON' | 'TOF'; // | Other functions 
+FB_Decl: {FB_Decl}
+	'FUNCTION_BLOCK' modifier=( 'FINAL' | 'ABSTRACT' )? name=IDENTIFIER usings+=Using_Directive* ( 'EXTENDS' extends=[FB_Decl] )? ( 'IMPLEMENTS' implements=Interface_Name_List )?
+		( ios+=FB_IO_Var_Decls | variables+=Func_Var_Decls | temps+=Temp_Var_Decls /* | others+=Other_Var_Decls */ )*
+		( methods+=Method_Decl )*
+		body=FB_Body? 
+	=> 'END_FUNCTION_BLOCK';
+FB_IO_Var_Decls: FB_Input_Decls | FB_Output_Decls | In_Out_Decls;
+FB_Input_Decls: {FB_Input_Decls} 
+	'VAR_INPUT' ( retain?='RETAIN' | nonRetain?='NON_RETAIN' )? 
+		( variables+=FB_Input_Decl ';' )* 
+	'END_VAR';
+FB_Input_Decl: Var_Decl_Init /* | Edge_Decl | Array_Conform_Decl */;
+FB_Output_Decls: {FB_Output_Decls} 
+	'VAR_OUTPUT' ( retain?='RETAIN' | nonRetain?='NON_RETAIN' )? 
+		( variables+=FB_Output_Decl ';' )* 
+	'END_VAR';
+FB_Output_Decl: Var_Decl_Init /* | Array_Conform_Decl */;
+//Other_Var_Decls: Retain_Var_Decls | No_Retain_Var_Decls | Loc_Partly_Var_Decl;
+//No_Retain_Var_Decls: {No_Retain_Var_Decls} 'VAR' 'NON_RETAIN' access=Access_Spec ? ( variables+=Var_Decl_Init ';' )* 'END_VAR';
+
+// TODO: complete list
+FB_Body: Stmt_List; //| SFC | Ladder_Diagram | FB_Diagram | Instruction_List | Other_Languages;
+Method_Decl: 
+	'METHOD' access=Access_Spec type=( 'FINAL' | 'ABSTRACT' )? override?='OVERRIDE'? name=IDENTIFIER ( ':' returnType=Data_Type_Access )? 
+		( ios+=IO_Var_Decls | variables+=Func_Var_Decls | temps+=Temp_Var_Decls )* 
+		body=Func_Body 
+	'END_METHOD';
+
+// Table 48 - Class
+
+// Table 50 Textual call of methods – Formal and non-formal parameter list
+Class_Decl: 
+	'CLASS' modifier=( 'FINAL' | 'ABSTRACT' )? name=IDENTIFIER usings+=Using_Directive* ( 'EXTENDS' extends=[Class_Decl] )? ( 'IMPLEMENTS' implements=Interface_Name_List )? 
+		( variables+=Func_Var_Decls /* | others+=Other_Var_Decls */ )* 
+		( methods+=Method_Decl )* 
+	'END_CLASS';
+//Class_Instance_Name: QUALIFIED_NAME '^' *;
+Interface_Decl: 
+	'INTERFACE' name=IDENTIFIER usings+=Using_Directive* ( 'EXTENDS' extends=Interface_Name_List )? 
+		methods+=Method_Prototype* 
+	'END_INTERFACE';
+Method_Prototype: 
+	'METHOD' name=IDENTIFIER ( ':' returnType=Data_Type_Access )? 
+		ios+=IO_Var_Decls* 
+	'END_METHOD';
+//Interface_Spec_Init: variables=Variable_List ( ASSIGNMENT initialization=Interface_Value )?;
+//Interface_Value: ((variable=Symbolic_Variable) | variableName=(FB_Instance_Name | Class_Instance_Name | 'NULL'));
+Interface_Name_List: interfaces+=[Interface_Decl] ( ',' interfaces+=[Interface_Decl] )*;
+Access_Spec: 'PUBLIC' | 'PROTECTED' | 'PRIVATE' | 'INTERNAL';
+
+
 // Table 47 - Program declaration
-Prog_Decl : 'PROGRAM' name=IDENTIFIER
-//	( ios+=IO_Var_Decls | variables+=Func_Var_Decls | temps+=Temp_Var_Decls | others+=Other_Var_Decls | locals+=Loc_Var_Decls | acesses+=Prog_Access_Decls )* 
+Prog_Decl: 'PROGRAM' name=IDENTIFIER
+	( ios+=IO_Var_Decls | variables+=Func_Var_Decls /* | temps+=Temp_Var_Decls | others+=Other_Var_Decls | acesses+=Prog_Access_Decls*/ )* 
 	body=FB_Body 
 'END_PROGRAM';
-//Prog_Access_Decls : {Prog_Access_Decls} 'VAR_ACCESS' ( accesses+=Prog_Access_Decl ';' )* 'END_VAR';
-//Prog_Access_Decl : name=IDENTIFIER ':' variable=Symbolic_Variable access=Multibit_Part_Access? ':' dataType=Data_Type_Access direction=Access_Direction?;
-//
+//Prog_Access_Decls: {Prog_Access_Decls} 'VAR_ACCESS' ( accesses+=Prog_Access_Decl ';' )* 'END_VAR';
+//Prog_Access_Decl: name=IDENTIFIER ':' variable=Symbolic_Variable access=Multibit_Part_Access? ':' dataType=Data_Type_Access direction=Access_Direction?;
+
+
 //// Table 62 - Configuration and resource declaration
-////Config_Decl : 'CONFIGURATION' Config_Name Global_Var_Decls ?
+////Config_Decl: 'CONFIGURATION' Config_Name Global_Var_Decls ?
 ////( Single_Resource_Decl | Resource_Decl + ) Access_Decls ? Config_Init ?
 ////'END_CONFIGURATION';
-////Resource_Decl : 'RESOURCE' Resource_Name 'ON' Resource_Type_Name
+////Resource_Decl: 'RESOURCE' Resource_Name 'ON' Resource_Type_Name
 ////Global_Var_Decls ? Single_Resource_Decl
 ////'END_RESOURCE';
-////Single_Resource_Decl : ( Task_Config ';' )* ( Prog_Config ';' )+;
-////Access_Decls : 'VAR_ACCESS' ( Access_Decl ';' )* 'END_VAR';
-////Access_Decl : IDENTIFIER ':' Access_Path ':' Data_Type_Access Access_Direction ?;
-////Access_Path : ( Resource_Name Dot )? Direct_Variable
+////Single_Resource_Decl: ( Task_Config ';' )* ( Prog_Config ';' )+;
+////Access_Decls: 'VAR_ACCESS' ( Access_Decl ';' )* 'END_VAR';
+////Access_Decl: IDENTIFIER ':' Access_Path ':' Data_Type_Access Access_Direction ?;
+////Access_Path: ( Resource_Name Dot )? Direct_Variable
 ////| ( Resource_Name Dot )? ( Prog_Name Dot )?
 ////( ( FB_Instance_Name | Class_Instance_Name ) Dot )* Symbolic_Variable;
-////Global_Var_Access : ( Resource_Name Dot )? IDENTIFIER ( Dot Struct_Elem_Name )?;
-////Prog_Output_Access : Prog_Name Dot Symbolic_Variable;
-//Access_Direction : 'READ_WRITE' | 'READ_ONLY';
-////Task_Config : 'TASK' Task_Name Task_Init;
-////Task_Init : '(' ( 'SINGLE' ASSIGNMENT Data_Source ',' )?
+////Global_Var_Access: ( Resource_Name Dot )? IDENTIFIER ( Dot Struct_Elem_Name )?;
+////Prog_Output_Access: Prog_Name Dot Symbolic_Variable;
+//Access_Direction: 'READ_WRITE' | 'READ_ONLY';
+////Task_Config: 'TASK' Task_Name Task_Init;
+////Task_Init: '(' ( 'SINGLE' ASSIGNMENT Data_Source ',' )?
 ////( 'INTERVAL' ASSIGNMENT Data_Source ',' )?
 ////'PRIORITY' ASSIGNMENT Unsigned_Int ')';
-////Data_Source : Constant | Global_Var_Access | Prog_Output_Access | Direct_Variable;
-////Prog_Config : 'PROGRAM' ( 'RETAIN' | 'NON_RETAIN' )? Prog_Name ( 'WITH' Task_Name )? ':'
+////Data_Source: Constant | Global_Var_Access | Prog_Output_Access | Direct_Variable;
+////Prog_Config: 'PROGRAM' ( 'RETAIN' | 'NON_RETAIN' )? Prog_Name ( 'WITH' Task_Name )? ':'
 ////Prog_Type_Access ( '(' Prog_Conf_Elems ')' )?;
-////Prog_Conf_Elems : Prog_Conf_Elem ( ',' Prog_Conf_Elem )*;
-////Prog_Conf_Elem : FB_Task | Prog_Cnxn;
-////FB_Task : FB_Instance_Name 'WITH' Task_Name;
-////Prog_Cnxn : Symbolic_Variable ASSIGNMENT Prog_Data_Source | Symbolic_Variable '=>' Data_Sink;
-////Prog_Data_Source : Constant | Enum_Value | Global_Var_Access | Direct_Variable;
-////Data_Sink : Global_Var_Access | Direct_Variable;
-////Config_Init : 'VAR_CONFIG' ( Config_Inst_Init ';' )* 'END_VAR';
-////Config_Inst_Init : Resource_Name Dot Prog_Name Dot ( ( FB_Instance_Name | Class_Instance_Name ) Dot )*
+////Prog_Conf_Elems: Prog_Conf_Elem ( ',' Prog_Conf_Elem )*;
+////Prog_Conf_Elem: FB_Task | Prog_Cnxn;
+////FB_Task: FB_Instance_Name 'WITH' Task_Name;
+////Prog_Cnxn: Symbolic_Variable ASSIGNMENT Prog_Data_Source | Symbolic_Variable '=>' Data_Sink;
+////Prog_Data_Source: Constant | Enum_Value | Global_Var_Access | Direct_Variable;
+////Data_Sink: Global_Var_Access | Direct_Variable;
+////Config_Init: 'VAR_CONFIG' ( Config_Inst_Init ';' )* 'END_VAR';
+////Config_Inst_Init: Resource_Name Dot Prog_Name Dot ( ( FB_Instance_Name | Class_Instance_Name ) Dot )*
 ////( IDENTIFIER Located_At ? ':' Loc_Var_Spec_Init
 ////| ( ( FB_Instance_Name ':' FB_Type_Access )
-////| ( Class_Instance_Name ':' Qualified_Name ) ) ASSIGNMENT Struct_Init );
-////
-////// Table 64 - Namespace
-////Namespace_Decl : 'NAMESPACE' 'INTERNAL' ? Namespace_H_Name Using_Directive * Namespace_Elements
-////'END_NAMESPACE';
-////Namespace_Elements : ( Data_Type_Decl | Func_Decl | FB_Decl
-////| Class_Decl | Interface_Decl | Namespace_Decl )+;
-//Using_Directive : 'USING' namespaces+=Qualified_Name ( ',' namespaces+=Qualified_Name )* ';';
-////POU_Decl : Using_Directive *
-////( Global_Var_Decls | Data_Type_Decl | Access_Decls
-////| Func_Decl | FB_Decl | Class_Decl | Interface_Decl
-////| Namespace_Decl )+;
-////
-//
-//// Table 71 - 72 - Language Structured Text (ST)
-//Expression returns Expression: Xor_Expr ({Expression.left=current} operator='OR' right=Xor_Expr )*;
-//// a constant expression must evaluate to a constant value at compile time
-//Constant_Expr : Expression;
-//Xor_Expr returns Expression: And_Expr ({Xor_Expr.left=current} operator='XOR' right=And_Expr )*;
-//And_Expr returns Expression: Compare_Expr ({And_Expr.left=current} operator=( '&' | 'AND' ) right=Compare_Expr )*;
-//Compare_Expr returns Expression: Equ_Expr ({Compare_Expr.left=current} operator=( '=' | '<>' ) right=Equ_Expr )*;
-//Equ_Expr returns Expression: Add_Expr ({Equ_Expr.left=current} operator=( '<' | '>' | '<=' | '>=' ) right=Add_Expr )*;
-//Add_Expr returns Expression: Term ({Add_Expr.left=current} operator=Number_Sign right=Term )*;
-//Term returns Expression: Power_Expr ({Term.left=current} operator=('*' | '/' | 'MOD') right=Power_Expr )*;
-//Power_Expr returns Expression: Unary_Expr ({Power_Expr.left=current} operator='**' right=Unary_Expr )*;
-//Unary_Expr returns Expression: operator=('-' | '+' | 'NOT')? expression=Primary_Expr;
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// ^ TODO: Uncomment in line below Func_Call |  Ref_Value | '(' Expression ')'^
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//Primary_Expr returns Expression: {Expression} Constant | Enum_Value | Variable_Access /* | Func_Call |  Ref_Value | '(' Expression ')' */;
-//
-//Variable_Access : variable=Variable access=Multibit_Part_Access ?;
-//Multibit_Part_Access : Dot ( accessSize=Unsigned_Int | accessSizeInfo=Size_Info );
-//Size_Info : '%' sizePrefix=( 'X' | 'B' | 'W' | 'D' | 'L' ) ? size=Unsigned_Int;
-//Func_Call : access=Qualified_Name '(' ( parameters+=Param_Assign ( ',' parameters+=Param_Assign )* )? ')';
-Stmt_List : {Stmt_List} ( statement+=Stmt? ';' )*;
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// ^ TODO: Uncomment in line below | Subprog_Ctrl_Stmt | Selection_Stmt | Iteration_Stmt ^
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-Stmt : Assign_Stmt /* | Subprog_Ctrl_Stmt | Selection_Stmt | Iteration_Stmt */;
-Assign_Stmt : Variable_Assign_Stmt | Ref_Assign | Assignment_Attempt;
-Variable_Assign_Stmt : (lvalue=LValueExpression ':=' rvalue=RValueExpression);
-//Assignment_Attempt : ( leftName=IDENTIFIER | leftReference=Ref_Deref ) '?=' ( rightName=IDENTIFIER | rightReference=(Ref_Deref | Ref_Value) );
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// ^ TODO: Uncomment in line below | Qualified_Method_Call^
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//Invocation : method=( FB_Instance_Name | IDENTIFIER | 'THIS' /* | Qualified_Method_Call */ ) '(' ( parameters+=Param_Assign ( ',' parameters+=Param_Assign )* )? ')';
-//// Qualified_Method_Call : ( ( 'THIS' Dot )? ( ( ( FB_Instance_Name | Class_Instance_Name ) Dot )+ ) IDENTIFIER );
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// ^ TODO: Uncomment in line below Func_Call | Invocation |^
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//Subprog_Ctrl_Stmt : /* Func_Call | Invocation | */ Super_Invocation | Return;
-//Sub_Invocation: Super_Invocation | Return;
-//Super_Invocation : 'SUPER' '(' ')';
-//Return : 'RETURN';
-//Param_Assign : Named_Value | Ref_Assign | Linked_Value;
-//Named_Value : ( name=IDENTIFIER ASSIGNMENT )? value=Expression;
-//Linked_Value : (negated?='NOT')? name=IDENTIFIER '=>' value=Variable;
-//Selection_Stmt : IF_Stmt | Case_Stmt;
-//IF_Stmt : 'IF' condition=Expression 'THEN' statements=Stmt_List ( elseifs+=ELSEIF_Stmt )* ( else=ELSE_Stmt )? 'END_IF';
-//ELSEIF_Stmt : 'ELSIF' condition=Expression 'THEN' statements=Stmt_List;
-//ELSE_Stmt: 'ELSE' statements=Stmt_List;
-//Case_Stmt : 'CASE' expression=Expression 'OF' cases+=Case_Selection + ( 'ELSE' defaultStatements=Stmt_List )? 'END_CASE';
-//Case_Selection : values=Case_List ':' statements=Stmt_List;
-//Case_List : caseValues+=Case_List_Elem ( ',' caseValues+=Case_List_Elem )*;
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// ^ TODO: Uncomment in line below Func_Call | Invocation |^
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//// *******************************************************
-//Case_List_Elem : Subrange /*| Constant_Expr*/;
-//Iteration_Stmt : For_Stmt | While_Stmt | Repeat_Stmt | Exit_Stmt | Continue_Stmt;
-//Exit_Stmt : {Exit_Stmt} 'EXIT';
-//Continue_Stmt : {Continue_Stmt} 'CONTINUE';
-//For_Stmt : 'FOR' variable=IDENTIFIER ASSIGNMENT bounds=For_List 'DO' statements=Stmt_List 'END_FOR';
-//For_List : lowBound=Expression 'TO' upBound=Expression ( 'BY' step=Expression )?;
-//While_Stmt : 'WHILE' condition=Expression 'DO' statements=Stmt_List 'END_WHILE';
-//Repeat_Stmt : 'REPEAT' statements=Stmt_List 'UNTIL' condition=Expression 'END_REPEAT';
+////| ( Class_Instance_Name ':' QUALIFIED_NAME ) ) ASSIGNMENT Struct_Init );
+
+
+// Table 64 - Namespace
+Namespace_Decl: 
+	'NAMESPACE' (internal?='INTERNAL'?) name=Qualified_Name usings+=Using_Directive* 
+		elements+=Namespace_Elements+
+	'END_NAMESPACE';
+Namespace_Elements: Data_Type_Decl | Func_Decl | FB_Decl /* | Class_Decl | Interface_Decl | Namespace_Decl */;
+Using_Directive: 'USING' namespaces+=Qualified_Name ( ',' namespaces+=Qualified_Name )* ';';
+
+// Table 71 - 72 - Language Structured Text (ST)
+Expression returns Expression: Xor_Expr ({Expression.left=current} operator='OR' right=Xor_Expr )*;
+// TODO: implement a validation such as a constant expression must evaluate to a constant value at compile time
+Constant_Expr: Expression;
+Xor_Expr returns Expression: And_Expr ({Xor_Expr.left=current} operator='XOR' right=And_Expr )*;
+And_Expr returns Expression: Compare_Expr ({And_Expr.left=current} operator=( '&' | 'AND' ) right=Compare_Expr )*;
+Compare_Expr returns Expression: Equ_Expr ({Compare_Expr.left=current} operator=( '=' | '<>' ) right=Equ_Expr )*;
+Equ_Expr returns Expression: Add_Expr ({Equ_Expr.left=current} operator=( '<' | '>' | '<=' | '>=' ) right=Add_Expr )*;
+Add_Expr returns Expression: Term ({Add_Expr.left=current} operator=('+' | '-') right=Term )*;
+Term returns Expression: Power_Expr ({Term.left=current} operator=('*' | '/' | 'MOD') right=Power_Expr )*;
+Power_Expr returns Expression: Unary_Expr ({Power_Expr.left=current} operator='**' right=Unary_Expr )*;
+Unary_Expr returns Expression: operator=('-' | '+' | 'NOT')? expression=Primary_Expr;
+Primary_Expr returns Expression: Constant | Enum_Value | Variable_Access | Func_Call |  Ref_Value /* | '(' Expression ')' */;
+
+Variable_Access: variable=[Variable] access=Multibit_Part_Access?;
+Multibit_Part_Access: '.' ( bitIndex=DEC_VALUE | ('%' size=( 'X' | 'B' | 'W' | 'D' | 'L' ) ? bitIndex=DEC_VALUE));
+Callable: Func_Call;
+Func_Call returns Callable: callable=[Func_Decl] '(' ( parameters+=Param_Assign ( ',' parameters+=Param_Assign )* )? ')';
+Stmt_List: {Stmt_List} ( statements+=Stmt? ';' )*;
+Stmt: Assign_Stmt | /* Subprog_Ctrl_Stmt | */ Selection_Stmt | Iteration_Stmt;
+Assign_Stmt: Variable_Assign_Stmt | Ref_Assign | Assignment_Attempt;
+Variable_Assign_Stmt: variable=[Variable_Decl] ASSIGNMENT value=Expression;
+Assignment_Attempt: variable=[Variable_Decl] '?=' value=[Variable_Decl];
+//Invocation returns Callable: callable=( /* FB_Instance_Name */ | IDENTIFIER | 'THIS' /* | Qualified_Method_Call */ ) '(' ( parameters+=Param_Assign ( ',' parameters+=Param_Assign )* )? ')';
+//// Qualified_Method_Call: ( ( 'THIS' Dot )? ( ( ( FB_Instance_Name | Class_Instance_Name ) Dot )+ ) IDENTIFIER );
+Subprog_Ctrl_Stmt returns Callable: Func_Call | /* | Invocation | */ Super_Stmt | Return_Stmt;
+Super_Stmt returns Stmt: type='SUPER' '(' ')';
+Return_Stmt returns Stmt: type='RETURN';
+Param_Assign: Named_Value | Ref_Assign | Linked_Value;
+Named_Value: ( variable=[Input_Decl] ASSIGNMENT )? value=Expression;
+// TODO: check if this type of value must be also supported for in_out variables
+Linked_Value: (negated?='NOT')? value=[Variable] '=>' variable=[Output_Decl];
+Selection_Stmt: IF_Stmt | Case_Stmt;
+IF_Stmt: 'IF' condition=Expression 'THEN' statements=Stmt_List (=> elseifs+=ELSEIF_Stmt )* (=> else=ELSE_Stmt )? 'END_IF';
+ELSEIF_Stmt: 'ELSIF' condition=Expression 'THEN' statements=Stmt_List;
+ELSE_Stmt: 'ELSE' statements=Stmt_List;
+Case_Stmt: 'CASE' condition=Expression 'OF' cases+=Case_Selection + ( 'ELSE' defaultStatements=Stmt_List )? 'END_CASE';
+Case_Selection: values=Case_List ':' statements=Stmt_List;
+Case_List: caseValues+=Case_List_Elem ( ',' caseValues+=Case_List_Elem )*;
+Case_List_Elem: Subrange | Constant_Expr;
+Iteration_Stmt: For_Stmt | While_Stmt | Repeat_Stmt | Exit_Stmt | Continue_Stmt;
+Exit_Stmt: {Exit_Stmt} 'EXIT';
+Continue_Stmt: {Continue_Stmt} 'CONTINUE';
+For_Stmt: 'FOR' variable=[Variable_Decl] ASSIGNMENT bounds=For_List 'DO' statements=Stmt_List 'END_FOR';
+For_List: lowBound=Expression 'TO' upBound=Expression ( 'BY' step=Expression )?;
+While_Stmt: 'WHILE' condition=Expression 'DO' statements=Stmt_List 'END_WHILE';
+Repeat_Stmt: 'REPEAT' statements=Stmt_List 'UNTIL' condition=Expression 'END_REPEAT';

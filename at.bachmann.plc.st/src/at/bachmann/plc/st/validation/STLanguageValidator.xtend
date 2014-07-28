@@ -3,13 +3,6 @@
  */
 package at.bachmann.plc.st.validation
 
-import at.bachmann.plc.st.stLanguage.StLanguagePackage
-import at.bachmann.plc.st.stLanguage.VariableAssignment
-import org.eclipse.xtext.validation.Check
-import at.bachmann.plc.st.stLanguage.VariableDeclaration
-import org.eclipse.emf.ecore.EObject
-import at.bachmann.plc.st.stLanguage.POU
-
 /**
  * Custom validation rules. 
  *
@@ -19,28 +12,28 @@ class STLanguageValidator extends AbstractSTLanguageValidator {
 
  	public static val NOTDECLARED_VARIABLE = 'notDeclaredVariable'
 
-	@Check
-	def checkVariableIsDeclared(VariableAssignment variableAssignment) {
-		if(!isVariableLocallyDeclared(variableAssignment)) {			
-			error('The variable is not declared.', StLanguagePackage.Literals.VARIABLE_ASSIGNMENT__NAME, NOTDECLARED_VARIABLE)		
-		}
-	}
-	
-	def isVariableLocallyDeclared(VariableAssignment assignment) {
-		val pou = getPOU(assignment)
-		return pou.eAllContents.filter(VariableDeclaration).filter[variableDeclaration |
-			variableDeclaration.name == assignment.name
-		].size > 0
-	}
-	
-	def getPOU(EObject object) {
-		var container = object.eContainer
-		while(container !== null) {
-			if(container instanceof POU)
-				return container
-			container = container.eContainer
-		}
-		return null
-	}
+//	@Check
+//	def checkVariableIsDeclared(VariableAssignment variableAssignment) {
+//		if(!isVariableLocallyDeclared(variableAssignment)) {			
+//			error('The variable is not declared.', StLanguagePackage.Literals.VARIABLE_ASSIGNMENT__NAME, NOTDECLARED_VARIABLE)		
+//		}
+//	}
+//	
+//	def isVariableLocallyDeclared(VariableAssignment assignment) {
+//		val pou = getPOU(assignment)
+//		return pou.eAllContents.filter(VariableDeclaration).filter[variableDeclaration |
+//			variableDeclaration.name == assignment.name
+//		].size > 0
+//	}
+//	
+//	def getPOU(EObject object) {
+//		var container = object.eContainer
+//		while(container !== null) {
+//			if(container instanceof Progr_Decl)
+//				return container
+//			container = container.eContainer
+//		}
+//		return null
+//	}
 	
 }

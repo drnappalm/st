@@ -2,7 +2,6 @@
  */
 package at.bachmann.plc.st.stLanguage;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Constant extends EObject
+public interface Constant extends Expression
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.

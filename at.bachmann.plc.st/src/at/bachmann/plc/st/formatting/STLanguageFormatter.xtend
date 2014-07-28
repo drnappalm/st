@@ -3,10 +3,10 @@
  */
 package at.bachmann.plc.st.formatting
 
+import at.bachmann.plc.st.services.STLanguageGrammarAccess
+import com.google.inject.Inject
 import org.eclipse.xtext.formatting.impl.AbstractDeclarativeFormatter
 import org.eclipse.xtext.formatting.impl.FormattingConfig
-// import com.google.inject.Inject;
-// import at.bachmann.plc.st.services.STLanguageGrammarAccess
 
 /**
  * This class contains custom formatting description.
@@ -18,13 +18,69 @@ import org.eclipse.xtext.formatting.impl.FormattingConfig
  */
 class STLanguageFormatter extends AbstractDeclarativeFormatter {
 
-//	@Inject extension STLanguageGrammarAccess
+	@Inject extension STLanguageGrammarAccess
+
+	final String SIMPLE_SPACING = ' '
 	
 	override protected void configureFormatting(FormattingConfig c) {
-// It's usually a good idea to activate the following three statements.
-// They will add and preserve newlines around comments
-//		c.setLinewrap(0, 1, 2).before(SL_COMMENTRule)
-//		c.setLinewrap(0, 1, 2).before(ML_COMMENTRule)
-//		c.setLinewrap(0, 1, 1).after(ML_COMMENTRule)
+		configureGeneralFormatting(c)		
+		configureKeywordFormatting(c)		
+		configureOperatorsFormatting(c)
 	}
+
+	def configureOperatorsFormatting(FormattingConfig config) {
+		val keywords = #['OR', 'XOR', 'AND', '&', ':=', '=', '<>', '<', '>', '<=', '>=', '+', '-', '*', '/', 'MOD', '**', 'NOT']
+			
+		findKeywords(keywords).forEach[
+			config.setSpace(SIMPLE_SPACING).before(it)
+			config.setSpace(SIMPLE_SPACING).after(it)	
+		]		
+	}
+
+	def configureKeywordFormatting(FormattingConfig config) {
+		val startKeywords = #['FUNCTION_BLOCK', 'VAR', 'VAR_TEMP', 'VAR_EXTERNAL', 'VAR_GLOBAL']
+
+		val endKeywords = #{'END_FUNCTION_BLOCK', 'END_VAR'}
+			
+		findKeywords(startKeywords).forEach[
+			config.setLinewrap(1, 1, 10).before(it)
+			config.setLinewrap(1, 1, 10).after(it)
+			config.setIndentationIncrement().after(it)	
+		]
+		
+		findKeywords(endKeywords).forEach[
+			config.setLinewrap(1, 1, 10).before(it)
+			config.setLinewrap(1, 1, 10).after(it)
+			config.setIndentationDecrement().before(it)	
+		]
+	}
+
+	def configureGeneralFormatting(FormattingConfig config) {
+		config.setAutoLinewrap(120)
+		
+		findKeywordPairs('(', ')').forEach[			
+			config.setNoSpace.after(it.first)
+			config.setNoSpace.before(it.second)
+		]
+		
+		findKeywords(',').forEach[
+			config.setNoSpace.before(it)
+			config.setSpace(SIMPLE_SPACING).after(it)
+		]
+				
+		findKeywords(';').forEach[
+			config.setNoSpace().before(it)
+			config.setLinewrap.after(it)
+		]
+				
+				
+		findKeywords('.').forEach[
+			config.setNoSpace.before(it)
+			config.setNoSpace.after(it)
+		]
+		
+		config.setLinewrap(0, 1, 2).before(SL_COMMENTRule)
+		config.setLinewrap(0, 1, 2).before(ML_COMMENT_1Rule)
+		config.setLinewrap(0, 1, 1).after(ML_COMMENT_2Rule)
+	}	
 }

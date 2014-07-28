@@ -3,14 +3,10 @@
  */
 package at.bachmann.plc.st.generator
 
+import at.bachmann.plc.st.stLanguage.impl.Prog_DeclImpl
 import org.eclipse.emf.ecore.resource.Resource
-import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
-import at.bachmann.plc.st.stLanguage.impl.ProgramImpl
-import at.bachmann.plc.st.stLanguage.impl.LocalVariablesImpl
-import at.bachmann.plc.st.stLanguage.impl.VariableDeclarationImpl
-import at.bachmann.plc.st.stLanguage.VariableType
-import at.bachmann.plc.st.stLanguage.StringValue
+import org.eclipse.xtext.generator.IGenerator
 
 /**
  * Generates code from your model files on save.
@@ -26,12 +22,12 @@ class STLanguageGenerator implements IGenerator {
 	def generatePOU(Resource resource) {
 		val pou = resource.allContents.next.eAllContents.next
 		switch(pou) {				
-			ProgramImpl:
+			Prog_DeclImpl:
 				generateProgramCode(pou)
 		}
 	}
 
-	def generateProgramCode(ProgramImpl item) {
+	def generateProgramCode(Prog_DeclImpl item) {
 		
 		'''
 		#include <mtypes.h>
@@ -43,52 +39,52 @@ class STLanguageGenerator implements IGenerator {
 		'''
 	}
 	
-	def generateProgramBody(ProgramImpl item) {
+	def generateProgramBody(Prog_DeclImpl item) {
 		'''
 		«FOR element : item.eAllContents.toIterable»
-			«switch(element) {				
-				LocalVariablesImpl:
-					generateCodeForItem(element)				
-			}»
+«««			«switch(element) {				
+«««				LocalVariablesImpl:
+«««					generateCodeForItem(element)				
+«««			}»
 		«ENDFOR»
 		'''
 	}
 	
-	def generateCodeForItem(LocalVariablesImpl item) {
-		'''
-		«FOR VariableDeclarationImpl variable : item.eAllContents.filter(typeof(VariableDeclarationImpl)).toIterable»
-			«generateCodeForItem(variable)»
-		«ENDFOR»
-		'''
-	}
-	
-	def generateCodeForItem(VariableDeclarationImpl item) {
-		'''«generateCodeForItem(item.dataType)» «item.name»«generateValueAssignment(item.dataType, item.value)»;'''
-	}
-
-	def generateValueAssignment(VariableType type, StringValue value) {
-		if(value === null) {
-			return ''			
-		}
-		
-		switch(type.type) {
-			case 'STRING':
-				' = "' + value.value + '"'
-			default:
-				' = ' + value.value
-		}
-	}	
-
-	def generateCodeForItem(VariableType item) {
-		switch(item.type) {
-			case 'BOOL':
-				'BOOL8'
-			case 'BYTE':
-				'CHAR'
-			case 'INT':
-				'SINT'
-			case 'STRING':
-				'CHAR*'							
-		}
-	}
+//	def generateCodeForItem(LocalVariablesImpl item) {
+//		'''
+//		«FOR VariableDeclarationImpl variable : item.eAllContents.filter(typeof(VariableDeclarationImpl)).toIterable»
+//			«generateCodeForItem(variable)»
+//		«ENDFOR»
+//		'''
+//	}
+//	
+//	def generateCodeForItem(VariableDeclarationImpl item) {
+//		'''«generateCodeForItem(item.dataType)» «item.name»«generateValueAssignment(item.dataType, item.value)»;'''
+//	}
+//
+//	def generateValueAssignment(VariableType type, StringValue value) {
+//		if(value === null) {
+//			return ''			
+//		}
+//		
+//		switch(type.type) {
+//			case 'STRING':
+//				' = "' + value.value + '"'
+//			default:
+//				' = ' + value.value
+//		}
+//	}	
+//
+//	def generateCodeForItem(VariableType item) {
+//		switch(item.type) {
+//			case 'BOOL':
+//				'BOOL8'
+//			case 'BYTE':
+//				'CHAR'
+//			case 'INT':
+//				'SINT'
+//			case 'STRING':
+//				'CHAR*'							
+//		}
+//	}
 }
