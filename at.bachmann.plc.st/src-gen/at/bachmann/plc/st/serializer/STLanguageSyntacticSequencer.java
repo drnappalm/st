@@ -37,7 +37,8 @@ public class STLanguageSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * terminal ASSIGNMENT: ':=';
+	 * terminal ASSIGNMENT:
+	 * 	':=';
 	 */
 	protected String getASSIGNMENTToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)

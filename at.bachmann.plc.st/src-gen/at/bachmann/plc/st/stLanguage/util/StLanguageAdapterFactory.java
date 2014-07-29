@@ -2,7 +2,132 @@
  */
 package at.bachmann.plc.st.stLanguage.util;
 
-import at.bachmann.plc.st.stLanguage.*;
+import at.bachmann.plc.st.stLanguage.Add_Expr;
+import at.bachmann.plc.st.stLanguage.And_Expr;
+import at.bachmann.plc.st.stLanguage.Assign_Stmt;
+import at.bachmann.plc.st.stLanguage.Assignment_Attempt;
+import at.bachmann.plc.st.stLanguage.Bit_Str_Literal;
+import at.bachmann.plc.st.stLanguage.Bool_Literal;
+import at.bachmann.plc.st.stLanguage.Callable;
+import at.bachmann.plc.st.stLanguage.Case_List;
+import at.bachmann.plc.st.stLanguage.Case_List_Elem;
+import at.bachmann.plc.st.stLanguage.Case_Selection;
+import at.bachmann.plc.st.stLanguage.Case_Stmt;
+import at.bachmann.plc.st.stLanguage.Char_Literal;
+import at.bachmann.plc.st.stLanguage.Class_Decl;
+import at.bachmann.plc.st.stLanguage.Compare_Expr;
+import at.bachmann.plc.st.stLanguage.Constant;
+import at.bachmann.plc.st.stLanguage.Constant_Expr;
+import at.bachmann.plc.st.stLanguage.Continue_Stmt;
+import at.bachmann.plc.st.stLanguage.D_Byte_Str_Spec;
+import at.bachmann.plc.st.stLanguage.D_Byte_Str_Var_Decl;
+import at.bachmann.plc.st.stLanguage.Data_Type_Decl;
+import at.bachmann.plc.st.stLanguage.Date;
+import at.bachmann.plc.st.stLanguage.Date_And_Time;
+import at.bachmann.plc.st.stLanguage.Daytime;
+import at.bachmann.plc.st.stLanguage.Direct_Variable;
+import at.bachmann.plc.st.stLanguage.Duration;
+import at.bachmann.plc.st.stLanguage.ELSEIF_Stmt;
+import at.bachmann.plc.st.stLanguage.ELSE_Stmt;
+import at.bachmann.plc.st.stLanguage.Enum_Spec_Init;
+import at.bachmann.plc.st.stLanguage.Enum_Value;
+import at.bachmann.plc.st.stLanguage.Equ_Expr;
+import at.bachmann.plc.st.stLanguage.Exit_Stmt;
+import at.bachmann.plc.st.stLanguage.Expression;
+import at.bachmann.plc.st.stLanguage.External_Decl;
+import at.bachmann.plc.st.stLanguage.External_Var_Decls;
+import at.bachmann.plc.st.stLanguage.FB_Body;
+import at.bachmann.plc.st.stLanguage.FB_Decl;
+import at.bachmann.plc.st.stLanguage.FB_IO_Var_Decls;
+import at.bachmann.plc.st.stLanguage.FB_Input_Decl;
+import at.bachmann.plc.st.stLanguage.FB_Input_Decls;
+import at.bachmann.plc.st.stLanguage.FB_Output_Decl;
+import at.bachmann.plc.st.stLanguage.FB_Output_Decls;
+import at.bachmann.plc.st.stLanguage.For_List;
+import at.bachmann.plc.st.stLanguage.For_Stmt;
+import at.bachmann.plc.st.stLanguage.Func_Body;
+import at.bachmann.plc.st.stLanguage.Func_Decl;
+import at.bachmann.plc.st.stLanguage.Func_Var_Decls;
+import at.bachmann.plc.st.stLanguage.Function;
+import at.bachmann.plc.st.stLanguage.FunctionBlock;
+import at.bachmann.plc.st.stLanguage.Global_Var_Decl;
+import at.bachmann.plc.st.stLanguage.Global_Var_Decls;
+import at.bachmann.plc.st.stLanguage.Global_Var_Spec;
+import at.bachmann.plc.st.stLanguage.IF_Stmt;
+import at.bachmann.plc.st.stLanguage.IO_Var_Decls;
+import at.bachmann.plc.st.stLanguage.InRef_Assign;
+import at.bachmann.plc.st.stLanguage.In_Out_Decls;
+import at.bachmann.plc.st.stLanguage.In_Out_Var_Decl;
+import at.bachmann.plc.st.stLanguage.Inline_Variable;
+import at.bachmann.plc.st.stLanguage.Input_Decl;
+import at.bachmann.plc.st.stLanguage.Input_Decls;
+import at.bachmann.plc.st.stLanguage.Int_Literal;
+import at.bachmann.plc.st.stLanguage.Interface;
+import at.bachmann.plc.st.stLanguage.Interface_Decl;
+import at.bachmann.plc.st.stLanguage.Interface_Name_List;
+import at.bachmann.plc.st.stLanguage.Interface_Var_Decl;
+import at.bachmann.plc.st.stLanguage.Iteration_Stmt;
+import at.bachmann.plc.st.stLanguage.Linked_Value;
+import at.bachmann.plc.st.stLanguage.Loc_Var_Decl;
+import at.bachmann.plc.st.stLanguage.Loc_Var_Spec_Init;
+import at.bachmann.plc.st.stLanguage.Located_At;
+import at.bachmann.plc.st.stLanguage.Method;
+import at.bachmann.plc.st.stLanguage.Method_Decl;
+import at.bachmann.plc.st.stLanguage.Method_Prototype;
+import at.bachmann.plc.st.stLanguage.Multibit_Part_Access;
+import at.bachmann.plc.st.stLanguage.Named_Value;
+import at.bachmann.plc.st.stLanguage.Named_Variable;
+import at.bachmann.plc.st.stLanguage.Namespace;
+import at.bachmann.plc.st.stLanguage.Namespace_Decl;
+import at.bachmann.plc.st.stLanguage.Namespace_Elements;
+import at.bachmann.plc.st.stLanguage.Null_Ref;
+import at.bachmann.plc.st.stLanguage.Numeric_Literal;
+import at.bachmann.plc.st.stLanguage.Output_Decl;
+import at.bachmann.plc.st.stLanguage.Output_Decls;
+import at.bachmann.plc.st.stLanguage.POU_Decl;
+import at.bachmann.plc.st.stLanguage.Param_Assign;
+import at.bachmann.plc.st.stLanguage.Power_Expr;
+import at.bachmann.plc.st.stLanguage.Prog_Decl;
+import at.bachmann.plc.st.stLanguage.Program;
+import at.bachmann.plc.st.stLanguage.Real_Literal;
+import at.bachmann.plc.st.stLanguage.Ref_Addr;
+import at.bachmann.plc.st.stLanguage.Ref_Assign;
+import at.bachmann.plc.st.stLanguage.Ref_Deref;
+import at.bachmann.plc.st.stLanguage.Ref_Spec;
+import at.bachmann.plc.st.stLanguage.Ref_Value;
+import at.bachmann.plc.st.stLanguage.Repeat_Stmt;
+import at.bachmann.plc.st.stLanguage.ST;
+import at.bachmann.plc.st.stLanguage.S_Byte_Str_Spec;
+import at.bachmann.plc.st.stLanguage.S_Byte_Str_Var_Decl;
+import at.bachmann.plc.st.stLanguage.Selection_Stmt;
+import at.bachmann.plc.st.stLanguage.Signed_Int;
+import at.bachmann.plc.st.stLanguage.Spec_Init;
+import at.bachmann.plc.st.stLanguage.StLanguagePackage;
+import at.bachmann.plc.st.stLanguage.Stmt;
+import at.bachmann.plc.st.stLanguage.Stmt_List;
+import at.bachmann.plc.st.stLanguage.Str_Type_Decl;
+import at.bachmann.plc.st.stLanguage.Str_Var_Decl;
+import at.bachmann.plc.st.stLanguage.Struct_Decl;
+import at.bachmann.plc.st.stLanguage.Subrange;
+import at.bachmann.plc.st.stLanguage.Symbolic_Variable;
+import at.bachmann.plc.st.stLanguage.Temp_Var_Decls;
+import at.bachmann.plc.st.stLanguage.Term;
+import at.bachmann.plc.st.stLanguage.Time_Literal;
+import at.bachmann.plc.st.stLanguage.Time_Of_Day;
+import at.bachmann.plc.st.stLanguage.Type_Decl;
+import at.bachmann.plc.st.stLanguage.Unsigned_Int;
+import at.bachmann.plc.st.stLanguage.Using_Directive;
+import at.bachmann.plc.st.stLanguage.Var_Access;
+import at.bachmann.plc.st.stLanguage.Var_Decl;
+import at.bachmann.plc.st.stLanguage.Var_Decl_Init;
+import at.bachmann.plc.st.stLanguage.Var_Decls;
+import at.bachmann.plc.st.stLanguage.Variable;
+import at.bachmann.plc.st.stLanguage.Variable_Access;
+import at.bachmann.plc.st.stLanguage.Variable_Address;
+import at.bachmann.plc.st.stLanguage.Variable_Assign_Stmt;
+import at.bachmann.plc.st.stLanguage.Variable_List;
+import at.bachmann.plc.st.stLanguage.While_Stmt;
+import at.bachmann.plc.st.stLanguage.Xor_Expr;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -170,11 +295,6 @@ public class StLanguageAdapterFactory extends AdapterFactoryImpl
         return createStruct_DeclAdapter();
       }
       @Override
-      public Adapter caseVariable_Decl(Variable_Decl object)
-      {
-        return createVariable_DeclAdapter();
-      }
-      @Override
       public Adapter caseType_Decl(Type_Decl object)
       {
         return createType_DeclAdapter();
@@ -200,6 +320,11 @@ public class StLanguageAdapterFactory extends AdapterFactoryImpl
         return createEnum_Spec_InitAdapter();
       }
       @Override
+      public Adapter caseEnum_Value(Enum_Value object)
+      {
+        return createEnum_ValueAdapter();
+      }
+      @Override
       public Adapter caseVariable(Variable object)
       {
         return createVariableAdapter();
@@ -218,6 +343,51 @@ public class StLanguageAdapterFactory extends AdapterFactoryImpl
       public Adapter caseRef_Value(Ref_Value object)
       {
         return createRef_ValueAdapter();
+      }
+      @Override
+      public Adapter caseNull_Ref(Null_Ref object)
+      {
+        return createNull_RefAdapter();
+      }
+      @Override
+      public Adapter caseRef_Addr(Ref_Addr object)
+      {
+        return createRef_AddrAdapter();
+      }
+      @Override
+      public Adapter caseRef_Assign(Ref_Assign object)
+      {
+        return createRef_AssignAdapter();
+      }
+      @Override
+      public Adapter caseRef_Deref(Ref_Deref object)
+      {
+        return createRef_DerefAdapter();
+      }
+      @Override
+      public Adapter caseInline_Variable(Inline_Variable object)
+      {
+        return createInline_VariableAdapter();
+      }
+      @Override
+      public Adapter caseSymbolic_Variable(Symbolic_Variable object)
+      {
+        return createSymbolic_VariableAdapter();
+      }
+      @Override
+      public Adapter caseVar_Access(Var_Access object)
+      {
+        return createVar_AccessAdapter();
+      }
+      @Override
+      public Adapter caseNamed_Variable(Named_Variable object)
+      {
+        return createNamed_VariableAdapter();
+      }
+      @Override
+      public Adapter caseDirect_Variable(Direct_Variable object)
+      {
+        return createDirect_VariableAdapter();
       }
       @Override
       public Adapter caseInput_Decls(Input_Decls object)
@@ -350,6 +520,11 @@ public class StLanguageAdapterFactory extends AdapterFactoryImpl
         return createFunc_DeclAdapter();
       }
       @Override
+      public Adapter caseFunction(Function object)
+      {
+        return createFunctionAdapter();
+      }
+      @Override
       public Adapter caseIO_Var_Decls(IO_Var_Decls object)
       {
         return createIO_Var_DeclsAdapter();
@@ -368,6 +543,11 @@ public class StLanguageAdapterFactory extends AdapterFactoryImpl
       public Adapter caseFB_Decl(FB_Decl object)
       {
         return createFB_DeclAdapter();
+      }
+      @Override
+      public Adapter caseFunctionBlock(FunctionBlock object)
+      {
+        return createFunctionBlockAdapter();
       }
       @Override
       public Adapter caseFB_IO_Var_Decls(FB_IO_Var_Decls object)
@@ -410,14 +590,29 @@ public class StLanguageAdapterFactory extends AdapterFactoryImpl
         return createClass_DeclAdapter();
       }
       @Override
+      public Adapter caseClass(at.bachmann.plc.st.stLanguage.Class object)
+      {
+        return createClassAdapter();
+      }
+      @Override
       public Adapter caseInterface_Decl(Interface_Decl object)
       {
         return createInterface_DeclAdapter();
       }
       @Override
+      public Adapter caseInterface(Interface object)
+      {
+        return createInterfaceAdapter();
+      }
+      @Override
       public Adapter caseMethod_Prototype(Method_Prototype object)
       {
         return createMethod_PrototypeAdapter();
+      }
+      @Override
+      public Adapter caseMethod(Method object)
+      {
+        return createMethodAdapter();
       }
       @Override
       public Adapter caseInterface_Name_List(Interface_Name_List object)
@@ -430,9 +625,19 @@ public class StLanguageAdapterFactory extends AdapterFactoryImpl
         return createProg_DeclAdapter();
       }
       @Override
+      public Adapter caseProgram(Program object)
+      {
+        return createProgramAdapter();
+      }
+      @Override
       public Adapter caseNamespace_Decl(Namespace_Decl object)
       {
         return createNamespace_DeclAdapter();
+      }
+      @Override
+      public Adapter caseNamespace(Namespace object)
+      {
+        return createNamespaceAdapter();
       }
       @Override
       public Adapter caseNamespace_Elements(Namespace_Elements object)
@@ -508,6 +713,11 @@ public class StLanguageAdapterFactory extends AdapterFactoryImpl
       public Adapter caseLinked_Value(Linked_Value object)
       {
         return createLinked_ValueAdapter();
+      }
+      @Override
+      public Adapter caseInRef_Assign(InRef_Assign object)
+      {
+        return createInRef_AssignAdapter();
       }
       @Override
       public Adapter caseSelection_Stmt(Selection_Stmt object)
@@ -927,21 +1137,6 @@ public class StLanguageAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.bachmann.plc.st.stLanguage.Variable_Decl <em>Variable Decl</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.bachmann.plc.st.stLanguage.Variable_Decl
-   * @generated
-   */
-  public Adapter createVariable_DeclAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link at.bachmann.plc.st.stLanguage.Type_Decl <em>Type Decl</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1017,6 +1212,21 @@ public class StLanguageAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link at.bachmann.plc.st.stLanguage.Enum_Value <em>Enum Value</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.bachmann.plc.st.stLanguage.Enum_Value
+   * @generated
+   */
+  public Adapter createEnum_ValueAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link at.bachmann.plc.st.stLanguage.Variable <em>Variable</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1072,6 +1282,141 @@ public class StLanguageAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createRef_ValueAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.bachmann.plc.st.stLanguage.Null_Ref <em>Null Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.bachmann.plc.st.stLanguage.Null_Ref
+   * @generated
+   */
+  public Adapter createNull_RefAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.bachmann.plc.st.stLanguage.Ref_Addr <em>Ref Addr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.bachmann.plc.st.stLanguage.Ref_Addr
+   * @generated
+   */
+  public Adapter createRef_AddrAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.bachmann.plc.st.stLanguage.Ref_Assign <em>Ref Assign</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.bachmann.plc.st.stLanguage.Ref_Assign
+   * @generated
+   */
+  public Adapter createRef_AssignAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.bachmann.plc.st.stLanguage.Ref_Deref <em>Ref Deref</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.bachmann.plc.st.stLanguage.Ref_Deref
+   * @generated
+   */
+  public Adapter createRef_DerefAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.bachmann.plc.st.stLanguage.Inline_Variable <em>Inline Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.bachmann.plc.st.stLanguage.Inline_Variable
+   * @generated
+   */
+  public Adapter createInline_VariableAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.bachmann.plc.st.stLanguage.Symbolic_Variable <em>Symbolic Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.bachmann.plc.st.stLanguage.Symbolic_Variable
+   * @generated
+   */
+  public Adapter createSymbolic_VariableAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.bachmann.plc.st.stLanguage.Var_Access <em>Var Access</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.bachmann.plc.st.stLanguage.Var_Access
+   * @generated
+   */
+  public Adapter createVar_AccessAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.bachmann.plc.st.stLanguage.Named_Variable <em>Named Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.bachmann.plc.st.stLanguage.Named_Variable
+   * @generated
+   */
+  public Adapter createNamed_VariableAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.bachmann.plc.st.stLanguage.Direct_Variable <em>Direct Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.bachmann.plc.st.stLanguage.Direct_Variable
+   * @generated
+   */
+  public Adapter createDirect_VariableAdapter()
   {
     return null;
   }
@@ -1467,6 +1812,21 @@ public class StLanguageAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link at.bachmann.plc.st.stLanguage.Function <em>Function</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.bachmann.plc.st.stLanguage.Function
+   * @generated
+   */
+  public Adapter createFunctionAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link at.bachmann.plc.st.stLanguage.IO_Var_Decls <em>IO Var Decls</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1522,6 +1882,21 @@ public class StLanguageAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFB_DeclAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.bachmann.plc.st.stLanguage.FunctionBlock <em>Function Block</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.bachmann.plc.st.stLanguage.FunctionBlock
+   * @generated
+   */
+  public Adapter createFunctionBlockAdapter()
   {
     return null;
   }
@@ -1647,6 +2022,21 @@ public class StLanguageAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link at.bachmann.plc.st.stLanguage.Class <em>Class</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.bachmann.plc.st.stLanguage.Class
+   * @generated
+   */
+  public Adapter createClassAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link at.bachmann.plc.st.stLanguage.Interface_Decl <em>Interface Decl</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1662,6 +2052,21 @@ public class StLanguageAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link at.bachmann.plc.st.stLanguage.Interface <em>Interface</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.bachmann.plc.st.stLanguage.Interface
+   * @generated
+   */
+  public Adapter createInterfaceAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link at.bachmann.plc.st.stLanguage.Method_Prototype <em>Method Prototype</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1672,6 +2077,21 @@ public class StLanguageAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMethod_PrototypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.bachmann.plc.st.stLanguage.Method <em>Method</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.bachmann.plc.st.stLanguage.Method
+   * @generated
+   */
+  public Adapter createMethodAdapter()
   {
     return null;
   }
@@ -1707,6 +2127,21 @@ public class StLanguageAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link at.bachmann.plc.st.stLanguage.Program <em>Program</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.bachmann.plc.st.stLanguage.Program
+   * @generated
+   */
+  public Adapter createProgramAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link at.bachmann.plc.st.stLanguage.Namespace_Decl <em>Namespace Decl</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1717,6 +2152,21 @@ public class StLanguageAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createNamespace_DeclAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.bachmann.plc.st.stLanguage.Namespace <em>Namespace</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.bachmann.plc.st.stLanguage.Namespace
+   * @generated
+   */
+  public Adapter createNamespaceAdapter()
   {
     return null;
   }
@@ -1942,6 +2392,21 @@ public class StLanguageAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createLinked_ValueAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.bachmann.plc.st.stLanguage.InRef_Assign <em>In Ref Assign</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.bachmann.plc.st.stLanguage.InRef_Assign
+   * @generated
+   */
+  public Adapter createInRef_AssignAdapter()
   {
     return null;
   }

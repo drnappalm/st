@@ -3,7 +3,6 @@
  */
 package at.bachmann.plc.st.generator
 
-import at.bachmann.plc.st.stLanguage.impl.Prog_DeclImpl
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
@@ -16,39 +15,39 @@ import org.eclipse.xtext.generator.IGenerator
 class STLanguageGenerator implements IGenerator {
 	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-		fsa.generateFile('st2ctest.c', generatePOU(resource)); 
+//		fsa.generateFile('st2ctest.c', generatePOU(resource)); 
 	}
 
-	def generatePOU(Resource resource) {
-		val pou = resource.allContents.next.eAllContents.next
-		switch(pou) {				
-			Prog_DeclImpl:
-				generateProgramCode(pou)
-		}
-	}
-
-	def generateProgramCode(Prog_DeclImpl item) {
-		
-		'''
-		#include <mtypes.h>
-		
-		void «item.name»_start() 
-		{
-			«generateProgramBody(item)»		
-		}
-		'''
-	}
-	
-	def generateProgramBody(Prog_DeclImpl item) {
-		'''
-		«FOR element : item.eAllContents.toIterable»
-«««			«switch(element) {				
-«««				LocalVariablesImpl:
-«««					generateCodeForItem(element)				
-«««			}»
-		«ENDFOR»
-		'''
-	}
+//	def generatePOU(Resource resource) {
+//		val pou = resource.allContents.next.eAllContents.next
+//		switch(pou) {				
+//			Prog_DeclImpl:
+//				generateProgramCode(pou)
+//		}
+//	}
+//
+//	def generateProgramCode(Prog_DeclImpl item) {
+//		
+//		'''
+//		#include <mtypes.h>
+//		
+//		void «item.name»_start() 
+//		{
+//			«generateProgramBody(item)»		
+//		}
+//		'''
+//	}
+//	
+//	def generateProgramBody(Prog_DeclImpl item) {
+//		'''
+//		«FOR element : item.eAllContents.toIterable»
+//«««			«switch(element) {				
+//«««				LocalVariablesImpl:
+//«««					generateCodeForItem(element)				
+//«««			}»
+//		«ENDFOR»
+//		'''
+//	}
 	
 //	def generateCodeForItem(LocalVariablesImpl item) {
 //		'''

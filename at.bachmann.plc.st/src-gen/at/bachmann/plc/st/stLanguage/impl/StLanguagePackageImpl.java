@@ -25,10 +25,12 @@ import at.bachmann.plc.st.stLanguage.Data_Type_Decl;
 import at.bachmann.plc.st.stLanguage.Date;
 import at.bachmann.plc.st.stLanguage.Date_And_Time;
 import at.bachmann.plc.st.stLanguage.Daytime;
+import at.bachmann.plc.st.stLanguage.Direct_Variable;
 import at.bachmann.plc.st.stLanguage.Duration;
 import at.bachmann.plc.st.stLanguage.ELSEIF_Stmt;
 import at.bachmann.plc.st.stLanguage.ELSE_Stmt;
 import at.bachmann.plc.st.stLanguage.Enum_Spec_Init;
+import at.bachmann.plc.st.stLanguage.Enum_Value;
 import at.bachmann.plc.st.stLanguage.Equ_Expr;
 import at.bachmann.plc.st.stLanguage.Exit_Stmt;
 import at.bachmann.plc.st.stLanguage.Expression;
@@ -46,16 +48,21 @@ import at.bachmann.plc.st.stLanguage.For_Stmt;
 import at.bachmann.plc.st.stLanguage.Func_Body;
 import at.bachmann.plc.st.stLanguage.Func_Decl;
 import at.bachmann.plc.st.stLanguage.Func_Var_Decls;
+import at.bachmann.plc.st.stLanguage.Function;
+import at.bachmann.plc.st.stLanguage.FunctionBlock;
 import at.bachmann.plc.st.stLanguage.Global_Var_Decl;
 import at.bachmann.plc.st.stLanguage.Global_Var_Decls;
 import at.bachmann.plc.st.stLanguage.Global_Var_Spec;
 import at.bachmann.plc.st.stLanguage.IF_Stmt;
 import at.bachmann.plc.st.stLanguage.IO_Var_Decls;
+import at.bachmann.plc.st.stLanguage.InRef_Assign;
 import at.bachmann.plc.st.stLanguage.In_Out_Decls;
 import at.bachmann.plc.st.stLanguage.In_Out_Var_Decl;
+import at.bachmann.plc.st.stLanguage.Inline_Variable;
 import at.bachmann.plc.st.stLanguage.Input_Decl;
 import at.bachmann.plc.st.stLanguage.Input_Decls;
 import at.bachmann.plc.st.stLanguage.Int_Literal;
+import at.bachmann.plc.st.stLanguage.Interface;
 import at.bachmann.plc.st.stLanguage.Interface_Decl;
 import at.bachmann.plc.st.stLanguage.Interface_Name_List;
 import at.bachmann.plc.st.stLanguage.Interface_Var_Decl;
@@ -64,12 +71,16 @@ import at.bachmann.plc.st.stLanguage.Linked_Value;
 import at.bachmann.plc.st.stLanguage.Loc_Var_Decl;
 import at.bachmann.plc.st.stLanguage.Loc_Var_Spec_Init;
 import at.bachmann.plc.st.stLanguage.Located_At;
+import at.bachmann.plc.st.stLanguage.Method;
 import at.bachmann.plc.st.stLanguage.Method_Decl;
 import at.bachmann.plc.st.stLanguage.Method_Prototype;
 import at.bachmann.plc.st.stLanguage.Multibit_Part_Access;
 import at.bachmann.plc.st.stLanguage.Named_Value;
+import at.bachmann.plc.st.stLanguage.Named_Variable;
+import at.bachmann.plc.st.stLanguage.Namespace;
 import at.bachmann.plc.st.stLanguage.Namespace_Decl;
 import at.bachmann.plc.st.stLanguage.Namespace_Elements;
+import at.bachmann.plc.st.stLanguage.Null_Ref;
 import at.bachmann.plc.st.stLanguage.Numeric_Literal;
 import at.bachmann.plc.st.stLanguage.Output_Decl;
 import at.bachmann.plc.st.stLanguage.Output_Decls;
@@ -77,7 +88,11 @@ import at.bachmann.plc.st.stLanguage.POU_Decl;
 import at.bachmann.plc.st.stLanguage.Param_Assign;
 import at.bachmann.plc.st.stLanguage.Power_Expr;
 import at.bachmann.plc.st.stLanguage.Prog_Decl;
+import at.bachmann.plc.st.stLanguage.Program;
 import at.bachmann.plc.st.stLanguage.Real_Literal;
+import at.bachmann.plc.st.stLanguage.Ref_Addr;
+import at.bachmann.plc.st.stLanguage.Ref_Assign;
+import at.bachmann.plc.st.stLanguage.Ref_Deref;
 import at.bachmann.plc.st.stLanguage.Ref_Spec;
 import at.bachmann.plc.st.stLanguage.Ref_Value;
 import at.bachmann.plc.st.stLanguage.Repeat_Stmt;
@@ -94,6 +109,7 @@ import at.bachmann.plc.st.stLanguage.Str_Type_Decl;
 import at.bachmann.plc.st.stLanguage.Str_Var_Decl;
 import at.bachmann.plc.st.stLanguage.Struct_Decl;
 import at.bachmann.plc.st.stLanguage.Subrange;
+import at.bachmann.plc.st.stLanguage.Symbolic_Variable;
 import at.bachmann.plc.st.stLanguage.Temp_Var_Decls;
 import at.bachmann.plc.st.stLanguage.Term;
 import at.bachmann.plc.st.stLanguage.Time_Literal;
@@ -101,6 +117,7 @@ import at.bachmann.plc.st.stLanguage.Time_Of_Day;
 import at.bachmann.plc.st.stLanguage.Type_Decl;
 import at.bachmann.plc.st.stLanguage.Unsigned_Int;
 import at.bachmann.plc.st.stLanguage.Using_Directive;
+import at.bachmann.plc.st.stLanguage.Var_Access;
 import at.bachmann.plc.st.stLanguage.Var_Decl;
 import at.bachmann.plc.st.stLanguage.Var_Decl_Init;
 import at.bachmann.plc.st.stLanguage.Var_Decls;
@@ -108,7 +125,6 @@ import at.bachmann.plc.st.stLanguage.Variable;
 import at.bachmann.plc.st.stLanguage.Variable_Access;
 import at.bachmann.plc.st.stLanguage.Variable_Address;
 import at.bachmann.plc.st.stLanguage.Variable_Assign_Stmt;
-import at.bachmann.plc.st.stLanguage.Variable_Decl;
 import at.bachmann.plc.st.stLanguage.Variable_List;
 import at.bachmann.plc.st.stLanguage.While_Stmt;
 import at.bachmann.plc.st.stLanguage.Xor_Expr;
@@ -266,13 +282,6 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass variable_DeclEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass type_DeclEClass = null;
 
   /**
@@ -308,6 +317,13 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass enum_ValueEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass variableEClass = null;
 
   /**
@@ -330,6 +346,69 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * @generated
    */
   private EClass ref_ValueEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass null_RefEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass ref_AddrEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass ref_AssignEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass ref_DerefEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass inline_VariableEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass symbolic_VariableEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass var_AccessEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass named_VariableEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass direct_VariableEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -518,6 +597,13 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass functionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass iO_Var_DeclsEClass = null;
 
   /**
@@ -540,6 +626,13 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * @generated
    */
   private EClass fB_DeclEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass functionBlockEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -602,6 +695,13 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass classEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass interface_DeclEClass = null;
 
   /**
@@ -609,7 +709,21 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass interfaceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass method_PrototypeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass methodEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -630,7 +744,21 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass programEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass namespace_DeclEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass namespaceEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -736,6 +864,13 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * @generated
    */
   private EClass linked_ValueEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass inRef_AssignEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1219,26 +1354,6 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getVariable_Decl()
-  {
-    return variable_DeclEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getVariable_Decl_Name()
-  {
-    return (EAttribute)variable_DeclEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getType_Decl()
   {
     return type_DeclEClass;
@@ -1249,9 +1364,9 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getType_Decl_Initialization()
+  public EAttribute getType_Decl_Name()
   {
-    return (EReference)type_DeclEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)type_DeclEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1259,7 +1374,7 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getType_Decl_Location()
+  public EReference getType_Decl_Initialization()
   {
     return (EReference)type_DeclEClass.getEStructuralFeatures().get(1);
   }
@@ -1269,9 +1384,19 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getType_Decl_Access()
+  public EReference getType_Decl_Location()
   {
     return (EReference)type_DeclEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getType_Decl_Access()
+  {
+    return (EReference)type_DeclEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1429,6 +1554,26 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getEnum_Value()
+  {
+    return enum_ValueEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getEnum_Value_Variable()
+  {
+    return (EReference)enum_ValueEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getVariable()
   {
     return variableEClass;
@@ -1439,29 +1584,9 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getVariable_Variable()
+  public EAttribute getVariable_Name()
   {
-    return (EReference)variableEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getVariable_InitialValue()
-  {
-    return (EAttribute)variableEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getVariable_Initialization()
-  {
-    return (EReference)variableEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)variableEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1559,9 +1684,129 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRef_Value_Variable()
+  public EClass getNull_Ref()
   {
-    return (EReference)ref_ValueEClass.getEStructuralFeatures().get(0);
+    return null_RefEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRef_Addr()
+  {
+    return ref_AddrEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRef_Addr_Variable()
+  {
+    return (EReference)ref_AddrEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRef_Assign()
+  {
+    return ref_AssignEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRef_Assign_Value()
+  {
+    return (EReference)ref_AssignEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRef_Deref()
+  {
+    return ref_DerefEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getInline_Variable()
+  {
+    return inline_VariableEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSymbolic_Variable()
+  {
+    return symbolic_VariableEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getVar_Access()
+  {
+    return var_AccessEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getVar_Access_Variable()
+  {
+    return (EReference)var_AccessEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getNamed_Variable()
+  {
+    return named_VariableEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDirect_Variable()
+  {
+    return direct_VariableEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDirect_Variable_Variable()
+  {
+    return (EReference)direct_VariableEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1689,9 +1934,9 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getVariable_List_Names()
+  public EReference getVariable_List_Variables()
   {
-    return (EAttribute)variable_ListEClass.getEStructuralFeatures().get(0);
+    return (EReference)variable_ListEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2219,9 +2464,9 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFunc_Decl_Name()
+  public EReference getFunc_Decl_Name()
   {
-    return (EAttribute)func_DeclEClass.getEStructuralFeatures().get(0);
+    return (EReference)func_DeclEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2289,6 +2534,26 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getFunction()
+  {
+    return functionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFunction_Name()
+  {
+    return (EAttribute)functionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getIO_Var_Decls()
   {
     return iO_Var_DeclsEClass;
@@ -2349,9 +2614,9 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFB_Decl_Name()
+  public EReference getFB_Decl_Name()
   {
-    return (EAttribute)fB_DeclEClass.getEStructuralFeatures().get(1);
+    return (EReference)fB_DeclEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2432,6 +2697,26 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
   public EReference getFB_Decl_Body()
   {
     return (EReference)fB_DeclEClass.getEStructuralFeatures().get(9);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getFunctionBlock()
+  {
+    return functionBlockEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFunctionBlock_Name()
+  {
+    return (EAttribute)functionBlockEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2599,9 +2884,9 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getMethod_Decl_Name()
+  public EReference getMethod_Decl_Name()
   {
-    return (EAttribute)method_DeclEClass.getEStructuralFeatures().get(3);
+    return (EReference)method_DeclEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -2679,9 +2964,9 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getClass_Decl_Name()
+  public EReference getClass_Decl_Class()
   {
-    return (EAttribute)class_DeclEClass.getEStructuralFeatures().get(1);
+    return (EReference)class_DeclEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2739,6 +3024,26 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getClass_()
+  {
+    return classEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getClass_Name()
+  {
+    return (EAttribute)classEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getInterface_Decl()
   {
     return interface_DeclEClass;
@@ -2749,9 +3054,9 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getInterface_Decl_Name()
+  public EReference getInterface_Decl_Interface()
   {
-    return (EAttribute)interface_DeclEClass.getEStructuralFeatures().get(0);
+    return (EReference)interface_DeclEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2789,6 +3094,26 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getInterface()
+  {
+    return interfaceEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getInterface_Name()
+  {
+    return (EAttribute)interfaceEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getMethod_Prototype()
   {
     return method_PrototypeEClass;
@@ -2799,9 +3124,9 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getMethod_Prototype_Name()
+  public EReference getMethod_Prototype_Method()
   {
-    return (EAttribute)method_PrototypeEClass.getEStructuralFeatures().get(0);
+    return (EReference)method_PrototypeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2822,6 +3147,26 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
   public EReference getMethod_Prototype_Ios()
   {
     return (EReference)method_PrototypeEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMethod()
+  {
+    return methodEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMethod_Name()
+  {
+    return (EAttribute)methodEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2859,9 +3204,9 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getProg_Decl_Name()
+  public EReference getProg_Decl_Program()
   {
-    return (EAttribute)prog_DeclEClass.getEStructuralFeatures().get(0);
+    return (EReference)prog_DeclEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2899,6 +3244,26 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getProgram()
+  {
+    return programEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getProgram_Name()
+  {
+    return (EAttribute)programEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getNamespace_Decl()
   {
     return namespace_DeclEClass;
@@ -2919,9 +3284,9 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getNamespace_Decl_Name()
+  public EReference getNamespace_Decl_Name()
   {
-    return (EAttribute)namespace_DeclEClass.getEStructuralFeatures().get(1);
+    return (EReference)namespace_DeclEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2942,6 +3307,26 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
   public EReference getNamespace_Decl_Elements()
   {
     return (EReference)namespace_DeclEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getNamespace()
+  {
+    return namespaceEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getNamespace_Name()
+  {
+    return (EAttribute)namespaceEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3179,6 +3564,16 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getAssign_Stmt_Variable()
+  {
+    return (EReference)assign_StmtEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getVariable_Assign_Stmt()
   {
     return variable_Assign_StmtEClass;
@@ -3189,19 +3584,9 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getVariable_Assign_Stmt_Variable()
-  {
-    return (EReference)variable_Assign_StmtEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getVariable_Assign_Stmt_Value()
   {
-    return (EReference)variable_Assign_StmtEClass.getEStructuralFeatures().get(1);
+    return (EReference)variable_Assign_StmtEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3219,19 +3604,9 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAssignment_Attempt_Variable()
-  {
-    return (EReference)assignment_AttemptEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getAssignment_Attempt_Value()
   {
-    return (EReference)assignment_AttemptEClass.getEStructuralFeatures().get(1);
+    return (EReference)assignment_AttemptEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3249,6 +3624,16 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getParam_Assign_Variable()
+  {
+    return (EReference)param_AssignEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getNamed_Value()
   {
     return named_ValueEClass;
@@ -3259,19 +3644,9 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getNamed_Value_Variable()
-  {
-    return (EReference)named_ValueEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getNamed_Value_Value()
   {
-    return (EReference)named_ValueEClass.getEStructuralFeatures().get(1);
+    return (EReference)named_ValueEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3309,9 +3684,19 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLinked_Value_Variable()
+  public EClass getInRef_Assign()
   {
-    return (EReference)linked_ValueEClass.getEStructuralFeatures().get(2);
+    return inRef_AssignEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getInRef_Assign_Value()
+  {
+    return (EReference)inRef_AssignEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3829,10 +4214,8 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
     createEAttribute(struct_DeclEClass, STRUCT_DECL__OVERLAP);
     createEReference(struct_DeclEClass, STRUCT_DECL__ELEMENTS);
 
-    variable_DeclEClass = createEClass(VARIABLE_DECL);
-    createEAttribute(variable_DeclEClass, VARIABLE_DECL__NAME);
-
     type_DeclEClass = createEClass(TYPE_DECL);
+    createEAttribute(type_DeclEClass, TYPE_DECL__NAME);
     createEReference(type_DeclEClass, TYPE_DECL__INITIALIZATION);
     createEReference(type_DeclEClass, TYPE_DECL__LOCATION);
     createEReference(type_DeclEClass, TYPE_DECL__ACCESS);
@@ -3856,10 +4239,11 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
     createEAttribute(enum_Spec_InitEClass, ENUM_SPEC_INIT__TYPE);
     createEReference(enum_Spec_InitEClass, ENUM_SPEC_INIT__VALUE);
 
+    enum_ValueEClass = createEClass(ENUM_VALUE);
+    createEReference(enum_ValueEClass, ENUM_VALUE__VARIABLE);
+
     variableEClass = createEClass(VARIABLE);
-    createEReference(variableEClass, VARIABLE__VARIABLE);
-    createEAttribute(variableEClass, VARIABLE__INITIAL_VALUE);
-    createEReference(variableEClass, VARIABLE__INITIALIZATION);
+    createEAttribute(variableEClass, VARIABLE__NAME);
 
     variable_AddressEClass = createEClass(VARIABLE_ADDRESS);
     createEAttribute(variable_AddressEClass, VARIABLE_ADDRESS__TYPE);
@@ -3872,7 +4256,28 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
     createEAttribute(ref_SpecEClass, REF_SPEC__REFERENCE);
 
     ref_ValueEClass = createEClass(REF_VALUE);
-    createEReference(ref_ValueEClass, REF_VALUE__VARIABLE);
+
+    null_RefEClass = createEClass(NULL_REF);
+
+    ref_AddrEClass = createEClass(REF_ADDR);
+    createEReference(ref_AddrEClass, REF_ADDR__VARIABLE);
+
+    ref_AssignEClass = createEClass(REF_ASSIGN);
+    createEReference(ref_AssignEClass, REF_ASSIGN__VALUE);
+
+    ref_DerefEClass = createEClass(REF_DEREF);
+
+    inline_VariableEClass = createEClass(INLINE_VARIABLE);
+
+    symbolic_VariableEClass = createEClass(SYMBOLIC_VARIABLE);
+
+    var_AccessEClass = createEClass(VAR_ACCESS);
+    createEReference(var_AccessEClass, VAR_ACCESS__VARIABLE);
+
+    named_VariableEClass = createEClass(NAMED_VARIABLE);
+
+    direct_VariableEClass = createEClass(DIRECT_VARIABLE);
+    createEReference(direct_VariableEClass, DIRECT_VARIABLE__VARIABLE);
 
     input_DeclsEClass = createEClass(INPUT_DECLS);
     createEAttribute(input_DeclsEClass, INPUT_DECLS__RETAIN);
@@ -3890,7 +4295,7 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
     createEReference(interface_Var_DeclEClass, INTERFACE_VAR_DECL__INITIALIZATION);
 
     variable_ListEClass = createEClass(VARIABLE_LIST);
-    createEAttribute(variable_ListEClass, VARIABLE_LIST__NAMES);
+    createEReference(variable_ListEClass, VARIABLE_LIST__VARIABLES);
 
     output_DeclsEClass = createEClass(OUTPUT_DECLS);
     createEAttribute(output_DeclsEClass, OUTPUT_DECLS__RETAIN);
@@ -3964,13 +4369,16 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
     createEAttribute(d_Byte_Str_SpecEClass, DBYTE_STR_SPEC__INITIAL_VALUE);
 
     func_DeclEClass = createEClass(FUNC_DECL);
-    createEAttribute(func_DeclEClass, FUNC_DECL__NAME);
+    createEReference(func_DeclEClass, FUNC_DECL__NAME);
     createEAttribute(func_DeclEClass, FUNC_DECL__RETURN_TYPE);
     createEReference(func_DeclEClass, FUNC_DECL__USINGS);
     createEReference(func_DeclEClass, FUNC_DECL__IOS);
     createEReference(func_DeclEClass, FUNC_DECL__VARIABLES);
     createEReference(func_DeclEClass, FUNC_DECL__TEMPS);
     createEReference(func_DeclEClass, FUNC_DECL__BODY);
+
+    functionEClass = createEClass(FUNCTION);
+    createEAttribute(functionEClass, FUNCTION__NAME);
 
     iO_Var_DeclsEClass = createEClass(IO_VAR_DECLS);
 
@@ -3981,7 +4389,7 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
 
     fB_DeclEClass = createEClass(FB_DECL);
     createEAttribute(fB_DeclEClass, FB_DECL__MODIFIER);
-    createEAttribute(fB_DeclEClass, FB_DECL__NAME);
+    createEReference(fB_DeclEClass, FB_DECL__NAME);
     createEReference(fB_DeclEClass, FB_DECL__USINGS);
     createEReference(fB_DeclEClass, FB_DECL__EXTENDS);
     createEReference(fB_DeclEClass, FB_DECL__IMPLEMENTS);
@@ -3990,6 +4398,9 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
     createEReference(fB_DeclEClass, FB_DECL__TEMPS);
     createEReference(fB_DeclEClass, FB_DECL__METHODS);
     createEReference(fB_DeclEClass, FB_DECL__BODY);
+
+    functionBlockEClass = createEClass(FUNCTION_BLOCK);
+    createEAttribute(functionBlockEClass, FUNCTION_BLOCK__NAME);
 
     fB_IO_Var_DeclsEClass = createEClass(FB_IO_VAR_DECLS);
 
@@ -4013,7 +4424,7 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
     createEAttribute(method_DeclEClass, METHOD_DECL__ACCESS);
     createEAttribute(method_DeclEClass, METHOD_DECL__TYPE);
     createEAttribute(method_DeclEClass, METHOD_DECL__OVERRIDE);
-    createEAttribute(method_DeclEClass, METHOD_DECL__NAME);
+    createEReference(method_DeclEClass, METHOD_DECL__NAME);
     createEAttribute(method_DeclEClass, METHOD_DECL__RETURN_TYPE);
     createEReference(method_DeclEClass, METHOD_DECL__IOS);
     createEReference(method_DeclEClass, METHOD_DECL__VARIABLES);
@@ -4022,38 +4433,53 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
 
     class_DeclEClass = createEClass(CLASS_DECL);
     createEAttribute(class_DeclEClass, CLASS_DECL__MODIFIER);
-    createEAttribute(class_DeclEClass, CLASS_DECL__NAME);
+    createEReference(class_DeclEClass, CLASS_DECL__CLASS);
     createEReference(class_DeclEClass, CLASS_DECL__USINGS);
     createEReference(class_DeclEClass, CLASS_DECL__EXTENDS);
     createEReference(class_DeclEClass, CLASS_DECL__IMPLEMENTS);
     createEReference(class_DeclEClass, CLASS_DECL__VARIABLES);
     createEReference(class_DeclEClass, CLASS_DECL__METHODS);
 
+    classEClass = createEClass(CLASS);
+    createEAttribute(classEClass, CLASS__NAME);
+
     interface_DeclEClass = createEClass(INTERFACE_DECL);
-    createEAttribute(interface_DeclEClass, INTERFACE_DECL__NAME);
+    createEReference(interface_DeclEClass, INTERFACE_DECL__INTERFACE);
     createEReference(interface_DeclEClass, INTERFACE_DECL__USINGS);
     createEReference(interface_DeclEClass, INTERFACE_DECL__EXTENDS);
     createEReference(interface_DeclEClass, INTERFACE_DECL__METHODS);
 
+    interfaceEClass = createEClass(INTERFACE);
+    createEAttribute(interfaceEClass, INTERFACE__NAME);
+
     method_PrototypeEClass = createEClass(METHOD_PROTOTYPE);
-    createEAttribute(method_PrototypeEClass, METHOD_PROTOTYPE__NAME);
+    createEReference(method_PrototypeEClass, METHOD_PROTOTYPE__METHOD);
     createEAttribute(method_PrototypeEClass, METHOD_PROTOTYPE__RETURN_TYPE);
     createEReference(method_PrototypeEClass, METHOD_PROTOTYPE__IOS);
+
+    methodEClass = createEClass(METHOD);
+    createEAttribute(methodEClass, METHOD__NAME);
 
     interface_Name_ListEClass = createEClass(INTERFACE_NAME_LIST);
     createEReference(interface_Name_ListEClass, INTERFACE_NAME_LIST__INTERFACES);
 
     prog_DeclEClass = createEClass(PROG_DECL);
-    createEAttribute(prog_DeclEClass, PROG_DECL__NAME);
+    createEReference(prog_DeclEClass, PROG_DECL__PROGRAM);
     createEReference(prog_DeclEClass, PROG_DECL__IOS);
     createEReference(prog_DeclEClass, PROG_DECL__VARIABLES);
     createEReference(prog_DeclEClass, PROG_DECL__BODY);
 
+    programEClass = createEClass(PROGRAM);
+    createEAttribute(programEClass, PROGRAM__NAME);
+
     namespace_DeclEClass = createEClass(NAMESPACE_DECL);
     createEAttribute(namespace_DeclEClass, NAMESPACE_DECL__INTERNAL);
-    createEAttribute(namespace_DeclEClass, NAMESPACE_DECL__NAME);
+    createEReference(namespace_DeclEClass, NAMESPACE_DECL__NAME);
     createEReference(namespace_DeclEClass, NAMESPACE_DECL__USINGS);
     createEReference(namespace_DeclEClass, NAMESPACE_DECL__ELEMENTS);
+
+    namespaceEClass = createEClass(NAMESPACE);
+    createEAttribute(namespaceEClass, NAMESPACE__NAME);
 
     namespace_ElementsEClass = createEClass(NAMESPACE_ELEMENTS);
 
@@ -4087,25 +4513,26 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
     createEAttribute(stmtEClass, STMT__TYPE);
 
     assign_StmtEClass = createEClass(ASSIGN_STMT);
+    createEReference(assign_StmtEClass, ASSIGN_STMT__VARIABLE);
 
     variable_Assign_StmtEClass = createEClass(VARIABLE_ASSIGN_STMT);
-    createEReference(variable_Assign_StmtEClass, VARIABLE_ASSIGN_STMT__VARIABLE);
     createEReference(variable_Assign_StmtEClass, VARIABLE_ASSIGN_STMT__VALUE);
 
     assignment_AttemptEClass = createEClass(ASSIGNMENT_ATTEMPT);
-    createEReference(assignment_AttemptEClass, ASSIGNMENT_ATTEMPT__VARIABLE);
     createEReference(assignment_AttemptEClass, ASSIGNMENT_ATTEMPT__VALUE);
 
     param_AssignEClass = createEClass(PARAM_ASSIGN);
+    createEReference(param_AssignEClass, PARAM_ASSIGN__VARIABLE);
 
     named_ValueEClass = createEClass(NAMED_VALUE);
-    createEReference(named_ValueEClass, NAMED_VALUE__VARIABLE);
     createEReference(named_ValueEClass, NAMED_VALUE__VALUE);
 
     linked_ValueEClass = createEClass(LINKED_VALUE);
     createEAttribute(linked_ValueEClass, LINKED_VALUE__NEGATED);
     createEReference(linked_ValueEClass, LINKED_VALUE__VALUE);
-    createEReference(linked_ValueEClass, LINKED_VALUE__VARIABLE);
+
+    inRef_AssignEClass = createEClass(IN_REF_ASSIGN);
+    createEReference(inRef_AssignEClass, IN_REF_ASSIGN__VALUE);
 
     selection_StmtEClass = createEClass(SELECTION_STMT);
     createEReference(selection_StmtEClass, SELECTION_STMT__CONDITION);
@@ -4219,14 +4646,17 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
     dateEClass.getESuperTypes().add(this.getTime_Literal());
     date_And_TimeEClass.getESuperTypes().add(this.getTime_Literal());
     data_Type_DeclEClass.getESuperTypes().add(this.getNamespace_Elements());
-    type_DeclEClass.getESuperTypes().add(this.getVariable_Decl());
     spec_InitEClass.getESuperTypes().add(this.getLoc_Var_Spec_Init());
     subrangeEClass.getESuperTypes().add(this.getCase_List_Elem());
-    variableEClass.getESuperTypes().add(this.getLocated_At());
-    variableEClass.getESuperTypes().add(this.getExpression());
-    variableEClass.getESuperTypes().add(this.getAssign_Stmt());
-    variableEClass.getESuperTypes().add(this.getParam_Assign());
-    ref_ValueEClass.getESuperTypes().add(this.getExpression());
+    null_RefEClass.getESuperTypes().add(this.getRef_Value());
+    ref_AddrEClass.getESuperTypes().add(this.getRef_Value());
+    ref_AssignEClass.getESuperTypes().add(this.getAssign_Stmt());
+    ref_DerefEClass.getESuperTypes().add(this.getVar_Access());
+    symbolic_VariableEClass.getESuperTypes().add(this.getInline_Variable());
+    var_AccessEClass.getESuperTypes().add(this.getSymbolic_Variable());
+    named_VariableEClass.getESuperTypes().add(this.getVar_Access());
+    direct_VariableEClass.getESuperTypes().add(this.getInline_Variable());
+    direct_VariableEClass.getESuperTypes().add(this.getLocated_At());
     input_DeclsEClass.getESuperTypes().add(this.getIO_Var_Decls());
     var_Decl_InitEClass.getESuperTypes().add(this.getInput_Decl());
     var_Decl_InitEClass.getESuperTypes().add(this.getOutput_Decl());
@@ -4247,8 +4677,6 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
     prog_DeclEClass.getESuperTypes().add(this.getST());
     expressionEClass.getESuperTypes().add(this.getConstant_Expr());
     constant_ExprEClass.getESuperTypes().add(this.getCase_List_Elem());
-    variable_AccessEClass.getESuperTypes().add(this.getExpression());
-    callableEClass.getESuperTypes().add(this.getExpression());
     stmt_ListEClass.getESuperTypes().add(this.getFunc_Body());
     stmt_ListEClass.getESuperTypes().add(this.getFB_Body());
     stmtEClass.getESuperTypes().add(this.getCallable());
@@ -4257,6 +4685,7 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
     assignment_AttemptEClass.getESuperTypes().add(this.getAssign_Stmt());
     named_ValueEClass.getESuperTypes().add(this.getParam_Assign());
     linked_ValueEClass.getESuperTypes().add(this.getParam_Assign());
+    inRef_AssignEClass.getESuperTypes().add(this.getParam_Assign());
     selection_StmtEClass.getESuperTypes().add(this.getStmt());
     iF_StmtEClass.getESuperTypes().add(this.getSelection_Stmt());
     case_StmtEClass.getESuperTypes().add(this.getSelection_Stmt());
@@ -4320,10 +4749,8 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
     initEAttribute(getStruct_Decl_Overlap(), ecorePackage.getEBoolean(), "overlap", null, 0, 1, Struct_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStruct_Decl_Elements(), this.getType_Decl(), null, "elements", null, 0, -1, Struct_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(variable_DeclEClass, Variable_Decl.class, "Variable_Decl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getVariable_Decl_Name(), ecorePackage.getEString(), "name", null, 0, 1, Variable_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(type_DeclEClass, Type_Decl.class, "Type_Decl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getType_Decl_Name(), ecorePackage.getEString(), "name", null, 0, 1, Type_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getType_Decl_Initialization(), ecorePackage.getEObject(), null, "initialization", null, 0, 1, Type_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getType_Decl_Location(), this.getLocated_At(), null, "location", null, 0, 1, Type_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getType_Decl_Access(), this.getMultibit_Part_Access(), null, "access", null, 0, 1, Type_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4335,7 +4762,7 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
 
     initEClass(spec_InitEClass, Spec_Init.class, "Spec_Init", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSpec_Init_Type(), ecorePackage.getEString(), "type", null, 0, 1, Spec_Init.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSpec_Init_InitialValue(), this.getConstant_Expr(), null, "initialValue", null, 0, 1, Spec_Init.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSpec_Init_InitialValue(), ecorePackage.getEObject(), null, "initialValue", null, 0, 1, Spec_Init.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSpec_Init_Range(), this.getSubrange(), null, "range", null, 0, 1, Spec_Init.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSpec_Init_Variable(), this.getRef_Spec(), null, "variable", null, 0, 1, Spec_Init.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -4345,12 +4772,13 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
 
     initEClass(enum_Spec_InitEClass, Enum_Spec_Init.class, "Enum_Spec_Init", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEnum_Spec_Init_Type(), ecorePackage.getEString(), "type", null, 0, 1, Enum_Spec_Init.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getEnum_Spec_Init_Value(), this.getVariable(), null, "value", null, 0, 1, Enum_Spec_Init.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEnum_Spec_Init_Value(), this.getEnum_Value(), null, "value", null, 0, 1, Enum_Spec_Init.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(enum_ValueEClass, Enum_Value.class, "Enum_Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEnum_Value_Variable(), this.getVariable(), null, "variable", null, 0, 1, Enum_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getVariable_Variable(), ecorePackage.getEObject(), null, "variable", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getVariable_InitialValue(), ecorePackage.getEString(), "initialValue", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getVariable_Initialization(), this.getExpression(), null, "initialization", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(variable_AddressEClass, Variable_Address.class, "Variable_Address", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getVariable_Address_Type(), ecorePackage.getEString(), "type", null, 0, 1, Variable_Address.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4363,7 +4791,28 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
     initEAttribute(getRef_Spec_Reference(), ecorePackage.getEString(), "reference", null, 0, 1, Ref_Spec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(ref_ValueEClass, Ref_Value.class, "Ref_Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRef_Value_Variable(), this.getVariable(), null, "variable", null, 0, 1, Ref_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(null_RefEClass, Null_Ref.class, "Null_Ref", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(ref_AddrEClass, Ref_Addr.class, "Ref_Addr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRef_Addr_Variable(), this.getVariable(), null, "variable", null, 0, 1, Ref_Addr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(ref_AssignEClass, Ref_Assign.class, "Ref_Assign", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRef_Assign_Value(), this.getVariable(), null, "value", null, 0, 1, Ref_Assign.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(ref_DerefEClass, Ref_Deref.class, "Ref_Deref", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(inline_VariableEClass, Inline_Variable.class, "Inline_Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(symbolic_VariableEClass, Symbolic_Variable.class, "Symbolic_Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(var_AccessEClass, Var_Access.class, "Var_Access", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getVar_Access_Variable(), this.getVariable(), null, "variable", null, 0, 1, Var_Access.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(named_VariableEClass, Named_Variable.class, "Named_Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(direct_VariableEClass, Direct_Variable.class, "Direct_Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDirect_Variable_Variable(), this.getVariable_Address(), null, "variable", null, 0, 1, Direct_Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(input_DeclsEClass, Input_Decls.class, "Input_Decls", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getInput_Decls_Retain(), ecorePackage.getEBoolean(), "retain", null, 0, 1, Input_Decls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4378,10 +4827,10 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
 
     initEClass(interface_Var_DeclEClass, Interface_Var_Decl.class, "Interface_Var_Decl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getInterface_Var_Decl_Variables(), this.getVariable_List(), null, "variables", null, 0, 1, Interface_Var_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getInterface_Var_Decl_Initialization(), this.getInterface_Decl(), null, "initialization", null, 0, 1, Interface_Var_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInterface_Var_Decl_Initialization(), this.getInterface(), null, "initialization", null, 0, 1, Interface_Var_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(variable_ListEClass, Variable_List.class, "Variable_List", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getVariable_List_Names(), ecorePackage.getEString(), "names", null, 0, -1, Variable_List.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVariable_List_Variables(), this.getVariable(), null, "variables", null, 0, -1, Variable_List.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(output_DeclsEClass, Output_Decls.class, "Output_Decls", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getOutput_Decls_Retain(), ecorePackage.getEBoolean(), "retain", null, 0, 1, Output_Decls.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4455,13 +4904,16 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
     initEAttribute(getD_Byte_Str_Spec_InitialValue(), ecorePackage.getEString(), "initialValue", null, 0, 1, D_Byte_Str_Spec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(func_DeclEClass, Func_Decl.class, "Func_Decl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getFunc_Decl_Name(), ecorePackage.getEString(), "name", null, 0, 1, Func_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunc_Decl_Name(), this.getFunction(), null, "name", null, 0, 1, Func_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFunc_Decl_ReturnType(), ecorePackage.getEString(), "returnType", null, 0, 1, Func_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFunc_Decl_Usings(), this.getUsing_Directive(), null, "usings", null, 0, -1, Func_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFunc_Decl_Ios(), this.getIO_Var_Decls(), null, "ios", null, 0, -1, Func_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFunc_Decl_Variables(), this.getFunc_Var_Decls(), null, "variables", null, 0, -1, Func_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFunc_Decl_Temps(), this.getTemp_Var_Decls(), null, "temps", null, 0, -1, Func_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFunc_Decl_Body(), this.getFunc_Body(), null, "body", null, 0, 1, Func_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(functionEClass, Function.class, "Function", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFunction_Name(), ecorePackage.getEString(), "name", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(iO_Var_DeclsEClass, IO_Var_Decls.class, "IO_Var_Decls", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -4472,15 +4924,18 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
 
     initEClass(fB_DeclEClass, FB_Decl.class, "FB_Decl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFB_Decl_Modifier(), ecorePackage.getEString(), "modifier", null, 0, 1, FB_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getFB_Decl_Name(), ecorePackage.getEString(), "name", null, 0, 1, FB_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFB_Decl_Name(), this.getFunctionBlock(), null, "name", null, 0, 1, FB_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFB_Decl_Usings(), this.getUsing_Directive(), null, "usings", null, 0, -1, FB_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFB_Decl_Extends(), this.getFB_Decl(), null, "extends", null, 0, 1, FB_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFB_Decl_Extends(), this.getFunctionBlock(), null, "extends", null, 0, 1, FB_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFB_Decl_Implements(), this.getInterface_Name_List(), null, "implements", null, 0, 1, FB_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFB_Decl_Ios(), this.getFB_IO_Var_Decls(), null, "ios", null, 0, -1, FB_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFB_Decl_Variables(), this.getFunc_Var_Decls(), null, "variables", null, 0, -1, FB_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFB_Decl_Temps(), this.getTemp_Var_Decls(), null, "temps", null, 0, -1, FB_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFB_Decl_Methods(), this.getMethod_Decl(), null, "methods", null, 0, -1, FB_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFB_Decl_Body(), this.getFB_Body(), null, "body", null, 0, 1, FB_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(functionBlockEClass, FunctionBlock.class, "FunctionBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFunctionBlock_Name(), ecorePackage.getEString(), "name", null, 0, 1, FunctionBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(fB_IO_Var_DeclsEClass, FB_IO_Var_Decls.class, "FB_IO_Var_Decls", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -4504,7 +4959,7 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
     initEAttribute(getMethod_Decl_Access(), ecorePackage.getEString(), "access", null, 0, 1, Method_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMethod_Decl_Type(), ecorePackage.getEString(), "type", null, 0, 1, Method_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMethod_Decl_Override(), ecorePackage.getEBoolean(), "override", null, 0, 1, Method_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getMethod_Decl_Name(), ecorePackage.getEString(), "name", null, 0, 1, Method_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMethod_Decl_Name(), this.getMethod(), null, "name", null, 0, 1, Method_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMethod_Decl_ReturnType(), ecorePackage.getEString(), "returnType", null, 0, 1, Method_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMethod_Decl_Ios(), this.getIO_Var_Decls(), null, "ios", null, 0, -1, Method_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMethod_Decl_Variables(), this.getFunc_Var_Decls(), null, "variables", null, 0, -1, Method_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4513,38 +4968,53 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
 
     initEClass(class_DeclEClass, Class_Decl.class, "Class_Decl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getClass_Decl_Modifier(), ecorePackage.getEString(), "modifier", null, 0, 1, Class_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getClass_Decl_Name(), ecorePackage.getEString(), "name", null, 0, 1, Class_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getClass_Decl_Class(), this.getClass_(), null, "class", null, 0, 1, Class_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getClass_Decl_Usings(), this.getUsing_Directive(), null, "usings", null, 0, -1, Class_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getClass_Decl_Extends(), this.getClass_Decl(), null, "extends", null, 0, 1, Class_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getClass_Decl_Extends(), this.getClass_(), null, "extends", null, 0, 1, Class_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getClass_Decl_Implements(), this.getInterface_Name_List(), null, "implements", null, 0, 1, Class_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getClass_Decl_Variables(), this.getFunc_Var_Decls(), null, "variables", null, 0, -1, Class_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getClass_Decl_Methods(), this.getMethod_Decl(), null, "methods", null, 0, -1, Class_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(classEClass, at.bachmann.plc.st.stLanguage.Class.class, "Class", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getClass_Name(), ecorePackage.getEString(), "name", null, 0, 1, at.bachmann.plc.st.stLanguage.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(interface_DeclEClass, Interface_Decl.class, "Interface_Decl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getInterface_Decl_Name(), ecorePackage.getEString(), "name", null, 0, 1, Interface_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInterface_Decl_Interface(), this.getInterface(), null, "interface", null, 0, 1, Interface_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getInterface_Decl_Usings(), this.getUsing_Directive(), null, "usings", null, 0, -1, Interface_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getInterface_Decl_Extends(), this.getInterface_Name_List(), null, "extends", null, 0, 1, Interface_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getInterface_Decl_Methods(), this.getMethod_Prototype(), null, "methods", null, 0, -1, Interface_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(interfaceEClass, Interface.class, "Interface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getInterface_Name(), ecorePackage.getEString(), "name", null, 0, 1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(method_PrototypeEClass, Method_Prototype.class, "Method_Prototype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getMethod_Prototype_Name(), ecorePackage.getEString(), "name", null, 0, 1, Method_Prototype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMethod_Prototype_Method(), this.getMethod(), null, "method", null, 0, 1, Method_Prototype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMethod_Prototype_ReturnType(), ecorePackage.getEString(), "returnType", null, 0, 1, Method_Prototype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMethod_Prototype_Ios(), this.getIO_Var_Decls(), null, "ios", null, 0, -1, Method_Prototype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(methodEClass, Method.class, "Method", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMethod_Name(), ecorePackage.getEString(), "name", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(interface_Name_ListEClass, Interface_Name_List.class, "Interface_Name_List", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getInterface_Name_List_Interfaces(), this.getInterface_Decl(), null, "interfaces", null, 0, -1, Interface_Name_List.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInterface_Name_List_Interfaces(), this.getInterface(), null, "interfaces", null, 0, -1, Interface_Name_List.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(prog_DeclEClass, Prog_Decl.class, "Prog_Decl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getProg_Decl_Name(), ecorePackage.getEString(), "name", null, 0, 1, Prog_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getProg_Decl_Program(), this.getProgram(), null, "program", null, 0, 1, Prog_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProg_Decl_Ios(), this.getIO_Var_Decls(), null, "ios", null, 0, -1, Prog_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProg_Decl_Variables(), this.getFunc_Var_Decls(), null, "variables", null, 0, -1, Prog_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProg_Decl_Body(), this.getFB_Body(), null, "body", null, 0, 1, Prog_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getProgram_Name(), ecorePackage.getEString(), "name", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(namespace_DeclEClass, Namespace_Decl.class, "Namespace_Decl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getNamespace_Decl_Internal(), ecorePackage.getEBoolean(), "internal", null, 0, 1, Namespace_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getNamespace_Decl_Name(), ecorePackage.getEString(), "name", null, 0, 1, Namespace_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNamespace_Decl_Name(), this.getNamespace(), null, "name", null, 0, 1, Namespace_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getNamespace_Decl_Usings(), this.getUsing_Directive(), null, "usings", null, 0, -1, Namespace_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getNamespace_Decl_Elements(), this.getNamespace_Elements(), null, "elements", null, 0, -1, Namespace_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(namespaceEClass, Namespace.class, "Namespace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getNamespace_Name(), ecorePackage.getEString(), "name", null, 0, 1, Namespace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(namespace_ElementsEClass, Namespace_Elements.class, "Namespace_Elements", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -4568,7 +5038,7 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
     initEAttribute(getMultibit_Part_Access_Size(), ecorePackage.getEString(), "size", null, 0, 1, Multibit_Part_Access.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(callableEClass, Callable.class, "Callable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCallable_Callable(), this.getFunc_Decl(), null, "callable", null, 0, 1, Callable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCallable_Callable(), this.getFunction(), null, "callable", null, 0, 1, Callable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCallable_Parameters(), this.getParam_Assign(), null, "parameters", null, 0, -1, Callable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stmt_ListEClass, Stmt_List.class, "Stmt_List", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4578,25 +5048,26 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
     initEAttribute(getStmt_Type(), ecorePackage.getEString(), "type", null, 0, 1, Stmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(assign_StmtEClass, Assign_Stmt.class, "Assign_Stmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAssign_Stmt_Variable(), this.getVariable(), null, "variable", null, 0, 1, Assign_Stmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(variable_Assign_StmtEClass, Variable_Assign_Stmt.class, "Variable_Assign_Stmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getVariable_Assign_Stmt_Variable(), this.getVariable_Decl(), null, "variable", null, 0, 1, Variable_Assign_Stmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getVariable_Assign_Stmt_Value(), this.getExpression(), null, "value", null, 0, 1, Variable_Assign_Stmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(assignment_AttemptEClass, Assignment_Attempt.class, "Assignment_Attempt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAssignment_Attempt_Variable(), this.getVariable_Decl(), null, "variable", null, 0, 1, Assignment_Attempt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAssignment_Attempt_Value(), this.getVariable_Decl(), null, "value", null, 0, 1, Assignment_Attempt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAssignment_Attempt_Value(), this.getVariable(), null, "value", null, 0, 1, Assignment_Attempt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(param_AssignEClass, Param_Assign.class, "Param_Assign", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getParam_Assign_Variable(), this.getVariable(), null, "variable", null, 0, 1, Param_Assign.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(named_ValueEClass, Named_Value.class, "Named_Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getNamed_Value_Variable(), this.getInput_Decl(), null, "variable", null, 0, 1, Named_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getNamed_Value_Value(), this.getExpression(), null, "value", null, 0, 1, Named_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(linked_ValueEClass, Linked_Value.class, "Linked_Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getLinked_Value_Negated(), ecorePackage.getEBoolean(), "negated", null, 0, 1, Linked_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLinked_Value_Value(), this.getVariable(), null, "value", null, 0, 1, Linked_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getLinked_Value_Variable(), this.getOutput_Decl(), null, "variable", null, 0, 1, Linked_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(inRef_AssignEClass, InRef_Assign.class, "InRef_Assign", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getInRef_Assign_Value(), this.getVariable(), null, "value", null, 0, 1, InRef_Assign.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(selection_StmtEClass, Selection_Stmt.class, "Selection_Stmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSelection_Stmt_Condition(), this.getExpression(), null, "condition", null, 0, 1, Selection_Stmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4633,7 +5104,7 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
     initEClass(continue_StmtEClass, Continue_Stmt.class, "Continue_Stmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(for_StmtEClass, For_Stmt.class, "For_Stmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getFor_Stmt_Variable(), this.getVariable_Decl(), null, "variable", null, 0, 1, For_Stmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFor_Stmt_Variable(), this.getVariable(), null, "variable", null, 0, 1, For_Stmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFor_Stmt_Bounds(), this.getFor_List(), null, "bounds", null, 0, 1, For_Stmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFor_Stmt_Statements(), this.getStmt_List(), null, "statements", null, 0, 1, For_Stmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

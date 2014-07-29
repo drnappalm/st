@@ -120,7 +120,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getCase_List_Elem()
    * @generated
    */
-  int CASE_LIST_ELEM = 94;
+  int CASE_LIST_ELEM = 111;
 
   /**
    * The number of structural features of the '<em>Case List Elem</em>' class.
@@ -139,7 +139,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getConstant_Expr()
    * @generated
    */
-  int CONSTANT_EXPR = 75;
+  int CONSTANT_EXPR = 91;
 
   /**
    * The number of structural features of the '<em>Constant Expr</em>' class.
@@ -158,7 +158,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 74;
+  int EXPRESSION = 90;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1137,7 +1137,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getNamespace_Elements()
    * @generated
    */
-  int NAMESPACE_ELEMENTS = 72;
+  int NAMESPACE_ELEMENTS = 88;
 
   /**
    * The number of structural features of the '<em>Namespace Elements</em>' class.
@@ -1214,34 +1214,6 @@ public interface StLanguagePackage extends EPackage
   int STRUCT_DECL_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Variable_DeclImpl <em>Variable Decl</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see at.bachmann.plc.st.stLanguage.impl.Variable_DeclImpl
-   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getVariable_Decl()
-   * @generated
-   */
-  int VARIABLE_DECL = 19;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_DECL__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>Variable Decl</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_DECL_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Type_DeclImpl <em>Type Decl</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1249,7 +1221,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getType_Decl()
    * @generated
    */
-  int TYPE_DECL = 20;
+  int TYPE_DECL = 19;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1258,7 +1230,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_DECL__NAME = VARIABLE_DECL__NAME;
+  int TYPE_DECL__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Initialization</b></em>' containment reference.
@@ -1267,7 +1239,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_DECL__INITIALIZATION = VARIABLE_DECL_FEATURE_COUNT + 0;
+  int TYPE_DECL__INITIALIZATION = 1;
 
   /**
    * The feature id for the '<em><b>Location</b></em>' containment reference.
@@ -1276,7 +1248,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_DECL__LOCATION = VARIABLE_DECL_FEATURE_COUNT + 1;
+  int TYPE_DECL__LOCATION = 2;
 
   /**
    * The feature id for the '<em><b>Access</b></em>' containment reference.
@@ -1285,7 +1257,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_DECL__ACCESS = VARIABLE_DECL_FEATURE_COUNT + 2;
+  int TYPE_DECL__ACCESS = 3;
 
   /**
    * The number of structural features of the '<em>Type Decl</em>' class.
@@ -1294,7 +1266,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_DECL_FEATURE_COUNT = VARIABLE_DECL_FEATURE_COUNT + 3;
+  int TYPE_DECL_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Str_Type_DeclImpl <em>Str Type Decl</em>}' class.
@@ -1304,7 +1276,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getStr_Type_Decl()
    * @generated
    */
-  int STR_TYPE_DECL = 21;
+  int STR_TYPE_DECL = 20;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -1350,7 +1322,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getLoc_Var_Spec_Init()
    * @generated
    */
-  int LOC_VAR_SPEC_INIT = 47;
+  int LOC_VAR_SPEC_INIT = 56;
 
   /**
    * The number of structural features of the '<em>Loc Var Spec Init</em>' class.
@@ -1369,7 +1341,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getSpec_Init()
    * @generated
    */
-  int SPEC_INIT = 22;
+  int SPEC_INIT = 21;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -1424,7 +1396,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getSubrange()
    * @generated
    */
-  int SUBRANGE = 23;
+  int SUBRANGE = 22;
 
   /**
    * The feature id for the '<em><b>Low Bound</b></em>' reference.
@@ -1461,7 +1433,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getEnum_Spec_Init()
    * @generated
    */
-  int ENUM_SPEC_INIT = 24;
+  int ENUM_SPEC_INIT = 23;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -1491,23 +1463,32 @@ public interface StLanguagePackage extends EPackage
   int ENUM_SPEC_INIT_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Located_AtImpl <em>Located At</em>}' class.
+   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Enum_ValueImpl <em>Enum Value</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see at.bachmann.plc.st.stLanguage.impl.Located_AtImpl
-   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getLocated_At()
+   * @see at.bachmann.plc.st.stLanguage.impl.Enum_ValueImpl
+   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getEnum_Value()
    * @generated
    */
-  int LOCATED_AT = 48;
+  int ENUM_VALUE = 24;
 
   /**
-   * The number of structural features of the '<em>Located At</em>' class.
+   * The feature id for the '<em><b>Variable</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LOCATED_AT_FEATURE_COUNT = 0;
+  int ENUM_VALUE__VARIABLE = 0;
+
+  /**
+   * The number of structural features of the '<em>Enum Value</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUM_VALUE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.VariableImpl <em>Variable</em>}' class.
@@ -1520,94 +1501,13 @@ public interface StLanguagePackage extends EPackage
   int VARIABLE = 25;
 
   /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VARIABLE__LEFT = LOCATED_AT_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Operator</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE__OPERATOR = LOCATED_AT_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE__RIGHT = LOCATED_AT_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE__EXPRESSION = LOCATED_AT_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Callable</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE__CALLABLE = LOCATED_AT_FEATURE_COUNT + 4;
-
-  /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE__PARAMETERS = LOCATED_AT_FEATURE_COUNT + 5;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE__TYPE = LOCATED_AT_FEATURE_COUNT + 6;
-
-  /**
-   * The feature id for the '<em><b>Variable</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE__VARIABLE = LOCATED_AT_FEATURE_COUNT + 7;
-
-  /**
-   * The feature id for the '<em><b>Initial Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE__INITIAL_VALUE = LOCATED_AT_FEATURE_COUNT + 8;
-
-  /**
-   * The feature id for the '<em><b>Initialization</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE__INITIALIZATION = LOCATED_AT_FEATURE_COUNT + 9;
+  int VARIABLE__NAME = 0;
 
   /**
    * The number of structural features of the '<em>Variable</em>' class.
@@ -1616,7 +1516,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_FEATURE_COUNT = LOCATED_AT_FEATURE_COUNT + 10;
+  int VARIABLE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Variable_AddressImpl <em>Variable Address</em>}' class.
@@ -1721,58 +1621,412 @@ public interface StLanguagePackage extends EPackage
   int REF_VALUE = 28;
 
   /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_VALUE__LEFT = EXPRESSION__LEFT;
-
-  /**
-   * The feature id for the '<em><b>Operator</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_VALUE__OPERATOR = EXPRESSION__OPERATOR;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_VALUE__RIGHT = EXPRESSION__RIGHT;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_VALUE__EXPRESSION = EXPRESSION__EXPRESSION;
-
-  /**
-   * The feature id for the '<em><b>Variable</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_VALUE__VARIABLE = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
    * The number of structural features of the '<em>Ref Value</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REF_VALUE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+  int REF_VALUE_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Null_RefImpl <em>Null Ref</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.bachmann.plc.st.stLanguage.impl.Null_RefImpl
+   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getNull_Ref()
+   * @generated
+   */
+  int NULL_REF = 29;
+
+  /**
+   * The number of structural features of the '<em>Null Ref</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NULL_REF_FEATURE_COUNT = REF_VALUE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Ref_AddrImpl <em>Ref Addr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.bachmann.plc.st.stLanguage.impl.Ref_AddrImpl
+   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getRef_Addr()
+   * @generated
+   */
+  int REF_ADDR = 30;
+
+  /**
+   * The feature id for the '<em><b>Variable</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_ADDR__VARIABLE = REF_VALUE_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Ref Addr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_ADDR_FEATURE_COUNT = REF_VALUE_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.CallableImpl <em>Callable</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.bachmann.plc.st.stLanguage.impl.CallableImpl
+   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getCallable()
+   * @generated
+   */
+  int CALLABLE = 94;
+
+  /**
+   * The feature id for the '<em><b>Callable</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALLABLE__CALLABLE = 0;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALLABLE__PARAMETERS = 1;
+
+  /**
+   * The number of structural features of the '<em>Callable</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALLABLE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.StmtImpl <em>Stmt</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.bachmann.plc.st.stLanguage.impl.StmtImpl
+   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getStmt()
+   * @generated
+   */
+  int STMT = 96;
+
+  /**
+   * The feature id for the '<em><b>Callable</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STMT__CALLABLE = CALLABLE__CALLABLE;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STMT__PARAMETERS = CALLABLE__PARAMETERS;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STMT__TYPE = CALLABLE_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Stmt</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STMT_FEATURE_COUNT = CALLABLE_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Assign_StmtImpl <em>Assign Stmt</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.bachmann.plc.st.stLanguage.impl.Assign_StmtImpl
+   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getAssign_Stmt()
+   * @generated
+   */
+  int ASSIGN_STMT = 97;
+
+  /**
+   * The feature id for the '<em><b>Callable</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSIGN_STMT__CALLABLE = STMT__CALLABLE;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSIGN_STMT__PARAMETERS = STMT__PARAMETERS;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSIGN_STMT__TYPE = STMT__TYPE;
+
+  /**
+   * The feature id for the '<em><b>Variable</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSIGN_STMT__VARIABLE = STMT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Assign Stmt</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSIGN_STMT_FEATURE_COUNT = STMT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Ref_AssignImpl <em>Ref Assign</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.bachmann.plc.st.stLanguage.impl.Ref_AssignImpl
+   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getRef_Assign()
+   * @generated
+   */
+  int REF_ASSIGN = 31;
+
+  /**
+   * The feature id for the '<em><b>Callable</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_ASSIGN__CALLABLE = ASSIGN_STMT__CALLABLE;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_ASSIGN__PARAMETERS = ASSIGN_STMT__PARAMETERS;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_ASSIGN__TYPE = ASSIGN_STMT__TYPE;
+
+  /**
+   * The feature id for the '<em><b>Variable</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_ASSIGN__VARIABLE = ASSIGN_STMT__VARIABLE;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_ASSIGN__VALUE = ASSIGN_STMT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Ref Assign</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_ASSIGN_FEATURE_COUNT = ASSIGN_STMT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Inline_VariableImpl <em>Inline Variable</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.bachmann.plc.st.stLanguage.impl.Inline_VariableImpl
+   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getInline_Variable()
+   * @generated
+   */
+  int INLINE_VARIABLE = 33;
+
+  /**
+   * The number of structural features of the '<em>Inline Variable</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INLINE_VARIABLE_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Symbolic_VariableImpl <em>Symbolic Variable</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.bachmann.plc.st.stLanguage.impl.Symbolic_VariableImpl
+   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getSymbolic_Variable()
+   * @generated
+   */
+  int SYMBOLIC_VARIABLE = 34;
+
+  /**
+   * The number of structural features of the '<em>Symbolic Variable</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SYMBOLIC_VARIABLE_FEATURE_COUNT = INLINE_VARIABLE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Var_AccessImpl <em>Var Access</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.bachmann.plc.st.stLanguage.impl.Var_AccessImpl
+   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getVar_Access()
+   * @generated
+   */
+  int VAR_ACCESS = 35;
+
+  /**
+   * The feature id for the '<em><b>Variable</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_ACCESS__VARIABLE = SYMBOLIC_VARIABLE_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Var Access</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_ACCESS_FEATURE_COUNT = SYMBOLIC_VARIABLE_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Ref_DerefImpl <em>Ref Deref</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.bachmann.plc.st.stLanguage.impl.Ref_DerefImpl
+   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getRef_Deref()
+   * @generated
+   */
+  int REF_DEREF = 32;
+
+  /**
+   * The feature id for the '<em><b>Variable</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_DEREF__VARIABLE = VAR_ACCESS__VARIABLE;
+
+  /**
+   * The number of structural features of the '<em>Ref Deref</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_DEREF_FEATURE_COUNT = VAR_ACCESS_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Named_VariableImpl <em>Named Variable</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.bachmann.plc.st.stLanguage.impl.Named_VariableImpl
+   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getNamed_Variable()
+   * @generated
+   */
+  int NAMED_VARIABLE = 36;
+
+  /**
+   * The feature id for the '<em><b>Variable</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAMED_VARIABLE__VARIABLE = VAR_ACCESS__VARIABLE;
+
+  /**
+   * The number of structural features of the '<em>Named Variable</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAMED_VARIABLE_FEATURE_COUNT = VAR_ACCESS_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Direct_VariableImpl <em>Direct Variable</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.bachmann.plc.st.stLanguage.impl.Direct_VariableImpl
+   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getDirect_Variable()
+   * @generated
+   */
+  int DIRECT_VARIABLE = 37;
+
+  /**
+   * The feature id for the '<em><b>Variable</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIRECT_VARIABLE__VARIABLE = INLINE_VARIABLE_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Direct Variable</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIRECT_VARIABLE_FEATURE_COUNT = INLINE_VARIABLE_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.IO_Var_DeclsImpl <em>IO Var Decls</em>}' class.
@@ -1782,7 +2036,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getIO_Var_Decls()
    * @generated
    */
-  int IO_VAR_DECLS = 55;
+  int IO_VAR_DECLS = 65;
 
   /**
    * The number of structural features of the '<em>IO Var Decls</em>' class.
@@ -1801,7 +2055,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getInput_Decls()
    * @generated
    */
-  int INPUT_DECLS = 29;
+  int INPUT_DECLS = 38;
 
   /**
    * The feature id for the '<em><b>Retain</b></em>' attribute.
@@ -1847,7 +2101,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getInput_Decl()
    * @generated
    */
-  int INPUT_DECL = 30;
+  int INPUT_DECL = 39;
 
   /**
    * The number of structural features of the '<em>Input Decl</em>' class.
@@ -1866,7 +2120,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getVar_Decl_Init()
    * @generated
    */
-  int VAR_DECL_INIT = 31;
+  int VAR_DECL_INIT = 40;
 
   /**
    * The feature id for the '<em><b>Variables</b></em>' containment reference.
@@ -1903,7 +2157,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getInterface_Var_Decl()
    * @generated
    */
-  int INTERFACE_VAR_DECL = 32;
+  int INTERFACE_VAR_DECL = 41;
 
   /**
    * The feature id for the '<em><b>Variables</b></em>' containment reference.
@@ -1940,16 +2194,16 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getVariable_List()
    * @generated
    */
-  int VARIABLE_LIST = 33;
+  int VARIABLE_LIST = 42;
 
   /**
-   * The feature id for the '<em><b>Names</b></em>' attribute list.
+   * The feature id for the '<em><b>Variables</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VARIABLE_LIST__NAMES = 0;
+  int VARIABLE_LIST__VARIABLES = 0;
 
   /**
    * The number of structural features of the '<em>Variable List</em>' class.
@@ -1968,7 +2222,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getOutput_Decls()
    * @generated
    */
-  int OUTPUT_DECLS = 34;
+  int OUTPUT_DECLS = 43;
 
   /**
    * The feature id for the '<em><b>Retain</b></em>' attribute.
@@ -2014,7 +2268,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getOutput_Decl()
    * @generated
    */
-  int OUTPUT_DECL = 35;
+  int OUTPUT_DECL = 44;
 
   /**
    * The number of structural features of the '<em>Output Decl</em>' class.
@@ -2033,7 +2287,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getIn_Out_Decls()
    * @generated
    */
-  int IN_OUT_DECLS = 36;
+  int IN_OUT_DECLS = 45;
 
   /**
    * The feature id for the '<em><b>Declarations</b></em>' containment reference list.
@@ -2061,7 +2315,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getIn_Out_Var_Decl()
    * @generated
    */
-  int IN_OUT_VAR_DECL = 37;
+  int IN_OUT_VAR_DECL = 46;
 
   /**
    * The number of structural features of the '<em>In Out Var Decl</em>' class.
@@ -2080,7 +2334,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getVar_Decl()
    * @generated
    */
-  int VAR_DECL = 38;
+  int VAR_DECL = 47;
 
   /**
    * The feature id for the '<em><b>Variables</b></em>' containment reference.
@@ -2117,7 +2371,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getFunc_Var_Decls()
    * @generated
    */
-  int FUNC_VAR_DECLS = 56;
+  int FUNC_VAR_DECLS = 66;
 
   /**
    * The feature id for the '<em><b>Constant</b></em>' attribute.
@@ -2145,7 +2399,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getVar_Decls()
    * @generated
    */
-  int VAR_DECLS = 39;
+  int VAR_DECLS = 48;
 
   /**
    * The feature id for the '<em><b>Constant</b></em>' attribute.
@@ -2209,7 +2463,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getLoc_Var_Decl()
    * @generated
    */
-  int LOC_VAR_DECL = 40;
+  int LOC_VAR_DECL = 49;
 
   /**
    * The feature id for the '<em><b>Variable</b></em>' attribute.
@@ -2255,7 +2509,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getTemp_Var_Decls()
    * @generated
    */
-  int TEMP_VAR_DECLS = 41;
+  int TEMP_VAR_DECLS = 50;
 
   /**
    * The feature id for the '<em><b>Declarations</b></em>' containment reference list.
@@ -2283,7 +2537,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getExternal_Var_Decls()
    * @generated
    */
-  int EXTERNAL_VAR_DECLS = 42;
+  int EXTERNAL_VAR_DECLS = 51;
 
   /**
    * The feature id for the '<em><b>Constant</b></em>' attribute.
@@ -2320,7 +2574,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getExternal_Decl()
    * @generated
    */
-  int EXTERNAL_DECL = 43;
+  int EXTERNAL_DECL = 52;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -2357,7 +2611,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getGlobal_Var_Decls()
    * @generated
    */
-  int GLOBAL_VAR_DECLS = 44;
+  int GLOBAL_VAR_DECLS = 53;
 
   /**
    * The feature id for the '<em><b>Constant</b></em>' attribute.
@@ -2403,7 +2657,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getGlobal_Var_Decl()
    * @generated
    */
-  int GLOBAL_VAR_DECL = 45;
+  int GLOBAL_VAR_DECL = 54;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -2440,7 +2694,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getGlobal_Var_Spec()
    * @generated
    */
-  int GLOBAL_VAR_SPEC = 46;
+  int GLOBAL_VAR_SPEC = 55;
 
   /**
    * The feature id for the '<em><b>Names</b></em>' attribute list.
@@ -2470,6 +2724,25 @@ public interface StLanguagePackage extends EPackage
   int GLOBAL_VAR_SPEC_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Located_AtImpl <em>Located At</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.bachmann.plc.st.stLanguage.impl.Located_AtImpl
+   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getLocated_At()
+   * @generated
+   */
+  int LOCATED_AT = 57;
+
+  /**
+   * The number of structural features of the '<em>Located At</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOCATED_AT_FEATURE_COUNT = 0;
+
+  /**
    * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Str_Var_DeclImpl <em>Str Var Decl</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2477,7 +2750,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getStr_Var_Decl()
    * @generated
    */
-  int STR_VAR_DECL = 49;
+  int STR_VAR_DECL = 58;
 
   /**
    * The feature id for the '<em><b>Variables</b></em>' containment reference.
@@ -2505,7 +2778,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getS_Byte_Str_Var_Decl()
    * @generated
    */
-  int SBYTE_STR_VAR_DECL = 50;
+  int SBYTE_STR_VAR_DECL = 59;
 
   /**
    * The feature id for the '<em><b>Variables</b></em>' containment reference.
@@ -2542,7 +2815,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getS_Byte_Str_Spec()
    * @generated
    */
-  int SBYTE_STR_SPEC = 51;
+  int SBYTE_STR_SPEC = 60;
 
   /**
    * The feature id for the '<em><b>Bound</b></em>' containment reference.
@@ -2579,7 +2852,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getD_Byte_Str_Var_Decl()
    * @generated
    */
-  int DBYTE_STR_VAR_DECL = 52;
+  int DBYTE_STR_VAR_DECL = 61;
 
   /**
    * The feature id for the '<em><b>Variables</b></em>' containment reference.
@@ -2616,7 +2889,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getD_Byte_Str_Spec()
    * @generated
    */
-  int DBYTE_STR_SPEC = 53;
+  int DBYTE_STR_SPEC = 62;
 
   /**
    * The feature id for the '<em><b>Bound</b></em>' containment reference.
@@ -2653,10 +2926,10 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getFunc_Decl()
    * @generated
    */
-  int FUNC_DECL = 54;
+  int FUNC_DECL = 63;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -2728,6 +3001,34 @@ public interface StLanguagePackage extends EPackage
   int FUNC_DECL_FEATURE_COUNT = NAMESPACE_ELEMENTS_FEATURE_COUNT + 7;
 
   /**
+   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.FunctionImpl <em>Function</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.bachmann.plc.st.stLanguage.impl.FunctionImpl
+   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getFunction()
+   * @generated
+   */
+  int FUNCTION = 64;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Function</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Func_BodyImpl <em>Func Body</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2735,7 +3036,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getFunc_Body()
    * @generated
    */
-  int FUNC_BODY = 57;
+  int FUNC_BODY = 67;
 
   /**
    * The number of structural features of the '<em>Func Body</em>' class.
@@ -2754,7 +3055,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getFB_Decl()
    * @generated
    */
-  int FB_DECL = 58;
+  int FB_DECL = 68;
 
   /**
    * The feature id for the '<em><b>Modifier</b></em>' attribute.
@@ -2766,7 +3067,7 @@ public interface StLanguagePackage extends EPackage
   int FB_DECL__MODIFIER = NAMESPACE_ELEMENTS_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -2856,6 +3157,34 @@ public interface StLanguagePackage extends EPackage
   int FB_DECL_FEATURE_COUNT = NAMESPACE_ELEMENTS_FEATURE_COUNT + 10;
 
   /**
+   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.FunctionBlockImpl <em>Function Block</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.bachmann.plc.st.stLanguage.impl.FunctionBlockImpl
+   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getFunctionBlock()
+   * @generated
+   */
+  int FUNCTION_BLOCK = 69;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_BLOCK__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Function Block</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_BLOCK_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.FB_IO_Var_DeclsImpl <em>FB IO Var Decls</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2863,7 +3192,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getFB_IO_Var_Decls()
    * @generated
    */
-  int FB_IO_VAR_DECLS = 59;
+  int FB_IO_VAR_DECLS = 70;
 
   /**
    * The number of structural features of the '<em>FB IO Var Decls</em>' class.
@@ -2882,7 +3211,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getFB_Input_Decls()
    * @generated
    */
-  int FB_INPUT_DECLS = 60;
+  int FB_INPUT_DECLS = 71;
 
   /**
    * The feature id for the '<em><b>Retain</b></em>' attribute.
@@ -2928,7 +3257,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getFB_Input_Decl()
    * @generated
    */
-  int FB_INPUT_DECL = 61;
+  int FB_INPUT_DECL = 72;
 
   /**
    * The number of structural features of the '<em>FB Input Decl</em>' class.
@@ -2947,7 +3276,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getFB_Output_Decls()
    * @generated
    */
-  int FB_OUTPUT_DECLS = 62;
+  int FB_OUTPUT_DECLS = 73;
 
   /**
    * The feature id for the '<em><b>Retain</b></em>' attribute.
@@ -2993,7 +3322,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getFB_Output_Decl()
    * @generated
    */
-  int FB_OUTPUT_DECL = 63;
+  int FB_OUTPUT_DECL = 74;
 
   /**
    * The number of structural features of the '<em>FB Output Decl</em>' class.
@@ -3012,7 +3341,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getFB_Body()
    * @generated
    */
-  int FB_BODY = 64;
+  int FB_BODY = 75;
 
   /**
    * The number of structural features of the '<em>FB Body</em>' class.
@@ -3031,7 +3360,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getMethod_Decl()
    * @generated
    */
-  int METHOD_DECL = 65;
+  int METHOD_DECL = 76;
 
   /**
    * The feature id for the '<em><b>Access</b></em>' attribute.
@@ -3061,7 +3390,7 @@ public interface StLanguagePackage extends EPackage
   int METHOD_DECL__OVERRIDE = 2;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -3131,7 +3460,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getClass_Decl()
    * @generated
    */
-  int CLASS_DECL = 66;
+  int CLASS_DECL = 77;
 
   /**
    * The feature id for the '<em><b>Modifier</b></em>' attribute.
@@ -3143,13 +3472,13 @@ public interface StLanguagePackage extends EPackage
   int CLASS_DECL__MODIFIER = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Class</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLASS_DECL__NAME = 1;
+  int CLASS_DECL__CLASS = 1;
 
   /**
    * The feature id for the '<em><b>Usings</b></em>' containment reference list.
@@ -3206,14 +3535,14 @@ public interface StLanguagePackage extends EPackage
   int CLASS_DECL_FEATURE_COUNT = 7;
 
   /**
-   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Interface_DeclImpl <em>Interface Decl</em>}' class.
+   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.ClassImpl <em>Class</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see at.bachmann.plc.st.stLanguage.impl.Interface_DeclImpl
-   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getInterface_Decl()
+   * @see at.bachmann.plc.st.stLanguage.impl.ClassImpl
+   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getClass_()
    * @generated
    */
-  int INTERFACE_DECL = 67;
+  int CLASS = 78;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3222,7 +3551,35 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int INTERFACE_DECL__NAME = 0;
+  int CLASS__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Class</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLASS_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Interface_DeclImpl <em>Interface Decl</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.bachmann.plc.st.stLanguage.impl.Interface_DeclImpl
+   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getInterface_Decl()
+   * @generated
+   */
+  int INTERFACE_DECL = 79;
+
+  /**
+   * The feature id for the '<em><b>Interface</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERFACE_DECL__INTERFACE = 0;
 
   /**
    * The feature id for the '<em><b>Usings</b></em>' containment reference list.
@@ -3261,14 +3618,14 @@ public interface StLanguagePackage extends EPackage
   int INTERFACE_DECL_FEATURE_COUNT = 4;
 
   /**
-   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Method_PrototypeImpl <em>Method Prototype</em>}' class.
+   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.InterfaceImpl <em>Interface</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see at.bachmann.plc.st.stLanguage.impl.Method_PrototypeImpl
-   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getMethod_Prototype()
+   * @see at.bachmann.plc.st.stLanguage.impl.InterfaceImpl
+   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getInterface()
    * @generated
    */
-  int METHOD_PROTOTYPE = 68;
+  int INTERFACE = 80;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3277,7 +3634,35 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int METHOD_PROTOTYPE__NAME = 0;
+  int INTERFACE__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Interface</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERFACE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Method_PrototypeImpl <em>Method Prototype</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.bachmann.plc.st.stLanguage.impl.Method_PrototypeImpl
+   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getMethod_Prototype()
+   * @generated
+   */
+  int METHOD_PROTOTYPE = 81;
+
+  /**
+   * The feature id for the '<em><b>Method</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD_PROTOTYPE__METHOD = 0;
 
   /**
    * The feature id for the '<em><b>Return Type</b></em>' attribute.
@@ -3307,6 +3692,34 @@ public interface StLanguagePackage extends EPackage
   int METHOD_PROTOTYPE_FEATURE_COUNT = 3;
 
   /**
+   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.MethodImpl <em>Method</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.bachmann.plc.st.stLanguage.impl.MethodImpl
+   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getMethod()
+   * @generated
+   */
+  int METHOD = 82;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Method</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Interface_Name_ListImpl <em>Interface Name List</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3314,7 +3727,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getInterface_Name_List()
    * @generated
    */
-  int INTERFACE_NAME_LIST = 69;
+  int INTERFACE_NAME_LIST = 83;
 
   /**
    * The feature id for the '<em><b>Interfaces</b></em>' reference list.
@@ -3342,16 +3755,16 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getProg_Decl()
    * @generated
    */
-  int PROG_DECL = 70;
+  int PROG_DECL = 84;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Program</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROG_DECL__NAME = ST_FEATURE_COUNT + 0;
+  int PROG_DECL__PROGRAM = ST_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Ios</b></em>' containment reference list.
@@ -3390,6 +3803,34 @@ public interface StLanguagePackage extends EPackage
   int PROG_DECL_FEATURE_COUNT = ST_FEATURE_COUNT + 4;
 
   /**
+   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.ProgramImpl <em>Program</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.bachmann.plc.st.stLanguage.impl.ProgramImpl
+   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getProgram()
+   * @generated
+   */
+  int PROGRAM = 85;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROGRAM__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Program</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROGRAM_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Namespace_DeclImpl <em>Namespace Decl</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3397,7 +3838,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getNamespace_Decl()
    * @generated
    */
-  int NAMESPACE_DECL = 71;
+  int NAMESPACE_DECL = 86;
 
   /**
    * The feature id for the '<em><b>Internal</b></em>' attribute.
@@ -3409,7 +3850,7 @@ public interface StLanguagePackage extends EPackage
   int NAMESPACE_DECL__INTERNAL = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -3445,6 +3886,34 @@ public interface StLanguagePackage extends EPackage
   int NAMESPACE_DECL_FEATURE_COUNT = 4;
 
   /**
+   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.NamespaceImpl <em>Namespace</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.bachmann.plc.st.stLanguage.impl.NamespaceImpl
+   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getNamespace()
+   * @generated
+   */
+  int NAMESPACE = 87;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAMESPACE__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Namespace</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAMESPACE_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Using_DirectiveImpl <em>Using Directive</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3452,7 +3921,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getUsing_Directive()
    * @generated
    */
-  int USING_DIRECTIVE = 73;
+  int USING_DIRECTIVE = 89;
 
   /**
    * The feature id for the '<em><b>Namespaces</b></em>' attribute list.
@@ -3480,43 +3949,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getVariable_Access()
    * @generated
    */
-  int VARIABLE_ACCESS = 76;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_ACCESS__LEFT = EXPRESSION__LEFT;
-
-  /**
-   * The feature id for the '<em><b>Operator</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_ACCESS__OPERATOR = EXPRESSION__OPERATOR;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_ACCESS__RIGHT = EXPRESSION__RIGHT;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_ACCESS__EXPRESSION = EXPRESSION__EXPRESSION;
+  int VARIABLE_ACCESS = 92;
 
   /**
    * The feature id for the '<em><b>Variable</b></em>' reference.
@@ -3525,7 +3958,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_ACCESS__VARIABLE = EXPRESSION_FEATURE_COUNT + 0;
+  int VARIABLE_ACCESS__VARIABLE = 0;
 
   /**
    * The feature id for the '<em><b>Access</b></em>' containment reference.
@@ -3534,7 +3967,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_ACCESS__ACCESS = EXPRESSION_FEATURE_COUNT + 1;
+  int VARIABLE_ACCESS__ACCESS = 1;
 
   /**
    * The number of structural features of the '<em>Variable Access</em>' class.
@@ -3543,7 +3976,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_ACCESS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+  int VARIABLE_ACCESS_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Multibit_Part_AccessImpl <em>Multibit Part Access</em>}' class.
@@ -3553,7 +3986,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getMultibit_Part_Access()
    * @generated
    */
-  int MULTIBIT_PART_ACCESS = 77;
+  int MULTIBIT_PART_ACCESS = 93;
 
   /**
    * The feature id for the '<em><b>Bit Index</b></em>' attribute.
@@ -3583,79 +4016,6 @@ public interface StLanguagePackage extends EPackage
   int MULTIBIT_PART_ACCESS_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.CallableImpl <em>Callable</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see at.bachmann.plc.st.stLanguage.impl.CallableImpl
-   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getCallable()
-   * @generated
-   */
-  int CALLABLE = 78;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CALLABLE__LEFT = EXPRESSION__LEFT;
-
-  /**
-   * The feature id for the '<em><b>Operator</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CALLABLE__OPERATOR = EXPRESSION__OPERATOR;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CALLABLE__RIGHT = EXPRESSION__RIGHT;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CALLABLE__EXPRESSION = EXPRESSION__EXPRESSION;
-
-  /**
-   * The feature id for the '<em><b>Callable</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CALLABLE__CALLABLE = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CALLABLE__PARAMETERS = EXPRESSION_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Callable</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CALLABLE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
-
-  /**
    * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Stmt_ListImpl <em>Stmt List</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3663,7 +4023,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getStmt_List()
    * @generated
    */
-  int STMT_LIST = 79;
+  int STMT_LIST = 95;
 
   /**
    * The feature id for the '<em><b>Statements</b></em>' containment reference list.
@@ -3684,170 +4044,6 @@ public interface StLanguagePackage extends EPackage
   int STMT_LIST_FEATURE_COUNT = FUNC_BODY_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.StmtImpl <em>Stmt</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see at.bachmann.plc.st.stLanguage.impl.StmtImpl
-   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getStmt()
-   * @generated
-   */
-  int STMT = 80;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STMT__LEFT = CALLABLE__LEFT;
-
-  /**
-   * The feature id for the '<em><b>Operator</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STMT__OPERATOR = CALLABLE__OPERATOR;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STMT__RIGHT = CALLABLE__RIGHT;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STMT__EXPRESSION = CALLABLE__EXPRESSION;
-
-  /**
-   * The feature id for the '<em><b>Callable</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STMT__CALLABLE = CALLABLE__CALLABLE;
-
-  /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STMT__PARAMETERS = CALLABLE__PARAMETERS;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STMT__TYPE = CALLABLE_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Stmt</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STMT_FEATURE_COUNT = CALLABLE_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Assign_StmtImpl <em>Assign Stmt</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see at.bachmann.plc.st.stLanguage.impl.Assign_StmtImpl
-   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getAssign_Stmt()
-   * @generated
-   */
-  int ASSIGN_STMT = 81;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGN_STMT__LEFT = STMT__LEFT;
-
-  /**
-   * The feature id for the '<em><b>Operator</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGN_STMT__OPERATOR = STMT__OPERATOR;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGN_STMT__RIGHT = STMT__RIGHT;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGN_STMT__EXPRESSION = STMT__EXPRESSION;
-
-  /**
-   * The feature id for the '<em><b>Callable</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGN_STMT__CALLABLE = STMT__CALLABLE;
-
-  /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGN_STMT__PARAMETERS = STMT__PARAMETERS;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGN_STMT__TYPE = STMT__TYPE;
-
-  /**
-   * The number of structural features of the '<em>Assign Stmt</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGN_STMT_FEATURE_COUNT = STMT_FEATURE_COUNT + 0;
-
-  /**
    * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Variable_Assign_StmtImpl <em>Variable Assign Stmt</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3855,43 +4051,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getVariable_Assign_Stmt()
    * @generated
    */
-  int VARIABLE_ASSIGN_STMT = 82;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_ASSIGN_STMT__LEFT = ASSIGN_STMT__LEFT;
-
-  /**
-   * The feature id for the '<em><b>Operator</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_ASSIGN_STMT__OPERATOR = ASSIGN_STMT__OPERATOR;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_ASSIGN_STMT__RIGHT = ASSIGN_STMT__RIGHT;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_ASSIGN_STMT__EXPRESSION = ASSIGN_STMT__EXPRESSION;
+  int VARIABLE_ASSIGN_STMT = 98;
 
   /**
    * The feature id for the '<em><b>Callable</b></em>' reference.
@@ -3927,7 +4087,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_ASSIGN_STMT__VARIABLE = ASSIGN_STMT_FEATURE_COUNT + 0;
+  int VARIABLE_ASSIGN_STMT__VARIABLE = ASSIGN_STMT__VARIABLE;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -3936,7 +4096,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_ASSIGN_STMT__VALUE = ASSIGN_STMT_FEATURE_COUNT + 1;
+  int VARIABLE_ASSIGN_STMT__VALUE = ASSIGN_STMT_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Variable Assign Stmt</em>' class.
@@ -3945,7 +4105,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_ASSIGN_STMT_FEATURE_COUNT = ASSIGN_STMT_FEATURE_COUNT + 2;
+  int VARIABLE_ASSIGN_STMT_FEATURE_COUNT = ASSIGN_STMT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Assignment_AttemptImpl <em>Assignment Attempt</em>}' class.
@@ -3955,43 +4115,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getAssignment_Attempt()
    * @generated
    */
-  int ASSIGNMENT_ATTEMPT = 83;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGNMENT_ATTEMPT__LEFT = ASSIGN_STMT__LEFT;
-
-  /**
-   * The feature id for the '<em><b>Operator</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGNMENT_ATTEMPT__OPERATOR = ASSIGN_STMT__OPERATOR;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGNMENT_ATTEMPT__RIGHT = ASSIGN_STMT__RIGHT;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGNMENT_ATTEMPT__EXPRESSION = ASSIGN_STMT__EXPRESSION;
+  int ASSIGNMENT_ATTEMPT = 99;
 
   /**
    * The feature id for the '<em><b>Callable</b></em>' reference.
@@ -4027,7 +4151,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSIGNMENT_ATTEMPT__VARIABLE = ASSIGN_STMT_FEATURE_COUNT + 0;
+  int ASSIGNMENT_ATTEMPT__VARIABLE = ASSIGN_STMT__VARIABLE;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' reference.
@@ -4036,7 +4160,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSIGNMENT_ATTEMPT__VALUE = ASSIGN_STMT_FEATURE_COUNT + 1;
+  int ASSIGNMENT_ATTEMPT__VALUE = ASSIGN_STMT_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Assignment Attempt</em>' class.
@@ -4045,7 +4169,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSIGNMENT_ATTEMPT_FEATURE_COUNT = ASSIGN_STMT_FEATURE_COUNT + 2;
+  int ASSIGNMENT_ATTEMPT_FEATURE_COUNT = ASSIGN_STMT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Param_AssignImpl <em>Param Assign</em>}' class.
@@ -4055,7 +4179,16 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getParam_Assign()
    * @generated
    */
-  int PARAM_ASSIGN = 84;
+  int PARAM_ASSIGN = 100;
+
+  /**
+   * The feature id for the '<em><b>Variable</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAM_ASSIGN__VARIABLE = 0;
 
   /**
    * The number of structural features of the '<em>Param Assign</em>' class.
@@ -4064,7 +4197,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int PARAM_ASSIGN_FEATURE_COUNT = 0;
+  int PARAM_ASSIGN_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Named_ValueImpl <em>Named Value</em>}' class.
@@ -4074,7 +4207,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getNamed_Value()
    * @generated
    */
-  int NAMED_VALUE = 85;
+  int NAMED_VALUE = 101;
 
   /**
    * The feature id for the '<em><b>Variable</b></em>' reference.
@@ -4083,7 +4216,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int NAMED_VALUE__VARIABLE = PARAM_ASSIGN_FEATURE_COUNT + 0;
+  int NAMED_VALUE__VARIABLE = PARAM_ASSIGN__VARIABLE;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -4092,7 +4225,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int NAMED_VALUE__VALUE = PARAM_ASSIGN_FEATURE_COUNT + 1;
+  int NAMED_VALUE__VALUE = PARAM_ASSIGN_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Named Value</em>' class.
@@ -4101,7 +4234,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int NAMED_VALUE_FEATURE_COUNT = PARAM_ASSIGN_FEATURE_COUNT + 2;
+  int NAMED_VALUE_FEATURE_COUNT = PARAM_ASSIGN_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Linked_ValueImpl <em>Linked Value</em>}' class.
@@ -4111,7 +4244,16 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getLinked_Value()
    * @generated
    */
-  int LINKED_VALUE = 86;
+  int LINKED_VALUE = 102;
+
+  /**
+   * The feature id for the '<em><b>Variable</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LINKED_VALUE__VARIABLE = PARAM_ASSIGN__VARIABLE;
 
   /**
    * The feature id for the '<em><b>Negated</b></em>' attribute.
@@ -4132,22 +4274,50 @@ public interface StLanguagePackage extends EPackage
   int LINKED_VALUE__VALUE = PARAM_ASSIGN_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Variable</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LINKED_VALUE__VARIABLE = PARAM_ASSIGN_FEATURE_COUNT + 2;
-
-  /**
    * The number of structural features of the '<em>Linked Value</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LINKED_VALUE_FEATURE_COUNT = PARAM_ASSIGN_FEATURE_COUNT + 3;
+  int LINKED_VALUE_FEATURE_COUNT = PARAM_ASSIGN_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.InRef_AssignImpl <em>In Ref Assign</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.bachmann.plc.st.stLanguage.impl.InRef_AssignImpl
+   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getInRef_Assign()
+   * @generated
+   */
+  int IN_REF_ASSIGN = 103;
+
+  /**
+   * The feature id for the '<em><b>Variable</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IN_REF_ASSIGN__VARIABLE = PARAM_ASSIGN__VARIABLE;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IN_REF_ASSIGN__VALUE = PARAM_ASSIGN_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>In Ref Assign</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IN_REF_ASSIGN_FEATURE_COUNT = PARAM_ASSIGN_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Selection_StmtImpl <em>Selection Stmt</em>}' class.
@@ -4157,43 +4327,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getSelection_Stmt()
    * @generated
    */
-  int SELECTION_STMT = 87;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECTION_STMT__LEFT = STMT__LEFT;
-
-  /**
-   * The feature id for the '<em><b>Operator</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECTION_STMT__OPERATOR = STMT__OPERATOR;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECTION_STMT__RIGHT = STMT__RIGHT;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECTION_STMT__EXPRESSION = STMT__EXPRESSION;
+  int SELECTION_STMT = 104;
 
   /**
    * The feature id for the '<em><b>Callable</b></em>' reference.
@@ -4248,43 +4382,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getIF_Stmt()
    * @generated
    */
-  int IF_STMT = 88;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IF_STMT__LEFT = SELECTION_STMT__LEFT;
-
-  /**
-   * The feature id for the '<em><b>Operator</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IF_STMT__OPERATOR = SELECTION_STMT__OPERATOR;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IF_STMT__RIGHT = SELECTION_STMT__RIGHT;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IF_STMT__EXPRESSION = SELECTION_STMT__EXPRESSION;
+  int IF_STMT = 105;
 
   /**
    * The feature id for the '<em><b>Callable</b></em>' reference.
@@ -4366,7 +4464,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getELSEIF_Stmt()
    * @generated
    */
-  int ELSEIF_STMT = 89;
+  int ELSEIF_STMT = 106;
 
   /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -4403,7 +4501,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getELSE_Stmt()
    * @generated
    */
-  int ELSE_STMT = 90;
+  int ELSE_STMT = 107;
 
   /**
    * The feature id for the '<em><b>Statements</b></em>' containment reference.
@@ -4431,43 +4529,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getCase_Stmt()
    * @generated
    */
-  int CASE_STMT = 91;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CASE_STMT__LEFT = SELECTION_STMT__LEFT;
-
-  /**
-   * The feature id for the '<em><b>Operator</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CASE_STMT__OPERATOR = SELECTION_STMT__OPERATOR;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CASE_STMT__RIGHT = SELECTION_STMT__RIGHT;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CASE_STMT__EXPRESSION = SELECTION_STMT__EXPRESSION;
+  int CASE_STMT = 108;
 
   /**
    * The feature id for the '<em><b>Callable</b></em>' reference.
@@ -4540,7 +4602,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getCase_Selection()
    * @generated
    */
-  int CASE_SELECTION = 92;
+  int CASE_SELECTION = 109;
 
   /**
    * The feature id for the '<em><b>Values</b></em>' containment reference.
@@ -4577,7 +4639,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getCase_List()
    * @generated
    */
-  int CASE_LIST = 93;
+  int CASE_LIST = 110;
 
   /**
    * The feature id for the '<em><b>Case Values</b></em>' containment reference list.
@@ -4605,43 +4667,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getIteration_Stmt()
    * @generated
    */
-  int ITERATION_STMT = 95;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ITERATION_STMT__LEFT = STMT__LEFT;
-
-  /**
-   * The feature id for the '<em><b>Operator</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ITERATION_STMT__OPERATOR = STMT__OPERATOR;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ITERATION_STMT__RIGHT = STMT__RIGHT;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ITERATION_STMT__EXPRESSION = STMT__EXPRESSION;
+  int ITERATION_STMT = 112;
 
   /**
    * The feature id for the '<em><b>Callable</b></em>' reference.
@@ -4687,43 +4713,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getExit_Stmt()
    * @generated
    */
-  int EXIT_STMT = 96;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXIT_STMT__LEFT = ITERATION_STMT__LEFT;
-
-  /**
-   * The feature id for the '<em><b>Operator</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXIT_STMT__OPERATOR = ITERATION_STMT__OPERATOR;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXIT_STMT__RIGHT = ITERATION_STMT__RIGHT;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXIT_STMT__EXPRESSION = ITERATION_STMT__EXPRESSION;
+  int EXIT_STMT = 113;
 
   /**
    * The feature id for the '<em><b>Callable</b></em>' reference.
@@ -4769,43 +4759,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getContinue_Stmt()
    * @generated
    */
-  int CONTINUE_STMT = 97;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONTINUE_STMT__LEFT = ITERATION_STMT__LEFT;
-
-  /**
-   * The feature id for the '<em><b>Operator</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONTINUE_STMT__OPERATOR = ITERATION_STMT__OPERATOR;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONTINUE_STMT__RIGHT = ITERATION_STMT__RIGHT;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONTINUE_STMT__EXPRESSION = ITERATION_STMT__EXPRESSION;
+  int CONTINUE_STMT = 114;
 
   /**
    * The feature id for the '<em><b>Callable</b></em>' reference.
@@ -4851,43 +4805,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getFor_Stmt()
    * @generated
    */
-  int FOR_STMT = 98;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOR_STMT__LEFT = ITERATION_STMT__LEFT;
-
-  /**
-   * The feature id for the '<em><b>Operator</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOR_STMT__OPERATOR = ITERATION_STMT__OPERATOR;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOR_STMT__RIGHT = ITERATION_STMT__RIGHT;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOR_STMT__EXPRESSION = ITERATION_STMT__EXPRESSION;
+  int FOR_STMT = 115;
 
   /**
    * The feature id for the '<em><b>Callable</b></em>' reference.
@@ -4960,7 +4878,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getFor_List()
    * @generated
    */
-  int FOR_LIST = 99;
+  int FOR_LIST = 116;
 
   /**
    * The feature id for the '<em><b>Low Bound</b></em>' containment reference.
@@ -5006,43 +4924,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getWhile_Stmt()
    * @generated
    */
-  int WHILE_STMT = 100;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WHILE_STMT__LEFT = ITERATION_STMT__LEFT;
-
-  /**
-   * The feature id for the '<em><b>Operator</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WHILE_STMT__OPERATOR = ITERATION_STMT__OPERATOR;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WHILE_STMT__RIGHT = ITERATION_STMT__RIGHT;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WHILE_STMT__EXPRESSION = ITERATION_STMT__EXPRESSION;
+  int WHILE_STMT = 117;
 
   /**
    * The feature id for the '<em><b>Callable</b></em>' reference.
@@ -5106,43 +4988,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getRepeat_Stmt()
    * @generated
    */
-  int REPEAT_STMT = 101;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REPEAT_STMT__LEFT = ITERATION_STMT__LEFT;
-
-  /**
-   * The feature id for the '<em><b>Operator</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REPEAT_STMT__OPERATOR = ITERATION_STMT__OPERATOR;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REPEAT_STMT__RIGHT = ITERATION_STMT__RIGHT;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REPEAT_STMT__EXPRESSION = ITERATION_STMT__EXPRESSION;
+  int REPEAT_STMT = 118;
 
   /**
    * The feature id for the '<em><b>Callable</b></em>' reference.
@@ -5206,7 +5052,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getXor_Expr()
    * @generated
    */
-  int XOR_EXPR = 102;
+  int XOR_EXPR = 119;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -5261,7 +5107,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getAnd_Expr()
    * @generated
    */
-  int AND_EXPR = 103;
+  int AND_EXPR = 120;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -5316,7 +5162,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getCompare_Expr()
    * @generated
    */
-  int COMPARE_EXPR = 104;
+  int COMPARE_EXPR = 121;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -5371,7 +5217,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getEqu_Expr()
    * @generated
    */
-  int EQU_EXPR = 105;
+  int EQU_EXPR = 122;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -5426,7 +5272,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getAdd_Expr()
    * @generated
    */
-  int ADD_EXPR = 106;
+  int ADD_EXPR = 123;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -5481,7 +5327,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getTerm()
    * @generated
    */
-  int TERM = 107;
+  int TERM = 124;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -5536,7 +5382,7 @@ public interface StLanguagePackage extends EPackage
    * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getPower_Expr()
    * @generated
    */
-  int POWER_EXPR = 108;
+  int POWER_EXPR = 125;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -5852,27 +5698,6 @@ public interface StLanguagePackage extends EPackage
   EReference getStruct_Decl_Elements();
 
   /**
-   * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Variable_Decl <em>Variable Decl</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Variable Decl</em>'.
-   * @see at.bachmann.plc.st.stLanguage.Variable_Decl
-   * @generated
-   */
-  EClass getVariable_Decl();
-
-  /**
-   * Returns the meta object for the attribute '{@link at.bachmann.plc.st.stLanguage.Variable_Decl#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see at.bachmann.plc.st.stLanguage.Variable_Decl#getName()
-   * @see #getVariable_Decl()
-   * @generated
-   */
-  EAttribute getVariable_Decl_Name();
-
-  /**
    * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Type_Decl <em>Type Decl</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5881,6 +5706,17 @@ public interface StLanguagePackage extends EPackage
    * @generated
    */
   EClass getType_Decl();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.bachmann.plc.st.stLanguage.Type_Decl#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Type_Decl#getName()
+   * @see #getType_Decl()
+   * @generated
+   */
+  EAttribute getType_Decl_Name();
 
   /**
    * Returns the meta object for the containment reference '{@link at.bachmann.plc.st.stLanguage.Type_Decl#getInitialization <em>Initialization</em>}'.
@@ -6077,6 +5913,27 @@ public interface StLanguagePackage extends EPackage
   EReference getEnum_Spec_Init_Value();
 
   /**
+   * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Enum_Value <em>Enum Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Enum Value</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Enum_Value
+   * @generated
+   */
+  EClass getEnum_Value();
+
+  /**
+   * Returns the meta object for the reference '{@link at.bachmann.plc.st.stLanguage.Enum_Value#getVariable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Variable</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Enum_Value#getVariable()
+   * @see #getEnum_Value()
+   * @generated
+   */
+  EReference getEnum_Value_Variable();
+
+  /**
    * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Variable <em>Variable</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6087,37 +5944,15 @@ public interface StLanguagePackage extends EPackage
   EClass getVariable();
 
   /**
-   * Returns the meta object for the reference '{@link at.bachmann.plc.st.stLanguage.Variable#getVariable <em>Variable</em>}'.
+   * Returns the meta object for the attribute '{@link at.bachmann.plc.st.stLanguage.Variable#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Variable</em>'.
-   * @see at.bachmann.plc.st.stLanguage.Variable#getVariable()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Variable#getName()
    * @see #getVariable()
    * @generated
    */
-  EReference getVariable_Variable();
-
-  /**
-   * Returns the meta object for the attribute '{@link at.bachmann.plc.st.stLanguage.Variable#getInitialValue <em>Initial Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Initial Value</em>'.
-   * @see at.bachmann.plc.st.stLanguage.Variable#getInitialValue()
-   * @see #getVariable()
-   * @generated
-   */
-  EAttribute getVariable_InitialValue();
-
-  /**
-   * Returns the meta object for the containment reference '{@link at.bachmann.plc.st.stLanguage.Variable#getInitialization <em>Initialization</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Initialization</em>'.
-   * @see at.bachmann.plc.st.stLanguage.Variable#getInitialization()
-   * @see #getVariable()
-   * @generated
-   */
-  EReference getVariable_Initialization();
+  EAttribute getVariable_Name();
 
   /**
    * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Variable_Address <em>Variable Address</em>}'.
@@ -6216,15 +6051,138 @@ public interface StLanguagePackage extends EPackage
   EClass getRef_Value();
 
   /**
-   * Returns the meta object for the containment reference '{@link at.bachmann.plc.st.stLanguage.Ref_Value#getVariable <em>Variable</em>}'.
+   * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Null_Ref <em>Null Ref</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Variable</em>'.
-   * @see at.bachmann.plc.st.stLanguage.Ref_Value#getVariable()
-   * @see #getRef_Value()
+   * @return the meta object for class '<em>Null Ref</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Null_Ref
    * @generated
    */
-  EReference getRef_Value_Variable();
+  EClass getNull_Ref();
+
+  /**
+   * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Ref_Addr <em>Ref Addr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Ref Addr</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Ref_Addr
+   * @generated
+   */
+  EClass getRef_Addr();
+
+  /**
+   * Returns the meta object for the reference '{@link at.bachmann.plc.st.stLanguage.Ref_Addr#getVariable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Variable</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Ref_Addr#getVariable()
+   * @see #getRef_Addr()
+   * @generated
+   */
+  EReference getRef_Addr_Variable();
+
+  /**
+   * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Ref_Assign <em>Ref Assign</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Ref Assign</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Ref_Assign
+   * @generated
+   */
+  EClass getRef_Assign();
+
+  /**
+   * Returns the meta object for the reference '{@link at.bachmann.plc.st.stLanguage.Ref_Assign#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Value</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Ref_Assign#getValue()
+   * @see #getRef_Assign()
+   * @generated
+   */
+  EReference getRef_Assign_Value();
+
+  /**
+   * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Ref_Deref <em>Ref Deref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Ref Deref</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Ref_Deref
+   * @generated
+   */
+  EClass getRef_Deref();
+
+  /**
+   * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Inline_Variable <em>Inline Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Inline Variable</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Inline_Variable
+   * @generated
+   */
+  EClass getInline_Variable();
+
+  /**
+   * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Symbolic_Variable <em>Symbolic Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Symbolic Variable</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Symbolic_Variable
+   * @generated
+   */
+  EClass getSymbolic_Variable();
+
+  /**
+   * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Var_Access <em>Var Access</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Var Access</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Var_Access
+   * @generated
+   */
+  EClass getVar_Access();
+
+  /**
+   * Returns the meta object for the reference '{@link at.bachmann.plc.st.stLanguage.Var_Access#getVariable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Variable</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Var_Access#getVariable()
+   * @see #getVar_Access()
+   * @generated
+   */
+  EReference getVar_Access_Variable();
+
+  /**
+   * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Named_Variable <em>Named Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Named Variable</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Named_Variable
+   * @generated
+   */
+  EClass getNamed_Variable();
+
+  /**
+   * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Direct_Variable <em>Direct Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Direct Variable</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Direct_Variable
+   * @generated
+   */
+  EClass getDirect_Variable();
+
+  /**
+   * Returns the meta object for the reference '{@link at.bachmann.plc.st.stLanguage.Direct_Variable#getVariable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Variable</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Direct_Variable#getVariable()
+   * @see #getDirect_Variable()
+   * @generated
+   */
+  EReference getDirect_Variable_Variable();
 
   /**
    * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Input_Decls <em>Input Decls</em>}'.
@@ -6354,15 +6312,15 @@ public interface StLanguagePackage extends EPackage
   EClass getVariable_List();
 
   /**
-   * Returns the meta object for the attribute list '{@link at.bachmann.plc.st.stLanguage.Variable_List#getNames <em>Names</em>}'.
+   * Returns the meta object for the containment reference list '{@link at.bachmann.plc.st.stLanguage.Variable_List#getVariables <em>Variables</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Names</em>'.
-   * @see at.bachmann.plc.st.stLanguage.Variable_List#getNames()
+   * @return the meta object for the containment reference list '<em>Variables</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Variable_List#getVariables()
    * @see #getVariable_List()
    * @generated
    */
-  EAttribute getVariable_List_Names();
+  EReference getVariable_List_Variables();
 
   /**
    * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Output_Decls <em>Output Decls</em>}'.
@@ -6916,15 +6874,15 @@ public interface StLanguagePackage extends EPackage
   EClass getFunc_Decl();
 
   /**
-   * Returns the meta object for the attribute '{@link at.bachmann.plc.st.stLanguage.Func_Decl#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference '{@link at.bachmann.plc.st.stLanguage.Func_Decl#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
+   * @return the meta object for the containment reference '<em>Name</em>'.
    * @see at.bachmann.plc.st.stLanguage.Func_Decl#getName()
    * @see #getFunc_Decl()
    * @generated
    */
-  EAttribute getFunc_Decl_Name();
+  EReference getFunc_Decl_Name();
 
   /**
    * Returns the meta object for the attribute '{@link at.bachmann.plc.st.stLanguage.Func_Decl#getReturnType <em>Return Type</em>}'.
@@ -6993,6 +6951,27 @@ public interface StLanguagePackage extends EPackage
   EReference getFunc_Decl_Body();
 
   /**
+   * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Function <em>Function</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Function</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Function
+   * @generated
+   */
+  EClass getFunction();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.bachmann.plc.st.stLanguage.Function#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Function#getName()
+   * @see #getFunction()
+   * @generated
+   */
+  EAttribute getFunction_Name();
+
+  /**
    * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.IO_Var_Decls <em>IO Var Decls</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7055,15 +7034,15 @@ public interface StLanguagePackage extends EPackage
   EAttribute getFB_Decl_Modifier();
 
   /**
-   * Returns the meta object for the attribute '{@link at.bachmann.plc.st.stLanguage.FB_Decl#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference '{@link at.bachmann.plc.st.stLanguage.FB_Decl#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
+   * @return the meta object for the containment reference '<em>Name</em>'.
    * @see at.bachmann.plc.st.stLanguage.FB_Decl#getName()
    * @see #getFB_Decl()
    * @generated
    */
-  EAttribute getFB_Decl_Name();
+  EReference getFB_Decl_Name();
 
   /**
    * Returns the meta object for the containment reference list '{@link at.bachmann.plc.st.stLanguage.FB_Decl#getUsings <em>Usings</em>}'.
@@ -7152,6 +7131,27 @@ public interface StLanguagePackage extends EPackage
    * @generated
    */
   EReference getFB_Decl_Body();
+
+  /**
+   * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.FunctionBlock <em>Function Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Function Block</em>'.
+   * @see at.bachmann.plc.st.stLanguage.FunctionBlock
+   * @generated
+   */
+  EClass getFunctionBlock();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.bachmann.plc.st.stLanguage.FunctionBlock#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see at.bachmann.plc.st.stLanguage.FunctionBlock#getName()
+   * @see #getFunctionBlock()
+   * @generated
+   */
+  EAttribute getFunctionBlock_Name();
 
   /**
    * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.FB_IO_Var_Decls <em>FB IO Var Decls</em>}'.
@@ -7323,15 +7323,15 @@ public interface StLanguagePackage extends EPackage
   EAttribute getMethod_Decl_Override();
 
   /**
-   * Returns the meta object for the attribute '{@link at.bachmann.plc.st.stLanguage.Method_Decl#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference '{@link at.bachmann.plc.st.stLanguage.Method_Decl#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
+   * @return the meta object for the containment reference '<em>Name</em>'.
    * @see at.bachmann.plc.st.stLanguage.Method_Decl#getName()
    * @see #getMethod_Decl()
    * @generated
    */
-  EAttribute getMethod_Decl_Name();
+  EReference getMethod_Decl_Name();
 
   /**
    * Returns the meta object for the attribute '{@link at.bachmann.plc.st.stLanguage.Method_Decl#getReturnType <em>Return Type</em>}'.
@@ -7410,15 +7410,15 @@ public interface StLanguagePackage extends EPackage
   EAttribute getClass_Decl_Modifier();
 
   /**
-   * Returns the meta object for the attribute '{@link at.bachmann.plc.st.stLanguage.Class_Decl#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference '{@link at.bachmann.plc.st.stLanguage.Class_Decl#getClass_ <em>Class</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see at.bachmann.plc.st.stLanguage.Class_Decl#getName()
+   * @return the meta object for the containment reference '<em>Class</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Class_Decl#getClass_()
    * @see #getClass_Decl()
    * @generated
    */
-  EAttribute getClass_Decl_Name();
+  EReference getClass_Decl_Class();
 
   /**
    * Returns the meta object for the containment reference list '{@link at.bachmann.plc.st.stLanguage.Class_Decl#getUsings <em>Usings</em>}'.
@@ -7476,6 +7476,27 @@ public interface StLanguagePackage extends EPackage
   EReference getClass_Decl_Methods();
 
   /**
+   * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Class <em>Class</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Class</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Class
+   * @generated
+   */
+  EClass getClass_();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.bachmann.plc.st.stLanguage.Class#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Class#getName()
+   * @see #getClass_()
+   * @generated
+   */
+  EAttribute getClass_Name();
+
+  /**
    * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Interface_Decl <em>Interface Decl</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7486,15 +7507,15 @@ public interface StLanguagePackage extends EPackage
   EClass getInterface_Decl();
 
   /**
-   * Returns the meta object for the attribute '{@link at.bachmann.plc.st.stLanguage.Interface_Decl#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference '{@link at.bachmann.plc.st.stLanguage.Interface_Decl#getInterface <em>Interface</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see at.bachmann.plc.st.stLanguage.Interface_Decl#getName()
+   * @return the meta object for the containment reference '<em>Interface</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Interface_Decl#getInterface()
    * @see #getInterface_Decl()
    * @generated
    */
-  EAttribute getInterface_Decl_Name();
+  EReference getInterface_Decl_Interface();
 
   /**
    * Returns the meta object for the containment reference list '{@link at.bachmann.plc.st.stLanguage.Interface_Decl#getUsings <em>Usings</em>}'.
@@ -7530,6 +7551,27 @@ public interface StLanguagePackage extends EPackage
   EReference getInterface_Decl_Methods();
 
   /**
+   * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Interface <em>Interface</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Interface</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Interface
+   * @generated
+   */
+  EClass getInterface();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.bachmann.plc.st.stLanguage.Interface#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Interface#getName()
+   * @see #getInterface()
+   * @generated
+   */
+  EAttribute getInterface_Name();
+
+  /**
    * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Method_Prototype <em>Method Prototype</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7540,15 +7582,15 @@ public interface StLanguagePackage extends EPackage
   EClass getMethod_Prototype();
 
   /**
-   * Returns the meta object for the attribute '{@link at.bachmann.plc.st.stLanguage.Method_Prototype#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference '{@link at.bachmann.plc.st.stLanguage.Method_Prototype#getMethod <em>Method</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see at.bachmann.plc.st.stLanguage.Method_Prototype#getName()
+   * @return the meta object for the containment reference '<em>Method</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Method_Prototype#getMethod()
    * @see #getMethod_Prototype()
    * @generated
    */
-  EAttribute getMethod_Prototype_Name();
+  EReference getMethod_Prototype_Method();
 
   /**
    * Returns the meta object for the attribute '{@link at.bachmann.plc.st.stLanguage.Method_Prototype#getReturnType <em>Return Type</em>}'.
@@ -7571,6 +7613,27 @@ public interface StLanguagePackage extends EPackage
    * @generated
    */
   EReference getMethod_Prototype_Ios();
+
+  /**
+   * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Method <em>Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Method</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Method
+   * @generated
+   */
+  EClass getMethod();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.bachmann.plc.st.stLanguage.Method#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Method#getName()
+   * @see #getMethod()
+   * @generated
+   */
+  EAttribute getMethod_Name();
 
   /**
    * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Interface_Name_List <em>Interface Name List</em>}'.
@@ -7604,15 +7667,15 @@ public interface StLanguagePackage extends EPackage
   EClass getProg_Decl();
 
   /**
-   * Returns the meta object for the attribute '{@link at.bachmann.plc.st.stLanguage.Prog_Decl#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference '{@link at.bachmann.plc.st.stLanguage.Prog_Decl#getProgram <em>Program</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see at.bachmann.plc.st.stLanguage.Prog_Decl#getName()
+   * @return the meta object for the containment reference '<em>Program</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Prog_Decl#getProgram()
    * @see #getProg_Decl()
    * @generated
    */
-  EAttribute getProg_Decl_Name();
+  EReference getProg_Decl_Program();
 
   /**
    * Returns the meta object for the containment reference list '{@link at.bachmann.plc.st.stLanguage.Prog_Decl#getIos <em>Ios</em>}'.
@@ -7648,6 +7711,27 @@ public interface StLanguagePackage extends EPackage
   EReference getProg_Decl_Body();
 
   /**
+   * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Program <em>Program</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Program</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Program
+   * @generated
+   */
+  EClass getProgram();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.bachmann.plc.st.stLanguage.Program#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Program#getName()
+   * @see #getProgram()
+   * @generated
+   */
+  EAttribute getProgram_Name();
+
+  /**
    * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Namespace_Decl <em>Namespace Decl</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7669,15 +7753,15 @@ public interface StLanguagePackage extends EPackage
   EAttribute getNamespace_Decl_Internal();
 
   /**
-   * Returns the meta object for the attribute '{@link at.bachmann.plc.st.stLanguage.Namespace_Decl#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference '{@link at.bachmann.plc.st.stLanguage.Namespace_Decl#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
+   * @return the meta object for the containment reference '<em>Name</em>'.
    * @see at.bachmann.plc.st.stLanguage.Namespace_Decl#getName()
    * @see #getNamespace_Decl()
    * @generated
    */
-  EAttribute getNamespace_Decl_Name();
+  EReference getNamespace_Decl_Name();
 
   /**
    * Returns the meta object for the containment reference list '{@link at.bachmann.plc.st.stLanguage.Namespace_Decl#getUsings <em>Usings</em>}'.
@@ -7700,6 +7784,27 @@ public interface StLanguagePackage extends EPackage
    * @generated
    */
   EReference getNamespace_Decl_Elements();
+
+  /**
+   * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Namespace <em>Namespace</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Namespace</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Namespace
+   * @generated
+   */
+  EClass getNamespace();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.bachmann.plc.st.stLanguage.Namespace#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Namespace#getName()
+   * @see #getNamespace()
+   * @generated
+   */
+  EAttribute getNamespace_Name();
 
   /**
    * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Namespace_Elements <em>Namespace Elements</em>}'.
@@ -7945,6 +8050,17 @@ public interface StLanguagePackage extends EPackage
   EClass getAssign_Stmt();
 
   /**
+   * Returns the meta object for the reference '{@link at.bachmann.plc.st.stLanguage.Assign_Stmt#getVariable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Variable</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Assign_Stmt#getVariable()
+   * @see #getAssign_Stmt()
+   * @generated
+   */
+  EReference getAssign_Stmt_Variable();
+
+  /**
    * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Variable_Assign_Stmt <em>Variable Assign Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7953,17 +8069,6 @@ public interface StLanguagePackage extends EPackage
    * @generated
    */
   EClass getVariable_Assign_Stmt();
-
-  /**
-   * Returns the meta object for the reference '{@link at.bachmann.plc.st.stLanguage.Variable_Assign_Stmt#getVariable <em>Variable</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Variable</em>'.
-   * @see at.bachmann.plc.st.stLanguage.Variable_Assign_Stmt#getVariable()
-   * @see #getVariable_Assign_Stmt()
-   * @generated
-   */
-  EReference getVariable_Assign_Stmt_Variable();
 
   /**
    * Returns the meta object for the containment reference '{@link at.bachmann.plc.st.stLanguage.Variable_Assign_Stmt#getValue <em>Value</em>}'.
@@ -7987,17 +8092,6 @@ public interface StLanguagePackage extends EPackage
   EClass getAssignment_Attempt();
 
   /**
-   * Returns the meta object for the reference '{@link at.bachmann.plc.st.stLanguage.Assignment_Attempt#getVariable <em>Variable</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Variable</em>'.
-   * @see at.bachmann.plc.st.stLanguage.Assignment_Attempt#getVariable()
-   * @see #getAssignment_Attempt()
-   * @generated
-   */
-  EReference getAssignment_Attempt_Variable();
-
-  /**
    * Returns the meta object for the reference '{@link at.bachmann.plc.st.stLanguage.Assignment_Attempt#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8019,6 +8113,17 @@ public interface StLanguagePackage extends EPackage
   EClass getParam_Assign();
 
   /**
+   * Returns the meta object for the reference '{@link at.bachmann.plc.st.stLanguage.Param_Assign#getVariable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Variable</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Param_Assign#getVariable()
+   * @see #getParam_Assign()
+   * @generated
+   */
+  EReference getParam_Assign_Variable();
+
+  /**
    * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Named_Value <em>Named Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8027,17 +8132,6 @@ public interface StLanguagePackage extends EPackage
    * @generated
    */
   EClass getNamed_Value();
-
-  /**
-   * Returns the meta object for the reference '{@link at.bachmann.plc.st.stLanguage.Named_Value#getVariable <em>Variable</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Variable</em>'.
-   * @see at.bachmann.plc.st.stLanguage.Named_Value#getVariable()
-   * @see #getNamed_Value()
-   * @generated
-   */
-  EReference getNamed_Value_Variable();
 
   /**
    * Returns the meta object for the containment reference '{@link at.bachmann.plc.st.stLanguage.Named_Value#getValue <em>Value</em>}'.
@@ -8083,15 +8177,25 @@ public interface StLanguagePackage extends EPackage
   EReference getLinked_Value_Value();
 
   /**
-   * Returns the meta object for the reference '{@link at.bachmann.plc.st.stLanguage.Linked_Value#getVariable <em>Variable</em>}'.
+   * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.InRef_Assign <em>In Ref Assign</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Variable</em>'.
-   * @see at.bachmann.plc.st.stLanguage.Linked_Value#getVariable()
-   * @see #getLinked_Value()
+   * @return the meta object for class '<em>In Ref Assign</em>'.
+   * @see at.bachmann.plc.st.stLanguage.InRef_Assign
    * @generated
    */
-  EReference getLinked_Value_Variable();
+  EClass getInRef_Assign();
+
+  /**
+   * Returns the meta object for the reference '{@link at.bachmann.plc.st.stLanguage.InRef_Assign#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Value</em>'.
+   * @see at.bachmann.plc.st.stLanguage.InRef_Assign#getValue()
+   * @see #getInRef_Assign()
+   * @generated
+   */
+  EReference getInRef_Assign_Value();
 
   /**
    * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Selection_Stmt <em>Selection Stmt</em>}'.
@@ -8825,24 +8929,6 @@ public interface StLanguagePackage extends EPackage
     EReference STRUCT_DECL__ELEMENTS = eINSTANCE.getStruct_Decl_Elements();
 
     /**
-     * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.Variable_DeclImpl <em>Variable Decl</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see at.bachmann.plc.st.stLanguage.impl.Variable_DeclImpl
-     * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getVariable_Decl()
-     * @generated
-     */
-    EClass VARIABLE_DECL = eINSTANCE.getVariable_Decl();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute VARIABLE_DECL__NAME = eINSTANCE.getVariable_Decl_Name();
-
-    /**
      * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.Type_DeclImpl <em>Type Decl</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8851,6 +8937,14 @@ public interface StLanguagePackage extends EPackage
      * @generated
      */
     EClass TYPE_DECL = eINSTANCE.getType_Decl();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE_DECL__NAME = eINSTANCE.getType_Decl_Name();
 
     /**
      * The meta object literal for the '<em><b>Initialization</b></em>' containment reference feature.
@@ -9005,6 +9099,24 @@ public interface StLanguagePackage extends EPackage
     EReference ENUM_SPEC_INIT__VALUE = eINSTANCE.getEnum_Spec_Init_Value();
 
     /**
+     * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.Enum_ValueImpl <em>Enum Value</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.bachmann.plc.st.stLanguage.impl.Enum_ValueImpl
+     * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getEnum_Value()
+     * @generated
+     */
+    EClass ENUM_VALUE = eINSTANCE.getEnum_Value();
+
+    /**
+     * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENUM_VALUE__VARIABLE = eINSTANCE.getEnum_Value_Variable();
+
+    /**
      * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.VariableImpl <em>Variable</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -9015,28 +9127,12 @@ public interface StLanguagePackage extends EPackage
     EClass VARIABLE = eINSTANCE.getVariable();
 
     /**
-     * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference VARIABLE__VARIABLE = eINSTANCE.getVariable_Variable();
-
-    /**
-     * The meta object literal for the '<em><b>Initial Value</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute VARIABLE__INITIAL_VALUE = eINSTANCE.getVariable_InitialValue();
-
-    /**
-     * The meta object literal for the '<em><b>Initialization</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference VARIABLE__INITIALIZATION = eINSTANCE.getVariable_Initialization();
+    EAttribute VARIABLE__NAME = eINSTANCE.getVariable_Name();
 
     /**
      * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.Variable_AddressImpl <em>Variable Address</em>}' class.
@@ -9117,12 +9213,126 @@ public interface StLanguagePackage extends EPackage
     EClass REF_VALUE = eINSTANCE.getRef_Value();
 
     /**
-     * The meta object literal for the '<em><b>Variable</b></em>' containment reference feature.
+     * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.Null_RefImpl <em>Null Ref</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.bachmann.plc.st.stLanguage.impl.Null_RefImpl
+     * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getNull_Ref()
+     * @generated
+     */
+    EClass NULL_REF = eINSTANCE.getNull_Ref();
+
+    /**
+     * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.Ref_AddrImpl <em>Ref Addr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.bachmann.plc.st.stLanguage.impl.Ref_AddrImpl
+     * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getRef_Addr()
+     * @generated
+     */
+    EClass REF_ADDR = eINSTANCE.getRef_Addr();
+
+    /**
+     * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference REF_VALUE__VARIABLE = eINSTANCE.getRef_Value_Variable();
+    EReference REF_ADDR__VARIABLE = eINSTANCE.getRef_Addr_Variable();
+
+    /**
+     * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.Ref_AssignImpl <em>Ref Assign</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.bachmann.plc.st.stLanguage.impl.Ref_AssignImpl
+     * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getRef_Assign()
+     * @generated
+     */
+    EClass REF_ASSIGN = eINSTANCE.getRef_Assign();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REF_ASSIGN__VALUE = eINSTANCE.getRef_Assign_Value();
+
+    /**
+     * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.Ref_DerefImpl <em>Ref Deref</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.bachmann.plc.st.stLanguage.impl.Ref_DerefImpl
+     * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getRef_Deref()
+     * @generated
+     */
+    EClass REF_DEREF = eINSTANCE.getRef_Deref();
+
+    /**
+     * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.Inline_VariableImpl <em>Inline Variable</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.bachmann.plc.st.stLanguage.impl.Inline_VariableImpl
+     * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getInline_Variable()
+     * @generated
+     */
+    EClass INLINE_VARIABLE = eINSTANCE.getInline_Variable();
+
+    /**
+     * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.Symbolic_VariableImpl <em>Symbolic Variable</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.bachmann.plc.st.stLanguage.impl.Symbolic_VariableImpl
+     * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getSymbolic_Variable()
+     * @generated
+     */
+    EClass SYMBOLIC_VARIABLE = eINSTANCE.getSymbolic_Variable();
+
+    /**
+     * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.Var_AccessImpl <em>Var Access</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.bachmann.plc.st.stLanguage.impl.Var_AccessImpl
+     * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getVar_Access()
+     * @generated
+     */
+    EClass VAR_ACCESS = eINSTANCE.getVar_Access();
+
+    /**
+     * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VAR_ACCESS__VARIABLE = eINSTANCE.getVar_Access_Variable();
+
+    /**
+     * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.Named_VariableImpl <em>Named Variable</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.bachmann.plc.st.stLanguage.impl.Named_VariableImpl
+     * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getNamed_Variable()
+     * @generated
+     */
+    EClass NAMED_VARIABLE = eINSTANCE.getNamed_Variable();
+
+    /**
+     * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.Direct_VariableImpl <em>Direct Variable</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.bachmann.plc.st.stLanguage.impl.Direct_VariableImpl
+     * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getDirect_Variable()
+     * @generated
+     */
+    EClass DIRECT_VARIABLE = eINSTANCE.getDirect_Variable();
+
+    /**
+     * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DIRECT_VARIABLE__VARIABLE = eINSTANCE.getDirect_Variable_Variable();
 
     /**
      * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.Input_DeclsImpl <em>Input Decls</em>}' class.
@@ -9231,12 +9441,12 @@ public interface StLanguagePackage extends EPackage
     EClass VARIABLE_LIST = eINSTANCE.getVariable_List();
 
     /**
-     * The meta object literal for the '<em><b>Names</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Variables</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute VARIABLE_LIST__NAMES = eINSTANCE.getVariable_List_Names();
+    EReference VARIABLE_LIST__VARIABLES = eINSTANCE.getVariable_List_Variables();
 
     /**
      * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.Output_DeclsImpl <em>Output Decls</em>}' class.
@@ -9697,12 +9907,12 @@ public interface StLanguagePackage extends EPackage
     EClass FUNC_DECL = eINSTANCE.getFunc_Decl();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FUNC_DECL__NAME = eINSTANCE.getFunc_Decl_Name();
+    EReference FUNC_DECL__NAME = eINSTANCE.getFunc_Decl_Name();
 
     /**
      * The meta object literal for the '<em><b>Return Type</b></em>' attribute feature.
@@ -9751,6 +9961,24 @@ public interface StLanguagePackage extends EPackage
      * @generated
      */
     EReference FUNC_DECL__BODY = eINSTANCE.getFunc_Decl_Body();
+
+    /**
+     * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.FunctionImpl <em>Function</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.bachmann.plc.st.stLanguage.impl.FunctionImpl
+     * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getFunction()
+     * @generated
+     */
+    EClass FUNCTION = eINSTANCE.getFunction();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FUNCTION__NAME = eINSTANCE.getFunction_Name();
 
     /**
      * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.IO_Var_DeclsImpl <em>IO Var Decls</em>}' class.
@@ -9809,12 +10037,12 @@ public interface StLanguagePackage extends EPackage
     EAttribute FB_DECL__MODIFIER = eINSTANCE.getFB_Decl_Modifier();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FB_DECL__NAME = eINSTANCE.getFB_Decl_Name();
+    EReference FB_DECL__NAME = eINSTANCE.getFB_Decl_Name();
 
     /**
      * The meta object literal for the '<em><b>Usings</b></em>' containment reference list feature.
@@ -9879,6 +10107,24 @@ public interface StLanguagePackage extends EPackage
      * @generated
      */
     EReference FB_DECL__BODY = eINSTANCE.getFB_Decl_Body();
+
+    /**
+     * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.FunctionBlockImpl <em>Function Block</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.bachmann.plc.st.stLanguage.impl.FunctionBlockImpl
+     * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getFunctionBlock()
+     * @generated
+     */
+    EClass FUNCTION_BLOCK = eINSTANCE.getFunctionBlock();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FUNCTION_BLOCK__NAME = eINSTANCE.getFunctionBlock_Name();
 
     /**
      * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.FB_IO_Var_DeclsImpl <em>FB IO Var Decls</em>}' class.
@@ -10023,12 +10269,12 @@ public interface StLanguagePackage extends EPackage
     EAttribute METHOD_DECL__OVERRIDE = eINSTANCE.getMethod_Decl_Override();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute METHOD_DECL__NAME = eINSTANCE.getMethod_Decl_Name();
+    EReference METHOD_DECL__NAME = eINSTANCE.getMethod_Decl_Name();
 
     /**
      * The meta object literal for the '<em><b>Return Type</b></em>' attribute feature.
@@ -10089,12 +10335,12 @@ public interface StLanguagePackage extends EPackage
     EAttribute CLASS_DECL__MODIFIER = eINSTANCE.getClass_Decl_Modifier();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Class</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CLASS_DECL__NAME = eINSTANCE.getClass_Decl_Name();
+    EReference CLASS_DECL__CLASS = eINSTANCE.getClass_Decl_Class();
 
     /**
      * The meta object literal for the '<em><b>Usings</b></em>' containment reference list feature.
@@ -10137,6 +10383,24 @@ public interface StLanguagePackage extends EPackage
     EReference CLASS_DECL__METHODS = eINSTANCE.getClass_Decl_Methods();
 
     /**
+     * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.ClassImpl <em>Class</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.bachmann.plc.st.stLanguage.impl.ClassImpl
+     * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getClass_()
+     * @generated
+     */
+    EClass CLASS = eINSTANCE.getClass_();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CLASS__NAME = eINSTANCE.getClass_Name();
+
+    /**
      * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.Interface_DeclImpl <em>Interface Decl</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -10147,12 +10411,12 @@ public interface StLanguagePackage extends EPackage
     EClass INTERFACE_DECL = eINSTANCE.getInterface_Decl();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Interface</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute INTERFACE_DECL__NAME = eINSTANCE.getInterface_Decl_Name();
+    EReference INTERFACE_DECL__INTERFACE = eINSTANCE.getInterface_Decl_Interface();
 
     /**
      * The meta object literal for the '<em><b>Usings</b></em>' containment reference list feature.
@@ -10179,6 +10443,24 @@ public interface StLanguagePackage extends EPackage
     EReference INTERFACE_DECL__METHODS = eINSTANCE.getInterface_Decl_Methods();
 
     /**
+     * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.InterfaceImpl <em>Interface</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.bachmann.plc.st.stLanguage.impl.InterfaceImpl
+     * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getInterface()
+     * @generated
+     */
+    EClass INTERFACE = eINSTANCE.getInterface();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INTERFACE__NAME = eINSTANCE.getInterface_Name();
+
+    /**
      * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.Method_PrototypeImpl <em>Method Prototype</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -10189,12 +10471,12 @@ public interface StLanguagePackage extends EPackage
     EClass METHOD_PROTOTYPE = eINSTANCE.getMethod_Prototype();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Method</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute METHOD_PROTOTYPE__NAME = eINSTANCE.getMethod_Prototype_Name();
+    EReference METHOD_PROTOTYPE__METHOD = eINSTANCE.getMethod_Prototype_Method();
 
     /**
      * The meta object literal for the '<em><b>Return Type</b></em>' attribute feature.
@@ -10211,6 +10493,24 @@ public interface StLanguagePackage extends EPackage
      * @generated
      */
     EReference METHOD_PROTOTYPE__IOS = eINSTANCE.getMethod_Prototype_Ios();
+
+    /**
+     * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.MethodImpl <em>Method</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.bachmann.plc.st.stLanguage.impl.MethodImpl
+     * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getMethod()
+     * @generated
+     */
+    EClass METHOD = eINSTANCE.getMethod();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute METHOD__NAME = eINSTANCE.getMethod_Name();
 
     /**
      * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.Interface_Name_ListImpl <em>Interface Name List</em>}' class.
@@ -10241,12 +10541,12 @@ public interface StLanguagePackage extends EPackage
     EClass PROG_DECL = eINSTANCE.getProg_Decl();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Program</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PROG_DECL__NAME = eINSTANCE.getProg_Decl_Name();
+    EReference PROG_DECL__PROGRAM = eINSTANCE.getProg_Decl_Program();
 
     /**
      * The meta object literal for the '<em><b>Ios</b></em>' containment reference list feature.
@@ -10273,6 +10573,24 @@ public interface StLanguagePackage extends EPackage
     EReference PROG_DECL__BODY = eINSTANCE.getProg_Decl_Body();
 
     /**
+     * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.ProgramImpl <em>Program</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.bachmann.plc.st.stLanguage.impl.ProgramImpl
+     * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getProgram()
+     * @generated
+     */
+    EClass PROGRAM = eINSTANCE.getProgram();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROGRAM__NAME = eINSTANCE.getProgram_Name();
+
+    /**
      * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.Namespace_DeclImpl <em>Namespace Decl</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -10291,12 +10609,12 @@ public interface StLanguagePackage extends EPackage
     EAttribute NAMESPACE_DECL__INTERNAL = eINSTANCE.getNamespace_Decl_Internal();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute NAMESPACE_DECL__NAME = eINSTANCE.getNamespace_Decl_Name();
+    EReference NAMESPACE_DECL__NAME = eINSTANCE.getNamespace_Decl_Name();
 
     /**
      * The meta object literal for the '<em><b>Usings</b></em>' containment reference list feature.
@@ -10313,6 +10631,24 @@ public interface StLanguagePackage extends EPackage
      * @generated
      */
     EReference NAMESPACE_DECL__ELEMENTS = eINSTANCE.getNamespace_Decl_Elements();
+
+    /**
+     * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.NamespaceImpl <em>Namespace</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.bachmann.plc.st.stLanguage.impl.NamespaceImpl
+     * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getNamespace()
+     * @generated
+     */
+    EClass NAMESPACE = eINSTANCE.getNamespace();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NAMESPACE__NAME = eINSTANCE.getNamespace_Name();
 
     /**
      * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.Namespace_ElementsImpl <em>Namespace Elements</em>}' class.
@@ -10519,6 +10855,14 @@ public interface StLanguagePackage extends EPackage
     EClass ASSIGN_STMT = eINSTANCE.getAssign_Stmt();
 
     /**
+     * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ASSIGN_STMT__VARIABLE = eINSTANCE.getAssign_Stmt_Variable();
+
+    /**
      * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.Variable_Assign_StmtImpl <em>Variable Assign Stmt</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -10527,14 +10871,6 @@ public interface StLanguagePackage extends EPackage
      * @generated
      */
     EClass VARIABLE_ASSIGN_STMT = eINSTANCE.getVariable_Assign_Stmt();
-
-    /**
-     * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference VARIABLE_ASSIGN_STMT__VARIABLE = eINSTANCE.getVariable_Assign_Stmt_Variable();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
@@ -10555,14 +10891,6 @@ public interface StLanguagePackage extends EPackage
     EClass ASSIGNMENT_ATTEMPT = eINSTANCE.getAssignment_Attempt();
 
     /**
-     * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ASSIGNMENT_ATTEMPT__VARIABLE = eINSTANCE.getAssignment_Attempt_Variable();
-
-    /**
      * The meta object literal for the '<em><b>Value</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -10581,6 +10909,14 @@ public interface StLanguagePackage extends EPackage
     EClass PARAM_ASSIGN = eINSTANCE.getParam_Assign();
 
     /**
+     * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARAM_ASSIGN__VARIABLE = eINSTANCE.getParam_Assign_Variable();
+
+    /**
      * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.Named_ValueImpl <em>Named Value</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -10589,14 +10925,6 @@ public interface StLanguagePackage extends EPackage
      * @generated
      */
     EClass NAMED_VALUE = eINSTANCE.getNamed_Value();
-
-    /**
-     * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference NAMED_VALUE__VARIABLE = eINSTANCE.getNamed_Value_Variable();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
@@ -10633,12 +10961,22 @@ public interface StLanguagePackage extends EPackage
     EReference LINKED_VALUE__VALUE = eINSTANCE.getLinked_Value_Value();
 
     /**
-     * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
+     * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.InRef_AssignImpl <em>In Ref Assign</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.bachmann.plc.st.stLanguage.impl.InRef_AssignImpl
+     * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getInRef_Assign()
+     * @generated
+     */
+    EClass IN_REF_ASSIGN = eINSTANCE.getInRef_Assign();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference LINKED_VALUE__VARIABLE = eINSTANCE.getLinked_Value_Variable();
+    EReference IN_REF_ASSIGN__VALUE = eINSTANCE.getInRef_Assign_Value();
 
     /**
      * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.Selection_StmtImpl <em>Selection Stmt</em>}' class.

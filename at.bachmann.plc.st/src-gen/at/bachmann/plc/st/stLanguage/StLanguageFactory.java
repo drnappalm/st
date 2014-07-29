@@ -194,15 +194,6 @@ public interface StLanguageFactory extends EFactory
   Struct_Decl createStruct_Decl();
 
   /**
-   * Returns a new object of class '<em>Variable Decl</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Variable Decl</em>'.
-   * @generated
-   */
-  Variable_Decl createVariable_Decl();
-
-  /**
    * Returns a new object of class '<em>Type Decl</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -248,6 +239,15 @@ public interface StLanguageFactory extends EFactory
   Enum_Spec_Init createEnum_Spec_Init();
 
   /**
+   * Returns a new object of class '<em>Enum Value</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Enum Value</em>'.
+   * @generated
+   */
+  Enum_Value createEnum_Value();
+
+  /**
    * Returns a new object of class '<em>Variable</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -282,6 +282,87 @@ public interface StLanguageFactory extends EFactory
    * @generated
    */
   Ref_Value createRef_Value();
+
+  /**
+   * Returns a new object of class '<em>Null Ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Null Ref</em>'.
+   * @generated
+   */
+  Null_Ref createNull_Ref();
+
+  /**
+   * Returns a new object of class '<em>Ref Addr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ref Addr</em>'.
+   * @generated
+   */
+  Ref_Addr createRef_Addr();
+
+  /**
+   * Returns a new object of class '<em>Ref Assign</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ref Assign</em>'.
+   * @generated
+   */
+  Ref_Assign createRef_Assign();
+
+  /**
+   * Returns a new object of class '<em>Ref Deref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ref Deref</em>'.
+   * @generated
+   */
+  Ref_Deref createRef_Deref();
+
+  /**
+   * Returns a new object of class '<em>Inline Variable</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Inline Variable</em>'.
+   * @generated
+   */
+  Inline_Variable createInline_Variable();
+
+  /**
+   * Returns a new object of class '<em>Symbolic Variable</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Symbolic Variable</em>'.
+   * @generated
+   */
+  Symbolic_Variable createSymbolic_Variable();
+
+  /**
+   * Returns a new object of class '<em>Var Access</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Var Access</em>'.
+   * @generated
+   */
+  Var_Access createVar_Access();
+
+  /**
+   * Returns a new object of class '<em>Named Variable</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Named Variable</em>'.
+   * @generated
+   */
+  Named_Variable createNamed_Variable();
+
+  /**
+   * Returns a new object of class '<em>Direct Variable</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Direct Variable</em>'.
+   * @generated
+   */
+  Direct_Variable createDirect_Variable();
 
   /**
    * Returns a new object of class '<em>Input Decls</em>'.
@@ -518,6 +599,15 @@ public interface StLanguageFactory extends EFactory
   Func_Decl createFunc_Decl();
 
   /**
+   * Returns a new object of class '<em>Function</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Function</em>'.
+   * @generated
+   */
+  Function createFunction();
+
+  /**
    * Returns a new object of class '<em>IO Var Decls</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -552,6 +642,15 @@ public interface StLanguageFactory extends EFactory
    * @generated
    */
   FB_Decl createFB_Decl();
+
+  /**
+   * Returns a new object of class '<em>Function Block</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Function Block</em>'.
+   * @generated
+   */
+  FunctionBlock createFunctionBlock();
 
   /**
    * Returns a new object of class '<em>FB IO Var Decls</em>'.
@@ -626,6 +725,15 @@ public interface StLanguageFactory extends EFactory
   Class_Decl createClass_Decl();
 
   /**
+   * Returns a new object of class '<em>Class</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Class</em>'.
+   * @generated
+   */
+  Class createClass();
+
+  /**
    * Returns a new object of class '<em>Interface Decl</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -635,6 +743,15 @@ public interface StLanguageFactory extends EFactory
   Interface_Decl createInterface_Decl();
 
   /**
+   * Returns a new object of class '<em>Interface</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Interface</em>'.
+   * @generated
+   */
+  Interface createInterface();
+
+  /**
    * Returns a new object of class '<em>Method Prototype</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -642,6 +759,15 @@ public interface StLanguageFactory extends EFactory
    * @generated
    */
   Method_Prototype createMethod_Prototype();
+
+  /**
+   * Returns a new object of class '<em>Method</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Method</em>'.
+   * @generated
+   */
+  Method createMethod();
 
   /**
    * Returns a new object of class '<em>Interface Name List</em>'.
@@ -662,6 +788,15 @@ public interface StLanguageFactory extends EFactory
   Prog_Decl createProg_Decl();
 
   /**
+   * Returns a new object of class '<em>Program</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Program</em>'.
+   * @generated
+   */
+  Program createProgram();
+
+  /**
    * Returns a new object of class '<em>Namespace Decl</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -669,6 +804,15 @@ public interface StLanguageFactory extends EFactory
    * @generated
    */
   Namespace_Decl createNamespace_Decl();
+
+  /**
+   * Returns a new object of class '<em>Namespace</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Namespace</em>'.
+   * @generated
+   */
+  Namespace createNamespace();
 
   /**
    * Returns a new object of class '<em>Namespace Elements</em>'.
@@ -804,6 +948,15 @@ public interface StLanguageFactory extends EFactory
    * @generated
    */
   Linked_Value createLinked_Value();
+
+  /**
+   * Returns a new object of class '<em>In Ref Assign</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>In Ref Assign</em>'.
+   * @generated
+   */
+  InRef_Assign createInRef_Assign();
 
   /**
    * Returns a new object of class '<em>Selection Stmt</em>'.

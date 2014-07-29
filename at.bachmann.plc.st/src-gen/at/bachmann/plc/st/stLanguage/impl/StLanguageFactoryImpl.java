@@ -2,7 +2,133 @@
  */
 package at.bachmann.plc.st.stLanguage.impl;
 
-import at.bachmann.plc.st.stLanguage.*;
+import at.bachmann.plc.st.stLanguage.Add_Expr;
+import at.bachmann.plc.st.stLanguage.And_Expr;
+import at.bachmann.plc.st.stLanguage.Assign_Stmt;
+import at.bachmann.plc.st.stLanguage.Assignment_Attempt;
+import at.bachmann.plc.st.stLanguage.Bit_Str_Literal;
+import at.bachmann.plc.st.stLanguage.Bool_Literal;
+import at.bachmann.plc.st.stLanguage.Callable;
+import at.bachmann.plc.st.stLanguage.Case_List;
+import at.bachmann.plc.st.stLanguage.Case_List_Elem;
+import at.bachmann.plc.st.stLanguage.Case_Selection;
+import at.bachmann.plc.st.stLanguage.Case_Stmt;
+import at.bachmann.plc.st.stLanguage.Char_Literal;
+import at.bachmann.plc.st.stLanguage.Class_Decl;
+import at.bachmann.plc.st.stLanguage.Compare_Expr;
+import at.bachmann.plc.st.stLanguage.Constant;
+import at.bachmann.plc.st.stLanguage.Constant_Expr;
+import at.bachmann.plc.st.stLanguage.Continue_Stmt;
+import at.bachmann.plc.st.stLanguage.D_Byte_Str_Spec;
+import at.bachmann.plc.st.stLanguage.D_Byte_Str_Var_Decl;
+import at.bachmann.plc.st.stLanguage.Data_Type_Decl;
+import at.bachmann.plc.st.stLanguage.Date;
+import at.bachmann.plc.st.stLanguage.Date_And_Time;
+import at.bachmann.plc.st.stLanguage.Daytime;
+import at.bachmann.plc.st.stLanguage.Direct_Variable;
+import at.bachmann.plc.st.stLanguage.Duration;
+import at.bachmann.plc.st.stLanguage.ELSEIF_Stmt;
+import at.bachmann.plc.st.stLanguage.ELSE_Stmt;
+import at.bachmann.plc.st.stLanguage.Enum_Spec_Init;
+import at.bachmann.plc.st.stLanguage.Enum_Value;
+import at.bachmann.plc.st.stLanguage.Equ_Expr;
+import at.bachmann.plc.st.stLanguage.Exit_Stmt;
+import at.bachmann.plc.st.stLanguage.Expression;
+import at.bachmann.plc.st.stLanguage.External_Decl;
+import at.bachmann.plc.st.stLanguage.External_Var_Decls;
+import at.bachmann.plc.st.stLanguage.FB_Body;
+import at.bachmann.plc.st.stLanguage.FB_Decl;
+import at.bachmann.plc.st.stLanguage.FB_IO_Var_Decls;
+import at.bachmann.plc.st.stLanguage.FB_Input_Decl;
+import at.bachmann.plc.st.stLanguage.FB_Input_Decls;
+import at.bachmann.plc.st.stLanguage.FB_Output_Decl;
+import at.bachmann.plc.st.stLanguage.FB_Output_Decls;
+import at.bachmann.plc.st.stLanguage.For_List;
+import at.bachmann.plc.st.stLanguage.For_Stmt;
+import at.bachmann.plc.st.stLanguage.Func_Body;
+import at.bachmann.plc.st.stLanguage.Func_Decl;
+import at.bachmann.plc.st.stLanguage.Func_Var_Decls;
+import at.bachmann.plc.st.stLanguage.Function;
+import at.bachmann.plc.st.stLanguage.FunctionBlock;
+import at.bachmann.plc.st.stLanguage.Global_Var_Decl;
+import at.bachmann.plc.st.stLanguage.Global_Var_Decls;
+import at.bachmann.plc.st.stLanguage.Global_Var_Spec;
+import at.bachmann.plc.st.stLanguage.IF_Stmt;
+import at.bachmann.plc.st.stLanguage.IO_Var_Decls;
+import at.bachmann.plc.st.stLanguage.InRef_Assign;
+import at.bachmann.plc.st.stLanguage.In_Out_Decls;
+import at.bachmann.plc.st.stLanguage.In_Out_Var_Decl;
+import at.bachmann.plc.st.stLanguage.Inline_Variable;
+import at.bachmann.plc.st.stLanguage.Input_Decl;
+import at.bachmann.plc.st.stLanguage.Input_Decls;
+import at.bachmann.plc.st.stLanguage.Int_Literal;
+import at.bachmann.plc.st.stLanguage.Interface;
+import at.bachmann.plc.st.stLanguage.Interface_Decl;
+import at.bachmann.plc.st.stLanguage.Interface_Name_List;
+import at.bachmann.plc.st.stLanguage.Interface_Var_Decl;
+import at.bachmann.plc.st.stLanguage.Iteration_Stmt;
+import at.bachmann.plc.st.stLanguage.Linked_Value;
+import at.bachmann.plc.st.stLanguage.Loc_Var_Decl;
+import at.bachmann.plc.st.stLanguage.Loc_Var_Spec_Init;
+import at.bachmann.plc.st.stLanguage.Located_At;
+import at.bachmann.plc.st.stLanguage.Method;
+import at.bachmann.plc.st.stLanguage.Method_Decl;
+import at.bachmann.plc.st.stLanguage.Method_Prototype;
+import at.bachmann.plc.st.stLanguage.Multibit_Part_Access;
+import at.bachmann.plc.st.stLanguage.Named_Value;
+import at.bachmann.plc.st.stLanguage.Named_Variable;
+import at.bachmann.plc.st.stLanguage.Namespace;
+import at.bachmann.plc.st.stLanguage.Namespace_Decl;
+import at.bachmann.plc.st.stLanguage.Namespace_Elements;
+import at.bachmann.plc.st.stLanguage.Null_Ref;
+import at.bachmann.plc.st.stLanguage.Numeric_Literal;
+import at.bachmann.plc.st.stLanguage.Output_Decl;
+import at.bachmann.plc.st.stLanguage.Output_Decls;
+import at.bachmann.plc.st.stLanguage.POU_Decl;
+import at.bachmann.plc.st.stLanguage.Param_Assign;
+import at.bachmann.plc.st.stLanguage.Power_Expr;
+import at.bachmann.plc.st.stLanguage.Prog_Decl;
+import at.bachmann.plc.st.stLanguage.Program;
+import at.bachmann.plc.st.stLanguage.Real_Literal;
+import at.bachmann.plc.st.stLanguage.Ref_Addr;
+import at.bachmann.plc.st.stLanguage.Ref_Assign;
+import at.bachmann.plc.st.stLanguage.Ref_Deref;
+import at.bachmann.plc.st.stLanguage.Ref_Spec;
+import at.bachmann.plc.st.stLanguage.Ref_Value;
+import at.bachmann.plc.st.stLanguage.Repeat_Stmt;
+import at.bachmann.plc.st.stLanguage.ST;
+import at.bachmann.plc.st.stLanguage.S_Byte_Str_Spec;
+import at.bachmann.plc.st.stLanguage.S_Byte_Str_Var_Decl;
+import at.bachmann.plc.st.stLanguage.Selection_Stmt;
+import at.bachmann.plc.st.stLanguage.Signed_Int;
+import at.bachmann.plc.st.stLanguage.Spec_Init;
+import at.bachmann.plc.st.stLanguage.StLanguageFactory;
+import at.bachmann.plc.st.stLanguage.StLanguagePackage;
+import at.bachmann.plc.st.stLanguage.Stmt;
+import at.bachmann.plc.st.stLanguage.Stmt_List;
+import at.bachmann.plc.st.stLanguage.Str_Type_Decl;
+import at.bachmann.plc.st.stLanguage.Str_Var_Decl;
+import at.bachmann.plc.st.stLanguage.Struct_Decl;
+import at.bachmann.plc.st.stLanguage.Subrange;
+import at.bachmann.plc.st.stLanguage.Symbolic_Variable;
+import at.bachmann.plc.st.stLanguage.Temp_Var_Decls;
+import at.bachmann.plc.st.stLanguage.Term;
+import at.bachmann.plc.st.stLanguage.Time_Literal;
+import at.bachmann.plc.st.stLanguage.Time_Of_Day;
+import at.bachmann.plc.st.stLanguage.Type_Decl;
+import at.bachmann.plc.st.stLanguage.Unsigned_Int;
+import at.bachmann.plc.st.stLanguage.Using_Directive;
+import at.bachmann.plc.st.stLanguage.Var_Access;
+import at.bachmann.plc.st.stLanguage.Var_Decl;
+import at.bachmann.plc.st.stLanguage.Var_Decl_Init;
+import at.bachmann.plc.st.stLanguage.Var_Decls;
+import at.bachmann.plc.st.stLanguage.Variable;
+import at.bachmann.plc.st.stLanguage.Variable_Access;
+import at.bachmann.plc.st.stLanguage.Variable_Address;
+import at.bachmann.plc.st.stLanguage.Variable_Assign_Stmt;
+import at.bachmann.plc.st.stLanguage.Variable_List;
+import at.bachmann.plc.st.stLanguage.While_Stmt;
+import at.bachmann.plc.st.stLanguage.Xor_Expr;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -83,16 +209,25 @@ public class StLanguageFactoryImpl extends EFactoryImpl implements StLanguageFac
       case StLanguagePackage.DATE_AND_TIME: return createDate_And_Time();
       case StLanguagePackage.DATA_TYPE_DECL: return createData_Type_Decl();
       case StLanguagePackage.STRUCT_DECL: return createStruct_Decl();
-      case StLanguagePackage.VARIABLE_DECL: return createVariable_Decl();
       case StLanguagePackage.TYPE_DECL: return createType_Decl();
       case StLanguagePackage.STR_TYPE_DECL: return createStr_Type_Decl();
       case StLanguagePackage.SPEC_INIT: return createSpec_Init();
       case StLanguagePackage.SUBRANGE: return createSubrange();
       case StLanguagePackage.ENUM_SPEC_INIT: return createEnum_Spec_Init();
+      case StLanguagePackage.ENUM_VALUE: return createEnum_Value();
       case StLanguagePackage.VARIABLE: return createVariable();
       case StLanguagePackage.VARIABLE_ADDRESS: return createVariable_Address();
       case StLanguagePackage.REF_SPEC: return createRef_Spec();
       case StLanguagePackage.REF_VALUE: return createRef_Value();
+      case StLanguagePackage.NULL_REF: return createNull_Ref();
+      case StLanguagePackage.REF_ADDR: return createRef_Addr();
+      case StLanguagePackage.REF_ASSIGN: return createRef_Assign();
+      case StLanguagePackage.REF_DEREF: return createRef_Deref();
+      case StLanguagePackage.INLINE_VARIABLE: return createInline_Variable();
+      case StLanguagePackage.SYMBOLIC_VARIABLE: return createSymbolic_Variable();
+      case StLanguagePackage.VAR_ACCESS: return createVar_Access();
+      case StLanguagePackage.NAMED_VARIABLE: return createNamed_Variable();
+      case StLanguagePackage.DIRECT_VARIABLE: return createDirect_Variable();
       case StLanguagePackage.INPUT_DECLS: return createInput_Decls();
       case StLanguagePackage.INPUT_DECL: return createInput_Decl();
       case StLanguagePackage.VAR_DECL_INIT: return createVar_Decl_Init();
@@ -119,10 +254,12 @@ public class StLanguageFactoryImpl extends EFactoryImpl implements StLanguageFac
       case StLanguagePackage.DBYTE_STR_VAR_DECL: return createD_Byte_Str_Var_Decl();
       case StLanguagePackage.DBYTE_STR_SPEC: return createD_Byte_Str_Spec();
       case StLanguagePackage.FUNC_DECL: return createFunc_Decl();
+      case StLanguagePackage.FUNCTION: return createFunction();
       case StLanguagePackage.IO_VAR_DECLS: return createIO_Var_Decls();
       case StLanguagePackage.FUNC_VAR_DECLS: return createFunc_Var_Decls();
       case StLanguagePackage.FUNC_BODY: return createFunc_Body();
       case StLanguagePackage.FB_DECL: return createFB_Decl();
+      case StLanguagePackage.FUNCTION_BLOCK: return createFunctionBlock();
       case StLanguagePackage.FB_IO_VAR_DECLS: return createFB_IO_Var_Decls();
       case StLanguagePackage.FB_INPUT_DECLS: return createFB_Input_Decls();
       case StLanguagePackage.FB_INPUT_DECL: return createFB_Input_Decl();
@@ -131,11 +268,16 @@ public class StLanguageFactoryImpl extends EFactoryImpl implements StLanguageFac
       case StLanguagePackage.FB_BODY: return createFB_Body();
       case StLanguagePackage.METHOD_DECL: return createMethod_Decl();
       case StLanguagePackage.CLASS_DECL: return createClass_Decl();
+      case StLanguagePackage.CLASS: return createClass();
       case StLanguagePackage.INTERFACE_DECL: return createInterface_Decl();
+      case StLanguagePackage.INTERFACE: return createInterface();
       case StLanguagePackage.METHOD_PROTOTYPE: return createMethod_Prototype();
+      case StLanguagePackage.METHOD: return createMethod();
       case StLanguagePackage.INTERFACE_NAME_LIST: return createInterface_Name_List();
       case StLanguagePackage.PROG_DECL: return createProg_Decl();
+      case StLanguagePackage.PROGRAM: return createProgram();
       case StLanguagePackage.NAMESPACE_DECL: return createNamespace_Decl();
+      case StLanguagePackage.NAMESPACE: return createNamespace();
       case StLanguagePackage.NAMESPACE_ELEMENTS: return createNamespace_Elements();
       case StLanguagePackage.USING_DIRECTIVE: return createUsing_Directive();
       case StLanguagePackage.EXPRESSION: return createExpression();
@@ -151,6 +293,7 @@ public class StLanguageFactoryImpl extends EFactoryImpl implements StLanguageFac
       case StLanguagePackage.PARAM_ASSIGN: return createParam_Assign();
       case StLanguagePackage.NAMED_VALUE: return createNamed_Value();
       case StLanguagePackage.LINKED_VALUE: return createLinked_Value();
+      case StLanguagePackage.IN_REF_ASSIGN: return createInRef_Assign();
       case StLanguagePackage.SELECTION_STMT: return createSelection_Stmt();
       case StLanguagePackage.IF_STMT: return createIF_Stmt();
       case StLanguagePackage.ELSEIF_STMT: return createELSEIF_Stmt();
@@ -392,17 +535,6 @@ public class StLanguageFactoryImpl extends EFactoryImpl implements StLanguageFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public Variable_Decl createVariable_Decl()
-  {
-    Variable_DeclImpl variable_Decl = new Variable_DeclImpl();
-    return variable_Decl;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Type_Decl createType_Decl()
   {
     Type_DeclImpl type_Decl = new Type_DeclImpl();
@@ -458,6 +590,17 @@ public class StLanguageFactoryImpl extends EFactoryImpl implements StLanguageFac
    * <!-- end-user-doc -->
    * @generated
    */
+  public Enum_Value createEnum_Value()
+  {
+    Enum_ValueImpl enum_Value = new Enum_ValueImpl();
+    return enum_Value;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Variable createVariable()
   {
     VariableImpl variable = new VariableImpl();
@@ -495,6 +638,105 @@ public class StLanguageFactoryImpl extends EFactoryImpl implements StLanguageFac
   {
     Ref_ValueImpl ref_Value = new Ref_ValueImpl();
     return ref_Value;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Null_Ref createNull_Ref()
+  {
+    Null_RefImpl null_Ref = new Null_RefImpl();
+    return null_Ref;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Ref_Addr createRef_Addr()
+  {
+    Ref_AddrImpl ref_Addr = new Ref_AddrImpl();
+    return ref_Addr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Ref_Assign createRef_Assign()
+  {
+    Ref_AssignImpl ref_Assign = new Ref_AssignImpl();
+    return ref_Assign;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Ref_Deref createRef_Deref()
+  {
+    Ref_DerefImpl ref_Deref = new Ref_DerefImpl();
+    return ref_Deref;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Inline_Variable createInline_Variable()
+  {
+    Inline_VariableImpl inline_Variable = new Inline_VariableImpl();
+    return inline_Variable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Symbolic_Variable createSymbolic_Variable()
+  {
+    Symbolic_VariableImpl symbolic_Variable = new Symbolic_VariableImpl();
+    return symbolic_Variable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Var_Access createVar_Access()
+  {
+    Var_AccessImpl var_Access = new Var_AccessImpl();
+    return var_Access;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Named_Variable createNamed_Variable()
+  {
+    Named_VariableImpl named_Variable = new Named_VariableImpl();
+    return named_Variable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Direct_Variable createDirect_Variable()
+  {
+    Direct_VariableImpl direct_Variable = new Direct_VariableImpl();
+    return direct_Variable;
   }
 
   /**
@@ -788,6 +1030,17 @@ public class StLanguageFactoryImpl extends EFactoryImpl implements StLanguageFac
    * <!-- end-user-doc -->
    * @generated
    */
+  public Function createFunction()
+  {
+    FunctionImpl function = new FunctionImpl();
+    return function;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public IO_Var_Decls createIO_Var_Decls()
   {
     IO_Var_DeclsImpl iO_Var_Decls = new IO_Var_DeclsImpl();
@@ -825,6 +1078,17 @@ public class StLanguageFactoryImpl extends EFactoryImpl implements StLanguageFac
   {
     FB_DeclImpl fB_Decl = new FB_DeclImpl();
     return fB_Decl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FunctionBlock createFunctionBlock()
+  {
+    FunctionBlockImpl functionBlock = new FunctionBlockImpl();
+    return functionBlock;
   }
 
   /**
@@ -920,6 +1184,17 @@ public class StLanguageFactoryImpl extends EFactoryImpl implements StLanguageFac
    * <!-- end-user-doc -->
    * @generated
    */
+  public at.bachmann.plc.st.stLanguage.Class createClass()
+  {
+    ClassImpl class_ = new ClassImpl();
+    return class_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Interface_Decl createInterface_Decl()
   {
     Interface_DeclImpl interface_Decl = new Interface_DeclImpl();
@@ -931,10 +1206,32 @@ public class StLanguageFactoryImpl extends EFactoryImpl implements StLanguageFac
    * <!-- end-user-doc -->
    * @generated
    */
+  public Interface createInterface()
+  {
+    InterfaceImpl interface_ = new InterfaceImpl();
+    return interface_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Method_Prototype createMethod_Prototype()
   {
     Method_PrototypeImpl method_Prototype = new Method_PrototypeImpl();
     return method_Prototype;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Method createMethod()
+  {
+    MethodImpl method = new MethodImpl();
+    return method;
   }
 
   /**
@@ -964,10 +1261,32 @@ public class StLanguageFactoryImpl extends EFactoryImpl implements StLanguageFac
    * <!-- end-user-doc -->
    * @generated
    */
+  public Program createProgram()
+  {
+    ProgramImpl program = new ProgramImpl();
+    return program;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Namespace_Decl createNamespace_Decl()
   {
     Namespace_DeclImpl namespace_Decl = new Namespace_DeclImpl();
     return namespace_Decl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Namespace createNamespace()
+  {
+    NamespaceImpl namespace = new NamespaceImpl();
+    return namespace;
   }
 
   /**
@@ -1133,6 +1452,17 @@ public class StLanguageFactoryImpl extends EFactoryImpl implements StLanguageFac
   {
     Linked_ValueImpl linked_Value = new Linked_ValueImpl();
     return linked_Value;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public InRef_Assign createInRef_Assign()
+  {
+    InRef_AssignImpl inRef_Assign = new InRef_AssignImpl();
+    return inRef_Assign;
   }
 
   /**

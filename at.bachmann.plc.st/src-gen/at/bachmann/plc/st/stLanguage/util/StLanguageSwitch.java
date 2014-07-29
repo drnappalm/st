@@ -2,7 +2,132 @@
  */
 package at.bachmann.plc.st.stLanguage.util;
 
-import at.bachmann.plc.st.stLanguage.*;
+import at.bachmann.plc.st.stLanguage.Add_Expr;
+import at.bachmann.plc.st.stLanguage.And_Expr;
+import at.bachmann.plc.st.stLanguage.Assign_Stmt;
+import at.bachmann.plc.st.stLanguage.Assignment_Attempt;
+import at.bachmann.plc.st.stLanguage.Bit_Str_Literal;
+import at.bachmann.plc.st.stLanguage.Bool_Literal;
+import at.bachmann.plc.st.stLanguage.Callable;
+import at.bachmann.plc.st.stLanguage.Case_List;
+import at.bachmann.plc.st.stLanguage.Case_List_Elem;
+import at.bachmann.plc.st.stLanguage.Case_Selection;
+import at.bachmann.plc.st.stLanguage.Case_Stmt;
+import at.bachmann.plc.st.stLanguage.Char_Literal;
+import at.bachmann.plc.st.stLanguage.Class_Decl;
+import at.bachmann.plc.st.stLanguage.Compare_Expr;
+import at.bachmann.plc.st.stLanguage.Constant;
+import at.bachmann.plc.st.stLanguage.Constant_Expr;
+import at.bachmann.plc.st.stLanguage.Continue_Stmt;
+import at.bachmann.plc.st.stLanguage.D_Byte_Str_Spec;
+import at.bachmann.plc.st.stLanguage.D_Byte_Str_Var_Decl;
+import at.bachmann.plc.st.stLanguage.Data_Type_Decl;
+import at.bachmann.plc.st.stLanguage.Date;
+import at.bachmann.plc.st.stLanguage.Date_And_Time;
+import at.bachmann.plc.st.stLanguage.Daytime;
+import at.bachmann.plc.st.stLanguage.Direct_Variable;
+import at.bachmann.plc.st.stLanguage.Duration;
+import at.bachmann.plc.st.stLanguage.ELSEIF_Stmt;
+import at.bachmann.plc.st.stLanguage.ELSE_Stmt;
+import at.bachmann.plc.st.stLanguage.Enum_Spec_Init;
+import at.bachmann.plc.st.stLanguage.Enum_Value;
+import at.bachmann.plc.st.stLanguage.Equ_Expr;
+import at.bachmann.plc.st.stLanguage.Exit_Stmt;
+import at.bachmann.plc.st.stLanguage.Expression;
+import at.bachmann.plc.st.stLanguage.External_Decl;
+import at.bachmann.plc.st.stLanguage.External_Var_Decls;
+import at.bachmann.plc.st.stLanguage.FB_Body;
+import at.bachmann.plc.st.stLanguage.FB_Decl;
+import at.bachmann.plc.st.stLanguage.FB_IO_Var_Decls;
+import at.bachmann.plc.st.stLanguage.FB_Input_Decl;
+import at.bachmann.plc.st.stLanguage.FB_Input_Decls;
+import at.bachmann.plc.st.stLanguage.FB_Output_Decl;
+import at.bachmann.plc.st.stLanguage.FB_Output_Decls;
+import at.bachmann.plc.st.stLanguage.For_List;
+import at.bachmann.plc.st.stLanguage.For_Stmt;
+import at.bachmann.plc.st.stLanguage.Func_Body;
+import at.bachmann.plc.st.stLanguage.Func_Decl;
+import at.bachmann.plc.st.stLanguage.Func_Var_Decls;
+import at.bachmann.plc.st.stLanguage.Function;
+import at.bachmann.plc.st.stLanguage.FunctionBlock;
+import at.bachmann.plc.st.stLanguage.Global_Var_Decl;
+import at.bachmann.plc.st.stLanguage.Global_Var_Decls;
+import at.bachmann.plc.st.stLanguage.Global_Var_Spec;
+import at.bachmann.plc.st.stLanguage.IF_Stmt;
+import at.bachmann.plc.st.stLanguage.IO_Var_Decls;
+import at.bachmann.plc.st.stLanguage.InRef_Assign;
+import at.bachmann.plc.st.stLanguage.In_Out_Decls;
+import at.bachmann.plc.st.stLanguage.In_Out_Var_Decl;
+import at.bachmann.plc.st.stLanguage.Inline_Variable;
+import at.bachmann.plc.st.stLanguage.Input_Decl;
+import at.bachmann.plc.st.stLanguage.Input_Decls;
+import at.bachmann.plc.st.stLanguage.Int_Literal;
+import at.bachmann.plc.st.stLanguage.Interface;
+import at.bachmann.plc.st.stLanguage.Interface_Decl;
+import at.bachmann.plc.st.stLanguage.Interface_Name_List;
+import at.bachmann.plc.st.stLanguage.Interface_Var_Decl;
+import at.bachmann.plc.st.stLanguage.Iteration_Stmt;
+import at.bachmann.plc.st.stLanguage.Linked_Value;
+import at.bachmann.plc.st.stLanguage.Loc_Var_Decl;
+import at.bachmann.plc.st.stLanguage.Loc_Var_Spec_Init;
+import at.bachmann.plc.st.stLanguage.Located_At;
+import at.bachmann.plc.st.stLanguage.Method;
+import at.bachmann.plc.st.stLanguage.Method_Decl;
+import at.bachmann.plc.st.stLanguage.Method_Prototype;
+import at.bachmann.plc.st.stLanguage.Multibit_Part_Access;
+import at.bachmann.plc.st.stLanguage.Named_Value;
+import at.bachmann.plc.st.stLanguage.Named_Variable;
+import at.bachmann.plc.st.stLanguage.Namespace;
+import at.bachmann.plc.st.stLanguage.Namespace_Decl;
+import at.bachmann.plc.st.stLanguage.Namespace_Elements;
+import at.bachmann.plc.st.stLanguage.Null_Ref;
+import at.bachmann.plc.st.stLanguage.Numeric_Literal;
+import at.bachmann.plc.st.stLanguage.Output_Decl;
+import at.bachmann.plc.st.stLanguage.Output_Decls;
+import at.bachmann.plc.st.stLanguage.POU_Decl;
+import at.bachmann.plc.st.stLanguage.Param_Assign;
+import at.bachmann.plc.st.stLanguage.Power_Expr;
+import at.bachmann.plc.st.stLanguage.Prog_Decl;
+import at.bachmann.plc.st.stLanguage.Program;
+import at.bachmann.plc.st.stLanguage.Real_Literal;
+import at.bachmann.plc.st.stLanguage.Ref_Addr;
+import at.bachmann.plc.st.stLanguage.Ref_Assign;
+import at.bachmann.plc.st.stLanguage.Ref_Deref;
+import at.bachmann.plc.st.stLanguage.Ref_Spec;
+import at.bachmann.plc.st.stLanguage.Ref_Value;
+import at.bachmann.plc.st.stLanguage.Repeat_Stmt;
+import at.bachmann.plc.st.stLanguage.ST;
+import at.bachmann.plc.st.stLanguage.S_Byte_Str_Spec;
+import at.bachmann.plc.st.stLanguage.S_Byte_Str_Var_Decl;
+import at.bachmann.plc.st.stLanguage.Selection_Stmt;
+import at.bachmann.plc.st.stLanguage.Signed_Int;
+import at.bachmann.plc.st.stLanguage.Spec_Init;
+import at.bachmann.plc.st.stLanguage.StLanguagePackage;
+import at.bachmann.plc.st.stLanguage.Stmt;
+import at.bachmann.plc.st.stLanguage.Stmt_List;
+import at.bachmann.plc.st.stLanguage.Str_Type_Decl;
+import at.bachmann.plc.st.stLanguage.Str_Var_Decl;
+import at.bachmann.plc.st.stLanguage.Struct_Decl;
+import at.bachmann.plc.st.stLanguage.Subrange;
+import at.bachmann.plc.st.stLanguage.Symbolic_Variable;
+import at.bachmann.plc.st.stLanguage.Temp_Var_Decls;
+import at.bachmann.plc.st.stLanguage.Term;
+import at.bachmann.plc.st.stLanguage.Time_Literal;
+import at.bachmann.plc.st.stLanguage.Time_Of_Day;
+import at.bachmann.plc.st.stLanguage.Type_Decl;
+import at.bachmann.plc.st.stLanguage.Unsigned_Int;
+import at.bachmann.plc.st.stLanguage.Using_Directive;
+import at.bachmann.plc.st.stLanguage.Var_Access;
+import at.bachmann.plc.st.stLanguage.Var_Decl;
+import at.bachmann.plc.st.stLanguage.Var_Decl_Init;
+import at.bachmann.plc.st.stLanguage.Var_Decls;
+import at.bachmann.plc.st.stLanguage.Variable;
+import at.bachmann.plc.st.stLanguage.Variable_Access;
+import at.bachmann.plc.st.stLanguage.Variable_Address;
+import at.bachmann.plc.st.stLanguage.Variable_Assign_Stmt;
+import at.bachmann.plc.st.stLanguage.Variable_List;
+import at.bachmann.plc.st.stLanguage.While_Stmt;
+import at.bachmann.plc.st.stLanguage.Xor_Expr;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -272,18 +397,10 @@ public class StLanguageSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case StLanguagePackage.VARIABLE_DECL:
-      {
-        Variable_Decl variable_Decl = (Variable_Decl)theEObject;
-        T result = caseVariable_Decl(variable_Decl);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case StLanguagePackage.TYPE_DECL:
       {
         Type_Decl type_Decl = (Type_Decl)theEObject;
         T result = caseType_Decl(type_Decl);
-        if (result == null) result = caseVariable_Decl(type_Decl);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -317,18 +434,17 @@ public class StLanguageSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case StLanguagePackage.ENUM_VALUE:
+      {
+        Enum_Value enum_Value = (Enum_Value)theEObject;
+        T result = caseEnum_Value(enum_Value);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case StLanguagePackage.VARIABLE:
       {
         Variable variable = (Variable)theEObject;
         T result = caseVariable(variable);
-        if (result == null) result = caseLocated_At(variable);
-        if (result == null) result = caseAssign_Stmt(variable);
-        if (result == null) result = caseParam_Assign(variable);
-        if (result == null) result = caseConstant_Expr(variable);
-        if (result == null) result = caseStmt(variable);
-        if (result == null) result = caseCase_List_Elem(variable);
-        if (result == null) result = caseCallable(variable);
-        if (result == null) result = caseExpression(variable);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -350,9 +466,85 @@ public class StLanguageSwitch<T> extends Switch<T>
       {
         Ref_Value ref_Value = (Ref_Value)theEObject;
         T result = caseRef_Value(ref_Value);
-        if (result == null) result = caseExpression(ref_Value);
-        if (result == null) result = caseConstant_Expr(ref_Value);
-        if (result == null) result = caseCase_List_Elem(ref_Value);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case StLanguagePackage.NULL_REF:
+      {
+        Null_Ref null_Ref = (Null_Ref)theEObject;
+        T result = caseNull_Ref(null_Ref);
+        if (result == null) result = caseRef_Value(null_Ref);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case StLanguagePackage.REF_ADDR:
+      {
+        Ref_Addr ref_Addr = (Ref_Addr)theEObject;
+        T result = caseRef_Addr(ref_Addr);
+        if (result == null) result = caseRef_Value(ref_Addr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case StLanguagePackage.REF_ASSIGN:
+      {
+        Ref_Assign ref_Assign = (Ref_Assign)theEObject;
+        T result = caseRef_Assign(ref_Assign);
+        if (result == null) result = caseAssign_Stmt(ref_Assign);
+        if (result == null) result = caseStmt(ref_Assign);
+        if (result == null) result = caseCallable(ref_Assign);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case StLanguagePackage.REF_DEREF:
+      {
+        Ref_Deref ref_Deref = (Ref_Deref)theEObject;
+        T result = caseRef_Deref(ref_Deref);
+        if (result == null) result = caseVar_Access(ref_Deref);
+        if (result == null) result = caseSymbolic_Variable(ref_Deref);
+        if (result == null) result = caseInline_Variable(ref_Deref);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case StLanguagePackage.INLINE_VARIABLE:
+      {
+        Inline_Variable inline_Variable = (Inline_Variable)theEObject;
+        T result = caseInline_Variable(inline_Variable);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case StLanguagePackage.SYMBOLIC_VARIABLE:
+      {
+        Symbolic_Variable symbolic_Variable = (Symbolic_Variable)theEObject;
+        T result = caseSymbolic_Variable(symbolic_Variable);
+        if (result == null) result = caseInline_Variable(symbolic_Variable);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case StLanguagePackage.VAR_ACCESS:
+      {
+        Var_Access var_Access = (Var_Access)theEObject;
+        T result = caseVar_Access(var_Access);
+        if (result == null) result = caseSymbolic_Variable(var_Access);
+        if (result == null) result = caseInline_Variable(var_Access);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case StLanguagePackage.NAMED_VARIABLE:
+      {
+        Named_Variable named_Variable = (Named_Variable)theEObject;
+        T result = caseNamed_Variable(named_Variable);
+        if (result == null) result = caseVar_Access(named_Variable);
+        if (result == null) result = caseSymbolic_Variable(named_Variable);
+        if (result == null) result = caseInline_Variable(named_Variable);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case StLanguagePackage.DIRECT_VARIABLE:
+      {
+        Direct_Variable direct_Variable = (Direct_Variable)theEObject;
+        T result = caseDirect_Variable(direct_Variable);
+        if (result == null) result = caseInline_Variable(direct_Variable);
+        if (result == null) result = caseLocated_At(direct_Variable);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -552,6 +744,13 @@ public class StLanguageSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case StLanguagePackage.FUNCTION:
+      {
+        Function function = (Function)theEObject;
+        T result = caseFunction(function);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case StLanguagePackage.IO_VAR_DECLS:
       {
         IO_Var_Decls iO_Var_Decls = (IO_Var_Decls)theEObject;
@@ -578,6 +777,13 @@ public class StLanguageSwitch<T> extends Switch<T>
         FB_Decl fB_Decl = (FB_Decl)theEObject;
         T result = caseFB_Decl(fB_Decl);
         if (result == null) result = caseNamespace_Elements(fB_Decl);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case StLanguagePackage.FUNCTION_BLOCK:
+      {
+        FunctionBlock functionBlock = (FunctionBlock)theEObject;
+        T result = caseFunctionBlock(functionBlock);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -639,6 +845,13 @@ public class StLanguageSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case StLanguagePackage.CLASS:
+      {
+        at.bachmann.plc.st.stLanguage.Class class_ = (at.bachmann.plc.st.stLanguage.Class)theEObject;
+        T result = caseClass(class_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case StLanguagePackage.INTERFACE_DECL:
       {
         Interface_Decl interface_Decl = (Interface_Decl)theEObject;
@@ -646,10 +859,24 @@ public class StLanguageSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case StLanguagePackage.INTERFACE:
+      {
+        Interface interface_ = (Interface)theEObject;
+        T result = caseInterface(interface_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case StLanguagePackage.METHOD_PROTOTYPE:
       {
         Method_Prototype method_Prototype = (Method_Prototype)theEObject;
         T result = caseMethod_Prototype(method_Prototype);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case StLanguagePackage.METHOD:
+      {
+        Method method = (Method)theEObject;
+        T result = caseMethod(method);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -668,10 +895,24 @@ public class StLanguageSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case StLanguagePackage.PROGRAM:
+      {
+        Program program = (Program)theEObject;
+        T result = caseProgram(program);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case StLanguagePackage.NAMESPACE_DECL:
       {
         Namespace_Decl namespace_Decl = (Namespace_Decl)theEObject;
         T result = caseNamespace_Decl(namespace_Decl);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case StLanguagePackage.NAMESPACE:
+      {
+        Namespace namespace = (Namespace)theEObject;
+        T result = caseNamespace(namespace);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -710,9 +951,6 @@ public class StLanguageSwitch<T> extends Switch<T>
       {
         Variable_Access variable_Access = (Variable_Access)theEObject;
         T result = caseVariable_Access(variable_Access);
-        if (result == null) result = caseExpression(variable_Access);
-        if (result == null) result = caseConstant_Expr(variable_Access);
-        if (result == null) result = caseCase_List_Elem(variable_Access);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -727,9 +965,6 @@ public class StLanguageSwitch<T> extends Switch<T>
       {
         Callable callable = (Callable)theEObject;
         T result = caseCallable(callable);
-        if (result == null) result = caseExpression(callable);
-        if (result == null) result = caseConstant_Expr(callable);
-        if (result == null) result = caseCase_List_Elem(callable);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -747,9 +982,6 @@ public class StLanguageSwitch<T> extends Switch<T>
         Stmt stmt = (Stmt)theEObject;
         T result = caseStmt(stmt);
         if (result == null) result = caseCallable(stmt);
-        if (result == null) result = caseExpression(stmt);
-        if (result == null) result = caseConstant_Expr(stmt);
-        if (result == null) result = caseCase_List_Elem(stmt);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -759,9 +991,6 @@ public class StLanguageSwitch<T> extends Switch<T>
         T result = caseAssign_Stmt(assign_Stmt);
         if (result == null) result = caseStmt(assign_Stmt);
         if (result == null) result = caseCallable(assign_Stmt);
-        if (result == null) result = caseExpression(assign_Stmt);
-        if (result == null) result = caseConstant_Expr(assign_Stmt);
-        if (result == null) result = caseCase_List_Elem(assign_Stmt);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -772,9 +1001,6 @@ public class StLanguageSwitch<T> extends Switch<T>
         if (result == null) result = caseAssign_Stmt(variable_Assign_Stmt);
         if (result == null) result = caseStmt(variable_Assign_Stmt);
         if (result == null) result = caseCallable(variable_Assign_Stmt);
-        if (result == null) result = caseExpression(variable_Assign_Stmt);
-        if (result == null) result = caseConstant_Expr(variable_Assign_Stmt);
-        if (result == null) result = caseCase_List_Elem(variable_Assign_Stmt);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -785,9 +1011,6 @@ public class StLanguageSwitch<T> extends Switch<T>
         if (result == null) result = caseAssign_Stmt(assignment_Attempt);
         if (result == null) result = caseStmt(assignment_Attempt);
         if (result == null) result = caseCallable(assignment_Attempt);
-        if (result == null) result = caseExpression(assignment_Attempt);
-        if (result == null) result = caseConstant_Expr(assignment_Attempt);
-        if (result == null) result = caseCase_List_Elem(assignment_Attempt);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -814,15 +1037,20 @@ public class StLanguageSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case StLanguagePackage.IN_REF_ASSIGN:
+      {
+        InRef_Assign inRef_Assign = (InRef_Assign)theEObject;
+        T result = caseInRef_Assign(inRef_Assign);
+        if (result == null) result = caseParam_Assign(inRef_Assign);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case StLanguagePackage.SELECTION_STMT:
       {
         Selection_Stmt selection_Stmt = (Selection_Stmt)theEObject;
         T result = caseSelection_Stmt(selection_Stmt);
         if (result == null) result = caseStmt(selection_Stmt);
         if (result == null) result = caseCallable(selection_Stmt);
-        if (result == null) result = caseExpression(selection_Stmt);
-        if (result == null) result = caseConstant_Expr(selection_Stmt);
-        if (result == null) result = caseCase_List_Elem(selection_Stmt);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -833,9 +1061,6 @@ public class StLanguageSwitch<T> extends Switch<T>
         if (result == null) result = caseSelection_Stmt(iF_Stmt);
         if (result == null) result = caseStmt(iF_Stmt);
         if (result == null) result = caseCallable(iF_Stmt);
-        if (result == null) result = caseExpression(iF_Stmt);
-        if (result == null) result = caseConstant_Expr(iF_Stmt);
-        if (result == null) result = caseCase_List_Elem(iF_Stmt);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -860,9 +1085,6 @@ public class StLanguageSwitch<T> extends Switch<T>
         if (result == null) result = caseSelection_Stmt(case_Stmt);
         if (result == null) result = caseStmt(case_Stmt);
         if (result == null) result = caseCallable(case_Stmt);
-        if (result == null) result = caseExpression(case_Stmt);
-        if (result == null) result = caseConstant_Expr(case_Stmt);
-        if (result == null) result = caseCase_List_Elem(case_Stmt);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -893,9 +1115,6 @@ public class StLanguageSwitch<T> extends Switch<T>
         T result = caseIteration_Stmt(iteration_Stmt);
         if (result == null) result = caseStmt(iteration_Stmt);
         if (result == null) result = caseCallable(iteration_Stmt);
-        if (result == null) result = caseExpression(iteration_Stmt);
-        if (result == null) result = caseConstant_Expr(iteration_Stmt);
-        if (result == null) result = caseCase_List_Elem(iteration_Stmt);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -906,9 +1125,6 @@ public class StLanguageSwitch<T> extends Switch<T>
         if (result == null) result = caseIteration_Stmt(exit_Stmt);
         if (result == null) result = caseStmt(exit_Stmt);
         if (result == null) result = caseCallable(exit_Stmt);
-        if (result == null) result = caseExpression(exit_Stmt);
-        if (result == null) result = caseConstant_Expr(exit_Stmt);
-        if (result == null) result = caseCase_List_Elem(exit_Stmt);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -919,9 +1135,6 @@ public class StLanguageSwitch<T> extends Switch<T>
         if (result == null) result = caseIteration_Stmt(continue_Stmt);
         if (result == null) result = caseStmt(continue_Stmt);
         if (result == null) result = caseCallable(continue_Stmt);
-        if (result == null) result = caseExpression(continue_Stmt);
-        if (result == null) result = caseConstant_Expr(continue_Stmt);
-        if (result == null) result = caseCase_List_Elem(continue_Stmt);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -932,9 +1145,6 @@ public class StLanguageSwitch<T> extends Switch<T>
         if (result == null) result = caseIteration_Stmt(for_Stmt);
         if (result == null) result = caseStmt(for_Stmt);
         if (result == null) result = caseCallable(for_Stmt);
-        if (result == null) result = caseExpression(for_Stmt);
-        if (result == null) result = caseConstant_Expr(for_Stmt);
-        if (result == null) result = caseCase_List_Elem(for_Stmt);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -952,9 +1162,6 @@ public class StLanguageSwitch<T> extends Switch<T>
         if (result == null) result = caseIteration_Stmt(while_Stmt);
         if (result == null) result = caseStmt(while_Stmt);
         if (result == null) result = caseCallable(while_Stmt);
-        if (result == null) result = caseExpression(while_Stmt);
-        if (result == null) result = caseConstant_Expr(while_Stmt);
-        if (result == null) result = caseCase_List_Elem(while_Stmt);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -965,9 +1172,6 @@ public class StLanguageSwitch<T> extends Switch<T>
         if (result == null) result = caseIteration_Stmt(repeat_Stmt);
         if (result == null) result = caseStmt(repeat_Stmt);
         if (result == null) result = caseCallable(repeat_Stmt);
-        if (result == null) result = caseExpression(repeat_Stmt);
-        if (result == null) result = caseConstant_Expr(repeat_Stmt);
-        if (result == null) result = caseCase_List_Elem(repeat_Stmt);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1350,22 +1554,6 @@ public class StLanguageSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Variable Decl</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Variable Decl</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseVariable_Decl(Variable_Decl object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Type Decl</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1446,6 +1634,22 @@ public class StLanguageSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Enum Value</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Enum Value</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEnum_Value(Enum_Value object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Variable</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1505,6 +1709,150 @@ public class StLanguageSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseRef_Value(Ref_Value object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Null Ref</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Null Ref</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNull_Ref(Null_Ref object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Ref Addr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Ref Addr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRef_Addr(Ref_Addr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Ref Assign</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Ref Assign</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRef_Assign(Ref_Assign object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Ref Deref</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Ref Deref</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRef_Deref(Ref_Deref object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Inline Variable</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Inline Variable</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInline_Variable(Inline_Variable object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Symbolic Variable</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Symbolic Variable</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSymbolic_Variable(Symbolic_Variable object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Var Access</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Var Access</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVar_Access(Var_Access object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Named Variable</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Named Variable</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNamed_Variable(Named_Variable object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Direct Variable</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Direct Variable</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDirect_Variable(Direct_Variable object)
   {
     return null;
   }
@@ -1926,6 +2274,22 @@ public class StLanguageSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Function</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Function</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFunction(Function object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>IO Var Decls</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1985,6 +2349,22 @@ public class StLanguageSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseFB_Decl(FB_Decl object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Function Block</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Function Block</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFunctionBlock(FunctionBlock object)
   {
     return null;
   }
@@ -2118,6 +2498,22 @@ public class StLanguageSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Class</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Class</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseClass(at.bachmann.plc.st.stLanguage.Class object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Interface Decl</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -2134,6 +2530,22 @@ public class StLanguageSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Interface</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Interface</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInterface(Interface object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Method Prototype</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -2145,6 +2557,22 @@ public class StLanguageSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMethod_Prototype(Method_Prototype object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Method</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Method</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMethod(Method object)
   {
     return null;
   }
@@ -2182,6 +2610,22 @@ public class StLanguageSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Program</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Program</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseProgram(Program object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Namespace Decl</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -2193,6 +2637,22 @@ public class StLanguageSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseNamespace_Decl(Namespace_Decl object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Namespace</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Namespace</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNamespace(Namespace object)
   {
     return null;
   }
@@ -2433,6 +2893,22 @@ public class StLanguageSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseLinked_Value(Linked_Value object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>In Ref Assign</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>In Ref Assign</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInRef_Assign(InRef_Assign object)
   {
     return null;
   }

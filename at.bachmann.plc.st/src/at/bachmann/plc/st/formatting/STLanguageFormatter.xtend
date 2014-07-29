@@ -21,66 +21,69 @@ class STLanguageFormatter extends AbstractDeclarativeFormatter {
 	@Inject extension STLanguageGrammarAccess
 
 	final String SIMPLE_SPACING = ' '
-	
+
 	override protected void configureFormatting(FormattingConfig c) {
-		configureGeneralFormatting(c)		
-		configureKeywordFormatting(c)		
+		configureGeneralFormatting(c)
+		configureKeywordFormatting(c)
 		configureOperatorsFormatting(c)
 	}
 
 	def configureOperatorsFormatting(FormattingConfig config) {
-		val keywords = #['OR', 'XOR', 'AND', '&', ':=', '=', '<>', '<', '>', '<=', '>=', '+', '-', '*', '/', 'MOD', '**', 'NOT']
-			
-		findKeywords(keywords).forEach[
+		val keywords = #['OR', 'XOR', 'AND', '&', ':=', '=', '<>', '<', '>', '<=', '>=', '+', '-', '*', '/', 'MOD', '**',
+			'NOT']
+
+		findKeywords(keywords).forEach [
 			config.setSpace(SIMPLE_SPACING).before(it)
-			config.setSpace(SIMPLE_SPACING).after(it)	
-		]		
+			config.setSpace(SIMPLE_SPACING).after(it)
+		]
 	}
 
 	def configureKeywordFormatting(FormattingConfig config) {
-		val startKeywords = #['FUNCTION_BLOCK', 'VAR', 'VAR_TEMP', 'VAR_EXTERNAL', 'VAR_GLOBAL']
+		val startKeywords = #['PROGRAM', 'NAMESPACE', 'FUNCTION_BLOCK', 'FUNCTION', 'METHOD', 'INTERFACE', 'CLASS',
+			'VAR', 'VAR_INPUT', 'VAR_OUTPUT', 'VAR_IN_OUT', 'VAR_TEMP', 'VAR_EXTERNAL', 'VAR_GLOBAL', 'THEN', 'DO',
+			'REPEAT']
 
-		val endKeywords = #{'END_FUNCTION_BLOCK', 'END_VAR'}
-			
-		findKeywords(startKeywords).forEach[
+		val endKeywords = #{'END_PROGRAM', 'END_NAMESPACE', 'END_FUNCTION_BLOCK', 'END_FUNCTION', 'END_METHOD',
+			'END_INTERFACE', 'END_CLASS', 'END_VAR', 'ELSE', 'END_IF', 'END_WHILE', 'END_FOR', 'END_REPEAT', 'END_CASE'}
+
+		findKeywords(startKeywords).forEach [
 			config.setLinewrap(1, 1, 10).before(it)
 			config.setLinewrap(1, 1, 10).after(it)
-			config.setIndentationIncrement().after(it)	
+			config.setIndentationIncrement().after(it)
 		]
-		
-		findKeywords(endKeywords).forEach[
+
+		findKeywords(endKeywords).forEach [
 			config.setLinewrap(1, 1, 10).before(it)
 			config.setLinewrap(1, 1, 10).after(it)
-			config.setIndentationDecrement().before(it)	
+			config.setIndentationDecrement().before(it)
 		]
 	}
 
 	def configureGeneralFormatting(FormattingConfig config) {
 		config.setAutoLinewrap(120)
-		
-		findKeywordPairs('(', ')').forEach[			
+
+		findKeywordPairs('(', ')').forEach [
 			config.setNoSpace.after(it.first)
 			config.setNoSpace.before(it.second)
 		]
-		
-		findKeywords(',').forEach[
+
+		findKeywords(',').forEach [
 			config.setNoSpace.before(it)
 			config.setSpace(SIMPLE_SPACING).after(it)
 		]
-				
-		findKeywords(';').forEach[
+
+		findKeywords(';').forEach [
 			config.setNoSpace().before(it)
 			config.setLinewrap.after(it)
 		]
-				
-				
-		findKeywords('.').forEach[
+
+		findKeywords('.').forEach [
 			config.setNoSpace.before(it)
 			config.setNoSpace.after(it)
 		]
-		
+
 		config.setLinewrap(0, 1, 2).before(SL_COMMENTRule)
 		config.setLinewrap(0, 1, 2).before(ML_COMMENT_1Rule)
 		config.setLinewrap(0, 1, 1).after(ML_COMMENT_2Rule)
-	}	
+	}
 }

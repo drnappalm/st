@@ -3,6 +3,11 @@
 */
 package at.bachmann.plc.st.ui.outline
 
+import org.eclipse.xtext.ui.editor.outline.IOutlineNode
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode
+import at.bachmann.plc.st.services.STLanguageGrammarAccess.FunctionBlockElements
+
 /**
  * Customization of the default outline structure.
  *
@@ -10,4 +15,6 @@ package at.bachmann.plc.st.ui.outline
  */
 class STLanguageOutlineTreeProvider extends org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider {
 	
+	override protected _createChildren(DocumentRootNode parentNode, EObject modelElement) {		
+	}	
 }
