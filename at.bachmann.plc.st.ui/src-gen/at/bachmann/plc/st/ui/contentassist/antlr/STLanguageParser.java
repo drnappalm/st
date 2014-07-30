@@ -78,7 +78,6 @@ public class STLanguageParser extends AbstractContentAssistParser {
 					put(grammarAccess.getInline_VariableAccess().getAlternatives(), "rule__Inline_Variable__Alternatives");
 					put(grammarAccess.getVar_AccessAccess().getAlternatives(), "rule__Var_Access__Alternatives");
 					put(grammarAccess.getInput_DeclsAccess().getAlternatives_2(), "rule__Input_Decls__Alternatives_2");
-					put(grammarAccess.getVar_Decl_InitAccess().getInitializationAlternatives_2_0(), "rule__Var_Decl_Init__InitializationAlternatives_2_0");
 					put(grammarAccess.getOutput_DeclsAccess().getAlternatives_2(), "rule__Output_Decls__Alternatives_2");
 					put(grammarAccess.getVar_DeclsAccess().getAlternatives_2(), "rule__Var_Decls__Alternatives_2");
 					put(grammarAccess.getVar_DeclsAccess().getDeclarationsAlternatives_4_0_0(), "rule__Var_Decls__DeclarationsAlternatives_4_0_0");
@@ -109,12 +108,11 @@ public class STLanguageParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAdd_ExprAccess().getOperatorAlternatives_1_1_0(), "rule__Add_Expr__OperatorAlternatives_1_1_0");
 					put(grammarAccess.getTermAccess().getOperatorAlternatives_1_1_0(), "rule__Term__OperatorAlternatives_1_1_0");
 					put(grammarAccess.getUnary_ExprAccess().getOperatorAlternatives_0_0(), "rule__Unary_Expr__OperatorAlternatives_0_0");
+					put(grammarAccess.getPrimary_ExprAccess().getAlternatives(), "rule__Primary_Expr__Alternatives");
 					put(grammarAccess.getMultibit_Part_AccessAccess().getAlternatives_1(), "rule__Multibit_Part_Access__Alternatives_1");
 					put(grammarAccess.getMultibit_Part_AccessAccess().getSizeAlternatives_1_1_1_0(), "rule__Multibit_Part_Access__SizeAlternatives_1_1_1_0");
 					put(grammarAccess.getStmtAccess().getAlternatives(), "rule__Stmt__Alternatives");
-					put(grammarAccess.getAssign_StmtAccess().getAlternatives(), "rule__Assign_Stmt__Alternatives");
 					put(grammarAccess.getSubprog_Ctrl_StmtAccess().getAlternatives(), "rule__Subprog_Ctrl_Stmt__Alternatives");
-					put(grammarAccess.getParam_AssignAccess().getAlternatives(), "rule__Param_Assign__Alternatives");
 					put(grammarAccess.getSelection_StmtAccess().getAlternatives(), "rule__Selection_Stmt__Alternatives");
 					put(grammarAccess.getCase_List_ElemAccess().getAlternatives(), "rule__Case_List_Elem__Alternatives");
 					put(grammarAccess.getIteration_StmtAccess().getAlternatives(), "rule__Iteration_Stmt__Alternatives");

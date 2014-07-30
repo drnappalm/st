@@ -3,31 +3,10 @@
  */
 package at.bachmann.plc.st.validation
 
-import org.eclipse.xtext.validation.Check
-import at.bachmann.plc.st.stLanguage.StLanguagePackage
-import at.bachmann.plc.st.stLanguage.Variable_Assign_Stmt
-import at.bachmann.plc.st.stLanguage.Variable
-
 /**
  * Custom validation rules. 
  *
  * see http://www.eclipse.org/Xtext/documentation.html#validation
  */
-class STLanguageValidator extends AbstractSTLanguageValidator {
-
- 	public static val NOTDECLARED_VARIABLE = 'notDeclaredVariable'
-
-	@Check
-	def checkVariableIsDeclared(Variable_Assign_Stmt assignment) {
-		if(assignment.variable != null && assignment.variable.isDeclared) {			
-			error('The variable is not declared.', StLanguagePackage.Literals.ASSIGN_STMT__VARIABLE , NOTDECLARED_VARIABLE)		
-		}
-	}
-	
-	def isDeclared(Variable variable) {
-		if(variable == null) {
-			return false
-		}
-		variable.eContainer.checkIsFromCurrentlyCheckedResource
-	}	
+class STLanguageValidator extends AbstractSTLanguageValidator {	
 }

@@ -89,19 +89,6 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getPousNamespace_DeclParserRuleCall_1_0_4() { return cPousNamespace_DeclParserRuleCall_1_0_4; }
 	}
 
-	public class IDElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ID");
-		private final RuleCall cIDENTIFIERTerminalRuleCall = (RuleCall)rule.eContents().get(1);
-		
-		//// rule ID just to avoid always writing [Rule] when using cross-references...
-		//ID:
-		//	IDENTIFIER;
-		public ParserRule getRule() { return rule; }
-
-		//IDENTIFIER
-		public RuleCall getIDENTIFIERTerminalRuleCall() { return cIDENTIFIERTerminalRuleCall; }
-	}
-
 	public class Qualified_NameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Qualified_Name");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -1624,39 +1611,39 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cLowBoundAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cLowBoundConstant_ExprCrossReference_0_0 = (CrossReference)cLowBoundAssignment_0.eContents().get(0);
-		private final RuleCall cLowBoundConstant_ExprIDParserRuleCall_0_0_1 = (RuleCall)cLowBoundConstant_ExprCrossReference_0_0.eContents().get(1);
+		private final RuleCall cLowBoundConstant_ExprIDENTIFIERTerminalRuleCall_0_0_1 = (RuleCall)cLowBoundConstant_ExprCrossReference_0_0.eContents().get(1);
 		private final Keyword cFullStopFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUpBoundAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final CrossReference cUpBoundConstant_ExprCrossReference_2_0 = (CrossReference)cUpBoundAssignment_2.eContents().get(0);
-		private final RuleCall cUpBoundConstant_ExprIDParserRuleCall_2_0_1 = (RuleCall)cUpBoundConstant_ExprCrossReference_2_0.eContents().get(1);
+		private final RuleCall cUpBoundConstant_ExprIDENTIFIERTerminalRuleCall_2_0_1 = (RuleCall)cUpBoundConstant_ExprCrossReference_2_0.eContents().get(1);
 		
 		//Subrange:
-		//	lowBound=[Constant_Expr] ".." upBound=[Constant_Expr];
+		//	lowBound=[Constant_Expr|IDENTIFIER] ".." upBound=[Constant_Expr|IDENTIFIER];
 		public ParserRule getRule() { return rule; }
 
-		//lowBound=[Constant_Expr] ".." upBound=[Constant_Expr]
+		//lowBound=[Constant_Expr|IDENTIFIER] ".." upBound=[Constant_Expr|IDENTIFIER]
 		public Group getGroup() { return cGroup; }
 
-		//lowBound=[Constant_Expr]
+		//lowBound=[Constant_Expr|IDENTIFIER]
 		public Assignment getLowBoundAssignment_0() { return cLowBoundAssignment_0; }
 
-		//[Constant_Expr]
+		//[Constant_Expr|IDENTIFIER]
 		public CrossReference getLowBoundConstant_ExprCrossReference_0_0() { return cLowBoundConstant_ExprCrossReference_0_0; }
 
-		//ID
-		public RuleCall getLowBoundConstant_ExprIDParserRuleCall_0_0_1() { return cLowBoundConstant_ExprIDParserRuleCall_0_0_1; }
+		//IDENTIFIER
+		public RuleCall getLowBoundConstant_ExprIDENTIFIERTerminalRuleCall_0_0_1() { return cLowBoundConstant_ExprIDENTIFIERTerminalRuleCall_0_0_1; }
 
 		//".."
 		public Keyword getFullStopFullStopKeyword_1() { return cFullStopFullStopKeyword_1; }
 
-		//upBound=[Constant_Expr]
+		//upBound=[Constant_Expr|IDENTIFIER]
 		public Assignment getUpBoundAssignment_2() { return cUpBoundAssignment_2; }
 
-		//[Constant_Expr]
+		//[Constant_Expr|IDENTIFIER]
 		public CrossReference getUpBoundConstant_ExprCrossReference_2_0() { return cUpBoundConstant_ExprCrossReference_2_0; }
 
-		//ID
-		public RuleCall getUpBoundConstant_ExprIDParserRuleCall_2_0_1() { return cUpBoundConstant_ExprIDParserRuleCall_2_0_1; }
+		//IDENTIFIER
+		public RuleCall getUpBoundConstant_ExprIDENTIFIERTerminalRuleCall_2_0_1() { return cUpBoundConstant_ExprIDENTIFIERTerminalRuleCall_2_0_1; }
 	}
 
 	public class Enum_Spec_InitElements extends AbstractParserRuleElementFinder {
@@ -1748,20 +1735,20 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Enum_Value");
 		private final Assignment cVariableAssignment = (Assignment)rule.eContents().get(1);
 		private final CrossReference cVariableVariableCrossReference_0 = (CrossReference)cVariableAssignment.eContents().get(0);
-		private final RuleCall cVariableVariableIDParserRuleCall_0_1 = (RuleCall)cVariableVariableCrossReference_0.eContents().get(1);
+		private final RuleCall cVariableVariableIDENTIFIERTerminalRuleCall_0_1 = (RuleCall)cVariableVariableCrossReference_0.eContents().get(1);
 		
 		//Enum_Value:
-		//	variable=[Variable];
+		//	variable=[Variable|IDENTIFIER];
 		public ParserRule getRule() { return rule; }
 
-		//variable=[Variable]
+		//variable=[Variable|IDENTIFIER]
 		public Assignment getVariableAssignment() { return cVariableAssignment; }
 
-		//[Variable]
+		//[Variable|IDENTIFIER]
 		public CrossReference getVariableVariableCrossReference_0() { return cVariableVariableCrossReference_0; }
 
-		//ID
-		public RuleCall getVariableVariableIDParserRuleCall_0_1() { return cVariableVariableIDParserRuleCall_0_1; }
+		//IDENTIFIER
+		public RuleCall getVariableVariableIDENTIFIERTerminalRuleCall_0_1() { return cVariableVariableIDENTIFIERTerminalRuleCall_0_1; }
 	}
 
 	public class Enum_Qualified_IdElements extends AbstractParserRuleElementFinder {
@@ -2052,14 +2039,14 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cVariableAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final CrossReference cVariableVariableCrossReference_2_0 = (CrossReference)cVariableAssignment_2.eContents().get(0);
-		private final RuleCall cVariableVariableIDParserRuleCall_2_0_1 = (RuleCall)cVariableVariableCrossReference_2_0.eContents().get(1);
+		private final RuleCall cVariableVariableIDENTIFIERTerminalRuleCall_2_0_1 = (RuleCall)cVariableVariableCrossReference_2_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Ref_Addr:
-		//	"REF" "(" variable=[Variable] ")";
+		//	"REF" "(" variable=[Variable|IDENTIFIER] ")";
 		public ParserRule getRule() { return rule; }
 
-		//"REF" "(" variable=[Variable] ")"
+		//"REF" "(" variable=[Variable|IDENTIFIER] ")"
 		public Group getGroup() { return cGroup; }
 
 		//"REF"
@@ -2068,14 +2055,14 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 
-		//variable=[Variable]
+		//variable=[Variable|IDENTIFIER]
 		public Assignment getVariableAssignment_2() { return cVariableAssignment_2; }
 
-		//[Variable]
+		//[Variable|IDENTIFIER]
 		public CrossReference getVariableVariableCrossReference_2_0() { return cVariableVariableCrossReference_2_0; }
 
-		//ID
-		public RuleCall getVariableVariableIDParserRuleCall_2_0_1() { return cVariableVariableIDParserRuleCall_2_0_1; }
+		//IDENTIFIER
+		public RuleCall getVariableVariableIDENTIFIERTerminalRuleCall_2_0_1() { return cVariableVariableIDENTIFIERTerminalRuleCall_2_0_1; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
@@ -2086,39 +2073,41 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cVariableAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cVariableVariableCrossReference_0_0 = (CrossReference)cVariableAssignment_0.eContents().get(0);
-		private final RuleCall cVariableVariableIDParserRuleCall_0_0_1 = (RuleCall)cVariableVariableCrossReference_0_0.eContents().get(1);
+		private final RuleCall cVariableVariableIDENTIFIERTerminalRuleCall_0_0_1 = (RuleCall)cVariableVariableCrossReference_0_0.eContents().get(1);
 		private final RuleCall cASSIGNMENTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final CrossReference cValueVariableCrossReference_2_0 = (CrossReference)cValueAssignment_2.eContents().get(0);
-		private final RuleCall cValueVariableIDParserRuleCall_2_0_1 = (RuleCall)cValueVariableCrossReference_2_0.eContents().get(1);
+		private final RuleCall cValueVariableIDENTIFIERTerminalRuleCall_2_0_1 = (RuleCall)cValueVariableCrossReference_2_0.eContents().get(1);
 		
 		//Ref_Assign:
-		//	variable=[Variable] ASSIGNMENT / * | [Ref_Deref] | [Ref_Value] * / value=[Variable];
+		//	variable=[Variable|IDENTIFIER] ASSIGNMENT / * | [Ref_Deref | IDENTIFIER] | [Ref_Value | IDENTIFIER] * /
+		//	value=[Variable|IDENTIFIER];
 		public ParserRule getRule() { return rule; }
 
-		//variable=[Variable] ASSIGNMENT / * | [Ref_Deref] | [Ref_Value] * / value=[Variable]
+		//variable=[Variable|IDENTIFIER] ASSIGNMENT / * | [Ref_Deref | IDENTIFIER] | [Ref_Value | IDENTIFIER] * /
+		//value=[Variable|IDENTIFIER]
 		public Group getGroup() { return cGroup; }
 
-		//variable=[Variable]
+		//variable=[Variable|IDENTIFIER]
 		public Assignment getVariableAssignment_0() { return cVariableAssignment_0; }
 
-		//[Variable]
+		//[Variable|IDENTIFIER]
 		public CrossReference getVariableVariableCrossReference_0_0() { return cVariableVariableCrossReference_0_0; }
 
-		//ID
-		public RuleCall getVariableVariableIDParserRuleCall_0_0_1() { return cVariableVariableIDParserRuleCall_0_0_1; }
+		//IDENTIFIER
+		public RuleCall getVariableVariableIDENTIFIERTerminalRuleCall_0_0_1() { return cVariableVariableIDENTIFIERTerminalRuleCall_0_0_1; }
 
 		//ASSIGNMENT
 		public RuleCall getASSIGNMENTTerminalRuleCall_1() { return cASSIGNMENTTerminalRuleCall_1; }
 
-		/// * | [Ref_Deref] | [Ref_Value] * / value=[Variable]
+		/// * | [Ref_Deref | IDENTIFIER] | [Ref_Value | IDENTIFIER] * / value=[Variable|IDENTIFIER]
 		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
 
-		//[Variable]
+		//[Variable|IDENTIFIER]
 		public CrossReference getValueVariableCrossReference_2_0() { return cValueVariableCrossReference_2_0; }
 
-		//ID
-		public RuleCall getValueVariableIDParserRuleCall_2_0_1() { return cValueVariableIDParserRuleCall_2_0_1; }
+		//IDENTIFIER
+		public RuleCall getValueVariableIDENTIFIERTerminalRuleCall_2_0_1() { return cValueVariableIDENTIFIERTerminalRuleCall_2_0_1; }
 	}
 
 	public class Ref_DerefElements extends AbstractParserRuleElementFinder {
@@ -2126,24 +2115,24 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cVariableAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cVariableVariableCrossReference_0_0 = (CrossReference)cVariableAssignment_0.eContents().get(0);
-		private final RuleCall cVariableVariableIDParserRuleCall_0_0_1 = (RuleCall)cVariableVariableCrossReference_0_0.eContents().get(1);
+		private final RuleCall cVariableVariableIDENTIFIERTerminalRuleCall_0_0_1 = (RuleCall)cVariableVariableCrossReference_0_0.eContents().get(1);
 		private final Keyword cCircumflexAccentKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		
 		//Ref_Deref:
-		//	variable=[Variable] "^"+;
+		//	variable=[Variable|IDENTIFIER] "^"+;
 		public ParserRule getRule() { return rule; }
 
-		//variable=[Variable] "^"+
+		//variable=[Variable|IDENTIFIER] "^"+
 		public Group getGroup() { return cGroup; }
 
-		//variable=[Variable]
+		//variable=[Variable|IDENTIFIER]
 		public Assignment getVariableAssignment_0() { return cVariableAssignment_0; }
 
-		//[Variable]
+		//[Variable|IDENTIFIER]
 		public CrossReference getVariableVariableCrossReference_0_0() { return cVariableVariableCrossReference_0_0; }
 
-		//ID
-		public RuleCall getVariableVariableIDParserRuleCall_0_0_1() { return cVariableVariableIDParserRuleCall_0_0_1; }
+		//IDENTIFIER
+		public RuleCall getVariableVariableIDENTIFIERTerminalRuleCall_0_0_1() { return cVariableVariableIDENTIFIERTerminalRuleCall_0_0_1; }
 
 		//"^"+
 		public Keyword getCircumflexAccentKeyword_1() { return cCircumflexAccentKeyword_1; }
@@ -2206,40 +2195,40 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Named_Variable");
 		private final Assignment cVariableAssignment = (Assignment)rule.eContents().get(1);
 		private final CrossReference cVariableVariableCrossReference_0 = (CrossReference)cVariableAssignment.eContents().get(0);
-		private final RuleCall cVariableVariableIDParserRuleCall_0_1 = (RuleCall)cVariableVariableCrossReference_0.eContents().get(1);
+		private final RuleCall cVariableVariableIDENTIFIERTerminalRuleCall_0_1 = (RuleCall)cVariableVariableCrossReference_0.eContents().get(1);
 		
 		//Named_Variable:
-		//	variable=[Variable];
+		//	variable=[Variable|IDENTIFIER];
 		public ParserRule getRule() { return rule; }
 
-		//variable=[Variable]
+		//variable=[Variable|IDENTIFIER]
 		public Assignment getVariableAssignment() { return cVariableAssignment; }
 
-		//[Variable]
+		//[Variable|IDENTIFIER]
 		public CrossReference getVariableVariableCrossReference_0() { return cVariableVariableCrossReference_0; }
 
-		//ID
-		public RuleCall getVariableVariableIDParserRuleCall_0_1() { return cVariableVariableIDParserRuleCall_0_1; }
+		//IDENTIFIER
+		public RuleCall getVariableVariableIDENTIFIERTerminalRuleCall_0_1() { return cVariableVariableIDENTIFIERTerminalRuleCall_0_1; }
 	}
 
 	public class Direct_VariableElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Direct_Variable");
 		private final Assignment cVariableAssignment = (Assignment)rule.eContents().get(1);
 		private final CrossReference cVariableVariable_AddressCrossReference_0 = (CrossReference)cVariableAssignment.eContents().get(0);
-		private final RuleCall cVariableVariable_AddressIDParserRuleCall_0_1 = (RuleCall)cVariableVariable_AddressCrossReference_0.eContents().get(1);
+		private final RuleCall cVariableVariable_AddressIDENTIFIERTerminalRuleCall_0_1 = (RuleCall)cVariableVariable_AddressCrossReference_0.eContents().get(1);
 		
 		//Direct_Variable:
-		//	variable=[Variable_Address];
+		//	variable=[Variable_Address|IDENTIFIER];
 		public ParserRule getRule() { return rule; }
 
-		//variable=[Variable_Address]
+		//variable=[Variable_Address|IDENTIFIER]
 		public Assignment getVariableAssignment() { return cVariableAssignment; }
 
-		//[Variable_Address]
+		//[Variable_Address|IDENTIFIER]
 		public CrossReference getVariableVariable_AddressCrossReference_0() { return cVariableVariable_AddressCrossReference_0; }
 
-		//ID
-		public RuleCall getVariableVariable_AddressIDParserRuleCall_0_1() { return cVariableVariable_AddressIDParserRuleCall_0_1; }
+		//IDENTIFIER
+		public RuleCall getVariableVariable_AddressIDENTIFIERTerminalRuleCall_0_1() { return cVariableVariable_AddressIDENTIFIERTerminalRuleCall_0_1; }
 	}
 
 	public class Input_DeclsElements extends AbstractParserRuleElementFinder {
@@ -2258,7 +2247,7 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
 		private final Keyword cEND_VARKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
-		////Multi_Elem_Var: [Var_Access] elements+=( Subscript_List | Struct_Variable )+;
+		////Multi_Elem_Var: [Var_Access | IDENTIFIER] elements+=( Subscript_List | Struct_Variable )+;
 		////Subscript_List: '[' item+=Subscript ( ',' item+=Subscript )* ']';
 		////Subscript: Expression;
 		////Struct_Variable: Dot Struct_Elem_Select;
@@ -2327,20 +2316,20 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cVariablesVariable_ListParserRuleCall_0_0 = (RuleCall)cVariablesAssignment_0.eContents().get(0);
 		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cInitializationAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final Alternatives cInitializationAlternatives_2_0 = (Alternatives)cInitializationAssignment_2.eContents().get(0);
-		private final RuleCall cInitializationSimple_Spec_InitParserRuleCall_2_0_0 = (RuleCall)cInitializationAlternatives_2_0.eContents().get(0);
-		private final RuleCall cInitializationRef_Spec_InitParserRuleCall_2_0_1 = (RuleCall)cInitializationAlternatives_2_0.eContents().get(1);
+		private final RuleCall cInitializationSimple_Spec_InitParserRuleCall_2_0 = (RuleCall)cInitializationAssignment_2.eContents().get(0);
 		
 		////Edge_Decl: variables=Variable_List ':' Bool_Type_Name edgeType=( 'R_EDGE' | 'F_EDGE' );
 		//Var_Decl_Init:
-		//	variables=Variable_List ":" initialization=(Simple_Spec_Init / * | Array_Var_Decl_Init | 
+		//	variables=Variable_List ":" initialization= / * |
+		//	/ *Str_Var_Decl | Ref_Spec_Init | Array_Var_Decl_Init | 
 		//		Struct_Var_Decl_Init | 
-		//		FB_Decl_Init | Interface_Spec_Init * / | / *Str_Var_Decl |* / Ref_Spec_Init);
+		//		FB_Decl_Init | Interface_Spec_Init * / Simple_Spec_Init;
 		public ParserRule getRule() { return rule; }
 
-		//variables=Variable_List ":" initialization=(Simple_Spec_Init / * | Array_Var_Decl_Init | 
+		//variables=Variable_List ":" initialization= / * |
+		//	/ *Str_Var_Decl | Ref_Spec_Init | Array_Var_Decl_Init | 
 		//		Struct_Var_Decl_Init | 
-		//		FB_Decl_Init | Interface_Spec_Init * / | / *Str_Var_Decl |* / Ref_Spec_Init)
+		//		FB_Decl_Init | Interface_Spec_Init * / Simple_Spec_Init
 		public Group getGroup() { return cGroup; }
 
 		//variables=Variable_List
@@ -2352,21 +2341,17 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		//":"
 		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
 
-		//initialization=(Simple_Spec_Init / * | Array_Var_Decl_Init | 
+		//initialization= / * |
+		//	/ *Str_Var_Decl | Ref_Spec_Init | Array_Var_Decl_Init | 
 		//		Struct_Var_Decl_Init | 
-		//		FB_Decl_Init | Interface_Spec_Init * / | / *Str_Var_Decl |* / Ref_Spec_Init)
+		//		FB_Decl_Init | Interface_Spec_Init * / Simple_Spec_Init
 		public Assignment getInitializationAssignment_2() { return cInitializationAssignment_2; }
 
-		//Simple_Spec_Init / * | Array_Var_Decl_Init | 
+		/// * |
+		//	/ *Str_Var_Decl | Ref_Spec_Init | Array_Var_Decl_Init | 
 		//		Struct_Var_Decl_Init | 
-		//		FB_Decl_Init | Interface_Spec_Init * / | / *Str_Var_Decl |* / Ref_Spec_Init
-		public Alternatives getInitializationAlternatives_2_0() { return cInitializationAlternatives_2_0; }
-
-		//Simple_Spec_Init
-		public RuleCall getInitializationSimple_Spec_InitParserRuleCall_2_0_0() { return cInitializationSimple_Spec_InitParserRuleCall_2_0_0; }
-
-		/// *Str_Var_Decl |* / Ref_Spec_Init
-		public RuleCall getInitializationRef_Spec_InitParserRuleCall_2_0_1() { return cInitializationRef_Spec_InitParserRuleCall_2_0_1; }
+		//		FB_Decl_Init | Interface_Spec_Init * / Simple_Spec_Init
+		public RuleCall getInitializationSimple_Spec_InitParserRuleCall_2_0() { return cInitializationSimple_Spec_InitParserRuleCall_2_0; }
 	}
 
 	public class Interface_Var_DeclElements extends AbstractParserRuleElementFinder {
@@ -2377,14 +2362,14 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cInitializationAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final CrossReference cInitializationInterfaceCrossReference_2_0 = (CrossReference)cInitializationAssignment_2.eContents().get(0);
-		private final RuleCall cInitializationInterfaceIDParserRuleCall_2_0_1 = (RuleCall)cInitializationInterfaceCrossReference_2_0.eContents().get(1);
+		private final RuleCall cInitializationInterfaceIDENTIFIERTerminalRuleCall_2_0_1 = (RuleCall)cInitializationInterfaceCrossReference_2_0.eContents().get(1);
 		
 		////Ref_Var_Decl: variables=Variable_List ':' initialization=Ref_Spec;
 		//Interface_Var_Decl:
-		//	variables=Variable_List ":" initialization=[Interface];
+		//	variables=Variable_List ":" initialization=[Interface|IDENTIFIER];
 		public ParserRule getRule() { return rule; }
 
-		//variables=Variable_List ":" initialization=[Interface]
+		//variables=Variable_List ":" initialization=[Interface|IDENTIFIER]
 		public Group getGroup() { return cGroup; }
 
 		//variables=Variable_List
@@ -2396,14 +2381,14 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		//":"
 		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
 
-		//initialization=[Interface]
+		//initialization=[Interface|IDENTIFIER]
 		public Assignment getInitializationAssignment_2() { return cInitializationAssignment_2; }
 
-		//[Interface]
+		//[Interface|IDENTIFIER]
 		public CrossReference getInitializationInterfaceCrossReference_2_0() { return cInitializationInterfaceCrossReference_2_0; }
 
-		//ID
-		public RuleCall getInitializationInterfaceIDParserRuleCall_2_0_1() { return cInitializationInterfaceIDParserRuleCall_2_0_1; }
+		//IDENTIFIER
+		public RuleCall getInitializationInterfaceIDENTIFIERTerminalRuleCall_2_0_1() { return cInitializationInterfaceIDENTIFIERTerminalRuleCall_2_0_1; }
 	}
 
 	public class Variable_ListElements extends AbstractParserRuleElementFinder {
@@ -3589,7 +3574,7 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cEXTENDSKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cExtendsAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
 		private final CrossReference cExtendsFunctionBlockCrossReference_5_1_0 = (CrossReference)cExtendsAssignment_5_1.eContents().get(0);
-		private final RuleCall cExtendsFunctionBlockIDParserRuleCall_5_1_0_1 = (RuleCall)cExtendsFunctionBlockCrossReference_5_1_0.eContents().get(1);
+		private final RuleCall cExtendsFunctionBlockIDENTIFIERTerminalRuleCall_5_1_0_1 = (RuleCall)cExtendsFunctionBlockCrossReference_5_1_0.eContents().get(1);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cIMPLEMENTSKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cImplementsAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
@@ -3609,13 +3594,13 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//FB_Decl:
 		//	{FB_Decl} "FUNCTION_BLOCK" modifier=("FINAL" | "ABSTRACT")? name=FunctionBlock usings+=Using_Directive* ("EXTENDS"
-		//	extends=[FunctionBlock])? ("IMPLEMENTS" implements=Interface_Name_List)? (ios+=FB_IO_Var_Decls
+		//	extends=[FunctionBlock|IDENTIFIER])? ("IMPLEMENTS" implements=Interface_Name_List)? (ios+=FB_IO_Var_Decls
 		//	/ * | others+=Other_Var_Decls * / | variables+=Func_Var_Decls | temps+=Temp_Var_Decls)* methods+=Method_Decl*
 		//	body=FB_Body? => "END_FUNCTION_BLOCK";
 		public ParserRule getRule() { return rule; }
 
 		//{FB_Decl} "FUNCTION_BLOCK" modifier=("FINAL" | "ABSTRACT")? name=FunctionBlock usings+=Using_Directive* ("EXTENDS"
-		//extends=[FunctionBlock])? ("IMPLEMENTS" implements=Interface_Name_List)? (ios+=FB_IO_Var_Decls
+		//extends=[FunctionBlock|IDENTIFIER])? ("IMPLEMENTS" implements=Interface_Name_List)? (ios+=FB_IO_Var_Decls
 		/// * | others+=Other_Var_Decls * / | variables+=Func_Var_Decls | temps+=Temp_Var_Decls)* methods+=Method_Decl*
 		//body=FB_Body? => "END_FUNCTION_BLOCK"
 		public Group getGroup() { return cGroup; }
@@ -3650,20 +3635,20 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		//Using_Directive
 		public RuleCall getUsingsUsing_DirectiveParserRuleCall_4_0() { return cUsingsUsing_DirectiveParserRuleCall_4_0; }
 
-		//("EXTENDS" extends=[FunctionBlock])?
+		//("EXTENDS" extends=[FunctionBlock|IDENTIFIER])?
 		public Group getGroup_5() { return cGroup_5; }
 
 		//"EXTENDS"
 		public Keyword getEXTENDSKeyword_5_0() { return cEXTENDSKeyword_5_0; }
 
-		//extends=[FunctionBlock]
+		//extends=[FunctionBlock|IDENTIFIER]
 		public Assignment getExtendsAssignment_5_1() { return cExtendsAssignment_5_1; }
 
-		//[FunctionBlock]
+		//[FunctionBlock|IDENTIFIER]
 		public CrossReference getExtendsFunctionBlockCrossReference_5_1_0() { return cExtendsFunctionBlockCrossReference_5_1_0; }
 
-		//ID
-		public RuleCall getExtendsFunctionBlockIDParserRuleCall_5_1_0_1() { return cExtendsFunctionBlockIDParserRuleCall_5_1_0_1; }
+		//IDENTIFIER
+		public RuleCall getExtendsFunctionBlockIDENTIFIERTerminalRuleCall_5_1_0_1() { return cExtendsFunctionBlockIDENTIFIERTerminalRuleCall_5_1_0_1; }
 
 		//("IMPLEMENTS" implements=Interface_Name_List)?
 		public Group getGroup_6() { return cGroup_6; }
@@ -4047,7 +4032,7 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cEXTENDSKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cExtendsAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
 		private final CrossReference cExtendsClassCrossReference_4_1_0 = (CrossReference)cExtendsAssignment_4_1.eContents().get(0);
-		private final RuleCall cExtendsClassIDParserRuleCall_4_1_0_1 = (RuleCall)cExtendsClassCrossReference_4_1_0.eContents().get(1);
+		private final RuleCall cExtendsClassIDENTIFIERTerminalRuleCall_4_1_0_1 = (RuleCall)cExtendsClassCrossReference_4_1_0.eContents().get(1);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIMPLEMENTSKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cImplementsAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -4061,14 +4046,14 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		//// Table 48 - Class
 		//// Table 50 Textual call of methods – Formal and non-formal parameter list
 		//Class_Decl:
-		//	"CLASS" modifier=("FINAL" | "ABSTRACT")? class=Class usings+=Using_Directive* ("EXTENDS" extends=[Class])?
+		//	"CLASS" modifier=("FINAL" | "ABSTRACT")? class=Class usings+=Using_Directive* ("EXTENDS" extends=[Class|IDENTIFIER])?
 		//	("IMPLEMENTS" implements=Interface_Name_List)? variables+=Func_Var_Decls* / * | others+=Other_Var_Decls * /
 		//	methods+=Method_Decl* "END_CLASS";
 		public ParserRule getRule() { return rule; }
 
-		//"CLASS" modifier=("FINAL" | "ABSTRACT")? class=Class usings+=Using_Directive* ("EXTENDS" extends=[Class])? ("IMPLEMENTS"
-		//implements=Interface_Name_List)? variables+=Func_Var_Decls* / * | others+=Other_Var_Decls * / methods+=Method_Decl*
-		//"END_CLASS"
+		//"CLASS" modifier=("FINAL" | "ABSTRACT")? class=Class usings+=Using_Directive* ("EXTENDS" extends=[Class|IDENTIFIER])?
+		//("IMPLEMENTS" implements=Interface_Name_List)? variables+=Func_Var_Decls* / * | others+=Other_Var_Decls * /
+		//methods+=Method_Decl* "END_CLASS"
 		public Group getGroup() { return cGroup; }
 
 		//"CLASS"
@@ -4098,20 +4083,20 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		//Using_Directive
 		public RuleCall getUsingsUsing_DirectiveParserRuleCall_3_0() { return cUsingsUsing_DirectiveParserRuleCall_3_0; }
 
-		//("EXTENDS" extends=[Class])?
+		//("EXTENDS" extends=[Class|IDENTIFIER])?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"EXTENDS"
 		public Keyword getEXTENDSKeyword_4_0() { return cEXTENDSKeyword_4_0; }
 
-		//extends=[Class]
+		//extends=[Class|IDENTIFIER]
 		public Assignment getExtendsAssignment_4_1() { return cExtendsAssignment_4_1; }
 
-		//[Class]
+		//[Class|IDENTIFIER]
 		public CrossReference getExtendsClassCrossReference_4_1_0() { return cExtendsClassCrossReference_4_1_0; }
 
-		//ID
-		public RuleCall getExtendsClassIDParserRuleCall_4_1_0_1() { return cExtendsClassIDParserRuleCall_4_1_0_1; }
+		//IDENTIFIER
+		public RuleCall getExtendsClassIDENTIFIERTerminalRuleCall_4_1_0_1() { return cExtendsClassIDENTIFIERTerminalRuleCall_4_1_0_1; }
 
 		//("IMPLEMENTS" implements=Interface_Name_List)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -4309,45 +4294,45 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cInterfacesAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cInterfacesInterfaceCrossReference_0_0 = (CrossReference)cInterfacesAssignment_0.eContents().get(0);
-		private final RuleCall cInterfacesInterfaceIDParserRuleCall_0_0_1 = (RuleCall)cInterfacesInterfaceCrossReference_0_0.eContents().get(1);
+		private final RuleCall cInterfacesInterfaceIDENTIFIERTerminalRuleCall_0_0_1 = (RuleCall)cInterfacesInterfaceCrossReference_0_0.eContents().get(1);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Keyword cCommaKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Assignment cInterfacesAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final CrossReference cInterfacesInterfaceCrossReference_1_1_0 = (CrossReference)cInterfacesAssignment_1_1.eContents().get(0);
-		private final RuleCall cInterfacesInterfaceIDParserRuleCall_1_1_0_1 = (RuleCall)cInterfacesInterfaceCrossReference_1_1_0.eContents().get(1);
+		private final RuleCall cInterfacesInterfaceIDENTIFIERTerminalRuleCall_1_1_0_1 = (RuleCall)cInterfacesInterfaceCrossReference_1_1_0.eContents().get(1);
 		
 		////Interface_Spec_Init: variables=Variable_List ( ASSIGNMENT initialization=Interface_Value )?;
 		////Interface_Value: ((variable=Symbolic_Variable) | variableName=(FB_Instance_Name | Class_Instance_Name | 'NULL'));
 		//Interface_Name_List:
-		//	interfaces+=[Interface] ("," interfaces+=[Interface])*;
+		//	interfaces+=[Interface|IDENTIFIER] ("," interfaces+=[Interface|IDENTIFIER])*;
 		public ParserRule getRule() { return rule; }
 
-		//interfaces+=[Interface] ("," interfaces+=[Interface])*
+		//interfaces+=[Interface|IDENTIFIER] ("," interfaces+=[Interface|IDENTIFIER])*
 		public Group getGroup() { return cGroup; }
 
-		//interfaces+=[Interface]
+		//interfaces+=[Interface|IDENTIFIER]
 		public Assignment getInterfacesAssignment_0() { return cInterfacesAssignment_0; }
 
-		//[Interface]
+		//[Interface|IDENTIFIER]
 		public CrossReference getInterfacesInterfaceCrossReference_0_0() { return cInterfacesInterfaceCrossReference_0_0; }
 
-		//ID
-		public RuleCall getInterfacesInterfaceIDParserRuleCall_0_0_1() { return cInterfacesInterfaceIDParserRuleCall_0_0_1; }
+		//IDENTIFIER
+		public RuleCall getInterfacesInterfaceIDENTIFIERTerminalRuleCall_0_0_1() { return cInterfacesInterfaceIDENTIFIERTerminalRuleCall_0_0_1; }
 
-		//("," interfaces+=[Interface])*
+		//("," interfaces+=[Interface|IDENTIFIER])*
 		public Group getGroup_1() { return cGroup_1; }
 
 		//","
 		public Keyword getCommaKeyword_1_0() { return cCommaKeyword_1_0; }
 
-		//interfaces+=[Interface]
+		//interfaces+=[Interface|IDENTIFIER]
 		public Assignment getInterfacesAssignment_1_1() { return cInterfacesAssignment_1_1; }
 
-		//[Interface]
+		//[Interface|IDENTIFIER]
 		public CrossReference getInterfacesInterfaceCrossReference_1_1_0() { return cInterfacesInterfaceCrossReference_1_1_0; }
 
-		//ID
-		public RuleCall getInterfacesInterfaceIDParserRuleCall_1_1_0_1() { return cInterfacesInterfaceIDParserRuleCall_1_1_0_1; }
+		//IDENTIFIER
+		public RuleCall getInterfacesInterfaceIDENTIFIERTerminalRuleCall_1_1_0_1() { return cInterfacesInterfaceIDENTIFIERTerminalRuleCall_1_1_0_1; }
 	}
 
 	public class Access_SpecElements extends AbstractParserRuleElementFinder {
@@ -5058,14 +5043,22 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class Primary_ExprElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Primary_Expr");
-		private final RuleCall cConstantParserRuleCall = (RuleCall)rule.eContents().get(1);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cConstantParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cVariable_AccessParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		/// * | Enum_Value | Variable_Access | Func_Call | Ref_Value | '(' Expression ')' * / Primary_Expr returns Expression:
-		//	Constant;
+		/// * | Enum_Value | Func_Call | Ref_Value | '(' Expression ')' * / Primary_Expr returns Expression:
+		//	Constant | Variable_Access;
 		public ParserRule getRule() { return rule; }
 
+		//Constant | Variable_Access
+		public Alternatives getAlternatives() { return cAlternatives; }
+
 		//Constant
-		public RuleCall getConstantParserRuleCall() { return cConstantParserRuleCall; }
+		public RuleCall getConstantParserRuleCall_0() { return cConstantParserRuleCall_0; }
+
+		//Variable_Access
+		public RuleCall getVariable_AccessParserRuleCall_1() { return cVariable_AccessParserRuleCall_1; }
 	}
 
 	public class Variable_AccessElements extends AbstractParserRuleElementFinder {
@@ -5073,25 +5066,25 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cVariableAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cVariableVariableCrossReference_0_0 = (CrossReference)cVariableAssignment_0.eContents().get(0);
-		private final RuleCall cVariableVariableIDParserRuleCall_0_0_1 = (RuleCall)cVariableVariableCrossReference_0_0.eContents().get(1);
+		private final RuleCall cVariableVariableIDENTIFIERTerminalRuleCall_0_0_1 = (RuleCall)cVariableVariableCrossReference_0_0.eContents().get(1);
 		private final Assignment cAccessAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cAccessMultibit_Part_AccessParserRuleCall_1_0 = (RuleCall)cAccessAssignment_1.eContents().get(0);
 		
 		//Variable_Access:
-		//	variable=[Variable] access=Multibit_Part_Access?;
+		//	variable=[Variable|IDENTIFIER] access=Multibit_Part_Access?;
 		public ParserRule getRule() { return rule; }
 
-		//variable=[Variable] access=Multibit_Part_Access?
+		//variable=[Variable|IDENTIFIER] access=Multibit_Part_Access?
 		public Group getGroup() { return cGroup; }
 
-		//variable=[Variable]
+		//variable=[Variable|IDENTIFIER]
 		public Assignment getVariableAssignment_0() { return cVariableAssignment_0; }
 
-		//[Variable]
+		//[Variable|IDENTIFIER]
 		public CrossReference getVariableVariableCrossReference_0_0() { return cVariableVariableCrossReference_0_0; }
 
-		//ID
-		public RuleCall getVariableVariableIDParserRuleCall_0_0_1() { return cVariableVariableIDParserRuleCall_0_0_1; }
+		//IDENTIFIER
+		public RuleCall getVariableVariableIDENTIFIERTerminalRuleCall_0_0_1() { return cVariableVariableIDENTIFIERTerminalRuleCall_0_0_1; }
 
 		//access=Multibit_Part_Access?
 		public Assignment getAccessAssignment_1() { return cAccessAssignment_1; }
@@ -5189,7 +5182,7 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cCallableAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cCallableFunctionCrossReference_0_0 = (CrossReference)cCallableAssignment_0.eContents().get(0);
-		private final RuleCall cCallableFunctionIDParserRuleCall_0_0_1 = (RuleCall)cCallableFunctionCrossReference_0_0.eContents().get(1);
+		private final RuleCall cCallableFunctionIDENTIFIERTerminalRuleCall_0_0_1 = (RuleCall)cCallableFunctionCrossReference_0_0.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Assignment cParametersAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
@@ -5201,20 +5194,20 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Func_Call returns Callable:
-		//	callable=[Function] "(" (parameters+=Param_Assign ("," parameters+=Param_Assign)*)? ")";
+		//	callable=[Function|IDENTIFIER] "(" (parameters+=Param_Assign ("," parameters+=Param_Assign)*)? ")";
 		public ParserRule getRule() { return rule; }
 
-		//callable=[Function] "(" (parameters+=Param_Assign ("," parameters+=Param_Assign)*)? ")"
+		//callable=[Function|IDENTIFIER] "(" (parameters+=Param_Assign ("," parameters+=Param_Assign)*)? ")"
 		public Group getGroup() { return cGroup; }
 
-		//callable=[Function]
+		//callable=[Function|IDENTIFIER]
 		public Assignment getCallableAssignment_0() { return cCallableAssignment_0; }
 
-		//[Function]
+		//[Function|IDENTIFIER]
 		public CrossReference getCallableFunctionCrossReference_0_0() { return cCallableFunctionCrossReference_0_0; }
 
-		//ID
-		public RuleCall getCallableFunctionIDParserRuleCall_0_0_1() { return cCallableFunctionIDParserRuleCall_0_0_1; }
+		//IDENTIFIER
+		public RuleCall getCallableFunctionIDENTIFIERTerminalRuleCall_0_0_1() { return cCallableFunctionIDENTIFIERTerminalRuleCall_0_0_1; }
 
 		//"("
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
@@ -5302,26 +5295,14 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class Assign_StmtElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Assign_Stmt");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cVariable_Assign_StmtParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cRef_AssignParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cAssignment_AttemptParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cVariable_Assign_StmtParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
-		//Assign_Stmt:
-		//	Variable_Assign_Stmt | Ref_Assign | Assignment_Attempt;
+		/// * | Ref_Assign | Assignment_Attempt * / Assign_Stmt:
+		//	Variable_Assign_Stmt;
 		public ParserRule getRule() { return rule; }
 
-		//Variable_Assign_Stmt | Ref_Assign | Assignment_Attempt
-		public Alternatives getAlternatives() { return cAlternatives; }
-
 		//Variable_Assign_Stmt
-		public RuleCall getVariable_Assign_StmtParserRuleCall_0() { return cVariable_Assign_StmtParserRuleCall_0; }
-
-		//Ref_Assign
-		public RuleCall getRef_AssignParserRuleCall_1() { return cRef_AssignParserRuleCall_1; }
-
-		//Assignment_Attempt
-		public RuleCall getAssignment_AttemptParserRuleCall_2() { return cAssignment_AttemptParserRuleCall_2; }
+		public RuleCall getVariable_Assign_StmtParserRuleCall() { return cVariable_Assign_StmtParserRuleCall; }
 	}
 
 	public class Variable_Assign_StmtElements extends AbstractParserRuleElementFinder {
@@ -5329,26 +5310,26 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cVariableAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cVariableVariableCrossReference_0_0 = (CrossReference)cVariableAssignment_0.eContents().get(0);
-		private final RuleCall cVariableVariableIDParserRuleCall_0_0_1 = (RuleCall)cVariableVariableCrossReference_0_0.eContents().get(1);
+		private final RuleCall cVariableVariableIDENTIFIERTerminalRuleCall_0_0_1 = (RuleCall)cVariableVariableCrossReference_0_0.eContents().get(1);
 		private final RuleCall cASSIGNMENTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cValueExpressionParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
 		//Variable_Assign_Stmt:
-		//	variable=[Variable] ASSIGNMENT value=Expression;
+		//	variable=[Variable|IDENTIFIER] ASSIGNMENT value=Expression;
 		public ParserRule getRule() { return rule; }
 
-		//variable=[Variable] ASSIGNMENT value=Expression
+		//variable=[Variable|IDENTIFIER] ASSIGNMENT value=Expression
 		public Group getGroup() { return cGroup; }
 
-		//variable=[Variable]
+		//variable=[Variable|IDENTIFIER]
 		public Assignment getVariableAssignment_0() { return cVariableAssignment_0; }
 
-		//[Variable]
+		//[Variable|IDENTIFIER]
 		public CrossReference getVariableVariableCrossReference_0_0() { return cVariableVariableCrossReference_0_0; }
 
-		//ID
-		public RuleCall getVariableVariableIDParserRuleCall_0_0_1() { return cVariableVariableIDParserRuleCall_0_0_1; }
+		//IDENTIFIER
+		public RuleCall getVariableVariableIDENTIFIERTerminalRuleCall_0_0_1() { return cVariableVariableIDENTIFIERTerminalRuleCall_0_0_1; }
 
 		//ASSIGNMENT
 		public RuleCall getASSIGNMENTTerminalRuleCall_1() { return cASSIGNMENTTerminalRuleCall_1; }
@@ -5365,39 +5346,39 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cVariableAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cVariableVariableCrossReference_0_0 = (CrossReference)cVariableAssignment_0.eContents().get(0);
-		private final RuleCall cVariableVariableIDParserRuleCall_0_0_1 = (RuleCall)cVariableVariableCrossReference_0_0.eContents().get(1);
+		private final RuleCall cVariableVariableIDENTIFIERTerminalRuleCall_0_0_1 = (RuleCall)cVariableVariableCrossReference_0_0.eContents().get(1);
 		private final Keyword cQuestionMarkEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final CrossReference cValueVariableCrossReference_2_0 = (CrossReference)cValueAssignment_2.eContents().get(0);
-		private final RuleCall cValueVariableIDParserRuleCall_2_0_1 = (RuleCall)cValueVariableCrossReference_2_0.eContents().get(1);
+		private final RuleCall cValueVariableIDENTIFIERTerminalRuleCall_2_0_1 = (RuleCall)cValueVariableCrossReference_2_0.eContents().get(1);
 		
 		//Assignment_Attempt:
-		//	variable=[Variable] "?=" value=[Variable];
+		//	variable=[Variable|IDENTIFIER] "?=" value=[Variable|IDENTIFIER];
 		public ParserRule getRule() { return rule; }
 
-		//variable=[Variable] "?=" value=[Variable]
+		//variable=[Variable|IDENTIFIER] "?=" value=[Variable|IDENTIFIER]
 		public Group getGroup() { return cGroup; }
 
-		//variable=[Variable]
+		//variable=[Variable|IDENTIFIER]
 		public Assignment getVariableAssignment_0() { return cVariableAssignment_0; }
 
-		//[Variable]
+		//[Variable|IDENTIFIER]
 		public CrossReference getVariableVariableCrossReference_0_0() { return cVariableVariableCrossReference_0_0; }
 
-		//ID
-		public RuleCall getVariableVariableIDParserRuleCall_0_0_1() { return cVariableVariableIDParserRuleCall_0_0_1; }
+		//IDENTIFIER
+		public RuleCall getVariableVariableIDENTIFIERTerminalRuleCall_0_0_1() { return cVariableVariableIDENTIFIERTerminalRuleCall_0_0_1; }
 
 		//"?="
 		public Keyword getQuestionMarkEqualsSignKeyword_1() { return cQuestionMarkEqualsSignKeyword_1; }
 
-		//value=[Variable]
+		//value=[Variable|IDENTIFIER]
 		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
 
-		//[Variable]
+		//[Variable|IDENTIFIER]
 		public CrossReference getValueVariableCrossReference_2_0() { return cValueVariableCrossReference_2_0; }
 
-		//ID
-		public RuleCall getValueVariableIDParserRuleCall_2_0_1() { return cValueVariableIDParserRuleCall_2_0_1; }
+		//IDENTIFIER
+		public RuleCall getValueVariableIDENTIFIERTerminalRuleCall_2_0_1() { return cValueVariableIDENTIFIERTerminalRuleCall_2_0_1; }
 	}
 
 	public class Subprog_Ctrl_StmtElements extends AbstractParserRuleElementFinder {
@@ -5472,26 +5453,14 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class Param_AssignElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Param_Assign");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cNamed_ValueParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cInRef_AssignParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cLinked_ValueParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cNamed_ValueParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
-		//Param_Assign:
-		//	Named_Value | InRef_Assign | Linked_Value;
+		/// * | InRef_Assign | Linked_Value * / Param_Assign:
+		//	Named_Value;
 		public ParserRule getRule() { return rule; }
 
-		//Named_Value | InRef_Assign | Linked_Value
-		public Alternatives getAlternatives() { return cAlternatives; }
-
 		//Named_Value
-		public RuleCall getNamed_ValueParserRuleCall_0() { return cNamed_ValueParserRuleCall_0; }
-
-		//InRef_Assign
-		public RuleCall getInRef_AssignParserRuleCall_1() { return cInRef_AssignParserRuleCall_1; }
-
-		//Linked_Value
-		public RuleCall getLinked_ValueParserRuleCall_2() { return cLinked_ValueParserRuleCall_2; }
+		public RuleCall getNamed_ValueParserRuleCall() { return cNamed_ValueParserRuleCall; }
 	}
 
 	public class Named_ValueElements extends AbstractParserRuleElementFinder {
@@ -5500,30 +5469,30 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
 		private final Assignment cVariableAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
 		private final CrossReference cVariableVariableCrossReference_0_0_0 = (CrossReference)cVariableAssignment_0_0.eContents().get(0);
-		private final RuleCall cVariableVariableIDParserRuleCall_0_0_0_1 = (RuleCall)cVariableVariableCrossReference_0_0_0.eContents().get(1);
+		private final RuleCall cVariableVariableIDENTIFIERTerminalRuleCall_0_0_0_1 = (RuleCall)cVariableVariableCrossReference_0_0_0.eContents().get(1);
 		private final RuleCall cASSIGNMENTTerminalRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cValueExpressionParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//// TODO: check that the used variable is an input parameter
 		//Named_Value:
-		//	(variable=[Variable] ASSIGNMENT)? value=Expression;
+		//	(variable=[Variable|IDENTIFIER] ASSIGNMENT)? value=Expression;
 		public ParserRule getRule() { return rule; }
 
-		//(variable=[Variable] ASSIGNMENT)? value=Expression
+		//(variable=[Variable|IDENTIFIER] ASSIGNMENT)? value=Expression
 		public Group getGroup() { return cGroup; }
 
-		//(variable=[Variable] ASSIGNMENT)?
+		//(variable=[Variable|IDENTIFIER] ASSIGNMENT)?
 		public Group getGroup_0() { return cGroup_0; }
 
-		//variable=[Variable]
+		//variable=[Variable|IDENTIFIER]
 		public Assignment getVariableAssignment_0_0() { return cVariableAssignment_0_0; }
 
-		//[Variable]
+		//[Variable|IDENTIFIER]
 		public CrossReference getVariableVariableCrossReference_0_0_0() { return cVariableVariableCrossReference_0_0_0; }
 
-		//ID
-		public RuleCall getVariableVariableIDParserRuleCall_0_0_0_1() { return cVariableVariableIDParserRuleCall_0_0_0_1; }
+		//IDENTIFIER
+		public RuleCall getVariableVariableIDENTIFIERTerminalRuleCall_0_0_0_1() { return cVariableVariableIDENTIFIERTerminalRuleCall_0_0_0_1; }
 
 		//ASSIGNMENT
 		public RuleCall getASSIGNMENTTerminalRuleCall_0_1() { return cASSIGNMENTTerminalRuleCall_0_1; }
@@ -5542,19 +5511,19 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cNegatedNOTKeyword_0_0 = (Keyword)cNegatedAssignment_0.eContents().get(0);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final CrossReference cValueVariableCrossReference_1_0 = (CrossReference)cValueAssignment_1.eContents().get(0);
-		private final RuleCall cValueVariableIDParserRuleCall_1_0_1 = (RuleCall)cValueVariableCrossReference_1_0.eContents().get(1);
+		private final RuleCall cValueVariableIDENTIFIERTerminalRuleCall_1_0_1 = (RuleCall)cValueVariableCrossReference_1_0.eContents().get(1);
 		private final Keyword cEqualsSignGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cVariableAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final CrossReference cVariableVariableCrossReference_3_0 = (CrossReference)cVariableAssignment_3.eContents().get(0);
-		private final RuleCall cVariableVariableIDParserRuleCall_3_0_1 = (RuleCall)cVariableVariableCrossReference_3_0.eContents().get(1);
+		private final RuleCall cVariableVariableIDENTIFIERTerminalRuleCall_3_0_1 = (RuleCall)cVariableVariableCrossReference_3_0.eContents().get(1);
 		
 		//// TODO: check if this type of value must be also supported for in_out variables
 		//// TODO: check that the used variable is an output
 		//Linked_Value:
-		//	negated?="NOT"? value=[Variable] "=>" variable=[Variable];
+		//	negated?="NOT"? value=[Variable|IDENTIFIER] "=>" variable=[Variable|IDENTIFIER];
 		public ParserRule getRule() { return rule; }
 
-		//negated?="NOT"? value=[Variable] "=>" variable=[Variable]
+		//negated?="NOT"? value=[Variable|IDENTIFIER] "=>" variable=[Variable|IDENTIFIER]
 		public Group getGroup() { return cGroup; }
 
 		//negated?="NOT"?
@@ -5563,26 +5532,26 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		//"NOT"
 		public Keyword getNegatedNOTKeyword_0_0() { return cNegatedNOTKeyword_0_0; }
 
-		//value=[Variable]
+		//value=[Variable|IDENTIFIER]
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
 
-		//[Variable]
+		//[Variable|IDENTIFIER]
 		public CrossReference getValueVariableCrossReference_1_0() { return cValueVariableCrossReference_1_0; }
 
-		//ID
-		public RuleCall getValueVariableIDParserRuleCall_1_0_1() { return cValueVariableIDParserRuleCall_1_0_1; }
+		//IDENTIFIER
+		public RuleCall getValueVariableIDENTIFIERTerminalRuleCall_1_0_1() { return cValueVariableIDENTIFIERTerminalRuleCall_1_0_1; }
 
 		//"=>"
 		public Keyword getEqualsSignGreaterThanSignKeyword_2() { return cEqualsSignGreaterThanSignKeyword_2; }
 
-		//variable=[Variable]
+		//variable=[Variable|IDENTIFIER]
 		public Assignment getVariableAssignment_3() { return cVariableAssignment_3; }
 
-		//[Variable]
+		//[Variable|IDENTIFIER]
 		public CrossReference getVariableVariableCrossReference_3_0() { return cVariableVariableCrossReference_3_0; }
 
-		//ID
-		public RuleCall getVariableVariableIDParserRuleCall_3_0_1() { return cVariableVariableIDParserRuleCall_3_0_1; }
+		//IDENTIFIER
+		public RuleCall getVariableVariableIDENTIFIERTerminalRuleCall_3_0_1() { return cVariableVariableIDENTIFIERTerminalRuleCall_3_0_1; }
 	}
 
 	public class InRef_AssignElements extends AbstractParserRuleElementFinder {
@@ -5590,40 +5559,42 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cVariableAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cVariableVariableCrossReference_0_0 = (CrossReference)cVariableAssignment_0.eContents().get(0);
-		private final RuleCall cVariableVariableIDParserRuleCall_0_0_1 = (RuleCall)cVariableVariableCrossReference_0_0.eContents().get(1);
+		private final RuleCall cVariableVariableIDENTIFIERTerminalRuleCall_0_0_1 = (RuleCall)cVariableVariableCrossReference_0_0.eContents().get(1);
 		private final RuleCall cASSIGNMENTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final CrossReference cValueVariableCrossReference_2_0 = (CrossReference)cValueAssignment_2.eContents().get(0);
-		private final RuleCall cValueVariableIDParserRuleCall_2_0_1 = (RuleCall)cValueVariableCrossReference_2_0.eContents().get(1);
+		private final RuleCall cValueVariableIDENTIFIERTerminalRuleCall_2_0_1 = (RuleCall)cValueVariableCrossReference_2_0.eContents().get(1);
 		
 		//// TODO: check that the used variable is an input parameter
 		//InRef_Assign:
-		//	variable=[Variable] ASSIGNMENT / * | [Ref_Deref] | [Ref_Value] * / value=[Variable];
+		//	variable=[Variable|IDENTIFIER] ASSIGNMENT / * | [Ref_Deref | IDENTIFIER] | [Ref_Value | IDENTIFIER] * /
+		//	value=[Variable|IDENTIFIER];
 		public ParserRule getRule() { return rule; }
 
-		//variable=[Variable] ASSIGNMENT / * | [Ref_Deref] | [Ref_Value] * / value=[Variable]
+		//variable=[Variable|IDENTIFIER] ASSIGNMENT / * | [Ref_Deref | IDENTIFIER] | [Ref_Value | IDENTIFIER] * /
+		//value=[Variable|IDENTIFIER]
 		public Group getGroup() { return cGroup; }
 
-		//variable=[Variable]
+		//variable=[Variable|IDENTIFIER]
 		public Assignment getVariableAssignment_0() { return cVariableAssignment_0; }
 
-		//[Variable]
+		//[Variable|IDENTIFIER]
 		public CrossReference getVariableVariableCrossReference_0_0() { return cVariableVariableCrossReference_0_0; }
 
-		//ID
-		public RuleCall getVariableVariableIDParserRuleCall_0_0_1() { return cVariableVariableIDParserRuleCall_0_0_1; }
+		//IDENTIFIER
+		public RuleCall getVariableVariableIDENTIFIERTerminalRuleCall_0_0_1() { return cVariableVariableIDENTIFIERTerminalRuleCall_0_0_1; }
 
 		//ASSIGNMENT
 		public RuleCall getASSIGNMENTTerminalRuleCall_1() { return cASSIGNMENTTerminalRuleCall_1; }
 
-		/// * | [Ref_Deref] | [Ref_Value] * / value=[Variable]
+		/// * | [Ref_Deref | IDENTIFIER] | [Ref_Value | IDENTIFIER] * / value=[Variable|IDENTIFIER]
 		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
 
-		//[Variable]
+		//[Variable|IDENTIFIER]
 		public CrossReference getValueVariableCrossReference_2_0() { return cValueVariableCrossReference_2_0; }
 
-		//ID
-		public RuleCall getValueVariableIDParserRuleCall_2_0_1() { return cValueVariableIDParserRuleCall_2_0_1; }
+		//IDENTIFIER
+		public RuleCall getValueVariableIDENTIFIERTerminalRuleCall_2_0_1() { return cValueVariableIDENTIFIERTerminalRuleCall_2_0_1; }
 	}
 
 	public class Selection_StmtElements extends AbstractParserRuleElementFinder {
@@ -5984,7 +5955,7 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cFORKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cVariableAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final CrossReference cVariableVariableCrossReference_1_0 = (CrossReference)cVariableAssignment_1.eContents().get(0);
-		private final RuleCall cVariableVariableIDParserRuleCall_1_0_1 = (RuleCall)cVariableVariableCrossReference_1_0.eContents().get(1);
+		private final RuleCall cVariableVariableIDENTIFIERTerminalRuleCall_1_0_1 = (RuleCall)cVariableVariableCrossReference_1_0.eContents().get(1);
 		private final RuleCall cASSIGNMENTTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final Assignment cBoundsAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cBoundsFor_ListParserRuleCall_3_0 = (RuleCall)cBoundsAssignment_3.eContents().get(0);
@@ -5994,23 +5965,23 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cEND_FORKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//For_Stmt:
-		//	"FOR" variable=[Variable] ASSIGNMENT bounds=For_List "DO" statements=Stmt_List "END_FOR";
+		//	"FOR" variable=[Variable|IDENTIFIER] ASSIGNMENT bounds=For_List "DO" statements=Stmt_List "END_FOR";
 		public ParserRule getRule() { return rule; }
 
-		//"FOR" variable=[Variable] ASSIGNMENT bounds=For_List "DO" statements=Stmt_List "END_FOR"
+		//"FOR" variable=[Variable|IDENTIFIER] ASSIGNMENT bounds=For_List "DO" statements=Stmt_List "END_FOR"
 		public Group getGroup() { return cGroup; }
 
 		//"FOR"
 		public Keyword getFORKeyword_0() { return cFORKeyword_0; }
 
-		//variable=[Variable]
+		//variable=[Variable|IDENTIFIER]
 		public Assignment getVariableAssignment_1() { return cVariableAssignment_1; }
 
-		//[Variable]
+		//[Variable|IDENTIFIER]
 		public CrossReference getVariableVariableCrossReference_1_0() { return cVariableVariableCrossReference_1_0; }
 
-		//ID
-		public RuleCall getVariableVariableIDParserRuleCall_1_0_1() { return cVariableVariableIDParserRuleCall_1_0_1; }
+		//IDENTIFIER
+		public RuleCall getVariableVariableIDENTIFIERTerminalRuleCall_1_0_1() { return cVariableVariableIDENTIFIERTerminalRuleCall_1_0_1; }
 
 		//ASSIGNMENT
 		public RuleCall getASSIGNMENTTerminalRuleCall_2() { return cASSIGNMENTTerminalRuleCall_2; }
@@ -6170,7 +6141,6 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	private TerminalRule tOCTAL_DIGIT;
 	private TerminalRule tDIGIT;
 	private TerminalRule tHEX_DIGIT;
-	private IDElements pID;
 	private TerminalRule tIDENTIFIER;
 	private TerminalRule tQUALIFIED_ID_PREFIX;
 	private Qualified_NameElements pQualified_Name;
@@ -6455,17 +6425,6 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	public TerminalRule getHEX_DIGITRule() {
 		return (tHEX_DIGIT != null) ? tHEX_DIGIT : (tHEX_DIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "HEX_DIGIT"));
 	} 
-
-	//// rule ID just to avoid always writing [Rule] when using cross-references...
-	//ID:
-	//	IDENTIFIER;
-	public IDElements getIDAccess() {
-		return (pID != null) ? pID : (pID = new IDElements());
-	}
-	
-	public ParserRule getIDRule() {
-		return getIDAccess().getRule();
-	}
 
 	//terminal IDENTIFIER:
 	//	LETTER (LETTER | DIGIT)*;
@@ -7192,7 +7151,7 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Subrange:
-	//	lowBound=[Constant_Expr] ".." upBound=[Constant_Expr];
+	//	lowBound=[Constant_Expr|IDENTIFIER] ".." upBound=[Constant_Expr|IDENTIFIER];
 	public SubrangeElements getSubrangeAccess() {
 		return (pSubrange != null) ? pSubrange : (pSubrange = new SubrangeElements());
 	}
@@ -7227,7 +7186,7 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Enum_Value:
-	//	variable=[Variable];
+	//	variable=[Variable|IDENTIFIER];
 	public Enum_ValueElements getEnum_ValueAccess() {
 		return (pEnum_Value != null) ? pEnum_Value : (pEnum_Value = new Enum_ValueElements());
 	}
@@ -7326,7 +7285,7 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Ref_Addr:
-	//	"REF" "(" variable=[Variable] ")";
+	//	"REF" "(" variable=[Variable|IDENTIFIER] ")";
 	public Ref_AddrElements getRef_AddrAccess() {
 		return (pRef_Addr != null) ? pRef_Addr : (pRef_Addr = new Ref_AddrElements());
 	}
@@ -7336,7 +7295,8 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Ref_Assign:
-	//	variable=[Variable] ASSIGNMENT / * | [Ref_Deref] | [Ref_Value] * / value=[Variable];
+	//	variable=[Variable|IDENTIFIER] ASSIGNMENT / * | [Ref_Deref | IDENTIFIER] | [Ref_Value | IDENTIFIER] * /
+	//	value=[Variable|IDENTIFIER];
 	public Ref_AssignElements getRef_AssignAccess() {
 		return (pRef_Assign != null) ? pRef_Assign : (pRef_Assign = new Ref_AssignElements());
 	}
@@ -7346,7 +7306,7 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Ref_Deref:
-	//	variable=[Variable] "^"+;
+	//	variable=[Variable|IDENTIFIER] "^"+;
 	public Ref_DerefElements getRef_DerefAccess() {
 		return (pRef_Deref != null) ? pRef_Deref : (pRef_Deref = new Ref_DerefElements());
 	}
@@ -7387,7 +7347,7 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Named_Variable:
-	//	variable=[Variable];
+	//	variable=[Variable|IDENTIFIER];
 	public Named_VariableElements getNamed_VariableAccess() {
 		return (pNamed_Variable != null) ? pNamed_Variable : (pNamed_Variable = new Named_VariableElements());
 	}
@@ -7397,7 +7357,7 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Direct_Variable:
-	//	variable=[Variable_Address];
+	//	variable=[Variable_Address|IDENTIFIER];
 	public Direct_VariableElements getDirect_VariableAccess() {
 		return (pDirect_Variable != null) ? pDirect_Variable : (pDirect_Variable = new Direct_VariableElements());
 	}
@@ -7406,7 +7366,7 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		return getDirect_VariableAccess().getRule();
 	}
 
-	////Multi_Elem_Var: [Var_Access] elements+=( Subscript_List | Struct_Variable )+;
+	////Multi_Elem_Var: [Var_Access | IDENTIFIER] elements+=( Subscript_List | Struct_Variable )+;
 	////Subscript_List: '[' item+=Subscript ( ',' item+=Subscript )* ']';
 	////Subscript: Expression;
 	////Struct_Variable: Dot Struct_Elem_Select;
@@ -7434,9 +7394,10 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 
 	////Edge_Decl: variables=Variable_List ':' Bool_Type_Name edgeType=( 'R_EDGE' | 'F_EDGE' );
 	//Var_Decl_Init:
-	//	variables=Variable_List ":" initialization=(Simple_Spec_Init / * | Array_Var_Decl_Init | 
+	//	variables=Variable_List ":" initialization= / * |
+	//	/ *Str_Var_Decl | Ref_Spec_Init | Array_Var_Decl_Init | 
 	//		Struct_Var_Decl_Init | 
-	//		FB_Decl_Init | Interface_Spec_Init * / | / *Str_Var_Decl |* / Ref_Spec_Init);
+	//		FB_Decl_Init | Interface_Spec_Init * / Simple_Spec_Init;
 	public Var_Decl_InitElements getVar_Decl_InitAccess() {
 		return (pVar_Decl_Init != null) ? pVar_Decl_Init : (pVar_Decl_Init = new Var_Decl_InitElements());
 	}
@@ -7447,7 +7408,7 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 
 	////Ref_Var_Decl: variables=Variable_List ':' initialization=Ref_Spec;
 	//Interface_Var_Decl:
-	//	variables=Variable_List ":" initialization=[Interface];
+	//	variables=Variable_List ":" initialization=[Interface|IDENTIFIER];
 	public Interface_Var_DeclElements getInterface_Var_DeclAccess() {
 		return (pInterface_Var_Decl != null) ? pInterface_Var_Decl : (pInterface_Var_Decl = new Interface_Var_DeclElements());
 	}
@@ -7816,7 +7777,7 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 
 	//FB_Decl:
 	//	{FB_Decl} "FUNCTION_BLOCK" modifier=("FINAL" | "ABSTRACT")? name=FunctionBlock usings+=Using_Directive* ("EXTENDS"
-	//	extends=[FunctionBlock])? ("IMPLEMENTS" implements=Interface_Name_List)? (ios+=FB_IO_Var_Decls
+	//	extends=[FunctionBlock|IDENTIFIER])? ("IMPLEMENTS" implements=Interface_Name_List)? (ios+=FB_IO_Var_Decls
 	//	/ * | others+=Other_Var_Decls * / | variables+=Func_Var_Decls | temps+=Temp_Var_Decls)* methods+=Method_Decl*
 	//	body=FB_Body? => "END_FUNCTION_BLOCK";
 	public FB_DeclElements getFB_DeclAccess() {
@@ -7917,7 +7878,7 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	//// Table 48 - Class
 	//// Table 50 Textual call of methods – Formal and non-formal parameter list
 	//Class_Decl:
-	//	"CLASS" modifier=("FINAL" | "ABSTRACT")? class=Class usings+=Using_Directive* ("EXTENDS" extends=[Class])?
+	//	"CLASS" modifier=("FINAL" | "ABSTRACT")? class=Class usings+=Using_Directive* ("EXTENDS" extends=[Class|IDENTIFIER])?
 	//	("IMPLEMENTS" implements=Interface_Name_List)? variables+=Func_Var_Decls* / * | others+=Other_Var_Decls * /
 	//	methods+=Method_Decl* "END_CLASS";
 	public Class_DeclElements getClass_DeclAccess() {
@@ -7983,7 +7944,7 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	////Interface_Spec_Init: variables=Variable_List ( ASSIGNMENT initialization=Interface_Value )?;
 	////Interface_Value: ((variable=Symbolic_Variable) | variableName=(FB_Instance_Name | Class_Instance_Name | 'NULL'));
 	//Interface_Name_List:
-	//	interfaces+=[Interface] ("," interfaces+=[Interface])*;
+	//	interfaces+=[Interface|IDENTIFIER] ("," interfaces+=[Interface|IDENTIFIER])*;
 	public Interface_Name_ListElements getInterface_Name_ListAccess() {
 		return (pInterface_Name_List != null) ? pInterface_Name_List : (pInterface_Name_List = new Interface_Name_ListElements());
 	}
@@ -8205,8 +8166,8 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		return getUnary_ExprAccess().getRule();
 	}
 
-	/// * | Enum_Value | Variable_Access | Func_Call | Ref_Value | '(' Expression ')' * / Primary_Expr returns Expression:
-	//	Constant;
+	/// * | Enum_Value | Func_Call | Ref_Value | '(' Expression ')' * / Primary_Expr returns Expression:
+	//	Constant | Variable_Access;
 	public Primary_ExprElements getPrimary_ExprAccess() {
 		return (pPrimary_Expr != null) ? pPrimary_Expr : (pPrimary_Expr = new Primary_ExprElements());
 	}
@@ -8216,7 +8177,7 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Variable_Access:
-	//	variable=[Variable] access=Multibit_Part_Access?;
+	//	variable=[Variable|IDENTIFIER] access=Multibit_Part_Access?;
 	public Variable_AccessElements getVariable_AccessAccess() {
 		return (pVariable_Access != null) ? pVariable_Access : (pVariable_Access = new Variable_AccessElements());
 	}
@@ -8246,7 +8207,7 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Func_Call returns Callable:
-	//	callable=[Function] "(" (parameters+=Param_Assign ("," parameters+=Param_Assign)*)? ")";
+	//	callable=[Function|IDENTIFIER] "(" (parameters+=Param_Assign ("," parameters+=Param_Assign)*)? ")";
 	public Func_CallElements getFunc_CallAccess() {
 		return (pFunc_Call != null) ? pFunc_Call : (pFunc_Call = new Func_CallElements());
 	}
@@ -8275,8 +8236,8 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		return getStmtAccess().getRule();
 	}
 
-	//Assign_Stmt:
-	//	Variable_Assign_Stmt | Ref_Assign | Assignment_Attempt;
+	/// * | Ref_Assign | Assignment_Attempt * / Assign_Stmt:
+	//	Variable_Assign_Stmt;
 	public Assign_StmtElements getAssign_StmtAccess() {
 		return (pAssign_Stmt != null) ? pAssign_Stmt : (pAssign_Stmt = new Assign_StmtElements());
 	}
@@ -8286,7 +8247,7 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Variable_Assign_Stmt:
-	//	variable=[Variable] ASSIGNMENT value=Expression;
+	//	variable=[Variable|IDENTIFIER] ASSIGNMENT value=Expression;
 	public Variable_Assign_StmtElements getVariable_Assign_StmtAccess() {
 		return (pVariable_Assign_Stmt != null) ? pVariable_Assign_Stmt : (pVariable_Assign_Stmt = new Variable_Assign_StmtElements());
 	}
@@ -8296,7 +8257,7 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Assignment_Attempt:
-	//	variable=[Variable] "?=" value=[Variable];
+	//	variable=[Variable|IDENTIFIER] "?=" value=[Variable|IDENTIFIER];
 	public Assignment_AttemptElements getAssignment_AttemptAccess() {
 		return (pAssignment_Attempt != null) ? pAssignment_Attempt : (pAssignment_Attempt = new Assignment_AttemptElements());
 	}
@@ -8337,8 +8298,8 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		return getReturn_StmtAccess().getRule();
 	}
 
-	//Param_Assign:
-	//	Named_Value | InRef_Assign | Linked_Value;
+	/// * | InRef_Assign | Linked_Value * / Param_Assign:
+	//	Named_Value;
 	public Param_AssignElements getParam_AssignAccess() {
 		return (pParam_Assign != null) ? pParam_Assign : (pParam_Assign = new Param_AssignElements());
 	}
@@ -8349,7 +8310,7 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 
 	//// TODO: check that the used variable is an input parameter
 	//Named_Value:
-	//	(variable=[Variable] ASSIGNMENT)? value=Expression;
+	//	(variable=[Variable|IDENTIFIER] ASSIGNMENT)? value=Expression;
 	public Named_ValueElements getNamed_ValueAccess() {
 		return (pNamed_Value != null) ? pNamed_Value : (pNamed_Value = new Named_ValueElements());
 	}
@@ -8361,7 +8322,7 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	//// TODO: check if this type of value must be also supported for in_out variables
 	//// TODO: check that the used variable is an output
 	//Linked_Value:
-	//	negated?="NOT"? value=[Variable] "=>" variable=[Variable];
+	//	negated?="NOT"? value=[Variable|IDENTIFIER] "=>" variable=[Variable|IDENTIFIER];
 	public Linked_ValueElements getLinked_ValueAccess() {
 		return (pLinked_Value != null) ? pLinked_Value : (pLinked_Value = new Linked_ValueElements());
 	}
@@ -8372,7 +8333,8 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 
 	//// TODO: check that the used variable is an input parameter
 	//InRef_Assign:
-	//	variable=[Variable] ASSIGNMENT / * | [Ref_Deref] | [Ref_Value] * / value=[Variable];
+	//	variable=[Variable|IDENTIFIER] ASSIGNMENT / * | [Ref_Deref | IDENTIFIER] | [Ref_Value | IDENTIFIER] * /
+	//	value=[Variable|IDENTIFIER];
 	public InRef_AssignElements getInRef_AssignAccess() {
 		return (pInRef_Assign != null) ? pInRef_Assign : (pInRef_Assign = new InRef_AssignElements());
 	}
@@ -8492,7 +8454,7 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//For_Stmt:
-	//	"FOR" variable=[Variable] ASSIGNMENT bounds=For_List "DO" statements=Stmt_List "END_FOR";
+	//	"FOR" variable=[Variable|IDENTIFIER] ASSIGNMENT bounds=For_List "DO" statements=Stmt_List "END_FOR";
 	public For_StmtElements getFor_StmtAccess() {
 		return (pFor_Stmt != null) ? pFor_Stmt : (pFor_Stmt = new For_StmtElements());
 	}

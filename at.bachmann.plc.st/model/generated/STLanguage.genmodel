@@ -85,6 +85,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Ref_Addr/variable"/>
     </genClasses>
     <genClasses ecoreClass="STLanguage.ecore#//Ref_Assign">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Ref_Assign/variable"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Ref_Assign/value"/>
     </genClasses>
     <genClasses ecoreClass="STLanguage.ecore#//Ref_Deref"/>
@@ -317,26 +318,27 @@
     <genClasses ecoreClass="STLanguage.ecore#//Stmt">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Stmt/type"/>
     </genClasses>
-    <genClasses ecoreClass="STLanguage.ecore#//Assign_Stmt">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Assign_Stmt/variable"/>
-    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Assign_Stmt"/>
     <genClasses ecoreClass="STLanguage.ecore#//Variable_Assign_Stmt">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Variable_Assign_Stmt/variable"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Variable_Assign_Stmt/value"/>
     </genClasses>
     <genClasses ecoreClass="STLanguage.ecore#//Assignment_Attempt">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Assignment_Attempt/variable"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Assignment_Attempt/value"/>
     </genClasses>
-    <genClasses ecoreClass="STLanguage.ecore#//Param_Assign">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Param_Assign/variable"/>
-    </genClasses>
+    <genClasses ecoreClass="STLanguage.ecore#//Param_Assign"/>
     <genClasses ecoreClass="STLanguage.ecore#//Named_Value">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Named_Value/variable"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Named_Value/value"/>
     </genClasses>
     <genClasses ecoreClass="STLanguage.ecore#//Linked_Value">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Linked_Value/negated"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Linked_Value/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Linked_Value/variable"/>
     </genClasses>
     <genClasses ecoreClass="STLanguage.ecore#//InRef_Assign">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference STLanguage.ecore#//InRef_Assign/variable"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference STLanguage.ecore#//InRef_Assign/value"/>
     </genClasses>
     <genClasses ecoreClass="STLanguage.ecore#//Selection_Stmt">

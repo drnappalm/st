@@ -28,10 +28,6 @@ terminal fragment DIGIT:
 terminal fragment HEX_DIGIT:
 	'0'..'9' | 'A'..'F';
 
-// rule ID just to avoid always writing [Rule] when using cross-references...
-ID:
-	IDENTIFIER;
-
 terminal IDENTIFIER returns EString:
 	LETTER (LETTER | DIGIT)*;
 
@@ -304,7 +300,7 @@ Subrange_Spec_Init returns Spec_Init:
 	type=Int_Type_Name '(' range=Subrange ')' (ASSIGNMENT initialValue=Signed_Int)?;
 
 Subrange:
-	lowBound=[Constant_Expr] '..' upBound=[Constant_Expr];
+	lowBound=[Constant_Expr | IDENTIFIER] '..' upBound=[Constant_Expr | IDENTIFIER];
 	//Named_Spec_Init: '(' initialValues+=Enum_Value_Spec ( ',' initialValues+=Enum_Value_Spec )* ')' ( ASSIGNMENT value=Enum_Value )?;
 Enum_Spec_Init:
 	type=(Enum_Items | Qualified_Name) (ASSIGNMENT value=Enum_Value)?;
@@ -316,7 +312,7 @@ Enum_Items returns EString:
 	'(' IDENTIFIER (',' IDENTIFIER)* ')';
 
 Enum_Value:
-	variable=[Variable];
+	variable=[Variable | IDENTIFIER];
 
 Enum_Qualified_Id returns Variable:
 	name=Enum_Qualified_Id_Name;
@@ -353,13 +349,13 @@ Null_Ref:
 	{Null_Ref} 'NULL';
 
 Ref_Addr:
-	'REF' '(' variable=[Variable] ')';
+	'REF' '(' variable=[Variable | IDENTIFIER] ')';
 
 Ref_Assign:
-	variable=[Variable] ASSIGNMENT value=([Variable] /* | [Ref_Deref] | [Ref_Value] */);
+	variable=[Variable | IDENTIFIER] ASSIGNMENT value=([Variable | IDENTIFIER] /* | [Ref_Deref | IDENTIFIER] | [Ref_Value | IDENTIFIER] */);
 
 Ref_Deref:
-	variable=[Variable] '^'+;
+	variable=[Variable | IDENTIFIER] '^'+;
 
 	// Table 13 - Declaration of variables/Table 14 – Initialization of variables
 Inline_Variable:
@@ -372,11 +368,11 @@ Var_Access:
 	Named_Variable | Ref_Deref;
 
 Named_Variable:
-	variable=[Variable];
+	variable=[Variable | IDENTIFIER];
 
 Direct_Variable:
-	variable=[Variable_Address];
-	//Multi_Elem_Var: [Var_Access] elements+=( Subscript_List | Struct_Variable )+;
+	variable=[Variable_Address | IDENTIFIER];
+	//Multi_Elem_Var: [Var_Access | IDENTIFIER] elements+=( Subscript_List | Struct_Variable )+;
 //Subscript_List: '[' item+=Subscript ( ',' item+=Subscript )* ']';
 //Subscript: Expression;
 //Struct_Variable: Dot Struct_Elem_Select;
@@ -391,14 +387,13 @@ Input_Decl:
 	Var_Decl_Init; // | Edge_Decl | Array_Conform_Decl;
 //Edge_Decl: variables=Variable_List ':' Bool_Type_Name edgeType=( 'R_EDGE' | 'F_EDGE' );
 Var_Decl_Init:
-	variables=Variable_List ':' initialization=((Simple_Spec_Init |
-	/*Str_Var_Decl |*/
-	Ref_Spec_Init) /* | Array_Var_Decl_Init | 
+	variables=Variable_List ':' initialization=(Simple_Spec_Init/* |
+	/*Str_Var_Decl | Ref_Spec_Init | Array_Var_Decl_Init | 
 		Struct_Var_Decl_Init | 
 		FB_Decl_Init | Interface_Spec_Init */);
 //Ref_Var_Decl: variables=Variable_List ':' initialization=Ref_Spec;
 Interface_Var_Decl:
-	variables=Variable_List ':' initialization=[Interface];
+	variables=Variable_List ':' initialization=[Interface | IDENTIFIER];
 
 Variable_List:
 	variables+=Variable (',' variables+=Variable)*;
@@ -557,7 +552,7 @@ Std_FB_Name:
 	'SR' | 'RS' | 'R_TRIG' | 'F_TRIG' | 'CTU' | 'CTD' | 'CTUD' | 'TP' | 'TON' | 'TOF'; // | Other functions 
 FB_Decl:
 	{FB_Decl} 'FUNCTION_BLOCK' modifier=('FINAL' | 'ABSTRACT')? name=FunctionBlock usings+=Using_Directive* ('EXTENDS'
-	extends=[FunctionBlock])? ('IMPLEMENTS' implements=Interface_Name_List)? (ios+=FB_IO_Var_Decls |
+	extends=[FunctionBlock | IDENTIFIER])? ('IMPLEMENTS' implements=Interface_Name_List)? (ios+=FB_IO_Var_Decls |
 	variables+=Func_Var_Decls | temps+=Temp_Var_Decls /* | others+=Other_Var_Decls */)* (methods+=Method_Decl)*
 	body=FB_Body? => 'END_FUNCTION_BLOCK';
 
@@ -594,7 +589,7 @@ Method_Decl:
 
 // Table 50 Textual call of methods – Formal and non-formal parameter list
 Class_Decl:
-	'CLASS' modifier=('FINAL' | 'ABSTRACT')? class=Class usings+=Using_Directive* ('EXTENDS' extends=[Class])?
+	'CLASS' modifier=('FINAL' | 'ABSTRACT')? class=Class usings+=Using_Directive* ('EXTENDS' extends=[Class | IDENTIFIER])?
 	('IMPLEMENTS' implements=Interface_Name_List)? (variables+=Func_Var_Decls /* | others+=Other_Var_Decls */)*
 	(methods+=Method_Decl)* 'END_CLASS';
 	//Class_Instance_Name: QUALIFIED_NAME '^' *;
@@ -616,7 +611,7 @@ Method:
 	//Interface_Spec_Init: variables=Variable_List ( ASSIGNMENT initialization=Interface_Value )?;
 //Interface_Value: ((variable=Symbolic_Variable) | variableName=(FB_Instance_Name | Class_Instance_Name | 'NULL'));
 Interface_Name_List:
-	interfaces+=[Interface] (',' interfaces+=[Interface])*;
+	interfaces+=[Interface | IDENTIFIER] (',' interfaces+=[Interface | IDENTIFIER])*;
 
 Access_Spec:
 	'PUBLIC' | 'PROTECTED' | 'PRIVATE' | 'INTERNAL';
@@ -714,10 +709,10 @@ Unary_Expr returns Expression:
 	operator=('-' | '+' | 'NOT')? expression=Primary_Expr;
 
 Primary_Expr returns Expression:
-	Constant /* | Enum_Value | Variable_Access | Func_Call | Ref_Value | '(' Expression ')' */;
+	Constant | Variable_Access /* | Enum_Value | Func_Call | Ref_Value | '(' Expression ')' */;
 
 Variable_Access:
-	variable=[Variable] access=Multibit_Part_Access?;
+	variable=[Variable | IDENTIFIER] access=Multibit_Part_Access?;
 
 Multibit_Part_Access:
 	'.' (bitIndex=DEC_VALUE | ('%' size=('X' | 'B' | 'W' | 'D' | 'L')? bitIndex=DEC_VALUE));
@@ -726,7 +721,7 @@ Callable:
 	Func_Call;
 
 Func_Call returns Callable:
-	callable=[Function] '(' (parameters+=Param_Assign (',' parameters+=Param_Assign)*)? ')';
+	callable=[Function | IDENTIFIER] '(' (parameters+=Param_Assign (',' parameters+=Param_Assign)*)? ')';
 
 Stmt_List:
 	{Stmt_List} (statements+=Stmt? ';')*;
@@ -735,13 +730,13 @@ Stmt:
 	Assign_Stmt | /* Subprog_Ctrl_Stmt | */ Selection_Stmt | Iteration_Stmt;
 
 Assign_Stmt:
-	Variable_Assign_Stmt | Ref_Assign | Assignment_Attempt;
+	Variable_Assign_Stmt /* | Ref_Assign | Assignment_Attempt */;
 
 Variable_Assign_Stmt:
-	variable=[Variable] ASSIGNMENT value=Expression;
+	variable=[Variable | IDENTIFIER] ASSIGNMENT value=Expression;
 
 Assignment_Attempt:
-	variable=[Variable] '?=' value=[Variable];
+	variable=[Variable | IDENTIFIER] '?=' value=[Variable | IDENTIFIER];
 	
 //Invocation returns Callable: callable=( /* FB_Instance_Name */ | IDENTIFIER | 'THIS' /* | Qualified_Method_Call */ ) '(' ( parameters+=Param_Assign ( ',' parameters+=Param_Assign )* )? ')';
 //// Qualified_Method_Call: ( ( 'THIS' Dot )? ( ( ( FB_Instance_Name | Class_Instance_Name ) Dot )+ ) IDENTIFIER );
@@ -755,20 +750,20 @@ Return_Stmt returns Stmt:
 	type='RETURN';
 
 Param_Assign:
-	Named_Value | InRef_Assign | Linked_Value;
+	Named_Value /* | InRef_Assign | Linked_Value */;
 	
 // TODO: check that the used variable is an input parameter
 Named_Value:
-	(variable=[Variable] ASSIGNMENT)? value=Expression;
+	(variable=[Variable | IDENTIFIER] ASSIGNMENT)? value=Expression;
 
 // TODO: check if this type of value must be also supported for in_out variables
 // TODO: check that the used variable is an output
 Linked_Value:
-	(negated?='NOT')? value=[Variable] '=>' variable=[Variable];
+	(negated?='NOT')? value=[Variable | IDENTIFIER] '=>' variable=[Variable | IDENTIFIER];
 	
 // TODO: check that the used variable is an input parameter
 InRef_Assign:
-	variable=[Variable] ASSIGNMENT value=([Variable] /* | [Ref_Deref] | [Ref_Value] */);
+	variable=[Variable | IDENTIFIER] ASSIGNMENT value=([Variable | IDENTIFIER] /* | [Ref_Deref | IDENTIFIER] | [Ref_Value | IDENTIFIER] */);
 
 Selection_Stmt:
 	IF_Stmt | Case_Stmt;
@@ -804,7 +799,7 @@ Continue_Stmt:
 	{Continue_Stmt} 'CONTINUE';
 
 For_Stmt:
-	'FOR' variable=[Variable] ASSIGNMENT bounds=For_List 'DO' statements=Stmt_List 'END_FOR';
+	'FOR' variable=[Variable | IDENTIFIER] ASSIGNMENT bounds=For_List 'DO' statements=Stmt_List 'END_FOR';
 
 For_List:
 	lowBound=Expression 'TO' upBound=Expression ('BY' step=Expression)?;

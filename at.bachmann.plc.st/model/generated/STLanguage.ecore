@@ -93,7 +93,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Ref_Addr" eSuperTypes="#//Ref_Value">
     <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//Variable"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Ref_Assign" eSuperTypes="#//Assign_Stmt">
+  <eClassifiers xsi:type="ecore:EClass" name="Ref_Assign">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//Variable"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Variable"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Ref_Deref" eSuperTypes="#//Var_Access"/>
@@ -375,7 +376,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Constant_Expr" eSuperTypes="#//Case_List_Elem"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Variable_Access">
+  <eClassifiers xsi:type="ecore:EClass" name="Variable_Access" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//Variable"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="access" eType="#//Multibit_Part_Access"
         containment="true"/>
@@ -396,28 +397,29 @@
   <eClassifiers xsi:type="ecore:EClass" name="Stmt" eSuperTypes="#//Callable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Assign_Stmt" eSuperTypes="#//Stmt">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//Variable"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Assign_Stmt" eSuperTypes="#//Stmt"/>
   <eClassifiers xsi:type="ecore:EClass" name="Variable_Assign_Stmt" eSuperTypes="#//Assign_Stmt">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//Variable"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Assignment_Attempt" eSuperTypes="#//Assign_Stmt">
+  <eClassifiers xsi:type="ecore:EClass" name="Assignment_Attempt">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//Variable"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Variable"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Param_Assign">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//Variable"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Param_Assign"/>
   <eClassifiers xsi:type="ecore:EClass" name="Named_Value" eSuperTypes="#//Param_Assign">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//Variable"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Linked_Value" eSuperTypes="#//Param_Assign">
+  <eClassifiers xsi:type="ecore:EClass" name="Linked_Value">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="negated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Variable"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//Variable"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InRef_Assign" eSuperTypes="#//Param_Assign">
+  <eClassifiers xsi:type="ecore:EClass" name="InRef_Assign">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//Variable"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Variable"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Selection_Stmt" eSuperTypes="#//Stmt">

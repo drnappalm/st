@@ -1677,144 +1677,6 @@ public interface StLanguagePackage extends EPackage
   int REF_ADDR_FEATURE_COUNT = REF_VALUE_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.CallableImpl <em>Callable</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see at.bachmann.plc.st.stLanguage.impl.CallableImpl
-   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getCallable()
-   * @generated
-   */
-  int CALLABLE = 94;
-
-  /**
-   * The feature id for the '<em><b>Callable</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CALLABLE__CALLABLE = 0;
-
-  /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CALLABLE__PARAMETERS = 1;
-
-  /**
-   * The number of structural features of the '<em>Callable</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CALLABLE_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.StmtImpl <em>Stmt</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see at.bachmann.plc.st.stLanguage.impl.StmtImpl
-   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getStmt()
-   * @generated
-   */
-  int STMT = 96;
-
-  /**
-   * The feature id for the '<em><b>Callable</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STMT__CALLABLE = CALLABLE__CALLABLE;
-
-  /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STMT__PARAMETERS = CALLABLE__PARAMETERS;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STMT__TYPE = CALLABLE_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Stmt</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STMT_FEATURE_COUNT = CALLABLE_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Assign_StmtImpl <em>Assign Stmt</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see at.bachmann.plc.st.stLanguage.impl.Assign_StmtImpl
-   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getAssign_Stmt()
-   * @generated
-   */
-  int ASSIGN_STMT = 97;
-
-  /**
-   * The feature id for the '<em><b>Callable</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGN_STMT__CALLABLE = STMT__CALLABLE;
-
-  /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGN_STMT__PARAMETERS = STMT__PARAMETERS;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGN_STMT__TYPE = STMT__TYPE;
-
-  /**
-   * The feature id for the '<em><b>Variable</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGN_STMT__VARIABLE = STMT_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Assign Stmt</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGN_STMT_FEATURE_COUNT = STMT_FEATURE_COUNT + 1;
-
-  /**
    * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Ref_AssignImpl <em>Ref Assign</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1825,40 +1687,13 @@ public interface StLanguagePackage extends EPackage
   int REF_ASSIGN = 31;
 
   /**
-   * The feature id for the '<em><b>Callable</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_ASSIGN__CALLABLE = ASSIGN_STMT__CALLABLE;
-
-  /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_ASSIGN__PARAMETERS = ASSIGN_STMT__PARAMETERS;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_ASSIGN__TYPE = ASSIGN_STMT__TYPE;
-
-  /**
    * The feature id for the '<em><b>Variable</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REF_ASSIGN__VARIABLE = ASSIGN_STMT__VARIABLE;
+  int REF_ASSIGN__VARIABLE = 0;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' reference.
@@ -1867,7 +1702,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int REF_ASSIGN__VALUE = ASSIGN_STMT_FEATURE_COUNT + 0;
+  int REF_ASSIGN__VALUE = 1;
 
   /**
    * The number of structural features of the '<em>Ref Assign</em>' class.
@@ -1876,7 +1711,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int REF_ASSIGN_FEATURE_COUNT = ASSIGN_STMT_FEATURE_COUNT + 1;
+  int REF_ASSIGN_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Inline_VariableImpl <em>Inline Variable</em>}' class.
@@ -3952,13 +3787,49 @@ public interface StLanguagePackage extends EPackage
   int VARIABLE_ACCESS = 92;
 
   /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_ACCESS__LEFT = EXPRESSION__LEFT;
+
+  /**
+   * The feature id for the '<em><b>Operator</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_ACCESS__OPERATOR = EXPRESSION__OPERATOR;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_ACCESS__RIGHT = EXPRESSION__RIGHT;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_ACCESS__EXPRESSION = EXPRESSION__EXPRESSION;
+
+  /**
    * The feature id for the '<em><b>Variable</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VARIABLE_ACCESS__VARIABLE = 0;
+  int VARIABLE_ACCESS__VARIABLE = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Access</b></em>' containment reference.
@@ -3967,7 +3838,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_ACCESS__ACCESS = 1;
+  int VARIABLE_ACCESS__ACCESS = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Variable Access</em>' class.
@@ -3976,7 +3847,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_ACCESS_FEATURE_COUNT = 2;
+  int VARIABLE_ACCESS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Multibit_Part_AccessImpl <em>Multibit Part Access</em>}' class.
@@ -4016,6 +3887,43 @@ public interface StLanguagePackage extends EPackage
   int MULTIBIT_PART_ACCESS_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.CallableImpl <em>Callable</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.bachmann.plc.st.stLanguage.impl.CallableImpl
+   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getCallable()
+   * @generated
+   */
+  int CALLABLE = 94;
+
+  /**
+   * The feature id for the '<em><b>Callable</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALLABLE__CALLABLE = 0;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALLABLE__PARAMETERS = 1;
+
+  /**
+   * The number of structural features of the '<em>Callable</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALLABLE_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Stmt_ListImpl <em>Stmt List</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4042,6 +3950,98 @@ public interface StLanguagePackage extends EPackage
    * @ordered
    */
   int STMT_LIST_FEATURE_COUNT = FUNC_BODY_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.StmtImpl <em>Stmt</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.bachmann.plc.st.stLanguage.impl.StmtImpl
+   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getStmt()
+   * @generated
+   */
+  int STMT = 96;
+
+  /**
+   * The feature id for the '<em><b>Callable</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STMT__CALLABLE = CALLABLE__CALLABLE;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STMT__PARAMETERS = CALLABLE__PARAMETERS;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STMT__TYPE = CALLABLE_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Stmt</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STMT_FEATURE_COUNT = CALLABLE_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Assign_StmtImpl <em>Assign Stmt</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.bachmann.plc.st.stLanguage.impl.Assign_StmtImpl
+   * @see at.bachmann.plc.st.stLanguage.impl.StLanguagePackageImpl#getAssign_Stmt()
+   * @generated
+   */
+  int ASSIGN_STMT = 97;
+
+  /**
+   * The feature id for the '<em><b>Callable</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSIGN_STMT__CALLABLE = STMT__CALLABLE;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSIGN_STMT__PARAMETERS = STMT__PARAMETERS;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSIGN_STMT__TYPE = STMT__TYPE;
+
+  /**
+   * The number of structural features of the '<em>Assign Stmt</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSIGN_STMT_FEATURE_COUNT = STMT_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Variable_Assign_StmtImpl <em>Variable Assign Stmt</em>}' class.
@@ -4087,7 +4087,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_ASSIGN_STMT__VARIABLE = ASSIGN_STMT__VARIABLE;
+  int VARIABLE_ASSIGN_STMT__VARIABLE = ASSIGN_STMT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -4096,7 +4096,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_ASSIGN_STMT__VALUE = ASSIGN_STMT_FEATURE_COUNT + 0;
+  int VARIABLE_ASSIGN_STMT__VALUE = ASSIGN_STMT_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Variable Assign Stmt</em>' class.
@@ -4105,7 +4105,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_ASSIGN_STMT_FEATURE_COUNT = ASSIGN_STMT_FEATURE_COUNT + 1;
+  int VARIABLE_ASSIGN_STMT_FEATURE_COUNT = ASSIGN_STMT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Assignment_AttemptImpl <em>Assignment Attempt</em>}' class.
@@ -4118,40 +4118,13 @@ public interface StLanguagePackage extends EPackage
   int ASSIGNMENT_ATTEMPT = 99;
 
   /**
-   * The feature id for the '<em><b>Callable</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGNMENT_ATTEMPT__CALLABLE = ASSIGN_STMT__CALLABLE;
-
-  /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGNMENT_ATTEMPT__PARAMETERS = ASSIGN_STMT__PARAMETERS;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGNMENT_ATTEMPT__TYPE = ASSIGN_STMT__TYPE;
-
-  /**
    * The feature id for the '<em><b>Variable</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASSIGNMENT_ATTEMPT__VARIABLE = ASSIGN_STMT__VARIABLE;
+  int ASSIGNMENT_ATTEMPT__VARIABLE = 0;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' reference.
@@ -4160,7 +4133,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSIGNMENT_ATTEMPT__VALUE = ASSIGN_STMT_FEATURE_COUNT + 0;
+  int ASSIGNMENT_ATTEMPT__VALUE = 1;
 
   /**
    * The number of structural features of the '<em>Assignment Attempt</em>' class.
@@ -4169,7 +4142,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSIGNMENT_ATTEMPT_FEATURE_COUNT = ASSIGN_STMT_FEATURE_COUNT + 1;
+  int ASSIGNMENT_ATTEMPT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Param_AssignImpl <em>Param Assign</em>}' class.
@@ -4182,22 +4155,13 @@ public interface StLanguagePackage extends EPackage
   int PARAM_ASSIGN = 100;
 
   /**
-   * The feature id for the '<em><b>Variable</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAM_ASSIGN__VARIABLE = 0;
-
-  /**
    * The number of structural features of the '<em>Param Assign</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARAM_ASSIGN_FEATURE_COUNT = 1;
+  int PARAM_ASSIGN_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Named_ValueImpl <em>Named Value</em>}' class.
@@ -4216,7 +4180,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int NAMED_VALUE__VARIABLE = PARAM_ASSIGN__VARIABLE;
+  int NAMED_VALUE__VARIABLE = PARAM_ASSIGN_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -4225,7 +4189,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int NAMED_VALUE__VALUE = PARAM_ASSIGN_FEATURE_COUNT + 0;
+  int NAMED_VALUE__VALUE = PARAM_ASSIGN_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Named Value</em>' class.
@@ -4234,7 +4198,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int NAMED_VALUE_FEATURE_COUNT = PARAM_ASSIGN_FEATURE_COUNT + 1;
+  int NAMED_VALUE_FEATURE_COUNT = PARAM_ASSIGN_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Linked_ValueImpl <em>Linked Value</em>}' class.
@@ -4247,22 +4211,13 @@ public interface StLanguagePackage extends EPackage
   int LINKED_VALUE = 102;
 
   /**
-   * The feature id for the '<em><b>Variable</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LINKED_VALUE__VARIABLE = PARAM_ASSIGN__VARIABLE;
-
-  /**
    * The feature id for the '<em><b>Negated</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LINKED_VALUE__NEGATED = PARAM_ASSIGN_FEATURE_COUNT + 0;
+  int LINKED_VALUE__NEGATED = 0;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' reference.
@@ -4271,7 +4226,16 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int LINKED_VALUE__VALUE = PARAM_ASSIGN_FEATURE_COUNT + 1;
+  int LINKED_VALUE__VALUE = 1;
+
+  /**
+   * The feature id for the '<em><b>Variable</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LINKED_VALUE__VARIABLE = 2;
 
   /**
    * The number of structural features of the '<em>Linked Value</em>' class.
@@ -4280,7 +4244,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int LINKED_VALUE_FEATURE_COUNT = PARAM_ASSIGN_FEATURE_COUNT + 2;
+  int LINKED_VALUE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.InRef_AssignImpl <em>In Ref Assign</em>}' class.
@@ -4299,7 +4263,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int IN_REF_ASSIGN__VARIABLE = PARAM_ASSIGN__VARIABLE;
+  int IN_REF_ASSIGN__VARIABLE = 0;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' reference.
@@ -4308,7 +4272,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int IN_REF_ASSIGN__VALUE = PARAM_ASSIGN_FEATURE_COUNT + 0;
+  int IN_REF_ASSIGN__VALUE = 1;
 
   /**
    * The number of structural features of the '<em>In Ref Assign</em>' class.
@@ -4317,7 +4281,7 @@ public interface StLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int IN_REF_ASSIGN_FEATURE_COUNT = PARAM_ASSIGN_FEATURE_COUNT + 1;
+  int IN_REF_ASSIGN_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link at.bachmann.plc.st.stLanguage.impl.Selection_StmtImpl <em>Selection Stmt</em>}' class.
@@ -6090,6 +6054,17 @@ public interface StLanguagePackage extends EPackage
    * @generated
    */
   EClass getRef_Assign();
+
+  /**
+   * Returns the meta object for the reference '{@link at.bachmann.plc.st.stLanguage.Ref_Assign#getVariable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Variable</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Ref_Assign#getVariable()
+   * @see #getRef_Assign()
+   * @generated
+   */
+  EReference getRef_Assign_Variable();
 
   /**
    * Returns the meta object for the reference '{@link at.bachmann.plc.st.stLanguage.Ref_Assign#getValue <em>Value</em>}'.
@@ -8050,17 +8025,6 @@ public interface StLanguagePackage extends EPackage
   EClass getAssign_Stmt();
 
   /**
-   * Returns the meta object for the reference '{@link at.bachmann.plc.st.stLanguage.Assign_Stmt#getVariable <em>Variable</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Variable</em>'.
-   * @see at.bachmann.plc.st.stLanguage.Assign_Stmt#getVariable()
-   * @see #getAssign_Stmt()
-   * @generated
-   */
-  EReference getAssign_Stmt_Variable();
-
-  /**
    * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Variable_Assign_Stmt <em>Variable Assign Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8069,6 +8033,17 @@ public interface StLanguagePackage extends EPackage
    * @generated
    */
   EClass getVariable_Assign_Stmt();
+
+  /**
+   * Returns the meta object for the reference '{@link at.bachmann.plc.st.stLanguage.Variable_Assign_Stmt#getVariable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Variable</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Variable_Assign_Stmt#getVariable()
+   * @see #getVariable_Assign_Stmt()
+   * @generated
+   */
+  EReference getVariable_Assign_Stmt_Variable();
 
   /**
    * Returns the meta object for the containment reference '{@link at.bachmann.plc.st.stLanguage.Variable_Assign_Stmt#getValue <em>Value</em>}'.
@@ -8092,6 +8067,17 @@ public interface StLanguagePackage extends EPackage
   EClass getAssignment_Attempt();
 
   /**
+   * Returns the meta object for the reference '{@link at.bachmann.plc.st.stLanguage.Assignment_Attempt#getVariable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Variable</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Assignment_Attempt#getVariable()
+   * @see #getAssignment_Attempt()
+   * @generated
+   */
+  EReference getAssignment_Attempt_Variable();
+
+  /**
    * Returns the meta object for the reference '{@link at.bachmann.plc.st.stLanguage.Assignment_Attempt#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8113,17 +8099,6 @@ public interface StLanguagePackage extends EPackage
   EClass getParam_Assign();
 
   /**
-   * Returns the meta object for the reference '{@link at.bachmann.plc.st.stLanguage.Param_Assign#getVariable <em>Variable</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Variable</em>'.
-   * @see at.bachmann.plc.st.stLanguage.Param_Assign#getVariable()
-   * @see #getParam_Assign()
-   * @generated
-   */
-  EReference getParam_Assign_Variable();
-
-  /**
    * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Named_Value <em>Named Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8132,6 +8107,17 @@ public interface StLanguagePackage extends EPackage
    * @generated
    */
   EClass getNamed_Value();
+
+  /**
+   * Returns the meta object for the reference '{@link at.bachmann.plc.st.stLanguage.Named_Value#getVariable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Variable</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Named_Value#getVariable()
+   * @see #getNamed_Value()
+   * @generated
+   */
+  EReference getNamed_Value_Variable();
 
   /**
    * Returns the meta object for the containment reference '{@link at.bachmann.plc.st.stLanguage.Named_Value#getValue <em>Value</em>}'.
@@ -8177,6 +8163,17 @@ public interface StLanguagePackage extends EPackage
   EReference getLinked_Value_Value();
 
   /**
+   * Returns the meta object for the reference '{@link at.bachmann.plc.st.stLanguage.Linked_Value#getVariable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Variable</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Linked_Value#getVariable()
+   * @see #getLinked_Value()
+   * @generated
+   */
+  EReference getLinked_Value_Variable();
+
+  /**
    * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.InRef_Assign <em>In Ref Assign</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8185,6 +8182,17 @@ public interface StLanguagePackage extends EPackage
    * @generated
    */
   EClass getInRef_Assign();
+
+  /**
+   * Returns the meta object for the reference '{@link at.bachmann.plc.st.stLanguage.InRef_Assign#getVariable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Variable</em>'.
+   * @see at.bachmann.plc.st.stLanguage.InRef_Assign#getVariable()
+   * @see #getInRef_Assign()
+   * @generated
+   */
+  EReference getInRef_Assign_Variable();
 
   /**
    * Returns the meta object for the reference '{@link at.bachmann.plc.st.stLanguage.InRef_Assign#getValue <em>Value</em>}'.
@@ -9249,6 +9257,14 @@ public interface StLanguagePackage extends EPackage
      * @generated
      */
     EClass REF_ASSIGN = eINSTANCE.getRef_Assign();
+
+    /**
+     * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REF_ASSIGN__VARIABLE = eINSTANCE.getRef_Assign_Variable();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' reference feature.
@@ -10855,14 +10871,6 @@ public interface StLanguagePackage extends EPackage
     EClass ASSIGN_STMT = eINSTANCE.getAssign_Stmt();
 
     /**
-     * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ASSIGN_STMT__VARIABLE = eINSTANCE.getAssign_Stmt_Variable();
-
-    /**
      * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.Variable_Assign_StmtImpl <em>Variable Assign Stmt</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -10871,6 +10879,14 @@ public interface StLanguagePackage extends EPackage
      * @generated
      */
     EClass VARIABLE_ASSIGN_STMT = eINSTANCE.getVariable_Assign_Stmt();
+
+    /**
+     * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VARIABLE_ASSIGN_STMT__VARIABLE = eINSTANCE.getVariable_Assign_Stmt_Variable();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
@@ -10891,6 +10907,14 @@ public interface StLanguagePackage extends EPackage
     EClass ASSIGNMENT_ATTEMPT = eINSTANCE.getAssignment_Attempt();
 
     /**
+     * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ASSIGNMENT_ATTEMPT__VARIABLE = eINSTANCE.getAssignment_Attempt_Variable();
+
+    /**
      * The meta object literal for the '<em><b>Value</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -10909,14 +10933,6 @@ public interface StLanguagePackage extends EPackage
     EClass PARAM_ASSIGN = eINSTANCE.getParam_Assign();
 
     /**
-     * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PARAM_ASSIGN__VARIABLE = eINSTANCE.getParam_Assign_Variable();
-
-    /**
      * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.Named_ValueImpl <em>Named Value</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -10925,6 +10941,14 @@ public interface StLanguagePackage extends EPackage
      * @generated
      */
     EClass NAMED_VALUE = eINSTANCE.getNamed_Value();
+
+    /**
+     * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NAMED_VALUE__VARIABLE = eINSTANCE.getNamed_Value_Variable();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
@@ -10961,6 +10985,14 @@ public interface StLanguagePackage extends EPackage
     EReference LINKED_VALUE__VALUE = eINSTANCE.getLinked_Value_Value();
 
     /**
+     * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LINKED_VALUE__VARIABLE = eINSTANCE.getLinked_Value_Variable();
+
+    /**
      * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.InRef_AssignImpl <em>In Ref Assign</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -10969,6 +11001,14 @@ public interface StLanguagePackage extends EPackage
      * @generated
      */
     EClass IN_REF_ASSIGN = eINSTANCE.getInRef_Assign();
+
+    /**
+     * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IN_REF_ASSIGN__VARIABLE = eINSTANCE.getInRef_Assign_Variable();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' reference feature.

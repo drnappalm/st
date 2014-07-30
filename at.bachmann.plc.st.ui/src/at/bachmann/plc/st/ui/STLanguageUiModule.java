@@ -4,11 +4,15 @@
 package at.bachmann.plc.st.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.xtext.linking.impl.LinkingDiagnosticMessageProvider;
 import org.eclipse.xtext.parser.antlr.ISyntaxErrorMessageProvider;
 import org.eclipse.xtext.ui.editor.folding.DefaultFoldingRegionProvider;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.AbstractAntlrTokenToAttributeIdMapper;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
+import org.eclipse.xtext.validation.IConcreteSyntaxDiagnosticProvider;
 
+import at.bachmann.plc.st.ui.diagnostic.STLanguageLinkingDiagnosticMessageProvider;
+import at.bachmann.plc.st.ui.diagnostic.STLanguageSyntaxDiagnosticProvider;
 import at.bachmann.plc.st.ui.editing.STLanguageFoldingRegionProvider;
 import at.bachmann.plc.st.ui.syntaxhighlighting.STLanguageSyntaxHighlightingConfiguration;
 import at.bachmann.plc.st.ui.syntaxhighlighting.STLanguageTokenToAttributeIdMapper;
@@ -37,5 +41,13 @@ public class STLanguageUiModule extends
 
 	public Class<? extends ISyntaxErrorMessageProvider> bindSyntaxErrormessageProvider() {
 		return STLanguageSyntaxErrorMessageProvider.class;
+	}
+
+	public Class<? extends IConcreteSyntaxDiagnosticProvider> bindConcreteSyntaxDiagnosticProvider() {
+		return STLanguageSyntaxDiagnosticProvider.class;
+	}
+
+	public Class<? extends LinkingDiagnosticMessageProvider> bindLinkingDiagnosticMessageProvider() {
+		return STLanguageLinkingDiagnosticMessageProvider.class;
 	}
 }

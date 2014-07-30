@@ -489,9 +489,6 @@ public class StLanguageSwitch<T> extends Switch<T>
       {
         Ref_Assign ref_Assign = (Ref_Assign)theEObject;
         T result = caseRef_Assign(ref_Assign);
-        if (result == null) result = caseAssign_Stmt(ref_Assign);
-        if (result == null) result = caseStmt(ref_Assign);
-        if (result == null) result = caseCallable(ref_Assign);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -951,6 +948,9 @@ public class StLanguageSwitch<T> extends Switch<T>
       {
         Variable_Access variable_Access = (Variable_Access)theEObject;
         T result = caseVariable_Access(variable_Access);
+        if (result == null) result = caseExpression(variable_Access);
+        if (result == null) result = caseConstant_Expr(variable_Access);
+        if (result == null) result = caseCase_List_Elem(variable_Access);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1008,9 +1008,6 @@ public class StLanguageSwitch<T> extends Switch<T>
       {
         Assignment_Attempt assignment_Attempt = (Assignment_Attempt)theEObject;
         T result = caseAssignment_Attempt(assignment_Attempt);
-        if (result == null) result = caseAssign_Stmt(assignment_Attempt);
-        if (result == null) result = caseStmt(assignment_Attempt);
-        if (result == null) result = caseCallable(assignment_Attempt);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1033,7 +1030,6 @@ public class StLanguageSwitch<T> extends Switch<T>
       {
         Linked_Value linked_Value = (Linked_Value)theEObject;
         T result = caseLinked_Value(linked_Value);
-        if (result == null) result = caseParam_Assign(linked_Value);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1041,7 +1037,6 @@ public class StLanguageSwitch<T> extends Switch<T>
       {
         InRef_Assign inRef_Assign = (InRef_Assign)theEObject;
         T result = caseInRef_Assign(inRef_Assign);
-        if (result == null) result = caseParam_Assign(inRef_Assign);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

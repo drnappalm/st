@@ -153,9 +153,7 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 				}
 				else break;
 			case StLanguagePackage.ASSIGNMENT_ATTEMPT:
-				if(context == grammarAccess.getAssign_StmtRule() ||
-				   context == grammarAccess.getAssignment_AttemptRule() ||
-				   context == grammarAccess.getStmtRule()) {
+				if(context == grammarAccess.getAssignment_AttemptRule()) {
 					sequence_Assignment_Attempt(context, (Assignment_Attempt) semanticObject); 
 					return; 
 				}
@@ -478,8 +476,7 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 				}
 				else break;
 			case StLanguagePackage.IN_REF_ASSIGN:
-				if(context == grammarAccess.getInRef_AssignRule() ||
-				   context == grammarAccess.getParam_AssignRule()) {
+				if(context == grammarAccess.getInRef_AssignRule()) {
 					sequence_InRef_Assign(context, (InRef_Assign) semanticObject); 
 					return; 
 				}
@@ -524,8 +521,7 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 				}
 				else break;
 			case StLanguagePackage.LINKED_VALUE:
-				if(context == grammarAccess.getLinked_ValueRule() ||
-				   context == grammarAccess.getParam_AssignRule()) {
+				if(context == grammarAccess.getLinked_ValueRule()) {
 					sequence_Linked_Value(context, (Linked_Value) semanticObject); 
 					return; 
 				}
@@ -662,9 +658,7 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 				}
 				else break;
 			case StLanguagePackage.REF_ASSIGN:
-				if(context == grammarAccess.getAssign_StmtRule() ||
-				   context == grammarAccess.getRef_AssignRule() ||
-				   context == grammarAccess.getStmtRule()) {
+				if(context == grammarAccess.getRef_AssignRule()) {
 					sequence_Ref_Assign(context, (Ref_Assign) semanticObject); 
 					return; 
 				}
@@ -876,7 +870,8 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 				}
 				else break;
 			case StLanguagePackage.VARIABLE_ACCESS:
-				if(context == grammarAccess.getVariable_AccessRule()) {
+				if(context == grammarAccess.getPrimary_ExprRule() ||
+				   context == grammarAccess.getVariable_AccessRule()) {
 					sequence_Variable_Access(context, (Variable_Access) semanticObject); 
 					return; 
 				}
@@ -944,10 +939,20 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (variable=[Variable|ID] value=[Variable|ID])
+	 *     (variable=[Variable|IDENTIFIER] value=[Variable|IDENTIFIER])
 	 */
 	protected void sequence_Assignment_Attempt(EObject context, Assignment_Attempt semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, StLanguagePackage.Literals.ASSIGNMENT_ATTEMPT__VARIABLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StLanguagePackage.Literals.ASSIGNMENT_ATTEMPT__VARIABLE));
+			if(transientValues.isValueTransient(semanticObject, StLanguagePackage.Literals.ASSIGNMENT_ATTEMPT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StLanguagePackage.Literals.ASSIGNMENT_ATTEMPT__VALUE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getAssignment_AttemptAccess().getVariableVariableIDENTIFIERTerminalRuleCall_0_0_1(), semanticObject.getVariable());
+		feeder.accept(grammarAccess.getAssignment_AttemptAccess().getValueVariableIDENTIFIERTerminalRuleCall_2_0_1(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	
@@ -1037,7 +1042,7 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         (modifier='FINAL' | modifier='ABSTRACT')? 
 	 *         class=Class 
 	 *         usings+=Using_Directive* 
-	 *         extends=[Class|ID]? 
+	 *         extends=[Class|IDENTIFIER]? 
 	 *         implements=Interface_Name_List? 
 	 *         variables+=Func_Var_Decls* 
 	 *         methods+=Method_Decl*
@@ -1139,7 +1144,7 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     variable=[Variable_Address|ID]
+	 *     variable=[Variable_Address|IDENTIFIER]
 	 */
 	protected void sequence_Direct_Variable(EObject context, Direct_Variable semanticObject) {
 		if(errorAcceptor != null) {
@@ -1148,7 +1153,7 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getDirect_VariableAccess().getVariableVariable_AddressIDParserRuleCall_0_1(), semanticObject.getVariable());
+		feeder.accept(grammarAccess.getDirect_VariableAccess().getVariableVariable_AddressIDENTIFIERTerminalRuleCall_0_1(), semanticObject.getVariable());
 		feeder.finish();
 	}
 	
@@ -1224,7 +1229,7 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     variable=[Variable|ID]
+	 *     variable=[Variable|IDENTIFIER]
 	 */
 	protected void sequence_Enum_Value(EObject context, Enum_Value semanticObject) {
 		if(errorAcceptor != null) {
@@ -1233,7 +1238,7 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getEnum_ValueAccess().getVariableVariableIDParserRuleCall_0_1(), semanticObject.getVariable());
+		feeder.accept(grammarAccess.getEnum_ValueAccess().getVariableVariableIDENTIFIERTerminalRuleCall_0_1(), semanticObject.getVariable());
 		feeder.finish();
 	}
 	
@@ -1299,7 +1304,7 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         (modifier='FINAL' | modifier='ABSTRACT')? 
 	 *         name=FunctionBlock 
 	 *         usings+=Using_Directive* 
-	 *         extends=[FunctionBlock|ID]? 
+	 *         extends=[FunctionBlock|IDENTIFIER]? 
 	 *         implements=Interface_Name_List? 
 	 *         (ios+=FB_IO_Var_Decls | variables+=Func_Var_Decls | temps+=Temp_Var_Decls)* 
 	 *         methods+=Method_Decl* 
@@ -1340,7 +1345,7 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (variable=[Variable|ID] bounds=For_List statements=Stmt_List)
+	 *     (variable=[Variable|IDENTIFIER] bounds=For_List statements=Stmt_List)
 	 */
 	protected void sequence_For_Stmt(EObject context, For_Stmt semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1349,7 +1354,7 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (callable=[Function|ID] (parameters+=Param_Assign parameters+=Param_Assign*)?)
+	 *     (callable=[Function|IDENTIFIER] (parameters+=Param_Assign parameters+=Param_Assign*)?)
 	 */
 	protected void sequence_Func_Call(EObject context, Callable semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1451,19 +1456,19 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (variable=[Variable|ID] value=[Variable|ID])
+	 *     (variable=[Variable|IDENTIFIER] value=[Variable|IDENTIFIER])
 	 */
 	protected void sequence_InRef_Assign(EObject context, InRef_Assign semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, StLanguagePackage.Literals.PARAM_ASSIGN__VARIABLE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StLanguagePackage.Literals.PARAM_ASSIGN__VARIABLE));
+			if(transientValues.isValueTransient(semanticObject, StLanguagePackage.Literals.IN_REF_ASSIGN__VARIABLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StLanguagePackage.Literals.IN_REF_ASSIGN__VARIABLE));
 			if(transientValues.isValueTransient(semanticObject, StLanguagePackage.Literals.IN_REF_ASSIGN__VALUE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StLanguagePackage.Literals.IN_REF_ASSIGN__VALUE));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getInRef_AssignAccess().getVariableVariableIDParserRuleCall_0_0_1(), semanticObject.getVariable());
-		feeder.accept(grammarAccess.getInRef_AssignAccess().getValueVariableIDParserRuleCall_2_0_1(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getInRef_AssignAccess().getVariableVariableIDENTIFIERTerminalRuleCall_0_0_1(), semanticObject.getVariable());
+		feeder.accept(grammarAccess.getInRef_AssignAccess().getValueVariableIDENTIFIERTerminalRuleCall_2_0_1(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -1513,7 +1518,7 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (interfaces+=[Interface|ID] interfaces+=[Interface|ID]*)
+	 *     (interfaces+=[Interface|IDENTIFIER] interfaces+=[Interface|IDENTIFIER]*)
 	 */
 	protected void sequence_Interface_Name_List(EObject context, Interface_Name_List semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1522,7 +1527,7 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (variables=Variable_List initialization=[Interface|ID])
+	 *     (variables=Variable_List initialization=[Interface|IDENTIFIER])
 	 */
 	protected void sequence_Interface_Var_Decl(EObject context, Interface_Var_Decl semanticObject) {
 		if(errorAcceptor != null) {
@@ -1534,14 +1539,14 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getInterface_Var_DeclAccess().getVariablesVariable_ListParserRuleCall_0_0(), semanticObject.getVariables());
-		feeder.accept(grammarAccess.getInterface_Var_DeclAccess().getInitializationInterfaceIDParserRuleCall_2_0_1(), semanticObject.getInitialization());
+		feeder.accept(grammarAccess.getInterface_Var_DeclAccess().getInitializationInterfaceIDENTIFIERTerminalRuleCall_2_0_1(), semanticObject.getInitialization());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (negated?='NOT'? value=[Variable|ID] variable=[Variable|ID])
+	 *     (negated?='NOT'? value=[Variable|IDENTIFIER] variable=[Variable|IDENTIFIER])
 	 */
 	protected void sequence_Linked_Value(EObject context, Linked_Value semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1610,7 +1615,7 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (variable=[Variable|ID]? value=Expression)
+	 *     (variable=[Variable|IDENTIFIER]? value=Expression)
 	 */
 	protected void sequence_Named_Value(EObject context, Named_Value semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1619,7 +1624,7 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     variable=[Variable|ID]
+	 *     variable=[Variable|IDENTIFIER]
 	 */
 	protected void sequence_Named_Variable(EObject context, Named_Variable semanticObject) {
 		if(errorAcceptor != null) {
@@ -1628,7 +1633,7 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getNamed_VariableAccess().getVariableVariableIDParserRuleCall_0_1(), semanticObject.getVariable());
+		feeder.accept(grammarAccess.getNamed_VariableAccess().getVariableVariableIDENTIFIERTerminalRuleCall_0_1(), semanticObject.getVariable());
 		feeder.finish();
 	}
 	
@@ -1730,7 +1735,7 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     variable=[Variable|ID]
+	 *     variable=[Variable|IDENTIFIER]
 	 */
 	protected void sequence_Ref_Addr(EObject context, Ref_Addr semanticObject) {
 		if(errorAcceptor != null) {
@@ -1739,23 +1744,33 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getRef_AddrAccess().getVariableVariableIDParserRuleCall_2_0_1(), semanticObject.getVariable());
+		feeder.accept(grammarAccess.getRef_AddrAccess().getVariableVariableIDENTIFIERTerminalRuleCall_2_0_1(), semanticObject.getVariable());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (variable=[Variable|ID] value=[Variable|ID])
+	 *     (variable=[Variable|IDENTIFIER] value=[Variable|IDENTIFIER])
 	 */
 	protected void sequence_Ref_Assign(EObject context, Ref_Assign semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, StLanguagePackage.Literals.REF_ASSIGN__VARIABLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StLanguagePackage.Literals.REF_ASSIGN__VARIABLE));
+			if(transientValues.isValueTransient(semanticObject, StLanguagePackage.Literals.REF_ASSIGN__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StLanguagePackage.Literals.REF_ASSIGN__VALUE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getRef_AssignAccess().getVariableVariableIDENTIFIERTerminalRuleCall_0_0_1(), semanticObject.getVariable());
+		feeder.accept(grammarAccess.getRef_AssignAccess().getValueVariableIDENTIFIERTerminalRuleCall_2_0_1(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     variable=[Variable|ID]
+	 *     variable=[Variable|IDENTIFIER]
 	 */
 	protected void sequence_Ref_Deref(EObject context, Ref_Deref semanticObject) {
 		if(errorAcceptor != null) {
@@ -1764,7 +1779,7 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getRef_DerefAccess().getVariableVariableIDParserRuleCall_0_0_1(), semanticObject.getVariable());
+		feeder.accept(grammarAccess.getRef_DerefAccess().getVariableVariableIDENTIFIERTerminalRuleCall_0_0_1(), semanticObject.getVariable());
 		feeder.finish();
 	}
 	
@@ -1925,7 +1940,7 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (lowBound=[Constant_Expr|ID] upBound=[Constant_Expr|ID])
+	 *     (lowBound=[Constant_Expr|IDENTIFIER] upBound=[Constant_Expr|IDENTIFIER])
 	 */
 	protected void sequence_Subrange(EObject context, Subrange semanticObject) {
 		if(errorAcceptor != null) {
@@ -1936,8 +1951,8 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getSubrangeAccess().getLowBoundConstant_ExprIDParserRuleCall_0_0_1(), semanticObject.getLowBound());
-		feeder.accept(grammarAccess.getSubrangeAccess().getUpBoundConstant_ExprIDParserRuleCall_2_0_1(), semanticObject.getUpBound());
+		feeder.accept(grammarAccess.getSubrangeAccess().getLowBoundConstant_ExprIDENTIFIERTerminalRuleCall_0_0_1(), semanticObject.getLowBound());
+		feeder.accept(grammarAccess.getSubrangeAccess().getUpBoundConstant_ExprIDENTIFIERTerminalRuleCall_2_0_1(), semanticObject.getUpBound());
 		feeder.finish();
 	}
 	
@@ -2016,10 +2031,20 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (variables=Variable_List (initialization=Simple_Spec_Init | initialization=Ref_Spec_Init))
+	 *     (variables=Variable_List initialization=Simple_Spec_Init)
 	 */
 	protected void sequence_Var_Decl_Init(EObject context, Var_Decl_Init semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, StLanguagePackage.Literals.VAR_DECL_INIT__VARIABLES) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StLanguagePackage.Literals.VAR_DECL_INIT__VARIABLES));
+			if(transientValues.isValueTransient(semanticObject, StLanguagePackage.Literals.VAR_DECL_INIT__INITIALIZATION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StLanguagePackage.Literals.VAR_DECL_INIT__INITIALIZATION));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getVar_Decl_InitAccess().getVariablesVariable_ListParserRuleCall_0_0(), semanticObject.getVariables());
+		feeder.accept(grammarAccess.getVar_Decl_InitAccess().getInitializationSimple_Spec_InitParserRuleCall_2_0(), semanticObject.getInitialization());
+		feeder.finish();
 	}
 	
 	
@@ -2057,7 +2082,7 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (variable=[Variable|ID] access=Multibit_Part_Access?)
+	 *     (variable=[Variable|IDENTIFIER] access=Multibit_Part_Access?)
 	 */
 	protected void sequence_Variable_Access(EObject context, Variable_Access semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2075,7 +2100,7 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (variable=[Variable|ID] value=Expression)
+	 *     (variable=[Variable|IDENTIFIER] value=Expression)
 	 */
 	protected void sequence_Variable_Assign_Stmt(EObject context, Variable_Assign_Stmt semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
