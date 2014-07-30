@@ -39,23 +39,29 @@ class STLanguageFormatter extends AbstractDeclarativeFormatter {
 	}
 
 	def configureKeywordFormatting(FormattingConfig config) {
-		val startKeywords = #['PROGRAM', 'NAMESPACE', 'FUNCTION_BLOCK', 'FUNCTION', 'METHOD', 'INTERFACE', 'CLASS',
-			'VAR', 'VAR_INPUT', 'VAR_OUTPUT', 'VAR_IN_OUT', 'VAR_TEMP', 'VAR_EXTERNAL', 'VAR_GLOBAL', 'THEN', 'DO',
-			'REPEAT']
-
-		val endKeywords = #{'END_PROGRAM', 'END_NAMESPACE', 'END_FUNCTION_BLOCK', 'END_FUNCTION', 'END_METHOD',
-			'END_INTERFACE', 'END_CLASS', 'END_VAR', 'ELSE', 'END_IF', 'END_WHILE', 'END_FOR', 'END_REPEAT', 'END_CASE'}
-
-		findKeywords(startKeywords).forEach [
+		// Keywords to begin in a new line having a new line after them and incrementing indentation
+		var keywords = #['PROGRAM', 'NAMESPACE', 'FUNCTION_BLOCK', 'FUNCTION', 'METHOD', 'INTERFACE', 'CLASS',
+			'VAR', 'VAR_INPUT', 'VAR_OUTPUT', 'VAR_IN_OUT', 'VAR_TEMP', 'VAR_EXTERNAL', 'VAR_GLOBAL',
+			'REPEAT']			
+		findKeywords(keywords).forEach [
 			config.setLinewrap(1, 1, 10).before(it)
 			config.setLinewrap(1, 1, 10).after(it)
 			config.setIndentationIncrement().after(it)
 		]
-
-		findKeywords(endKeywords).forEach [
+		
+		// Keywords to begin in a new line having a new line after them and decrementing indentation
+		keywords = #['END_PROGRAM', 'END_NAMESPACE', 'END_FUNCTION_BLOCK', 'END_FUNCTION', 'END_METHOD', 'END_INTERFACE', 'END_CLASS', 'END_VAR', 'ELSE', 'END_IF', 'END_WHILE', 'END_FOR', 'END_REPEAT', 'END_CASE']
+		findKeywords(keywords).forEach [
 			config.setLinewrap(1, 1, 10).before(it)
 			config.setLinewrap(1, 1, 10).after(it)
 			config.setIndentationDecrement().before(it)
+		]
+		
+		// Keywords having a new line after them and incrementing indentation
+		keywords = #['THEN', 'DO']
+		findKeywords(keywords).forEach [
+			config.setLinewrap(1, 1, 10).after(it)
+			config.setIndentationIncrement().after(it)
 		]
 	}
 
