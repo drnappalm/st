@@ -183,7 +183,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//D_Byte_Str_Spec/initialValue"/>
     </genClasses>
     <genClasses ecoreClass="STLanguage.ecore#//Func_Decl">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Func_Decl/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Func_Decl/function"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Func_Decl/returnType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Func_Decl/usings"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Func_Decl/ios"/>
@@ -201,7 +201,7 @@
     <genClasses ecoreClass="STLanguage.ecore#//Func_Body"/>
     <genClasses ecoreClass="STLanguage.ecore#//FB_Decl">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//FB_Decl/modifier"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//FB_Decl/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//FB_Decl/functionblock"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//FB_Decl/usings"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference STLanguage.ecore#//FB_Decl/extends"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//FB_Decl/implements"/>

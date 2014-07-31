@@ -4953,16 +4953,16 @@ ruleFunc_Decl returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getFunc_DeclAccess().getNameFunctionParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getFunc_DeclAccess().getFunctionFunctionParserRuleCall_1_0()); 
 	    }
-		lv_name_1_0=ruleFunction		{
+		lv_function_1_0=ruleFunction		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getFunc_DeclRule());
 	        }
        		set(
        			$current, 
-       			"name",
-        		lv_name_1_0, 
+       			"function",
+        		lv_function_1_0, 
         		"Function");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -5441,16 +5441,16 @@ ruleFB_Decl returns [EObject current=null]
 )?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getFB_DeclAccess().getNameFunctionBlockParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getFB_DeclAccess().getFunctionblockFunctionBlockParserRuleCall_3_0()); 
 	    }
-		lv_name_3_0=ruleFunctionBlock		{
+		lv_functionblock_3_0=ruleFunctionBlock		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getFB_DeclRule());
 	        }
        		set(
        			$current, 
-       			"name",
-        		lv_name_3_0, 
+       			"functionblock",
+        		lv_functionblock_3_0, 
         		"FunctionBlock");
 	        afterParserOrEnumRuleCall();
 	    }

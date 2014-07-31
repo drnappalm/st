@@ -39119,26 +39119,26 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Func_Decl__Group__1__Impl"
-    // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:13145:1: rule__Func_Decl__Group__1__Impl : ( ( rule__Func_Decl__NameAssignment_1 ) ) ;
+    // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:13145:1: rule__Func_Decl__Group__1__Impl : ( ( rule__Func_Decl__FunctionAssignment_1 ) ) ;
     public final void rule__Func_Decl__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:13149:1: ( ( ( rule__Func_Decl__NameAssignment_1 ) ) )
-            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:13150:1: ( ( rule__Func_Decl__NameAssignment_1 ) )
+            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:13149:1: ( ( ( rule__Func_Decl__FunctionAssignment_1 ) ) )
+            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:13150:1: ( ( rule__Func_Decl__FunctionAssignment_1 ) )
             {
-            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:13150:1: ( ( rule__Func_Decl__NameAssignment_1 ) )
-            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:13151:1: ( rule__Func_Decl__NameAssignment_1 )
+            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:13150:1: ( ( rule__Func_Decl__FunctionAssignment_1 ) )
+            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:13151:1: ( rule__Func_Decl__FunctionAssignment_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFunc_DeclAccess().getNameAssignment_1()); 
+               before(grammarAccess.getFunc_DeclAccess().getFunctionAssignment_1()); 
             }
-            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:13152:1: ( rule__Func_Decl__NameAssignment_1 )
-            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:13152:2: rule__Func_Decl__NameAssignment_1
+            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:13152:1: ( rule__Func_Decl__FunctionAssignment_1 )
+            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:13152:2: rule__Func_Decl__FunctionAssignment_1
             {
-            pushFollow(FOLLOW_rule__Func_Decl__NameAssignment_1_in_rule__Func_Decl__Group__1__Impl27181);
-            rule__Func_Decl__NameAssignment_1();
+            pushFollow(FOLLOW_rule__Func_Decl__FunctionAssignment_1_in_rule__Func_Decl__Group__1__Impl27181);
+            rule__Func_Decl__FunctionAssignment_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -39146,7 +39146,7 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFunc_DeclAccess().getNameAssignment_1()); 
+               after(grammarAccess.getFunc_DeclAccess().getFunctionAssignment_1()); 
             }
 
             }
@@ -40106,26 +40106,26 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FB_Decl__Group__3__Impl"
-    // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:13489:1: rule__FB_Decl__Group__3__Impl : ( ( rule__FB_Decl__NameAssignment_3 ) ) ;
+    // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:13489:1: rule__FB_Decl__Group__3__Impl : ( ( rule__FB_Decl__FunctionblockAssignment_3 ) ) ;
     public final void rule__FB_Decl__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:13493:1: ( ( ( rule__FB_Decl__NameAssignment_3 ) ) )
-            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:13494:1: ( ( rule__FB_Decl__NameAssignment_3 ) )
+            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:13493:1: ( ( ( rule__FB_Decl__FunctionblockAssignment_3 ) ) )
+            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:13494:1: ( ( rule__FB_Decl__FunctionblockAssignment_3 ) )
             {
-            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:13494:1: ( ( rule__FB_Decl__NameAssignment_3 ) )
-            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:13495:1: ( rule__FB_Decl__NameAssignment_3 )
+            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:13494:1: ( ( rule__FB_Decl__FunctionblockAssignment_3 ) )
+            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:13495:1: ( rule__FB_Decl__FunctionblockAssignment_3 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFB_DeclAccess().getNameAssignment_3()); 
+               before(grammarAccess.getFB_DeclAccess().getFunctionblockAssignment_3()); 
             }
-            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:13496:1: ( rule__FB_Decl__NameAssignment_3 )
-            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:13496:2: rule__FB_Decl__NameAssignment_3
+            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:13496:1: ( rule__FB_Decl__FunctionblockAssignment_3 )
+            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:13496:2: rule__FB_Decl__FunctionblockAssignment_3
             {
-            pushFollow(FOLLOW_rule__FB_Decl__NameAssignment_3_in_rule__FB_Decl__Group__3__Impl27865);
-            rule__FB_Decl__NameAssignment_3();
+            pushFollow(FOLLOW_rule__FB_Decl__FunctionblockAssignment_3_in_rule__FB_Decl__Group__3__Impl27865);
+            rule__FB_Decl__FunctionblockAssignment_3();
 
             state._fsp--;
             if (state.failed) return ;
@@ -40133,7 +40133,7 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFB_DeclAccess().getNameAssignment_3()); 
+               after(grammarAccess.getFB_DeclAccess().getFunctionblockAssignment_3()); 
             }
 
             }
@@ -62466,9 +62466,9 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__D_Byte_Str_Spec__InitialValueAssignment_3_1"
 
 
-    // $ANTLR start "rule__Func_Decl__NameAssignment_1"
-    // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:21523:1: rule__Func_Decl__NameAssignment_1 : ( ruleFunction ) ;
-    public final void rule__Func_Decl__NameAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__Func_Decl__FunctionAssignment_1"
+    // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:21523:1: rule__Func_Decl__FunctionAssignment_1 : ( ruleFunction ) ;
+    public final void rule__Func_Decl__FunctionAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -62480,15 +62480,15 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
             // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:21529:1: ruleFunction
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFunc_DeclAccess().getNameFunctionParserRuleCall_1_0()); 
+               before(grammarAccess.getFunc_DeclAccess().getFunctionFunctionParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleFunction_in_rule__Func_Decl__NameAssignment_143772);
+            pushFollow(FOLLOW_ruleFunction_in_rule__Func_Decl__FunctionAssignment_143772);
             ruleFunction();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFunc_DeclAccess().getNameFunctionParserRuleCall_1_0()); 
+               after(grammarAccess.getFunc_DeclAccess().getFunctionFunctionParserRuleCall_1_0()); 
             }
 
             }
@@ -62508,7 +62508,7 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__Func_Decl__NameAssignment_1"
+    // $ANTLR end "rule__Func_Decl__FunctionAssignment_1"
 
 
     // $ANTLR start "rule__Func_Decl__ReturnTypeAssignment_2_1"
@@ -62873,9 +62873,9 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__FB_Decl__ModifierAssignment_2"
 
 
-    // $ANTLR start "rule__FB_Decl__NameAssignment_3"
-    // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:21659:1: rule__FB_Decl__NameAssignment_3 : ( ruleFunctionBlock ) ;
-    public final void rule__FB_Decl__NameAssignment_3() throws RecognitionException {
+    // $ANTLR start "rule__FB_Decl__FunctionblockAssignment_3"
+    // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:21659:1: rule__FB_Decl__FunctionblockAssignment_3 : ( ruleFunctionBlock ) ;
+    public final void rule__FB_Decl__FunctionblockAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -62887,15 +62887,15 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
             // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:21665:1: ruleFunctionBlock
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFB_DeclAccess().getNameFunctionBlockParserRuleCall_3_0()); 
+               before(grammarAccess.getFB_DeclAccess().getFunctionblockFunctionBlockParserRuleCall_3_0()); 
             }
-            pushFollow(FOLLOW_ruleFunctionBlock_in_rule__FB_Decl__NameAssignment_344053);
+            pushFollow(FOLLOW_ruleFunctionBlock_in_rule__FB_Decl__FunctionblockAssignment_344053);
             ruleFunctionBlock();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFB_DeclAccess().getNameFunctionBlockParserRuleCall_3_0()); 
+               after(grammarAccess.getFB_DeclAccess().getFunctionblockFunctionBlockParserRuleCall_3_0()); 
             }
 
             }
@@ -62915,7 +62915,7 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__FB_Decl__NameAssignment_3"
+    // $ANTLR end "rule__FB_Decl__FunctionblockAssignment_3"
 
 
     // $ANTLR start "rule__FB_Decl__UsingsAssignment_4"
@@ -69524,7 +69524,7 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_134_in_rule__Func_Decl__Group__0__Impl27120 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Func_Decl__Group__1__Impl_in_rule__Func_Decl__Group__127151 = new BitSet(new long[]{0x0000000000000010L,0x4060000000000000L,0x0000050E4240001FL});
     public static final BitSet FOLLOW_rule__Func_Decl__Group__2_in_rule__Func_Decl__Group__127154 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Func_Decl__NameAssignment_1_in_rule__Func_Decl__Group__1__Impl27181 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Func_Decl__FunctionAssignment_1_in_rule__Func_Decl__Group__1__Impl27181 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Func_Decl__Group__2__Impl_in_rule__Func_Decl__Group__227211 = new BitSet(new long[]{0x0000000000000010L,0x4060000000000000L,0x0000050E4240001FL});
     public static final BitSet FOLLOW_rule__Func_Decl__Group__3_in_rule__Func_Decl__Group__227214 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Func_Decl__Group_2__0_in_rule__Func_Decl__Group__2__Impl27241 = new BitSet(new long[]{0x0000000000000002L});
@@ -69554,7 +69554,7 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_rule__FB_Decl__ModifierAssignment_2_in_rule__FB_Decl__Group__2__Impl27804 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__FB_Decl__Group__3__Impl_in_rule__FB_Decl__Group__327835 = new BitSet(new long[]{0x0000000000000010L,0x4060000000000000L,0x0000050E42401E1FL});
     public static final BitSet FOLLOW_rule__FB_Decl__Group__4_in_rule__FB_Decl__Group__327838 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FB_Decl__NameAssignment_3_in_rule__FB_Decl__Group__3__Impl27865 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FB_Decl__FunctionblockAssignment_3_in_rule__FB_Decl__Group__3__Impl27865 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__FB_Decl__Group__4__Impl_in_rule__FB_Decl__Group__427895 = new BitSet(new long[]{0x0000000000000010L,0x4060000000000000L,0x0000050E42401E1FL});
     public static final BitSet FOLLOW_rule__FB_Decl__Group__5_in_rule__FB_Decl__Group__427898 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__FB_Decl__UsingsAssignment_4_in_rule__FB_Decl__Group__4__Impl27925 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000400000L});
@@ -70193,7 +70193,7 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_ruleD_Byte_Str_Spec_in_rule__D_Byte_Str_Var_Decl__InitializationAssignment_243679 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnsigned_Int_in_rule__D_Byte_Str_Spec__BoundAssignment_2_143710 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleD_Byte_Char_Str_in_rule__D_Byte_Str_Spec__InitialValueAssignment_3_143741 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFunction_in_rule__Func_Decl__NameAssignment_143772 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFunction_in_rule__Func_Decl__FunctionAssignment_143772 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleData_Type_Access_in_rule__Func_Decl__ReturnTypeAssignment_2_143803 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUsing_Directive_in_rule__Func_Decl__UsingsAssignment_343834 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleIO_Var_Decls_in_rule__Func_Decl__IosAssignment_4_043865 = new BitSet(new long[]{0x0000000000000002L});
@@ -70202,7 +70202,7 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_ruleFunc_Body_in_rule__Func_Decl__BodyAssignment_543958 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_IDENTIFIER_in_rule__Function__NameAssignment43989 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__FB_Decl__ModifierAlternatives_2_0_in_rule__FB_Decl__ModifierAssignment_244020 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFunctionBlock_in_rule__FB_Decl__NameAssignment_344053 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFunctionBlock_in_rule__FB_Decl__FunctionblockAssignment_344053 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUsing_Directive_in_rule__FB_Decl__UsingsAssignment_444084 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_IDENTIFIER_in_rule__FB_Decl__ExtendsAssignment_5_144119 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleInterface_Name_List_in_rule__FB_Decl__ImplementsAssignment_6_144154 = new BitSet(new long[]{0x0000000000000002L});

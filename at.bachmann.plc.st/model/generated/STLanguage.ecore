@@ -215,7 +215,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Func_Decl" eSuperTypes="#//Namespace_Elements">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//Function"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="function" eType="#//Function"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="usings" upperBound="-1"
@@ -239,7 +239,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Func_Body"/>
   <eClassifiers xsi:type="ecore:EClass" name="FB_Decl" eSuperTypes="#//Namespace_Elements">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="modifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//FunctionBlock"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="functionblock" eType="#//FunctionBlock"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="usings" upperBound="-1"
         eType="#//Using_Directive" containment="true"/>

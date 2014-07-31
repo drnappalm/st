@@ -40,7 +40,7 @@ class STLanguageFormatter extends AbstractDeclarativeFormatter {
 
 	def configureKeywordFormatting(FormattingConfig config) {
 		// Keywords to begin in a new line having a new line after them and incrementing indentation
-		var keywords = #['PROGRAM', 'NAMESPACE', 'FUNCTION_BLOCK', 'FUNCTION', 'METHOD', 'INTERFACE', 'CLASS',
+		var keywords = #['NAMESPACE', 'FUNCTION_BLOCK', 'FUNCTION', 'METHOD', 'INTERFACE', 'CLASS',
 			'VAR', 'VAR_INPUT', 'VAR_OUTPUT', 'VAR_IN_OUT', 'VAR_TEMP', 'VAR_EXTERNAL', 'VAR_GLOBAL',
 			'REPEAT']			
 		findKeywords(keywords).forEach [
@@ -61,6 +61,12 @@ class STLanguageFormatter extends AbstractDeclarativeFormatter {
 		keywords = #['THEN', 'DO']
 		findKeywords(keywords).forEach [
 			config.setLinewrap(1, 1, 10).after(it)
+			config.setIndentationIncrement().after(it)
+		]
+		
+		keywords = #['PROGRAM']
+		findKeywords(keywords).forEach [
+			config.setLinewrap(0, 0, 0).before(it)
 			config.setIndentationIncrement().after(it)
 		]
 	}

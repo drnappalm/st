@@ -13148,9 +13148,9 @@ rule__Func_Decl__Group__1__Impl
     }
 :
 (
-{ before(grammarAccess.getFunc_DeclAccess().getNameAssignment_1()); }
-(rule__Func_Decl__NameAssignment_1)
-{ after(grammarAccess.getFunc_DeclAccess().getNameAssignment_1()); }
+{ before(grammarAccess.getFunc_DeclAccess().getFunctionAssignment_1()); }
+(rule__Func_Decl__FunctionAssignment_1)
+{ after(grammarAccess.getFunc_DeclAccess().getFunctionAssignment_1()); }
 )
 
 ;
@@ -13492,9 +13492,9 @@ rule__FB_Decl__Group__3__Impl
     }
 :
 (
-{ before(grammarAccess.getFB_DeclAccess().getNameAssignment_3()); }
-(rule__FB_Decl__NameAssignment_3)
-{ after(grammarAccess.getFB_DeclAccess().getNameAssignment_3()); }
+{ before(grammarAccess.getFB_DeclAccess().getFunctionblockAssignment_3()); }
+(rule__FB_Decl__FunctionblockAssignment_3)
+{ after(grammarAccess.getFB_DeclAccess().getFunctionblockAssignment_3()); }
 )
 
 ;
@@ -21520,14 +21520,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Func_Decl__NameAssignment_1
+rule__Func_Decl__FunctionAssignment_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getFunc_DeclAccess().getNameFunctionParserRuleCall_1_0()); }
-	ruleFunction{ after(grammarAccess.getFunc_DeclAccess().getNameFunctionParserRuleCall_1_0()); }
+{ before(grammarAccess.getFunc_DeclAccess().getFunctionFunctionParserRuleCall_1_0()); }
+	ruleFunction{ after(grammarAccess.getFunc_DeclAccess().getFunctionFunctionParserRuleCall_1_0()); }
 )
 
 ;
@@ -21656,14 +21656,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__FB_Decl__NameAssignment_3
+rule__FB_Decl__FunctionblockAssignment_3
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getFB_DeclAccess().getNameFunctionBlockParserRuleCall_3_0()); }
-	ruleFunctionBlock{ after(grammarAccess.getFB_DeclAccess().getNameFunctionBlockParserRuleCall_3_0()); }
+{ before(grammarAccess.getFB_DeclAccess().getFunctionblockFunctionBlockParserRuleCall_3_0()); }
+	ruleFunctionBlock{ after(grammarAccess.getFB_DeclAccess().getFunctionblockFunctionBlockParserRuleCall_3_0()); }
 )
 
 ;

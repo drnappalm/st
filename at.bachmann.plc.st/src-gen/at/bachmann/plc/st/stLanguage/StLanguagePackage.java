@@ -2764,13 +2764,13 @@ public interface StLanguagePackage extends EPackage
   int FUNC_DECL = 63;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' containment reference.
+   * The feature id for the '<em><b>Function</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FUNC_DECL__NAME = NAMESPACE_ELEMENTS_FEATURE_COUNT + 0;
+  int FUNC_DECL__FUNCTION = NAMESPACE_ELEMENTS_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Return Type</b></em>' attribute.
@@ -2902,13 +2902,13 @@ public interface StLanguagePackage extends EPackage
   int FB_DECL__MODIFIER = NAMESPACE_ELEMENTS_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' containment reference.
+   * The feature id for the '<em><b>Functionblock</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FB_DECL__NAME = NAMESPACE_ELEMENTS_FEATURE_COUNT + 1;
+  int FB_DECL__FUNCTIONBLOCK = NAMESPACE_ELEMENTS_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Usings</b></em>' containment reference list.
@@ -6849,15 +6849,15 @@ public interface StLanguagePackage extends EPackage
   EClass getFunc_Decl();
 
   /**
-   * Returns the meta object for the containment reference '{@link at.bachmann.plc.st.stLanguage.Func_Decl#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference '{@link at.bachmann.plc.st.stLanguage.Func_Decl#getFunction <em>Function</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Name</em>'.
-   * @see at.bachmann.plc.st.stLanguage.Func_Decl#getName()
+   * @return the meta object for the containment reference '<em>Function</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Func_Decl#getFunction()
    * @see #getFunc_Decl()
    * @generated
    */
-  EReference getFunc_Decl_Name();
+  EReference getFunc_Decl_Function();
 
   /**
    * Returns the meta object for the attribute '{@link at.bachmann.plc.st.stLanguage.Func_Decl#getReturnType <em>Return Type</em>}'.
@@ -7009,15 +7009,15 @@ public interface StLanguagePackage extends EPackage
   EAttribute getFB_Decl_Modifier();
 
   /**
-   * Returns the meta object for the containment reference '{@link at.bachmann.plc.st.stLanguage.FB_Decl#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference '{@link at.bachmann.plc.st.stLanguage.FB_Decl#getFunctionblock <em>Functionblock</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Name</em>'.
-   * @see at.bachmann.plc.st.stLanguage.FB_Decl#getName()
+   * @return the meta object for the containment reference '<em>Functionblock</em>'.
+   * @see at.bachmann.plc.st.stLanguage.FB_Decl#getFunctionblock()
    * @see #getFB_Decl()
    * @generated
    */
-  EReference getFB_Decl_Name();
+  EReference getFB_Decl_Functionblock();
 
   /**
    * Returns the meta object for the containment reference list '{@link at.bachmann.plc.st.stLanguage.FB_Decl#getUsings <em>Usings</em>}'.
@@ -9923,12 +9923,12 @@ public interface StLanguagePackage extends EPackage
     EClass FUNC_DECL = eINSTANCE.getFunc_Decl();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Function</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FUNC_DECL__NAME = eINSTANCE.getFunc_Decl_Name();
+    EReference FUNC_DECL__FUNCTION = eINSTANCE.getFunc_Decl_Function();
 
     /**
      * The meta object literal for the '<em><b>Return Type</b></em>' attribute feature.
@@ -10053,12 +10053,12 @@ public interface StLanguagePackage extends EPackage
     EAttribute FB_DECL__MODIFIER = eINSTANCE.getFB_Decl_Modifier();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Functionblock</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FB_DECL__NAME = eINSTANCE.getFB_Decl_Name();
+    EReference FB_DECL__FUNCTIONBLOCK = eINSTANCE.getFB_Decl_Functionblock();
 
     /**
      * The meta object literal for the '<em><b>Usings</b></em>' containment reference list feature.

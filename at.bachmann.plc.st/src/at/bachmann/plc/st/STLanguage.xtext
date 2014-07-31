@@ -522,7 +522,7 @@ D_Byte_Str_Spec:
 //// *******************************************************
 //// *******************************************************
 Func_Decl:
-	'FUNCTION' name=Function (':' returnType=Data_Type_Access)? usings+=Using_Directive*
+	'FUNCTION' function=Function (':' returnType=Data_Type_Access)? usings+=Using_Directive*
 	(ios+=IO_Var_Decls | variables+=Func_Var_Decls | temps+=Temp_Var_Decls)*
 	body=Func_Body
 	'END_FUNCTION';
@@ -551,7 +551,7 @@ FB_Type_Access:
 Std_FB_Name:
 	'SR' | 'RS' | 'R_TRIG' | 'F_TRIG' | 'CTU' | 'CTD' | 'CTUD' | 'TP' | 'TON' | 'TOF'; // | Other functions 
 FB_Decl:
-	{FB_Decl} 'FUNCTION_BLOCK' modifier=('FINAL' | 'ABSTRACT')? name=FunctionBlock usings+=Using_Directive* ('EXTENDS'
+	{FB_Decl} 'FUNCTION_BLOCK' modifier=('FINAL' | 'ABSTRACT')? functionblock=FunctionBlock usings+=Using_Directive* ('EXTENDS'
 	extends=[FunctionBlock | IDENTIFIER])? ('IMPLEMENTS' implements=Interface_Name_List)? (ios+=FB_IO_Var_Decls |
 	variables+=Func_Var_Decls | temps+=Temp_Var_Decls /* | others+=Other_Var_Decls */)* (methods+=Method_Decl)*
 	body=FB_Body? => 'END_FUNCTION_BLOCK';

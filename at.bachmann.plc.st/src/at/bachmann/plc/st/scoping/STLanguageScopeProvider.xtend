@@ -3,6 +3,10 @@
  */
 package at.bachmann.plc.st.scoping
 
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.EReference
+import org.eclipse.xtext.scoping.IScope
+
 /**
  * This class contains custom scoping description.
  * 
@@ -11,5 +15,8 @@ package at.bachmann.plc.st.scoping
  *
  */
 class STLanguageScopeProvider extends org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider {
-
+	
+	override delegateGetScope(EObject context, EReference reference) {
+		IScope.NULLSCOPE
+	}
 }

@@ -1302,7 +1302,7 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 * Constraint:
 	 *     (
 	 *         (modifier='FINAL' | modifier='ABSTRACT')? 
-	 *         name=FunctionBlock 
+	 *         functionblock=FunctionBlock 
 	 *         usings+=Using_Directive* 
 	 *         extends=[FunctionBlock|IDENTIFIER]? 
 	 *         implements=Interface_Name_List? 
@@ -1364,7 +1364,7 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 	/**
 	 * Constraint:
 	 *     (
-	 *         name=Function 
+	 *         function=Function 
 	 *         returnType=Data_Type_Access? 
 	 *         usings+=Using_Directive* 
 	 *         (ios+=IO_Var_Decls | variables+=Func_Var_Decls | temps+=Temp_Var_Decls)* 

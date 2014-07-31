@@ -373,7 +373,7 @@ public class STLanguageParser extends AbstractContentAssistParser {
 					put(grammarAccess.getD_Byte_Str_Var_DeclAccess().getInitializationAssignment_2(), "rule__D_Byte_Str_Var_Decl__InitializationAssignment_2");
 					put(grammarAccess.getD_Byte_Str_SpecAccess().getBoundAssignment_2_1(), "rule__D_Byte_Str_Spec__BoundAssignment_2_1");
 					put(grammarAccess.getD_Byte_Str_SpecAccess().getInitialValueAssignment_3_1(), "rule__D_Byte_Str_Spec__InitialValueAssignment_3_1");
-					put(grammarAccess.getFunc_DeclAccess().getNameAssignment_1(), "rule__Func_Decl__NameAssignment_1");
+					put(grammarAccess.getFunc_DeclAccess().getFunctionAssignment_1(), "rule__Func_Decl__FunctionAssignment_1");
 					put(grammarAccess.getFunc_DeclAccess().getReturnTypeAssignment_2_1(), "rule__Func_Decl__ReturnTypeAssignment_2_1");
 					put(grammarAccess.getFunc_DeclAccess().getUsingsAssignment_3(), "rule__Func_Decl__UsingsAssignment_3");
 					put(grammarAccess.getFunc_DeclAccess().getIosAssignment_4_0(), "rule__Func_Decl__IosAssignment_4_0");
@@ -382,7 +382,7 @@ public class STLanguageParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFunc_DeclAccess().getBodyAssignment_5(), "rule__Func_Decl__BodyAssignment_5");
 					put(grammarAccess.getFunctionAccess().getNameAssignment(), "rule__Function__NameAssignment");
 					put(grammarAccess.getFB_DeclAccess().getModifierAssignment_2(), "rule__FB_Decl__ModifierAssignment_2");
-					put(grammarAccess.getFB_DeclAccess().getNameAssignment_3(), "rule__FB_Decl__NameAssignment_3");
+					put(grammarAccess.getFB_DeclAccess().getFunctionblockAssignment_3(), "rule__FB_Decl__FunctionblockAssignment_3");
 					put(grammarAccess.getFB_DeclAccess().getUsingsAssignment_4(), "rule__FB_Decl__UsingsAssignment_4");
 					put(grammarAccess.getFB_DeclAccess().getExtendsAssignment_5_1(), "rule__FB_Decl__ExtendsAssignment_5_1");
 					put(grammarAccess.getFB_DeclAccess().getImplementsAssignment_6_1(), "rule__FB_Decl__ImplementsAssignment_6_1");

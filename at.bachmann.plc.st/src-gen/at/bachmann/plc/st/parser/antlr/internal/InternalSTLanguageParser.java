@@ -14734,14 +14734,14 @@ public class InternalSTLanguageParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFunc_Decl"
-    // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:4945:1: ruleFunc_Decl returns [EObject current=null] : (otherlv_0= 'FUNCTION' ( (lv_name_1_0= ruleFunction ) ) (otherlv_2= ':' ( (lv_returnType_3_0= ruleData_Type_Access ) ) )? ( (lv_usings_4_0= ruleUsing_Directive ) )* ( ( (lv_ios_5_0= ruleIO_Var_Decls ) ) | ( (lv_variables_6_0= ruleFunc_Var_Decls ) ) | ( (lv_temps_7_0= ruleTemp_Var_Decls ) ) )* ( (lv_body_8_0= ruleFunc_Body ) ) otherlv_9= 'END_FUNCTION' ) ;
+    // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:4945:1: ruleFunc_Decl returns [EObject current=null] : (otherlv_0= 'FUNCTION' ( (lv_function_1_0= ruleFunction ) ) (otherlv_2= ':' ( (lv_returnType_3_0= ruleData_Type_Access ) ) )? ( (lv_usings_4_0= ruleUsing_Directive ) )* ( ( (lv_ios_5_0= ruleIO_Var_Decls ) ) | ( (lv_variables_6_0= ruleFunc_Var_Decls ) ) | ( (lv_temps_7_0= ruleTemp_Var_Decls ) ) )* ( (lv_body_8_0= ruleFunc_Body ) ) otherlv_9= 'END_FUNCTION' ) ;
     public final EObject ruleFunc_Decl() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
         Token otherlv_2=null;
         Token otherlv_9=null;
-        EObject lv_name_1_0 = null;
+        EObject lv_function_1_0 = null;
 
         AntlrDatatypeRuleToken lv_returnType_3_0 = null;
 
@@ -14759,11 +14759,11 @@ public class InternalSTLanguageParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:4948:28: ( (otherlv_0= 'FUNCTION' ( (lv_name_1_0= ruleFunction ) ) (otherlv_2= ':' ( (lv_returnType_3_0= ruleData_Type_Access ) ) )? ( (lv_usings_4_0= ruleUsing_Directive ) )* ( ( (lv_ios_5_0= ruleIO_Var_Decls ) ) | ( (lv_variables_6_0= ruleFunc_Var_Decls ) ) | ( (lv_temps_7_0= ruleTemp_Var_Decls ) ) )* ( (lv_body_8_0= ruleFunc_Body ) ) otherlv_9= 'END_FUNCTION' ) )
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:4949:1: (otherlv_0= 'FUNCTION' ( (lv_name_1_0= ruleFunction ) ) (otherlv_2= ':' ( (lv_returnType_3_0= ruleData_Type_Access ) ) )? ( (lv_usings_4_0= ruleUsing_Directive ) )* ( ( (lv_ios_5_0= ruleIO_Var_Decls ) ) | ( (lv_variables_6_0= ruleFunc_Var_Decls ) ) | ( (lv_temps_7_0= ruleTemp_Var_Decls ) ) )* ( (lv_body_8_0= ruleFunc_Body ) ) otherlv_9= 'END_FUNCTION' )
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:4948:28: ( (otherlv_0= 'FUNCTION' ( (lv_function_1_0= ruleFunction ) ) (otherlv_2= ':' ( (lv_returnType_3_0= ruleData_Type_Access ) ) )? ( (lv_usings_4_0= ruleUsing_Directive ) )* ( ( (lv_ios_5_0= ruleIO_Var_Decls ) ) | ( (lv_variables_6_0= ruleFunc_Var_Decls ) ) | ( (lv_temps_7_0= ruleTemp_Var_Decls ) ) )* ( (lv_body_8_0= ruleFunc_Body ) ) otherlv_9= 'END_FUNCTION' ) )
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:4949:1: (otherlv_0= 'FUNCTION' ( (lv_function_1_0= ruleFunction ) ) (otherlv_2= ':' ( (lv_returnType_3_0= ruleData_Type_Access ) ) )? ( (lv_usings_4_0= ruleUsing_Directive ) )* ( ( (lv_ios_5_0= ruleIO_Var_Decls ) ) | ( (lv_variables_6_0= ruleFunc_Var_Decls ) ) | ( (lv_temps_7_0= ruleTemp_Var_Decls ) ) )* ( (lv_body_8_0= ruleFunc_Body ) ) otherlv_9= 'END_FUNCTION' )
             {
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:4949:1: (otherlv_0= 'FUNCTION' ( (lv_name_1_0= ruleFunction ) ) (otherlv_2= ':' ( (lv_returnType_3_0= ruleData_Type_Access ) ) )? ( (lv_usings_4_0= ruleUsing_Directive ) )* ( ( (lv_ios_5_0= ruleIO_Var_Decls ) ) | ( (lv_variables_6_0= ruleFunc_Var_Decls ) ) | ( (lv_temps_7_0= ruleTemp_Var_Decls ) ) )* ( (lv_body_8_0= ruleFunc_Body ) ) otherlv_9= 'END_FUNCTION' )
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:4949:3: otherlv_0= 'FUNCTION' ( (lv_name_1_0= ruleFunction ) ) (otherlv_2= ':' ( (lv_returnType_3_0= ruleData_Type_Access ) ) )? ( (lv_usings_4_0= ruleUsing_Directive ) )* ( ( (lv_ios_5_0= ruleIO_Var_Decls ) ) | ( (lv_variables_6_0= ruleFunc_Var_Decls ) ) | ( (lv_temps_7_0= ruleTemp_Var_Decls ) ) )* ( (lv_body_8_0= ruleFunc_Body ) ) otherlv_9= 'END_FUNCTION'
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:4949:1: (otherlv_0= 'FUNCTION' ( (lv_function_1_0= ruleFunction ) ) (otherlv_2= ':' ( (lv_returnType_3_0= ruleData_Type_Access ) ) )? ( (lv_usings_4_0= ruleUsing_Directive ) )* ( ( (lv_ios_5_0= ruleIO_Var_Decls ) ) | ( (lv_variables_6_0= ruleFunc_Var_Decls ) ) | ( (lv_temps_7_0= ruleTemp_Var_Decls ) ) )* ( (lv_body_8_0= ruleFunc_Body ) ) otherlv_9= 'END_FUNCTION' )
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:4949:3: otherlv_0= 'FUNCTION' ( (lv_function_1_0= ruleFunction ) ) (otherlv_2= ':' ( (lv_returnType_3_0= ruleData_Type_Access ) ) )? ( (lv_usings_4_0= ruleUsing_Directive ) )* ( ( (lv_ios_5_0= ruleIO_Var_Decls ) ) | ( (lv_variables_6_0= ruleFunc_Var_Decls ) ) | ( (lv_temps_7_0= ruleTemp_Var_Decls ) ) )* ( (lv_body_8_0= ruleFunc_Body ) ) otherlv_9= 'END_FUNCTION'
             {
             otherlv_0=(Token)match(input,105,FOLLOW_105_in_ruleFunc_Decl12491); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -14771,19 +14771,19 @@ public class InternalSTLanguageParser extends AbstractInternalAntlrParser {
                   	newLeafNode(otherlv_0, grammarAccess.getFunc_DeclAccess().getFUNCTIONKeyword_0());
                   
             }
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:4953:1: ( (lv_name_1_0= ruleFunction ) )
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:4954:1: (lv_name_1_0= ruleFunction )
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:4953:1: ( (lv_function_1_0= ruleFunction ) )
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:4954:1: (lv_function_1_0= ruleFunction )
             {
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:4954:1: (lv_name_1_0= ruleFunction )
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:4955:3: lv_name_1_0= ruleFunction
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:4954:1: (lv_function_1_0= ruleFunction )
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:4955:3: lv_function_1_0= ruleFunction
             {
             if ( state.backtracking==0 ) {
                
-              	        newCompositeNode(grammarAccess.getFunc_DeclAccess().getNameFunctionParserRuleCall_1_0()); 
+              	        newCompositeNode(grammarAccess.getFunc_DeclAccess().getFunctionFunctionParserRuleCall_1_0()); 
               	    
             }
             pushFollow(FOLLOW_ruleFunction_in_ruleFunc_Decl12512);
-            lv_name_1_0=ruleFunction();
+            lv_function_1_0=ruleFunction();
 
             state._fsp--;
             if (state.failed) return current;
@@ -14794,8 +14794,8 @@ public class InternalSTLanguageParser extends AbstractInternalAntlrParser {
               	        }
                      		set(
                      			current, 
-                     			"name",
-                      		lv_name_1_0, 
+                     			"function",
+                      		lv_function_1_0, 
                       		"Function");
               	        afterParserOrEnumRuleCall();
               	    
@@ -16086,7 +16086,7 @@ public class InternalSTLanguageParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFB_Decl"
-    // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:5397:1: ruleFB_Decl returns [EObject current=null] : ( () otherlv_1= 'FUNCTION_BLOCK' ( ( (lv_modifier_2_1= 'FINAL' | lv_modifier_2_2= 'ABSTRACT' ) ) )? ( (lv_name_3_0= ruleFunctionBlock ) ) ( (lv_usings_4_0= ruleUsing_Directive ) )* (otherlv_5= 'EXTENDS' ( (otherlv_6= RULE_IDENTIFIER ) ) )? (otherlv_7= 'IMPLEMENTS' ( (lv_implements_8_0= ruleInterface_Name_List ) ) )? ( ( (lv_ios_9_0= ruleFB_IO_Var_Decls ) ) | ( (lv_variables_10_0= ruleFunc_Var_Decls ) ) | ( (lv_temps_11_0= ruleTemp_Var_Decls ) ) )* ( (lv_methods_12_0= ruleMethod_Decl ) )* ( (lv_body_13_0= ruleFB_Body ) )? ( ( 'END_FUNCTION_BLOCK' )=>otherlv_14= 'END_FUNCTION_BLOCK' ) ) ;
+    // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:5397:1: ruleFB_Decl returns [EObject current=null] : ( () otherlv_1= 'FUNCTION_BLOCK' ( ( (lv_modifier_2_1= 'FINAL' | lv_modifier_2_2= 'ABSTRACT' ) ) )? ( (lv_functionblock_3_0= ruleFunctionBlock ) ) ( (lv_usings_4_0= ruleUsing_Directive ) )* (otherlv_5= 'EXTENDS' ( (otherlv_6= RULE_IDENTIFIER ) ) )? (otherlv_7= 'IMPLEMENTS' ( (lv_implements_8_0= ruleInterface_Name_List ) ) )? ( ( (lv_ios_9_0= ruleFB_IO_Var_Decls ) ) | ( (lv_variables_10_0= ruleFunc_Var_Decls ) ) | ( (lv_temps_11_0= ruleTemp_Var_Decls ) ) )* ( (lv_methods_12_0= ruleMethod_Decl ) )* ( (lv_body_13_0= ruleFB_Body ) )? ( ( 'END_FUNCTION_BLOCK' )=>otherlv_14= 'END_FUNCTION_BLOCK' ) ) ;
     public final EObject ruleFB_Decl() throws RecognitionException {
         EObject current = null;
 
@@ -16097,7 +16097,7 @@ public class InternalSTLanguageParser extends AbstractInternalAntlrParser {
         Token otherlv_6=null;
         Token otherlv_7=null;
         Token otherlv_14=null;
-        EObject lv_name_3_0 = null;
+        EObject lv_functionblock_3_0 = null;
 
         EObject lv_usings_4_0 = null;
 
@@ -16117,11 +16117,11 @@ public class InternalSTLanguageParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:5400:28: ( ( () otherlv_1= 'FUNCTION_BLOCK' ( ( (lv_modifier_2_1= 'FINAL' | lv_modifier_2_2= 'ABSTRACT' ) ) )? ( (lv_name_3_0= ruleFunctionBlock ) ) ( (lv_usings_4_0= ruleUsing_Directive ) )* (otherlv_5= 'EXTENDS' ( (otherlv_6= RULE_IDENTIFIER ) ) )? (otherlv_7= 'IMPLEMENTS' ( (lv_implements_8_0= ruleInterface_Name_List ) ) )? ( ( (lv_ios_9_0= ruleFB_IO_Var_Decls ) ) | ( (lv_variables_10_0= ruleFunc_Var_Decls ) ) | ( (lv_temps_11_0= ruleTemp_Var_Decls ) ) )* ( (lv_methods_12_0= ruleMethod_Decl ) )* ( (lv_body_13_0= ruleFB_Body ) )? ( ( 'END_FUNCTION_BLOCK' )=>otherlv_14= 'END_FUNCTION_BLOCK' ) ) )
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:5401:1: ( () otherlv_1= 'FUNCTION_BLOCK' ( ( (lv_modifier_2_1= 'FINAL' | lv_modifier_2_2= 'ABSTRACT' ) ) )? ( (lv_name_3_0= ruleFunctionBlock ) ) ( (lv_usings_4_0= ruleUsing_Directive ) )* (otherlv_5= 'EXTENDS' ( (otherlv_6= RULE_IDENTIFIER ) ) )? (otherlv_7= 'IMPLEMENTS' ( (lv_implements_8_0= ruleInterface_Name_List ) ) )? ( ( (lv_ios_9_0= ruleFB_IO_Var_Decls ) ) | ( (lv_variables_10_0= ruleFunc_Var_Decls ) ) | ( (lv_temps_11_0= ruleTemp_Var_Decls ) ) )* ( (lv_methods_12_0= ruleMethod_Decl ) )* ( (lv_body_13_0= ruleFB_Body ) )? ( ( 'END_FUNCTION_BLOCK' )=>otherlv_14= 'END_FUNCTION_BLOCK' ) )
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:5400:28: ( ( () otherlv_1= 'FUNCTION_BLOCK' ( ( (lv_modifier_2_1= 'FINAL' | lv_modifier_2_2= 'ABSTRACT' ) ) )? ( (lv_functionblock_3_0= ruleFunctionBlock ) ) ( (lv_usings_4_0= ruleUsing_Directive ) )* (otherlv_5= 'EXTENDS' ( (otherlv_6= RULE_IDENTIFIER ) ) )? (otherlv_7= 'IMPLEMENTS' ( (lv_implements_8_0= ruleInterface_Name_List ) ) )? ( ( (lv_ios_9_0= ruleFB_IO_Var_Decls ) ) | ( (lv_variables_10_0= ruleFunc_Var_Decls ) ) | ( (lv_temps_11_0= ruleTemp_Var_Decls ) ) )* ( (lv_methods_12_0= ruleMethod_Decl ) )* ( (lv_body_13_0= ruleFB_Body ) )? ( ( 'END_FUNCTION_BLOCK' )=>otherlv_14= 'END_FUNCTION_BLOCK' ) ) )
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:5401:1: ( () otherlv_1= 'FUNCTION_BLOCK' ( ( (lv_modifier_2_1= 'FINAL' | lv_modifier_2_2= 'ABSTRACT' ) ) )? ( (lv_functionblock_3_0= ruleFunctionBlock ) ) ( (lv_usings_4_0= ruleUsing_Directive ) )* (otherlv_5= 'EXTENDS' ( (otherlv_6= RULE_IDENTIFIER ) ) )? (otherlv_7= 'IMPLEMENTS' ( (lv_implements_8_0= ruleInterface_Name_List ) ) )? ( ( (lv_ios_9_0= ruleFB_IO_Var_Decls ) ) | ( (lv_variables_10_0= ruleFunc_Var_Decls ) ) | ( (lv_temps_11_0= ruleTemp_Var_Decls ) ) )* ( (lv_methods_12_0= ruleMethod_Decl ) )* ( (lv_body_13_0= ruleFB_Body ) )? ( ( 'END_FUNCTION_BLOCK' )=>otherlv_14= 'END_FUNCTION_BLOCK' ) )
             {
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:5401:1: ( () otherlv_1= 'FUNCTION_BLOCK' ( ( (lv_modifier_2_1= 'FINAL' | lv_modifier_2_2= 'ABSTRACT' ) ) )? ( (lv_name_3_0= ruleFunctionBlock ) ) ( (lv_usings_4_0= ruleUsing_Directive ) )* (otherlv_5= 'EXTENDS' ( (otherlv_6= RULE_IDENTIFIER ) ) )? (otherlv_7= 'IMPLEMENTS' ( (lv_implements_8_0= ruleInterface_Name_List ) ) )? ( ( (lv_ios_9_0= ruleFB_IO_Var_Decls ) ) | ( (lv_variables_10_0= ruleFunc_Var_Decls ) ) | ( (lv_temps_11_0= ruleTemp_Var_Decls ) ) )* ( (lv_methods_12_0= ruleMethod_Decl ) )* ( (lv_body_13_0= ruleFB_Body ) )? ( ( 'END_FUNCTION_BLOCK' )=>otherlv_14= 'END_FUNCTION_BLOCK' ) )
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:5401:2: () otherlv_1= 'FUNCTION_BLOCK' ( ( (lv_modifier_2_1= 'FINAL' | lv_modifier_2_2= 'ABSTRACT' ) ) )? ( (lv_name_3_0= ruleFunctionBlock ) ) ( (lv_usings_4_0= ruleUsing_Directive ) )* (otherlv_5= 'EXTENDS' ( (otherlv_6= RULE_IDENTIFIER ) ) )? (otherlv_7= 'IMPLEMENTS' ( (lv_implements_8_0= ruleInterface_Name_List ) ) )? ( ( (lv_ios_9_0= ruleFB_IO_Var_Decls ) ) | ( (lv_variables_10_0= ruleFunc_Var_Decls ) ) | ( (lv_temps_11_0= ruleTemp_Var_Decls ) ) )* ( (lv_methods_12_0= ruleMethod_Decl ) )* ( (lv_body_13_0= ruleFB_Body ) )? ( ( 'END_FUNCTION_BLOCK' )=>otherlv_14= 'END_FUNCTION_BLOCK' )
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:5401:1: ( () otherlv_1= 'FUNCTION_BLOCK' ( ( (lv_modifier_2_1= 'FINAL' | lv_modifier_2_2= 'ABSTRACT' ) ) )? ( (lv_functionblock_3_0= ruleFunctionBlock ) ) ( (lv_usings_4_0= ruleUsing_Directive ) )* (otherlv_5= 'EXTENDS' ( (otherlv_6= RULE_IDENTIFIER ) ) )? (otherlv_7= 'IMPLEMENTS' ( (lv_implements_8_0= ruleInterface_Name_List ) ) )? ( ( (lv_ios_9_0= ruleFB_IO_Var_Decls ) ) | ( (lv_variables_10_0= ruleFunc_Var_Decls ) ) | ( (lv_temps_11_0= ruleTemp_Var_Decls ) ) )* ( (lv_methods_12_0= ruleMethod_Decl ) )* ( (lv_body_13_0= ruleFB_Body ) )? ( ( 'END_FUNCTION_BLOCK' )=>otherlv_14= 'END_FUNCTION_BLOCK' ) )
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:5401:2: () otherlv_1= 'FUNCTION_BLOCK' ( ( (lv_modifier_2_1= 'FINAL' | lv_modifier_2_2= 'ABSTRACT' ) ) )? ( (lv_functionblock_3_0= ruleFunctionBlock ) ) ( (lv_usings_4_0= ruleUsing_Directive ) )* (otherlv_5= 'EXTENDS' ( (otherlv_6= RULE_IDENTIFIER ) ) )? (otherlv_7= 'IMPLEMENTS' ( (lv_implements_8_0= ruleInterface_Name_List ) ) )? ( ( (lv_ios_9_0= ruleFB_IO_Var_Decls ) ) | ( (lv_variables_10_0= ruleFunc_Var_Decls ) ) | ( (lv_temps_11_0= ruleTemp_Var_Decls ) ) )* ( (lv_methods_12_0= ruleMethod_Decl ) )* ( (lv_body_13_0= ruleFB_Body ) )? ( ( 'END_FUNCTION_BLOCK' )=>otherlv_14= 'END_FUNCTION_BLOCK' )
             {
             // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:5401:2: ()
             // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:5402:5: 
@@ -16226,19 +16226,19 @@ public class InternalSTLanguageParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:5441:3: ( (lv_name_3_0= ruleFunctionBlock ) )
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:5442:1: (lv_name_3_0= ruleFunctionBlock )
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:5441:3: ( (lv_functionblock_3_0= ruleFunctionBlock ) )
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:5442:1: (lv_functionblock_3_0= ruleFunctionBlock )
             {
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:5442:1: (lv_name_3_0= ruleFunctionBlock )
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:5443:3: lv_name_3_0= ruleFunctionBlock
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:5442:1: (lv_functionblock_3_0= ruleFunctionBlock )
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:5443:3: lv_functionblock_3_0= ruleFunctionBlock
             {
             if ( state.backtracking==0 ) {
                
-              	        newCompositeNode(grammarAccess.getFB_DeclAccess().getNameFunctionBlockParserRuleCall_3_0()); 
+              	        newCompositeNode(grammarAccess.getFB_DeclAccess().getFunctionblockFunctionBlockParserRuleCall_3_0()); 
               	    
             }
             pushFollow(FOLLOW_ruleFunctionBlock_in_ruleFB_Decl13699);
-            lv_name_3_0=ruleFunctionBlock();
+            lv_functionblock_3_0=ruleFunctionBlock();
 
             state._fsp--;
             if (state.failed) return current;
@@ -16249,8 +16249,8 @@ public class InternalSTLanguageParser extends AbstractInternalAntlrParser {
               	        }
                      		set(
                      			current, 
-                     			"name",
-                      		lv_name_3_0, 
+                     			"functionblock",
+                      		lv_functionblock_3_0, 
                       		"FunctionBlock");
               	        afterParserOrEnumRuleCall();
               	    

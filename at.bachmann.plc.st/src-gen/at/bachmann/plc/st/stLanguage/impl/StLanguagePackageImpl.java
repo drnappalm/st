@@ -2474,7 +2474,7 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFunc_Decl_Name()
+  public EReference getFunc_Decl_Function()
   {
     return (EReference)func_DeclEClass.getEStructuralFeatures().get(0);
   }
@@ -2624,7 +2624,7 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFB_Decl_Name()
+  public EReference getFB_Decl_Functionblock()
   {
     return (EReference)fB_DeclEClass.getEStructuralFeatures().get(1);
   }
@@ -4410,7 +4410,7 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
     createEAttribute(d_Byte_Str_SpecEClass, DBYTE_STR_SPEC__INITIAL_VALUE);
 
     func_DeclEClass = createEClass(FUNC_DECL);
-    createEReference(func_DeclEClass, FUNC_DECL__NAME);
+    createEReference(func_DeclEClass, FUNC_DECL__FUNCTION);
     createEAttribute(func_DeclEClass, FUNC_DECL__RETURN_TYPE);
     createEReference(func_DeclEClass, FUNC_DECL__USINGS);
     createEReference(func_DeclEClass, FUNC_DECL__IOS);
@@ -4430,7 +4430,7 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
 
     fB_DeclEClass = createEClass(FB_DECL);
     createEAttribute(fB_DeclEClass, FB_DECL__MODIFIER);
-    createEReference(fB_DeclEClass, FB_DECL__NAME);
+    createEReference(fB_DeclEClass, FB_DECL__FUNCTIONBLOCK);
     createEReference(fB_DeclEClass, FB_DECL__USINGS);
     createEReference(fB_DeclEClass, FB_DECL__EXTENDS);
     createEReference(fB_DeclEClass, FB_DECL__IMPLEMENTS);
@@ -4946,7 +4946,7 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
     initEAttribute(getD_Byte_Str_Spec_InitialValue(), ecorePackage.getEString(), "initialValue", null, 0, 1, D_Byte_Str_Spec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(func_DeclEClass, Func_Decl.class, "Func_Decl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getFunc_Decl_Name(), this.getFunction(), null, "name", null, 0, 1, Func_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunc_Decl_Function(), this.getFunction(), null, "function", null, 0, 1, Func_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFunc_Decl_ReturnType(), ecorePackage.getEString(), "returnType", null, 0, 1, Func_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFunc_Decl_Usings(), this.getUsing_Directive(), null, "usings", null, 0, -1, Func_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFunc_Decl_Ios(), this.getIO_Var_Decls(), null, "ios", null, 0, -1, Func_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4966,7 +4966,7 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
 
     initEClass(fB_DeclEClass, FB_Decl.class, "FB_Decl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFB_Decl_Modifier(), ecorePackage.getEString(), "modifier", null, 0, 1, FB_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFB_Decl_Name(), this.getFunctionBlock(), null, "name", null, 0, 1, FB_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFB_Decl_Functionblock(), this.getFunctionBlock(), null, "functionblock", null, 0, 1, FB_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFB_Decl_Usings(), this.getUsing_Directive(), null, "usings", null, 0, -1, FB_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFB_Decl_Extends(), this.getFunctionBlock(), null, "extends", null, 0, 1, FB_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFB_Decl_Implements(), this.getInterface_Name_List(), null, "implements", null, 0, 1, FB_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

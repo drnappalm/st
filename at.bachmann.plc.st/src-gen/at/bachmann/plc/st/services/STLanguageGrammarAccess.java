@@ -3261,8 +3261,8 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Func_Decl");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cFUNCTIONKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameFunctionParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cFunctionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cFunctionFunctionParserRuleCall_1_0 = (RuleCall)cFunctionAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cColonKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Assignment cReturnTypeAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
@@ -3314,22 +3314,22 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		////// *******************************************************
 		////// *******************************************************
 		//Func_Decl:
-		//	"FUNCTION" name=Function (":" returnType=Data_Type_Access)? usings+=Using_Directive* (ios+=IO_Var_Decls |
+		//	"FUNCTION" function=Function (":" returnType=Data_Type_Access)? usings+=Using_Directive* (ios+=IO_Var_Decls |
 		//	variables+=Func_Var_Decls | temps+=Temp_Var_Decls)* body=Func_Body "END_FUNCTION";
 		public ParserRule getRule() { return rule; }
 
-		//"FUNCTION" name=Function (":" returnType=Data_Type_Access)? usings+=Using_Directive* (ios+=IO_Var_Decls |
+		//"FUNCTION" function=Function (":" returnType=Data_Type_Access)? usings+=Using_Directive* (ios+=IO_Var_Decls |
 		//variables+=Func_Var_Decls | temps+=Temp_Var_Decls)* body=Func_Body "END_FUNCTION"
 		public Group getGroup() { return cGroup; }
 
 		//"FUNCTION"
 		public Keyword getFUNCTIONKeyword_0() { return cFUNCTIONKeyword_0; }
 
-		//name=Function
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		//function=Function
+		public Assignment getFunctionAssignment_1() { return cFunctionAssignment_1; }
 
 		//Function
-		public RuleCall getNameFunctionParserRuleCall_1_0() { return cNameFunctionParserRuleCall_1_0; }
+		public RuleCall getFunctionFunctionParserRuleCall_1_0() { return cFunctionFunctionParserRuleCall_1_0; }
 
 		//(":" returnType=Data_Type_Access)?
 		public Group getGroup_2() { return cGroup_2; }
@@ -3566,8 +3566,8 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cModifierAlternatives_2_0 = (Alternatives)cModifierAssignment_2.eContents().get(0);
 		private final Keyword cModifierFINALKeyword_2_0_0 = (Keyword)cModifierAlternatives_2_0.eContents().get(0);
 		private final Keyword cModifierABSTRACTKeyword_2_0_1 = (Keyword)cModifierAlternatives_2_0.eContents().get(1);
-		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameFunctionBlockParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Assignment cFunctionblockAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cFunctionblockFunctionBlockParserRuleCall_3_0 = (RuleCall)cFunctionblockAssignment_3.eContents().get(0);
 		private final Assignment cUsingsAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cUsingsUsing_DirectiveParserRuleCall_4_0 = (RuleCall)cUsingsAssignment_4.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
@@ -3593,14 +3593,14 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cEND_FUNCTION_BLOCKKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//FB_Decl:
-		//	{FB_Decl} "FUNCTION_BLOCK" modifier=("FINAL" | "ABSTRACT")? name=FunctionBlock usings+=Using_Directive* ("EXTENDS"
-		//	extends=[FunctionBlock|IDENTIFIER])? ("IMPLEMENTS" implements=Interface_Name_List)? (ios+=FB_IO_Var_Decls
+		//	{FB_Decl} "FUNCTION_BLOCK" modifier=("FINAL" | "ABSTRACT")? functionblock=FunctionBlock usings+=Using_Directive*
+		//	("EXTENDS" extends=[FunctionBlock|IDENTIFIER])? ("IMPLEMENTS" implements=Interface_Name_List)? (ios+=FB_IO_Var_Decls
 		//	/ * | others+=Other_Var_Decls * / | variables+=Func_Var_Decls | temps+=Temp_Var_Decls)* methods+=Method_Decl*
 		//	body=FB_Body? => "END_FUNCTION_BLOCK";
 		public ParserRule getRule() { return rule; }
 
-		//{FB_Decl} "FUNCTION_BLOCK" modifier=("FINAL" | "ABSTRACT")? name=FunctionBlock usings+=Using_Directive* ("EXTENDS"
-		//extends=[FunctionBlock|IDENTIFIER])? ("IMPLEMENTS" implements=Interface_Name_List)? (ios+=FB_IO_Var_Decls
+		//{FB_Decl} "FUNCTION_BLOCK" modifier=("FINAL" | "ABSTRACT")? functionblock=FunctionBlock usings+=Using_Directive*
+		//("EXTENDS" extends=[FunctionBlock|IDENTIFIER])? ("IMPLEMENTS" implements=Interface_Name_List)? (ios+=FB_IO_Var_Decls
 		/// * | others+=Other_Var_Decls * / | variables+=Func_Var_Decls | temps+=Temp_Var_Decls)* methods+=Method_Decl*
 		//body=FB_Body? => "END_FUNCTION_BLOCK"
 		public Group getGroup() { return cGroup; }
@@ -3623,11 +3623,11 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		//"ABSTRACT"
 		public Keyword getModifierABSTRACTKeyword_2_0_1() { return cModifierABSTRACTKeyword_2_0_1; }
 
-		//name=FunctionBlock
-		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+		//functionblock=FunctionBlock
+		public Assignment getFunctionblockAssignment_3() { return cFunctionblockAssignment_3; }
 
 		//FunctionBlock
-		public RuleCall getNameFunctionBlockParserRuleCall_3_0() { return cNameFunctionBlockParserRuleCall_3_0; }
+		public RuleCall getFunctionblockFunctionBlockParserRuleCall_3_0() { return cFunctionblockFunctionBlockParserRuleCall_3_0; }
 
 		//usings+=Using_Directive*
 		public Assignment getUsingsAssignment_4() { return cUsingsAssignment_4; }
@@ -7690,7 +7690,7 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	////// *******************************************************
 	////// *******************************************************
 	//Func_Decl:
-	//	"FUNCTION" name=Function (":" returnType=Data_Type_Access)? usings+=Using_Directive* (ios+=IO_Var_Decls |
+	//	"FUNCTION" function=Function (":" returnType=Data_Type_Access)? usings+=Using_Directive* (ios+=IO_Var_Decls |
 	//	variables+=Func_Var_Decls | temps+=Temp_Var_Decls)* body=Func_Body "END_FUNCTION";
 	public Func_DeclElements getFunc_DeclAccess() {
 		return (pFunc_Decl != null) ? pFunc_Decl : (pFunc_Decl = new Func_DeclElements());
@@ -7776,8 +7776,8 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//FB_Decl:
-	//	{FB_Decl} "FUNCTION_BLOCK" modifier=("FINAL" | "ABSTRACT")? name=FunctionBlock usings+=Using_Directive* ("EXTENDS"
-	//	extends=[FunctionBlock|IDENTIFIER])? ("IMPLEMENTS" implements=Interface_Name_List)? (ios+=FB_IO_Var_Decls
+	//	{FB_Decl} "FUNCTION_BLOCK" modifier=("FINAL" | "ABSTRACT")? functionblock=FunctionBlock usings+=Using_Directive*
+	//	("EXTENDS" extends=[FunctionBlock|IDENTIFIER])? ("IMPLEMENTS" implements=Interface_Name_List)? (ios+=FB_IO_Var_Decls
 	//	/ * | others+=Other_Var_Decls * / | variables+=Func_Var_Decls | temps+=Temp_Var_Decls)* methods+=Method_Decl*
 	//	body=FB_Body? => "END_FUNCTION_BLOCK";
 	public FB_DeclElements getFB_DeclAccess() {
