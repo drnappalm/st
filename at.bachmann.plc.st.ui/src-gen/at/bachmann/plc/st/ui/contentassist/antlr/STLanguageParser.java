@@ -432,12 +432,12 @@ public class STLanguageParser extends AbstractContentAssistParser {
 					put(grammarAccess.getProg_DeclAccess().getBodyAssignment_3(), "rule__Prog_Decl__BodyAssignment_3");
 					put(grammarAccess.getProgramAccess().getNameAssignment(), "rule__Program__NameAssignment");
 					put(grammarAccess.getNamespace_DeclAccess().getInternalAssignment_1(), "rule__Namespace_Decl__InternalAssignment_1");
-					put(grammarAccess.getNamespace_DeclAccess().getNameAssignment_2(), "rule__Namespace_Decl__NameAssignment_2");
+					put(grammarAccess.getNamespace_DeclAccess().getNamespaceAssignment_2(), "rule__Namespace_Decl__NamespaceAssignment_2");
 					put(grammarAccess.getNamespace_DeclAccess().getUsingsAssignment_3(), "rule__Namespace_Decl__UsingsAssignment_3");
 					put(grammarAccess.getNamespace_DeclAccess().getElementsAssignment_4(), "rule__Namespace_Decl__ElementsAssignment_4");
 					put(grammarAccess.getNamespaceAccess().getNameAssignment(), "rule__Namespace__NameAssignment");
-					put(grammarAccess.getUsing_DirectiveAccess().getNamespacesAssignment_1(), "rule__Using_Directive__NamespacesAssignment_1");
-					put(grammarAccess.getUsing_DirectiveAccess().getNamespacesAssignment_2_1(), "rule__Using_Directive__NamespacesAssignment_2_1");
+					put(grammarAccess.getUsing_DirectiveAccess().getImportURIAssignment_1(), "rule__Using_Directive__ImportURIAssignment_1");
+					put(grammarAccess.getUsing_DirectiveAccess().getImportURIAssignment_2_1(), "rule__Using_Directive__ImportURIAssignment_2_1");
 					put(grammarAccess.getExpressionAccess().getOperatorAssignment_1_1(), "rule__Expression__OperatorAssignment_1_1");
 					put(grammarAccess.getExpressionAccess().getRightAssignment_1_2(), "rule__Expression__RightAssignment_1_2");
 					put(grammarAccess.getXor_ExprAccess().getOperatorAssignment_1_1(), "rule__Xor_Expr__OperatorAssignment_1_1");

@@ -25,6 +25,7 @@ import org.eclipse.jface.viewers.StyledString
 import org.eclipse.xtext.ui.label.StylerFactory
 import at.bachmann.plc.st.stLanguage.Class_Decl
 import at.bachmann.plc.st.stLanguage.Interface_Decl
+import at.bachmann.plc.st.stLanguage.Namespace_Decl
 
 /**
  * Provides labels for a EObjects.
@@ -56,6 +57,10 @@ class STLanguageLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObjectL
 	
 	def dispatch text(Interface_Decl item) {
 		item.interface.name
+	}
+	
+	def dispatch text(Namespace_Decl item) {
+		item.namespace.name
 	}
 	
 	def dispatch text(Variable item) {
@@ -102,6 +107,10 @@ class STLanguageLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObjectL
 	
 	def dispatch image(Interface_Decl item) {
 		'interface.png'
+	}
+	
+	def dispatch image(Namespace_Decl item) {
+		'namespace.png'
 	}
 	
 	def dispatch image(VariableImpl item) {

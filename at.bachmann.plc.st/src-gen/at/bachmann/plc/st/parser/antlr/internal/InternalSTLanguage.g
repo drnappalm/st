@@ -6933,16 +6933,16 @@ ruleNamespace_Decl returns [EObject current=null]
 )?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getNamespace_DeclAccess().getNameNamespaceParserRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getNamespace_DeclAccess().getNamespaceNamespaceParserRuleCall_2_0()); 
 	    }
-		lv_name_2_0=ruleNamespace		{
+		lv_namespace_2_0=ruleNamespace		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getNamespace_DeclRule());
 	        }
        		set(
        			$current, 
-       			"name",
-        		lv_name_2_0, 
+       			"namespace",
+        		lv_namespace_2_0, 
         		"Namespace");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -7105,16 +7105,16 @@ ruleUsing_Directive returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUsing_DirectiveAccess().getNamespacesQualified_NameParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getUsing_DirectiveAccess().getImportURIQualified_NameParserRuleCall_1_0()); 
 	    }
-		lv_namespaces_1_0=ruleQualified_Name		{
+		lv_importURI_1_0=ruleQualified_Name		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUsing_DirectiveRule());
 	        }
        		add(
        			$current, 
-       			"namespaces",
-        		lv_namespaces_1_0, 
+       			"importURI",
+        		lv_importURI_1_0, 
         		"Qualified_Name");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -7127,16 +7127,16 @@ ruleUsing_Directive returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUsing_DirectiveAccess().getNamespacesQualified_NameParserRuleCall_2_1_0()); 
+	        newCompositeNode(grammarAccess.getUsing_DirectiveAccess().getImportURIQualified_NameParserRuleCall_2_1_0()); 
 	    }
-		lv_namespaces_3_0=ruleQualified_Name		{
+		lv_importURI_3_0=ruleQualified_Name		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUsing_DirectiveRule());
 	        }
        		add(
        			$current, 
-       			"namespaces",
-        		lv_namespaces_3_0, 
+       			"importURI",
+        		lv_importURI_3_0, 
         		"Qualified_Name");
 	        afterParserOrEnumRuleCall();
 	    }

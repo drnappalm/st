@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link at.bachmann.plc.st.stLanguage.impl.Namespace_DeclImpl#isInternal <em>Internal</em>}</li>
- *   <li>{@link at.bachmann.plc.st.stLanguage.impl.Namespace_DeclImpl#getName <em>Name</em>}</li>
+ *   <li>{@link at.bachmann.plc.st.stLanguage.impl.Namespace_DeclImpl#getNamespace <em>Namespace</em>}</li>
  *   <li>{@link at.bachmann.plc.st.stLanguage.impl.Namespace_DeclImpl#getUsings <em>Usings</em>}</li>
  *   <li>{@link at.bachmann.plc.st.stLanguage.impl.Namespace_DeclImpl#getElements <em>Elements</em>}</li>
  * </ul>
@@ -63,14 +63,14 @@ public class Namespace_DeclImpl extends MinimalEObjectImpl.Container implements 
   protected boolean internal = INTERNAL_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
+   * The cached value of the '{@link #getNamespace() <em>Namespace</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getNamespace()
    * @generated
    * @ordered
    */
-  protected Namespace name;
+  protected Namespace namespace;
 
   /**
    * The cached value of the '{@link #getUsings() <em>Usings</em>}' containment reference list.
@@ -141,9 +141,9 @@ public class Namespace_DeclImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public Namespace getName()
+  public Namespace getNamespace()
   {
-    return name;
+    return namespace;
   }
 
   /**
@@ -151,13 +151,13 @@ public class Namespace_DeclImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetName(Namespace newName, NotificationChain msgs)
+  public NotificationChain basicSetNamespace(Namespace newNamespace, NotificationChain msgs)
   {
-    Namespace oldName = name;
-    name = newName;
+    Namespace oldNamespace = namespace;
+    namespace = newNamespace;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StLanguagePackage.NAMESPACE_DECL__NAME, oldName, newName);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StLanguagePackage.NAMESPACE_DECL__NAMESPACE, oldNamespace, newNamespace);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -168,20 +168,20 @@ public class Namespace_DeclImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(Namespace newName)
+  public void setNamespace(Namespace newNamespace)
   {
-    if (newName != name)
+    if (newNamespace != namespace)
     {
       NotificationChain msgs = null;
-      if (name != null)
-        msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StLanguagePackage.NAMESPACE_DECL__NAME, null, msgs);
-      if (newName != null)
-        msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - StLanguagePackage.NAMESPACE_DECL__NAME, null, msgs);
-      msgs = basicSetName(newName, msgs);
+      if (namespace != null)
+        msgs = ((InternalEObject)namespace).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StLanguagePackage.NAMESPACE_DECL__NAMESPACE, null, msgs);
+      if (newNamespace != null)
+        msgs = ((InternalEObject)newNamespace).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - StLanguagePackage.NAMESPACE_DECL__NAMESPACE, null, msgs);
+      msgs = basicSetNamespace(newNamespace, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, StLanguagePackage.NAMESPACE_DECL__NAME, newName, newName));
+      eNotify(new ENotificationImpl(this, Notification.SET, StLanguagePackage.NAMESPACE_DECL__NAMESPACE, newNamespace, newNamespace));
   }
 
   /**
@@ -222,8 +222,8 @@ public class Namespace_DeclImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case StLanguagePackage.NAMESPACE_DECL__NAME:
-        return basicSetName(null, msgs);
+      case StLanguagePackage.NAMESPACE_DECL__NAMESPACE:
+        return basicSetNamespace(null, msgs);
       case StLanguagePackage.NAMESPACE_DECL__USINGS:
         return ((InternalEList<?>)getUsings()).basicRemove(otherEnd, msgs);
       case StLanguagePackage.NAMESPACE_DECL__ELEMENTS:
@@ -244,8 +244,8 @@ public class Namespace_DeclImpl extends MinimalEObjectImpl.Container implements 
     {
       case StLanguagePackage.NAMESPACE_DECL__INTERNAL:
         return isInternal();
-      case StLanguagePackage.NAMESPACE_DECL__NAME:
-        return getName();
+      case StLanguagePackage.NAMESPACE_DECL__NAMESPACE:
+        return getNamespace();
       case StLanguagePackage.NAMESPACE_DECL__USINGS:
         return getUsings();
       case StLanguagePackage.NAMESPACE_DECL__ELEMENTS:
@@ -268,8 +268,8 @@ public class Namespace_DeclImpl extends MinimalEObjectImpl.Container implements 
       case StLanguagePackage.NAMESPACE_DECL__INTERNAL:
         setInternal((Boolean)newValue);
         return;
-      case StLanguagePackage.NAMESPACE_DECL__NAME:
-        setName((Namespace)newValue);
+      case StLanguagePackage.NAMESPACE_DECL__NAMESPACE:
+        setNamespace((Namespace)newValue);
         return;
       case StLanguagePackage.NAMESPACE_DECL__USINGS:
         getUsings().clear();
@@ -296,8 +296,8 @@ public class Namespace_DeclImpl extends MinimalEObjectImpl.Container implements 
       case StLanguagePackage.NAMESPACE_DECL__INTERNAL:
         setInternal(INTERNAL_EDEFAULT);
         return;
-      case StLanguagePackage.NAMESPACE_DECL__NAME:
-        setName((Namespace)null);
+      case StLanguagePackage.NAMESPACE_DECL__NAMESPACE:
+        setNamespace((Namespace)null);
         return;
       case StLanguagePackage.NAMESPACE_DECL__USINGS:
         getUsings().clear();
@@ -321,8 +321,8 @@ public class Namespace_DeclImpl extends MinimalEObjectImpl.Container implements 
     {
       case StLanguagePackage.NAMESPACE_DECL__INTERNAL:
         return internal != INTERNAL_EDEFAULT;
-      case StLanguagePackage.NAMESPACE_DECL__NAME:
-        return name != null;
+      case StLanguagePackage.NAMESPACE_DECL__NAMESPACE:
+        return namespace != null;
       case StLanguagePackage.NAMESPACE_DECL__USINGS:
         return usings != null && !usings.isEmpty();
       case StLanguagePackage.NAMESPACE_DECL__ELEMENTS:

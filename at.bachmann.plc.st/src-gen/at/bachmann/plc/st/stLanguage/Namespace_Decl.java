@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link at.bachmann.plc.st.stLanguage.Namespace_Decl#isInternal <em>Internal</em>}</li>
- *   <li>{@link at.bachmann.plc.st.stLanguage.Namespace_Decl#getName <em>Name</em>}</li>
+ *   <li>{@link at.bachmann.plc.st.stLanguage.Namespace_Decl#getNamespace <em>Namespace</em>}</li>
  *   <li>{@link at.bachmann.plc.st.stLanguage.Namespace_Decl#getUsings <em>Usings</em>}</li>
  *   <li>{@link at.bachmann.plc.st.stLanguage.Namespace_Decl#getElements <em>Elements</em>}</li>
  * </ul>
@@ -54,30 +54,30 @@ public interface Namespace_Decl extends EObject
   void setInternal(boolean value);
 
   /**
-   * Returns the value of the '<em><b>Name</b></em>' containment reference.
+   * Returns the value of the '<em><b>Namespace</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Namespace</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' containment reference.
-   * @see #setName(Namespace)
-   * @see at.bachmann.plc.st.stLanguage.StLanguagePackage#getNamespace_Decl_Name()
+   * @return the value of the '<em>Namespace</em>' containment reference.
+   * @see #setNamespace(Namespace)
+   * @see at.bachmann.plc.st.stLanguage.StLanguagePackage#getNamespace_Decl_Namespace()
    * @model containment="true"
    * @generated
    */
-  Namespace getName();
+  Namespace getNamespace();
 
   /**
-   * Sets the value of the '{@link at.bachmann.plc.st.stLanguage.Namespace_Decl#getName <em>Name</em>}' containment reference.
+   * Sets the value of the '{@link at.bachmann.plc.st.stLanguage.Namespace_Decl#getNamespace <em>Namespace</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' containment reference.
-   * @see #getName()
+   * @param value the new value of the '<em>Namespace</em>' containment reference.
+   * @see #getNamespace()
    * @generated
    */
-  void setName(Namespace value);
+  void setNamespace(Namespace value);
 
   /**
    * Returns the value of the '<em><b>Usings</b></em>' containment reference list.

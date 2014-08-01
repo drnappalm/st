@@ -20384,14 +20384,14 @@ public class InternalSTLanguageParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNamespace_Decl"
-    // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:6910:1: ruleNamespace_Decl returns [EObject current=null] : (otherlv_0= 'NAMESPACE' ( (lv_internal_1_0= 'INTERNAL' ) )? ( (lv_name_2_0= ruleNamespace ) ) ( (lv_usings_3_0= ruleUsing_Directive ) )* ( (lv_elements_4_0= ruleNamespace_Elements ) )+ otherlv_5= 'END_NAMESPACE' ) ;
+    // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:6910:1: ruleNamespace_Decl returns [EObject current=null] : (otherlv_0= 'NAMESPACE' ( (lv_internal_1_0= 'INTERNAL' ) )? ( (lv_namespace_2_0= ruleNamespace ) ) ( (lv_usings_3_0= ruleUsing_Directive ) )* ( (lv_elements_4_0= ruleNamespace_Elements ) )+ otherlv_5= 'END_NAMESPACE' ) ;
     public final EObject ruleNamespace_Decl() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
         Token lv_internal_1_0=null;
         Token otherlv_5=null;
-        EObject lv_name_2_0 = null;
+        EObject lv_namespace_2_0 = null;
 
         EObject lv_usings_3_0 = null;
 
@@ -20401,11 +20401,11 @@ public class InternalSTLanguageParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:6913:28: ( (otherlv_0= 'NAMESPACE' ( (lv_internal_1_0= 'INTERNAL' ) )? ( (lv_name_2_0= ruleNamespace ) ) ( (lv_usings_3_0= ruleUsing_Directive ) )* ( (lv_elements_4_0= ruleNamespace_Elements ) )+ otherlv_5= 'END_NAMESPACE' ) )
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:6914:1: (otherlv_0= 'NAMESPACE' ( (lv_internal_1_0= 'INTERNAL' ) )? ( (lv_name_2_0= ruleNamespace ) ) ( (lv_usings_3_0= ruleUsing_Directive ) )* ( (lv_elements_4_0= ruleNamespace_Elements ) )+ otherlv_5= 'END_NAMESPACE' )
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:6913:28: ( (otherlv_0= 'NAMESPACE' ( (lv_internal_1_0= 'INTERNAL' ) )? ( (lv_namespace_2_0= ruleNamespace ) ) ( (lv_usings_3_0= ruleUsing_Directive ) )* ( (lv_elements_4_0= ruleNamespace_Elements ) )+ otherlv_5= 'END_NAMESPACE' ) )
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:6914:1: (otherlv_0= 'NAMESPACE' ( (lv_internal_1_0= 'INTERNAL' ) )? ( (lv_namespace_2_0= ruleNamespace ) ) ( (lv_usings_3_0= ruleUsing_Directive ) )* ( (lv_elements_4_0= ruleNamespace_Elements ) )+ otherlv_5= 'END_NAMESPACE' )
             {
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:6914:1: (otherlv_0= 'NAMESPACE' ( (lv_internal_1_0= 'INTERNAL' ) )? ( (lv_name_2_0= ruleNamespace ) ) ( (lv_usings_3_0= ruleUsing_Directive ) )* ( (lv_elements_4_0= ruleNamespace_Elements ) )+ otherlv_5= 'END_NAMESPACE' )
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:6914:3: otherlv_0= 'NAMESPACE' ( (lv_internal_1_0= 'INTERNAL' ) )? ( (lv_name_2_0= ruleNamespace ) ) ( (lv_usings_3_0= ruleUsing_Directive ) )* ( (lv_elements_4_0= ruleNamespace_Elements ) )+ otherlv_5= 'END_NAMESPACE'
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:6914:1: (otherlv_0= 'NAMESPACE' ( (lv_internal_1_0= 'INTERNAL' ) )? ( (lv_namespace_2_0= ruleNamespace ) ) ( (lv_usings_3_0= ruleUsing_Directive ) )* ( (lv_elements_4_0= ruleNamespace_Elements ) )+ otherlv_5= 'END_NAMESPACE' )
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:6914:3: otherlv_0= 'NAMESPACE' ( (lv_internal_1_0= 'INTERNAL' ) )? ( (lv_namespace_2_0= ruleNamespace ) ) ( (lv_usings_3_0= ruleUsing_Directive ) )* ( (lv_elements_4_0= ruleNamespace_Elements ) )+ otherlv_5= 'END_NAMESPACE'
             {
             otherlv_0=(Token)match(input,136,FOLLOW_136_in_ruleNamespace_Decl16831); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -20450,19 +20450,19 @@ public class InternalSTLanguageParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:6933:3: ( (lv_name_2_0= ruleNamespace ) )
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:6934:1: (lv_name_2_0= ruleNamespace )
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:6933:3: ( (lv_namespace_2_0= ruleNamespace ) )
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:6934:1: (lv_namespace_2_0= ruleNamespace )
             {
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:6934:1: (lv_name_2_0= ruleNamespace )
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:6935:3: lv_name_2_0= ruleNamespace
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:6934:1: (lv_namespace_2_0= ruleNamespace )
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:6935:3: lv_namespace_2_0= ruleNamespace
             {
             if ( state.backtracking==0 ) {
                
-              	        newCompositeNode(grammarAccess.getNamespace_DeclAccess().getNameNamespaceParserRuleCall_2_0()); 
+              	        newCompositeNode(grammarAccess.getNamespace_DeclAccess().getNamespaceNamespaceParserRuleCall_2_0()); 
               	    
             }
             pushFollow(FOLLOW_ruleNamespace_in_ruleNamespace_Decl16884);
-            lv_name_2_0=ruleNamespace();
+            lv_namespace_2_0=ruleNamespace();
 
             state._fsp--;
             if (state.failed) return current;
@@ -20473,8 +20473,8 @@ public class InternalSTLanguageParser extends AbstractInternalAntlrParser {
               	        }
                      		set(
                      			current, 
-                     			"name",
-                      		lv_name_2_0, 
+                     			"namespace",
+                      		lv_namespace_2_0, 
                       		"Namespace");
               	        afterParserOrEnumRuleCall();
               	    
@@ -20947,26 +20947,26 @@ public class InternalSTLanguageParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleUsing_Directive"
-    // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:7097:1: ruleUsing_Directive returns [EObject current=null] : (otherlv_0= 'USING' ( (lv_namespaces_1_0= ruleQualified_Name ) ) (otherlv_2= ',' ( (lv_namespaces_3_0= ruleQualified_Name ) ) )* otherlv_4= ';' ) ;
+    // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:7097:1: ruleUsing_Directive returns [EObject current=null] : (otherlv_0= 'USING' ( (lv_importURI_1_0= ruleQualified_Name ) ) (otherlv_2= ',' ( (lv_importURI_3_0= ruleQualified_Name ) ) )* otherlv_4= ';' ) ;
     public final EObject ruleUsing_Directive() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
         Token otherlv_2=null;
         Token otherlv_4=null;
-        AntlrDatatypeRuleToken lv_namespaces_1_0 = null;
+        AntlrDatatypeRuleToken lv_importURI_1_0 = null;
 
-        AntlrDatatypeRuleToken lv_namespaces_3_0 = null;
+        AntlrDatatypeRuleToken lv_importURI_3_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:7100:28: ( (otherlv_0= 'USING' ( (lv_namespaces_1_0= ruleQualified_Name ) ) (otherlv_2= ',' ( (lv_namespaces_3_0= ruleQualified_Name ) ) )* otherlv_4= ';' ) )
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:7101:1: (otherlv_0= 'USING' ( (lv_namespaces_1_0= ruleQualified_Name ) ) (otherlv_2= ',' ( (lv_namespaces_3_0= ruleQualified_Name ) ) )* otherlv_4= ';' )
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:7100:28: ( (otherlv_0= 'USING' ( (lv_importURI_1_0= ruleQualified_Name ) ) (otherlv_2= ',' ( (lv_importURI_3_0= ruleQualified_Name ) ) )* otherlv_4= ';' ) )
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:7101:1: (otherlv_0= 'USING' ( (lv_importURI_1_0= ruleQualified_Name ) ) (otherlv_2= ',' ( (lv_importURI_3_0= ruleQualified_Name ) ) )* otherlv_4= ';' )
             {
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:7101:1: (otherlv_0= 'USING' ( (lv_namespaces_1_0= ruleQualified_Name ) ) (otherlv_2= ',' ( (lv_namespaces_3_0= ruleQualified_Name ) ) )* otherlv_4= ';' )
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:7101:3: otherlv_0= 'USING' ( (lv_namespaces_1_0= ruleQualified_Name ) ) (otherlv_2= ',' ( (lv_namespaces_3_0= ruleQualified_Name ) ) )* otherlv_4= ';'
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:7101:1: (otherlv_0= 'USING' ( (lv_importURI_1_0= ruleQualified_Name ) ) (otherlv_2= ',' ( (lv_importURI_3_0= ruleQualified_Name ) ) )* otherlv_4= ';' )
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:7101:3: otherlv_0= 'USING' ( (lv_importURI_1_0= ruleQualified_Name ) ) (otherlv_2= ',' ( (lv_importURI_3_0= ruleQualified_Name ) ) )* otherlv_4= ';'
             {
             otherlv_0=(Token)match(input,138,FOLLOW_138_in_ruleUsing_Directive17259); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -20974,19 +20974,19 @@ public class InternalSTLanguageParser extends AbstractInternalAntlrParser {
                   	newLeafNode(otherlv_0, grammarAccess.getUsing_DirectiveAccess().getUSINGKeyword_0());
                   
             }
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:7105:1: ( (lv_namespaces_1_0= ruleQualified_Name ) )
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:7106:1: (lv_namespaces_1_0= ruleQualified_Name )
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:7105:1: ( (lv_importURI_1_0= ruleQualified_Name ) )
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:7106:1: (lv_importURI_1_0= ruleQualified_Name )
             {
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:7106:1: (lv_namespaces_1_0= ruleQualified_Name )
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:7107:3: lv_namespaces_1_0= ruleQualified_Name
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:7106:1: (lv_importURI_1_0= ruleQualified_Name )
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:7107:3: lv_importURI_1_0= ruleQualified_Name
             {
             if ( state.backtracking==0 ) {
                
-              	        newCompositeNode(grammarAccess.getUsing_DirectiveAccess().getNamespacesQualified_NameParserRuleCall_1_0()); 
+              	        newCompositeNode(grammarAccess.getUsing_DirectiveAccess().getImportURIQualified_NameParserRuleCall_1_0()); 
               	    
             }
             pushFollow(FOLLOW_ruleQualified_Name_in_ruleUsing_Directive17280);
-            lv_namespaces_1_0=ruleQualified_Name();
+            lv_importURI_1_0=ruleQualified_Name();
 
             state._fsp--;
             if (state.failed) return current;
@@ -20997,8 +20997,8 @@ public class InternalSTLanguageParser extends AbstractInternalAntlrParser {
               	        }
                      		add(
                      			current, 
-                     			"namespaces",
-                      		lv_namespaces_1_0, 
+                     			"importURI",
+                      		lv_importURI_1_0, 
                       		"Qualified_Name");
               	        afterParserOrEnumRuleCall();
               	    
@@ -21009,7 +21009,7 @@ public class InternalSTLanguageParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:7123:2: (otherlv_2= ',' ( (lv_namespaces_3_0= ruleQualified_Name ) ) )*
+            // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:7123:2: (otherlv_2= ',' ( (lv_importURI_3_0= ruleQualified_Name ) ) )*
             loop119:
             do {
                 int alt119=2;
@@ -21022,7 +21022,7 @@ public class InternalSTLanguageParser extends AbstractInternalAntlrParser {
 
                 switch (alt119) {
             	case 1 :
-            	    // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:7123:4: otherlv_2= ',' ( (lv_namespaces_3_0= ruleQualified_Name ) )
+            	    // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:7123:4: otherlv_2= ',' ( (lv_importURI_3_0= ruleQualified_Name ) )
             	    {
             	    otherlv_2=(Token)match(input,89,FOLLOW_89_in_ruleUsing_Directive17293); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
@@ -21030,19 +21030,19 @@ public class InternalSTLanguageParser extends AbstractInternalAntlrParser {
             	          	newLeafNode(otherlv_2, grammarAccess.getUsing_DirectiveAccess().getCommaKeyword_2_0());
             	          
             	    }
-            	    // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:7127:1: ( (lv_namespaces_3_0= ruleQualified_Name ) )
-            	    // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:7128:1: (lv_namespaces_3_0= ruleQualified_Name )
+            	    // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:7127:1: ( (lv_importURI_3_0= ruleQualified_Name ) )
+            	    // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:7128:1: (lv_importURI_3_0= ruleQualified_Name )
             	    {
-            	    // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:7128:1: (lv_namespaces_3_0= ruleQualified_Name )
-            	    // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:7129:3: lv_namespaces_3_0= ruleQualified_Name
+            	    // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:7128:1: (lv_importURI_3_0= ruleQualified_Name )
+            	    // ../at.bachmann.plc.st/src-gen/at/bachmann/plc/st/parser/antlr/internal/InternalSTLanguage.g:7129:3: lv_importURI_3_0= ruleQualified_Name
             	    {
             	    if ( state.backtracking==0 ) {
             	       
-            	      	        newCompositeNode(grammarAccess.getUsing_DirectiveAccess().getNamespacesQualified_NameParserRuleCall_2_1_0()); 
+            	      	        newCompositeNode(grammarAccess.getUsing_DirectiveAccess().getImportURIQualified_NameParserRuleCall_2_1_0()); 
             	      	    
             	    }
             	    pushFollow(FOLLOW_ruleQualified_Name_in_ruleUsing_Directive17314);
-            	    lv_namespaces_3_0=ruleQualified_Name();
+            	    lv_importURI_3_0=ruleQualified_Name();
 
             	    state._fsp--;
             	    if (state.failed) return current;
@@ -21053,8 +21053,8 @@ public class InternalSTLanguageParser extends AbstractInternalAntlrParser {
             	      	        }
             	             		add(
             	             			current, 
-            	             			"namespaces",
-            	              		lv_namespaces_3_0, 
+            	             			"importURI",
+            	              		lv_importURI_3_0, 
             	              		"Qualified_Name");
             	      	        afterParserOrEnumRuleCall();
             	      	    

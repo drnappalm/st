@@ -3685,13 +3685,13 @@ public interface StLanguagePackage extends EPackage
   int NAMESPACE_DECL__INTERNAL = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' containment reference.
+   * The feature id for the '<em><b>Namespace</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NAMESPACE_DECL__NAME = 1;
+  int NAMESPACE_DECL__NAMESPACE = 1;
 
   /**
    * The feature id for the '<em><b>Usings</b></em>' containment reference list.
@@ -3759,13 +3759,13 @@ public interface StLanguagePackage extends EPackage
   int USING_DIRECTIVE = 89;
 
   /**
-   * The feature id for the '<em><b>Namespaces</b></em>' attribute list.
+   * The feature id for the '<em><b>Import URI</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int USING_DIRECTIVE__NAMESPACES = 0;
+  int USING_DIRECTIVE__IMPORT_URI = 0;
 
   /**
    * The number of structural features of the '<em>Using Directive</em>' class.
@@ -7728,15 +7728,15 @@ public interface StLanguagePackage extends EPackage
   EAttribute getNamespace_Decl_Internal();
 
   /**
-   * Returns the meta object for the containment reference '{@link at.bachmann.plc.st.stLanguage.Namespace_Decl#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference '{@link at.bachmann.plc.st.stLanguage.Namespace_Decl#getNamespace <em>Namespace</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Name</em>'.
-   * @see at.bachmann.plc.st.stLanguage.Namespace_Decl#getName()
+   * @return the meta object for the containment reference '<em>Namespace</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Namespace_Decl#getNamespace()
    * @see #getNamespace_Decl()
    * @generated
    */
-  EReference getNamespace_Decl_Name();
+  EReference getNamespace_Decl_Namespace();
 
   /**
    * Returns the meta object for the containment reference list '{@link at.bachmann.plc.st.stLanguage.Namespace_Decl#getUsings <em>Usings</em>}'.
@@ -7802,15 +7802,15 @@ public interface StLanguagePackage extends EPackage
   EClass getUsing_Directive();
 
   /**
-   * Returns the meta object for the attribute list '{@link at.bachmann.plc.st.stLanguage.Using_Directive#getNamespaces <em>Namespaces</em>}'.
+   * Returns the meta object for the attribute list '{@link at.bachmann.plc.st.stLanguage.Using_Directive#getImportURI <em>Import URI</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Namespaces</em>'.
-   * @see at.bachmann.plc.st.stLanguage.Using_Directive#getNamespaces()
+   * @return the meta object for the attribute list '<em>Import URI</em>'.
+   * @see at.bachmann.plc.st.stLanguage.Using_Directive#getImportURI()
    * @see #getUsing_Directive()
    * @generated
    */
-  EAttribute getUsing_Directive_Namespaces();
+  EAttribute getUsing_Directive_ImportURI();
 
   /**
    * Returns the meta object for class '{@link at.bachmann.plc.st.stLanguage.Expression <em>Expression</em>}'.
@@ -10625,12 +10625,12 @@ public interface StLanguagePackage extends EPackage
     EAttribute NAMESPACE_DECL__INTERNAL = eINSTANCE.getNamespace_Decl_Internal();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Namespace</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference NAMESPACE_DECL__NAME = eINSTANCE.getNamespace_Decl_Name();
+    EReference NAMESPACE_DECL__NAMESPACE = eINSTANCE.getNamespace_Decl_Namespace();
 
     /**
      * The meta object literal for the '<em><b>Usings</b></em>' containment reference list feature.
@@ -10687,12 +10687,12 @@ public interface StLanguagePackage extends EPackage
     EClass USING_DIRECTIVE = eINSTANCE.getUsing_Directive();
 
     /**
-     * The meta object literal for the '<em><b>Namespaces</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Import URI</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute USING_DIRECTIVE__NAMESPACES = eINSTANCE.getUsing_Directive_Namespaces();
+    EAttribute USING_DIRECTIVE__IMPORT_URI = eINSTANCE.getUsing_Directive_ImportURI();
 
     /**
      * The meta object literal for the '{@link at.bachmann.plc.st.stLanguage.impl.ExpressionImpl <em>Expression</em>}' class.

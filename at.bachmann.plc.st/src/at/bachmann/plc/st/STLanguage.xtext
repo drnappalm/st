@@ -665,7 +665,7 @@ Program:
 
 // Table 64 - Namespace
 Namespace_Decl:
-	'NAMESPACE' (internal?='INTERNAL'?) name=Namespace usings+=Using_Directive* elements+=Namespace_Elements+
+	'NAMESPACE' (internal?='INTERNAL'?) namespace=Namespace usings+=Using_Directive* elements+=Namespace_Elements+
 	'END_NAMESPACE';
 
 Namespace:
@@ -675,7 +675,7 @@ Namespace_Elements:
 	Data_Type_Decl | Func_Decl | FB_Decl /* | Class_Decl | Interface_Decl | Namespace_Decl */;
 
 Using_Directive:
-	'USING' namespaces+=Qualified_Name (',' namespaces+=Qualified_Name)* ';';
+	'USING' importURI+=Qualified_Name (',' importURI+=Qualified_Name)* ';';
 
 	// Table 71 - 72 - Language Structured Text (ST)
 Expression returns Expression:

@@ -4447,8 +4447,8 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cNAMESPACEKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cInternalAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final Keyword cInternalINTERNALKeyword_1_0 = (Keyword)cInternalAssignment_1.eContents().get(0);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameNamespaceParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Assignment cNamespaceAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNamespaceNamespaceParserRuleCall_2_0 = (RuleCall)cNamespaceAssignment_2.eContents().get(0);
 		private final Assignment cUsingsAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cUsingsUsing_DirectiveParserRuleCall_3_0 = (RuleCall)cUsingsAssignment_3.eContents().get(0);
 		private final Assignment cElementsAssignment_4 = (Assignment)cGroup.eContents().get(4);
@@ -4493,11 +4493,12 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		//////| ( Class_Instance_Name ':' QUALIFIED_NAME ) ) ASSIGNMENT Struct_Init );
 		//// Table 64 - Namespace
 		//Namespace_Decl:
-		//	"NAMESPACE" internal?="INTERNAL"? name=Namespace usings+=Using_Directive* elements+=Namespace_Elements+
+		//	"NAMESPACE" internal?="INTERNAL"? namespace=Namespace usings+=Using_Directive* elements+=Namespace_Elements+
 		//	"END_NAMESPACE";
 		public ParserRule getRule() { return rule; }
 
-		//"NAMESPACE" internal?="INTERNAL"? name=Namespace usings+=Using_Directive* elements+=Namespace_Elements+ "END_NAMESPACE"
+		//"NAMESPACE" internal?="INTERNAL"? namespace=Namespace usings+=Using_Directive* elements+=Namespace_Elements+
+		//"END_NAMESPACE"
 		public Group getGroup() { return cGroup; }
 
 		//"NAMESPACE"
@@ -4509,11 +4510,11 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		//"INTERNAL"
 		public Keyword getInternalINTERNALKeyword_1_0() { return cInternalINTERNALKeyword_1_0; }
 
-		//name=Namespace
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		//namespace=Namespace
+		public Assignment getNamespaceAssignment_2() { return cNamespaceAssignment_2; }
 
 		//Namespace
-		public RuleCall getNameNamespaceParserRuleCall_2_0() { return cNameNamespaceParserRuleCall_2_0; }
+		public RuleCall getNamespaceNamespaceParserRuleCall_2_0() { return cNamespaceNamespaceParserRuleCall_2_0; }
 
 		//usings+=Using_Directive*
 		public Assignment getUsingsAssignment_3() { return cUsingsAssignment_3; }
@@ -4575,41 +4576,41 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Using_Directive");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cUSINGKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNamespacesAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNamespacesQualified_NameParserRuleCall_1_0 = (RuleCall)cNamespacesAssignment_1.eContents().get(0);
+		private final Assignment cImportURIAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cImportURIQualified_NameParserRuleCall_1_0 = (RuleCall)cImportURIAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cCommaKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cNamespacesAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cNamespacesQualified_NameParserRuleCall_2_1_0 = (RuleCall)cNamespacesAssignment_2_1.eContents().get(0);
+		private final Assignment cImportURIAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cImportURIQualified_NameParserRuleCall_2_1_0 = (RuleCall)cImportURIAssignment_2_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Using_Directive:
-		//	"USING" namespaces+=Qualified_Name ("," namespaces+=Qualified_Name)* ";";
+		//	"USING" importURI+=Qualified_Name ("," importURI+=Qualified_Name)* ";";
 		public ParserRule getRule() { return rule; }
 
-		//"USING" namespaces+=Qualified_Name ("," namespaces+=Qualified_Name)* ";"
+		//"USING" importURI+=Qualified_Name ("," importURI+=Qualified_Name)* ";"
 		public Group getGroup() { return cGroup; }
 
 		//"USING"
 		public Keyword getUSINGKeyword_0() { return cUSINGKeyword_0; }
 
-		//namespaces+=Qualified_Name
-		public Assignment getNamespacesAssignment_1() { return cNamespacesAssignment_1; }
+		//importURI+=Qualified_Name
+		public Assignment getImportURIAssignment_1() { return cImportURIAssignment_1; }
 
 		//Qualified_Name
-		public RuleCall getNamespacesQualified_NameParserRuleCall_1_0() { return cNamespacesQualified_NameParserRuleCall_1_0; }
+		public RuleCall getImportURIQualified_NameParserRuleCall_1_0() { return cImportURIQualified_NameParserRuleCall_1_0; }
 
-		//("," namespaces+=Qualified_Name)*
+		//("," importURI+=Qualified_Name)*
 		public Group getGroup_2() { return cGroup_2; }
 
 		//","
 		public Keyword getCommaKeyword_2_0() { return cCommaKeyword_2_0; }
 
-		//namespaces+=Qualified_Name
-		public Assignment getNamespacesAssignment_2_1() { return cNamespacesAssignment_2_1; }
+		//importURI+=Qualified_Name
+		public Assignment getImportURIAssignment_2_1() { return cImportURIAssignment_2_1; }
 
 		//Qualified_Name
-		public RuleCall getNamespacesQualified_NameParserRuleCall_2_1_0() { return cNamespacesQualified_NameParserRuleCall_2_1_0; }
+		public RuleCall getImportURIQualified_NameParserRuleCall_2_1_0() { return cImportURIQualified_NameParserRuleCall_2_1_0; }
 
 		//";"
 		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
@@ -8024,7 +8025,7 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	//////| ( Class_Instance_Name ':' QUALIFIED_NAME ) ) ASSIGNMENT Struct_Init );
 	//// Table 64 - Namespace
 	//Namespace_Decl:
-	//	"NAMESPACE" internal?="INTERNAL"? name=Namespace usings+=Using_Directive* elements+=Namespace_Elements+
+	//	"NAMESPACE" internal?="INTERNAL"? namespace=Namespace usings+=Using_Directive* elements+=Namespace_Elements+
 	//	"END_NAMESPACE";
 	public Namespace_DeclElements getNamespace_DeclAccess() {
 		return (pNamespace_Decl != null) ? pNamespace_Decl : (pNamespace_Decl = new Namespace_DeclElements());
@@ -8055,7 +8056,7 @@ public class STLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Using_Directive:
-	//	"USING" namespaces+=Qualified_Name ("," namespaces+=Qualified_Name)* ";";
+	//	"USING" importURI+=Qualified_Name ("," importURI+=Qualified_Name)* ";";
 	public Using_DirectiveElements getUsing_DirectiveAccess() {
 		return (pUsing_Directive != null) ? pUsing_Directive : (pUsing_Directive = new Using_DirectiveElements());
 	}

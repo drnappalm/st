@@ -3294,7 +3294,7 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getNamespace_Decl_Name()
+  public EReference getNamespace_Decl_Namespace()
   {
     return (EReference)namespace_DeclEClass.getEStructuralFeatures().get(1);
   }
@@ -3364,7 +3364,7 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getUsing_Directive_Namespaces()
+  public EAttribute getUsing_Directive_ImportURI()
   {
     return (EAttribute)using_DirectiveEClass.getEStructuralFeatures().get(0);
   }
@@ -4515,7 +4515,7 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
 
     namespace_DeclEClass = createEClass(NAMESPACE_DECL);
     createEAttribute(namespace_DeclEClass, NAMESPACE_DECL__INTERNAL);
-    createEReference(namespace_DeclEClass, NAMESPACE_DECL__NAME);
+    createEReference(namespace_DeclEClass, NAMESPACE_DECL__NAMESPACE);
     createEReference(namespace_DeclEClass, NAMESPACE_DECL__USINGS);
     createEReference(namespace_DeclEClass, NAMESPACE_DECL__ELEMENTS);
 
@@ -4525,7 +4525,7 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
     namespace_ElementsEClass = createEClass(NAMESPACE_ELEMENTS);
 
     using_DirectiveEClass = createEClass(USING_DIRECTIVE);
-    createEAttribute(using_DirectiveEClass, USING_DIRECTIVE__NAMESPACES);
+    createEAttribute(using_DirectiveEClass, USING_DIRECTIVE__IMPORT_URI);
 
     expressionEClass = createEClass(EXPRESSION);
     createEReference(expressionEClass, EXPRESSION__LEFT);
@@ -5051,7 +5051,7 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
 
     initEClass(namespace_DeclEClass, Namespace_Decl.class, "Namespace_Decl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getNamespace_Decl_Internal(), ecorePackage.getEBoolean(), "internal", null, 0, 1, Namespace_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getNamespace_Decl_Name(), this.getNamespace(), null, "name", null, 0, 1, Namespace_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNamespace_Decl_Namespace(), this.getNamespace(), null, "namespace", null, 0, 1, Namespace_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getNamespace_Decl_Usings(), this.getUsing_Directive(), null, "usings", null, 0, -1, Namespace_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getNamespace_Decl_Elements(), this.getNamespace_Elements(), null, "elements", null, 0, -1, Namespace_Decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -5061,7 +5061,7 @@ public class StLanguagePackageImpl extends EPackageImpl implements StLanguagePac
     initEClass(namespace_ElementsEClass, Namespace_Elements.class, "Namespace_Elements", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(using_DirectiveEClass, Using_Directive.class, "Using_Directive", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getUsing_Directive_Namespaces(), ecorePackage.getEString(), "namespaces", null, 0, -1, Using_Directive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUsing_Directive_ImportURI(), ecorePackage.getEString(), "importURI", null, 0, -1, Using_Directive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExpression_Left(), this.getExpression(), null, "left", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

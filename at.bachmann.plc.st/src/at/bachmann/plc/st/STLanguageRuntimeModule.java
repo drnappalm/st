@@ -4,6 +4,8 @@
 package at.bachmann.plc.st;
 
 import org.eclipse.xtext.formatting.IFormatter;
+import org.eclipse.xtext.scoping.IGlobalScopeProvider;
+import org.eclipse.xtext.scoping.impl.ImportUriGlobalScopeProvider;
 
 import at.bachmann.plc.st.formatting.STLanguageFormatter;
 
@@ -16,5 +18,9 @@ public class STLanguageRuntimeModule extends
 	@Override
 	public Class<? extends IFormatter> bindIFormatter() {
 		return STLanguageFormatter.class;
+	}
+
+	public Class<? extends IGlobalScopeProvider> bindIGlobalScopeProvider() {
+		return ImportUriGlobalScopeProvider.class;
 	}
 }

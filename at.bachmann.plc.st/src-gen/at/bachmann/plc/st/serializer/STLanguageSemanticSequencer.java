@@ -1640,7 +1640,7 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (internal?='INTERNAL'? name=Namespace usings+=Using_Directive* elements+=Namespace_Elements+)
+	 *     (internal?='INTERNAL'? namespace=Namespace usings+=Using_Directive* elements+=Namespace_Elements+)
 	 */
 	protected void sequence_Namespace_Decl(EObject context, Namespace_Decl semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2022,7 +2022,7 @@ public class STLanguageSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (namespaces+=Qualified_Name namespaces+=Qualified_Name*)
+	 *     (importURI+=Qualified_Name importURI+=Qualified_Name*)
 	 */
 	protected void sequence_Using_Directive(EObject context, Using_Directive semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

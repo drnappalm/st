@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link at.bachmann.plc.st.stLanguage.impl.Using_DirectiveImpl#getNamespaces <em>Namespaces</em>}</li>
+ *   <li>{@link at.bachmann.plc.st.stLanguage.impl.Using_DirectiveImpl#getImportURI <em>Import URI</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,14 +31,14 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
 public class Using_DirectiveImpl extends MinimalEObjectImpl.Container implements Using_Directive
 {
   /**
-   * The cached value of the '{@link #getNamespaces() <em>Namespaces</em>}' attribute list.
+   * The cached value of the '{@link #getImportURI() <em>Import URI</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNamespaces()
+   * @see #getImportURI()
    * @generated
    * @ordered
    */
-  protected EList<String> namespaces;
+  protected EList<String> importURI;
 
   /**
    * <!-- begin-user-doc -->
@@ -66,13 +66,13 @@ public class Using_DirectiveImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getNamespaces()
+  public EList<String> getImportURI()
   {
-    if (namespaces == null)
+    if (importURI == null)
     {
-      namespaces = new EDataTypeEList<String>(String.class, this, StLanguagePackage.USING_DIRECTIVE__NAMESPACES);
+      importURI = new EDataTypeEList<String>(String.class, this, StLanguagePackage.USING_DIRECTIVE__IMPORT_URI);
     }
-    return namespaces;
+    return importURI;
   }
 
   /**
@@ -85,8 +85,8 @@ public class Using_DirectiveImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case StLanguagePackage.USING_DIRECTIVE__NAMESPACES:
-        return getNamespaces();
+      case StLanguagePackage.USING_DIRECTIVE__IMPORT_URI:
+        return getImportURI();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -102,9 +102,9 @@ public class Using_DirectiveImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case StLanguagePackage.USING_DIRECTIVE__NAMESPACES:
-        getNamespaces().clear();
-        getNamespaces().addAll((Collection<? extends String>)newValue);
+      case StLanguagePackage.USING_DIRECTIVE__IMPORT_URI:
+        getImportURI().clear();
+        getImportURI().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -120,8 +120,8 @@ public class Using_DirectiveImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case StLanguagePackage.USING_DIRECTIVE__NAMESPACES:
-        getNamespaces().clear();
+      case StLanguagePackage.USING_DIRECTIVE__IMPORT_URI:
+        getImportURI().clear();
         return;
     }
     super.eUnset(featureID);
@@ -137,8 +137,8 @@ public class Using_DirectiveImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case StLanguagePackage.USING_DIRECTIVE__NAMESPACES:
-        return namespaces != null && !namespaces.isEmpty();
+      case StLanguagePackage.USING_DIRECTIVE__IMPORT_URI:
+        return importURI != null && !importURI.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -154,8 +154,8 @@ public class Using_DirectiveImpl extends MinimalEObjectImpl.Container implements
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (namespaces: ");
-    result.append(namespaces);
+    result.append(" (importURI: ");
+    result.append(importURI);
     result.append(')');
     return result.toString();
   }

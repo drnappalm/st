@@ -25,6 +25,7 @@ import at.bachmann.plc.st.stLanguage.Func_Decl
 import at.bachmann.plc.st.stLanguage.FB_Decl
 import at.bachmann.plc.st.stLanguage.Class_Decl
 import at.bachmann.plc.st.stLanguage.Interface_Decl
+import at.bachmann.plc.st.stLanguage.Namespace_Decl
 
 /**
  * Customization of the default outline structure.
@@ -120,6 +121,12 @@ class STLanguageOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	
 	def dispatch createChildren(IOutlineNode parent, Class_Decl modelElement) {
 		modelElement.variables.forEach[
+			createNode(parent, it)
+		]
+	}
+	
+	def dispatch createChildren(IOutlineNode parent, Namespace_Decl modelElement) {
+		modelElement.elements.forEach[
 			createNode(parent, it)
 		]
 	}	

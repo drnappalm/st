@@ -6,6 +6,9 @@ package at.bachmann.plc.st.generator
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
+import at.bachmann.plc.st.stLanguage.Prog_Decl
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.resource.XtextResource
 
 /**
  * Generates code from your model files on save.
@@ -15,75 +18,58 @@ import org.eclipse.xtext.generator.IGenerator
 class STLanguageGenerator implements IGenerator {
 	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-//		fsa.generateFile('st2ctest.c', generatePOU(resource)); 
+		resource.allContents.forEach[
+			it.generatePOU(fsa)			
+		]
 	}
 
-//	def generatePOU(Resource resource) {
-//		val pou = resource.allContents.next.eAllContents.next
-//		switch(pou) {				
-//			Prog_DeclImpl:
-//				generateProgramCode(pou)
-//		}
-//	}
-//
-//	def generateProgramCode(Prog_DeclImpl item) {
-//		
-//		'''
-//		#include <mtypes.h>
-//		
-//		void «item.name»_start() 
-//		{
-//			«generateProgramBody(item)»		
-//		}
-//		'''
-//	}
-//	
-//	def generateProgramBody(Prog_DeclImpl item) {
-//		'''
-//		«FOR element : item.eAllContents.toIterable»
-//«««			«switch(element) {				
-//«««				LocalVariablesImpl:
-//«««					generateCodeForItem(element)				
-//«««			}»
-//		«ENDFOR»
-//		'''
-//	}
-	
-//	def generateCodeForItem(LocalVariablesImpl item) {
-//		'''
-//		«FOR VariableDeclarationImpl variable : item.eAllContents.filter(typeof(VariableDeclarationImpl)).toIterable»
-//			«generateCodeForItem(variable)»
-//		«ENDFOR»
-//		'''
-//	}
-//	
-//	def generateCodeForItem(VariableDeclarationImpl item) {
-//		'''«generateCodeForItem(item.dataType)» «item.name»«generateValueAssignment(item.dataType, item.value)»;'''
-//	}
-//
-//	def generateValueAssignment(VariableType type, StringValue value) {
-//		if(value === null) {
-//			return ''			
-//		}
-//		
-//		switch(type.type) {
-//			case 'STRING':
-//				' = "' + value.value + '"'
-//			default:
-//				' = ' + value.value
-//		}
-//	}	
-//
-//	def generateCodeForItem(VariableType item) {
-//		switch(item.type) {
-//			case 'BOOL':
-//				'BOOL8'
-//			case 'BYTE':
-//				'CHAR'
-//			case 'INT':
-//				'SINT'
-//			case 'STRING':
-//				'CHAR*'							
-//		}
-//	}
+	def generatePOU(EObject pou, IFileSystemAccess fsa) {
+		var name = ''
+		var content = ''
+		 
+		switch pou {
+			Prog_Decl: {
+				name = pou.program.name
+			}
+		}
+		
+		fsa.generateFile('''«name».pou.xml''', content)
+	}
+
+	def generateProgram(Prog_Decl program) {
+		val pouName = program.program.name.toString
+		val declarations = new StringBuilder
+		
+		program.ios.forEach[
+			declarations.append(it.toString)
+		]
+		program.variables.forEach[
+			declarations.append(it.toString)
+		]
+		
+		val body = program.generateBody 
+		getXML(pouName, declarations.toString, body)
+	}
+
+	def generateBody(Prog_Decl program) {
+		program.body.toString
+	}
+
+	def getXML(String pouName, String declarations, String body) {
+		'''<?xml version="1.0" encoding="ISO-8859-1"?>
+		<pou>
+			<path/>
+			<name>«pouName»</name>
+			<flags>2048</flags>
+			<interface>
+				<![CDATA[PROGRAM PLC_PRG
+					«declarations»]]>
+			</interface>
+			<st>
+				<body>
+					<![CDATA[«body»]]>
+				</body>
+			</st>
+		</pou>'''
+	}
 }

@@ -46914,26 +46914,26 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Namespace_Decl__Group__2__Impl"
-    // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:15884:1: rule__Namespace_Decl__Group__2__Impl : ( ( rule__Namespace_Decl__NameAssignment_2 ) ) ;
+    // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:15884:1: rule__Namespace_Decl__Group__2__Impl : ( ( rule__Namespace_Decl__NamespaceAssignment_2 ) ) ;
     public final void rule__Namespace_Decl__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:15888:1: ( ( ( rule__Namespace_Decl__NameAssignment_2 ) ) )
-            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:15889:1: ( ( rule__Namespace_Decl__NameAssignment_2 ) )
+            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:15888:1: ( ( ( rule__Namespace_Decl__NamespaceAssignment_2 ) ) )
+            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:15889:1: ( ( rule__Namespace_Decl__NamespaceAssignment_2 ) )
             {
-            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:15889:1: ( ( rule__Namespace_Decl__NameAssignment_2 ) )
-            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:15890:1: ( rule__Namespace_Decl__NameAssignment_2 )
+            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:15889:1: ( ( rule__Namespace_Decl__NamespaceAssignment_2 ) )
+            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:15890:1: ( rule__Namespace_Decl__NamespaceAssignment_2 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNamespace_DeclAccess().getNameAssignment_2()); 
+               before(grammarAccess.getNamespace_DeclAccess().getNamespaceAssignment_2()); 
             }
-            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:15891:1: ( rule__Namespace_Decl__NameAssignment_2 )
-            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:15891:2: rule__Namespace_Decl__NameAssignment_2
+            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:15891:1: ( rule__Namespace_Decl__NamespaceAssignment_2 )
+            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:15891:2: rule__Namespace_Decl__NamespaceAssignment_2
             {
-            pushFollow(FOLLOW_rule__Namespace_Decl__NameAssignment_2_in_rule__Namespace_Decl__Group__2__Impl32606);
-            rule__Namespace_Decl__NameAssignment_2();
+            pushFollow(FOLLOW_rule__Namespace_Decl__NamespaceAssignment_2_in_rule__Namespace_Decl__Group__2__Impl32606);
+            rule__Namespace_Decl__NamespaceAssignment_2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -46941,7 +46941,7 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNamespace_DeclAccess().getNameAssignment_2()); 
+               after(grammarAccess.getNamespace_DeclAccess().getNamespaceAssignment_2()); 
             }
 
             }
@@ -47399,26 +47399,26 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Using_Directive__Group__1__Impl"
-    // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:16051:1: rule__Using_Directive__Group__1__Impl : ( ( rule__Using_Directive__NamespacesAssignment_1 ) ) ;
+    // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:16051:1: rule__Using_Directive__Group__1__Impl : ( ( rule__Using_Directive__ImportURIAssignment_1 ) ) ;
     public final void rule__Using_Directive__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:16055:1: ( ( ( rule__Using_Directive__NamespacesAssignment_1 ) ) )
-            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:16056:1: ( ( rule__Using_Directive__NamespacesAssignment_1 ) )
+            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:16055:1: ( ( ( rule__Using_Directive__ImportURIAssignment_1 ) ) )
+            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:16056:1: ( ( rule__Using_Directive__ImportURIAssignment_1 ) )
             {
-            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:16056:1: ( ( rule__Using_Directive__NamespacesAssignment_1 ) )
-            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:16057:1: ( rule__Using_Directive__NamespacesAssignment_1 )
+            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:16056:1: ( ( rule__Using_Directive__ImportURIAssignment_1 ) )
+            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:16057:1: ( rule__Using_Directive__ImportURIAssignment_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getUsing_DirectiveAccess().getNamespacesAssignment_1()); 
+               before(grammarAccess.getUsing_DirectiveAccess().getImportURIAssignment_1()); 
             }
-            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:16058:1: ( rule__Using_Directive__NamespacesAssignment_1 )
-            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:16058:2: rule__Using_Directive__NamespacesAssignment_1
+            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:16058:1: ( rule__Using_Directive__ImportURIAssignment_1 )
+            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:16058:2: rule__Using_Directive__ImportURIAssignment_1
             {
-            pushFollow(FOLLOW_rule__Using_Directive__NamespacesAssignment_1_in_rule__Using_Directive__Group__1__Impl32937);
-            rule__Using_Directive__NamespacesAssignment_1();
+            pushFollow(FOLLOW_rule__Using_Directive__ImportURIAssignment_1_in_rule__Using_Directive__Group__1__Impl32937);
+            rule__Using_Directive__ImportURIAssignment_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -47426,7 +47426,7 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getUsing_DirectiveAccess().getNamespacesAssignment_1()); 
+               after(grammarAccess.getUsing_DirectiveAccess().getImportURIAssignment_1()); 
             }
 
             }
@@ -47743,26 +47743,26 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Using_Directive__Group_2__1__Impl"
-    // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:16177:1: rule__Using_Directive__Group_2__1__Impl : ( ( rule__Using_Directive__NamespacesAssignment_2_1 ) ) ;
+    // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:16177:1: rule__Using_Directive__Group_2__1__Impl : ( ( rule__Using_Directive__ImportURIAssignment_2_1 ) ) ;
     public final void rule__Using_Directive__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:16181:1: ( ( ( rule__Using_Directive__NamespacesAssignment_2_1 ) ) )
-            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:16182:1: ( ( rule__Using_Directive__NamespacesAssignment_2_1 ) )
+            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:16181:1: ( ( ( rule__Using_Directive__ImportURIAssignment_2_1 ) ) )
+            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:16182:1: ( ( rule__Using_Directive__ImportURIAssignment_2_1 ) )
             {
-            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:16182:1: ( ( rule__Using_Directive__NamespacesAssignment_2_1 ) )
-            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:16183:1: ( rule__Using_Directive__NamespacesAssignment_2_1 )
+            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:16182:1: ( ( rule__Using_Directive__ImportURIAssignment_2_1 ) )
+            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:16183:1: ( rule__Using_Directive__ImportURIAssignment_2_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getUsing_DirectiveAccess().getNamespacesAssignment_2_1()); 
+               before(grammarAccess.getUsing_DirectiveAccess().getImportURIAssignment_2_1()); 
             }
-            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:16184:1: ( rule__Using_Directive__NamespacesAssignment_2_1 )
-            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:16184:2: rule__Using_Directive__NamespacesAssignment_2_1
+            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:16184:1: ( rule__Using_Directive__ImportURIAssignment_2_1 )
+            // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:16184:2: rule__Using_Directive__ImportURIAssignment_2_1
             {
-            pushFollow(FOLLOW_rule__Using_Directive__NamespacesAssignment_2_1_in_rule__Using_Directive__Group_2__1__Impl33184);
-            rule__Using_Directive__NamespacesAssignment_2_1();
+            pushFollow(FOLLOW_rule__Using_Directive__ImportURIAssignment_2_1_in_rule__Using_Directive__Group_2__1__Impl33184);
+            rule__Using_Directive__ImportURIAssignment_2_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -47770,7 +47770,7 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getUsing_DirectiveAccess().getNamespacesAssignment_2_1()); 
+               after(grammarAccess.getUsing_DirectiveAccess().getImportURIAssignment_2_1()); 
             }
 
             }
@@ -65195,9 +65195,9 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__Namespace_Decl__InternalAssignment_1"
 
 
-    // $ANTLR start "rule__Namespace_Decl__NameAssignment_2"
-    // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:22475:1: rule__Namespace_Decl__NameAssignment_2 : ( ruleNamespace ) ;
-    public final void rule__Namespace_Decl__NameAssignment_2() throws RecognitionException {
+    // $ANTLR start "rule__Namespace_Decl__NamespaceAssignment_2"
+    // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:22475:1: rule__Namespace_Decl__NamespaceAssignment_2 : ( ruleNamespace ) ;
+    public final void rule__Namespace_Decl__NamespaceAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -65209,15 +65209,15 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
             // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:22481:1: ruleNamespace
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNamespace_DeclAccess().getNameNamespaceParserRuleCall_2_0()); 
+               before(grammarAccess.getNamespace_DeclAccess().getNamespaceNamespaceParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleNamespace_in_rule__Namespace_Decl__NameAssignment_245717);
+            pushFollow(FOLLOW_ruleNamespace_in_rule__Namespace_Decl__NamespaceAssignment_245717);
             ruleNamespace();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNamespace_DeclAccess().getNameNamespaceParserRuleCall_2_0()); 
+               after(grammarAccess.getNamespace_DeclAccess().getNamespaceNamespaceParserRuleCall_2_0()); 
             }
 
             }
@@ -65237,7 +65237,7 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__Namespace_Decl__NameAssignment_2"
+    // $ANTLR end "rule__Namespace_Decl__NamespaceAssignment_2"
 
 
     // $ANTLR start "rule__Namespace_Decl__UsingsAssignment_3"
@@ -65375,9 +65375,9 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__Namespace__NameAssignment"
 
 
-    // $ANTLR start "rule__Using_Directive__NamespacesAssignment_1"
-    // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:22535:1: rule__Using_Directive__NamespacesAssignment_1 : ( ruleQualified_Name ) ;
-    public final void rule__Using_Directive__NamespacesAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__Using_Directive__ImportURIAssignment_1"
+    // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:22535:1: rule__Using_Directive__ImportURIAssignment_1 : ( ruleQualified_Name ) ;
+    public final void rule__Using_Directive__ImportURIAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -65389,15 +65389,15 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
             // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:22541:1: ruleQualified_Name
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getUsing_DirectiveAccess().getNamespacesQualified_NameParserRuleCall_1_0()); 
+               before(grammarAccess.getUsing_DirectiveAccess().getImportURIQualified_NameParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleQualified_Name_in_rule__Using_Directive__NamespacesAssignment_145841);
+            pushFollow(FOLLOW_ruleQualified_Name_in_rule__Using_Directive__ImportURIAssignment_145841);
             ruleQualified_Name();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getUsing_DirectiveAccess().getNamespacesQualified_NameParserRuleCall_1_0()); 
+               after(grammarAccess.getUsing_DirectiveAccess().getImportURIQualified_NameParserRuleCall_1_0()); 
             }
 
             }
@@ -65417,12 +65417,12 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__Using_Directive__NamespacesAssignment_1"
+    // $ANTLR end "rule__Using_Directive__ImportURIAssignment_1"
 
 
-    // $ANTLR start "rule__Using_Directive__NamespacesAssignment_2_1"
-    // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:22550:1: rule__Using_Directive__NamespacesAssignment_2_1 : ( ruleQualified_Name ) ;
-    public final void rule__Using_Directive__NamespacesAssignment_2_1() throws RecognitionException {
+    // $ANTLR start "rule__Using_Directive__ImportURIAssignment_2_1"
+    // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:22550:1: rule__Using_Directive__ImportURIAssignment_2_1 : ( ruleQualified_Name ) ;
+    public final void rule__Using_Directive__ImportURIAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -65434,15 +65434,15 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
             // ../at.bachmann.plc.st.ui/src-gen/at/bachmann/plc/st/ui/contentassist/antlr/internal/InternalSTLanguage.g:22556:1: ruleQualified_Name
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getUsing_DirectiveAccess().getNamespacesQualified_NameParserRuleCall_2_1_0()); 
+               before(grammarAccess.getUsing_DirectiveAccess().getImportURIQualified_NameParserRuleCall_2_1_0()); 
             }
-            pushFollow(FOLLOW_ruleQualified_Name_in_rule__Using_Directive__NamespacesAssignment_2_145872);
+            pushFollow(FOLLOW_ruleQualified_Name_in_rule__Using_Directive__ImportURIAssignment_2_145872);
             ruleQualified_Name();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getUsing_DirectiveAccess().getNamespacesQualified_NameParserRuleCall_2_1_0()); 
+               after(grammarAccess.getUsing_DirectiveAccess().getImportURIQualified_NameParserRuleCall_2_1_0()); 
             }
 
             }
@@ -65462,7 +65462,7 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__Using_Directive__NamespacesAssignment_2_1"
+    // $ANTLR end "rule__Using_Directive__ImportURIAssignment_2_1"
 
 
     // $ANTLR start "rule__Expression__OperatorAssignment_1_1"
@@ -69761,7 +69761,7 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_rule__Namespace_Decl__InternalAssignment_1_in_rule__Namespace_Decl__Group__1__Impl32545 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Namespace_Decl__Group__2__Impl_in_rule__Namespace_Decl__Group__232576 = new BitSet(new long[]{0x0000000000000000L,0x0008000000000000L,0x0000000000400140L});
     public static final BitSet FOLLOW_rule__Namespace_Decl__Group__3_in_rule__Namespace_Decl__Group__232579 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Namespace_Decl__NameAssignment_2_in_rule__Namespace_Decl__Group__2__Impl32606 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Namespace_Decl__NamespaceAssignment_2_in_rule__Namespace_Decl__Group__2__Impl32606 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Namespace_Decl__Group__3__Impl_in_rule__Namespace_Decl__Group__332636 = new BitSet(new long[]{0x0000000000000000L,0x0008000000000000L,0x0000000000400140L});
     public static final BitSet FOLLOW_rule__Namespace_Decl__Group__4_in_rule__Namespace_Decl__Group__332639 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Namespace_Decl__UsingsAssignment_3_in_rule__Namespace_Decl__Group__3__Impl32666 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000400000L});
@@ -69776,7 +69776,7 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_150_in_rule__Using_Directive__Group__0__Impl32876 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Using_Directive__Group__1__Impl_in_rule__Using_Directive__Group__132907 = new BitSet(new long[]{0x0000000000000000L,0x0420000000000000L});
     public static final BitSet FOLLOW_rule__Using_Directive__Group__2_in_rule__Using_Directive__Group__132910 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Using_Directive__NamespacesAssignment_1_in_rule__Using_Directive__Group__1__Impl32937 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Using_Directive__ImportURIAssignment_1_in_rule__Using_Directive__Group__1__Impl32937 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Using_Directive__Group__2__Impl_in_rule__Using_Directive__Group__232967 = new BitSet(new long[]{0x0000000000000000L,0x0420000000000000L});
     public static final BitSet FOLLOW_rule__Using_Directive__Group__3_in_rule__Using_Directive__Group__232970 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Using_Directive__Group_2__0_in_rule__Using_Directive__Group__2__Impl32997 = new BitSet(new long[]{0x0000000000000002L,0x0400000000000000L});
@@ -69786,7 +69786,7 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_rule__Using_Directive__Group_2__1_in_rule__Using_Directive__Group_2__033098 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_122_in_rule__Using_Directive__Group_2__0__Impl33126 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Using_Directive__Group_2__1__Impl_in_rule__Using_Directive__Group_2__133157 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Using_Directive__NamespacesAssignment_2_1_in_rule__Using_Directive__Group_2__1__Impl33184 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Using_Directive__ImportURIAssignment_2_1_in_rule__Using_Directive__Group_2__1__Impl33184 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Expression__Group__0__Impl_in_rule__Expression__Group__033218 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0004000000000000L});
     public static final BitSet FOLLOW_rule__Expression__Group__1_in_rule__Expression__Group__033221 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXor_Expr_in_rule__Expression__Group__0__Impl33248 = new BitSet(new long[]{0x0000000000000002L});
@@ -70252,12 +70252,12 @@ public class InternalSTLanguageParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_ruleFB_Body_in_rule__Prog_Decl__BodyAssignment_345611 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_IDENTIFIER_in_rule__Program__NameAssignment45642 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_89_in_rule__Namespace_Decl__InternalAssignment_145678 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNamespace_in_rule__Namespace_Decl__NameAssignment_245717 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNamespace_in_rule__Namespace_Decl__NamespaceAssignment_245717 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUsing_Directive_in_rule__Namespace_Decl__UsingsAssignment_345748 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleNamespace_Elements_in_rule__Namespace_Decl__ElementsAssignment_445779 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleQualified_Name_in_rule__Namespace__NameAssignment45810 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualified_Name_in_rule__Using_Directive__NamespacesAssignment_145841 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualified_Name_in_rule__Using_Directive__NamespacesAssignment_2_145872 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualified_Name_in_rule__Using_Directive__ImportURIAssignment_145841 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualified_Name_in_rule__Using_Directive__ImportURIAssignment_2_145872 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_178_in_rule__Expression__OperatorAssignment_1_145908 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXor_Expr_in_rule__Expression__RightAssignment_1_245947 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_179_in_rule__Xor_Expr__OperatorAssignment_1_145983 = new BitSet(new long[]{0x0000000000000002L});

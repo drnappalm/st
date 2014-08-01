@@ -282,7 +282,7 @@
     </genClasses>
     <genClasses ecoreClass="STLanguage.ecore#//Namespace_Decl">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Namespace_Decl/internal"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Namespace_Decl/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Namespace_Decl/namespace"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Namespace_Decl/usings"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Namespace_Decl/elements"/>
     </genClasses>
@@ -291,7 +291,7 @@
     </genClasses>
     <genClasses ecoreClass="STLanguage.ecore#//Namespace_Elements"/>
     <genClasses ecoreClass="STLanguage.ecore#//Using_Directive">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Using_Directive/namespaces"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute STLanguage.ecore#//Using_Directive/importURI"/>
     </genClasses>
     <genClasses ecoreClass="STLanguage.ecore#//Expression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference STLanguage.ecore#//Expression/left"/>
