@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="at.bachmann.gef.sample.FBGraphicalEditor"
+            default="true"
+            extensions="fb"
+            id="at.bachmann.gef.sample.FBEditor"
+            name="FB Editor">
+      </editor>
+   </extension>
+
+</plugin>
