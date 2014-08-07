@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="fb" nsURI="http://www.bachmann.at/gmf/sample/fb" nsPrefix="fb">
+  <eClassifiers xsi:type="ecore:EClass" name="Variable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataType" eType="#//DataType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" eType="#//Direction"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DataType">
+    <eLiterals name="INT"/>
+    <eLiterals name="BYTE"/>
+    <eLiterals name="BOOL"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Direction">
+    <eLiterals name="IN"/>
+    <eLiterals name="OUT"/>
+    <eLiterals name="INOUT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FBConnection"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FB">
+    <eOperations name="addConnectionTo">
+      <eParameters name="connection" eType="#//FBConnection"/>
+    </eOperations>
+    <eOperations name="addConnectionFrom">
+      <eParameters name="connection" eType="#//FBConnection"/>
+    </eOperations>
+    <eOperations name="removeConnectionTo">
+      <eParameters name="connection" eType="#//FBConnection"/>
+    </eOperations>
+    <eOperations name="removeConnectionFrom">
+      <eParameters name="connection" eType="#//FBConnection"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" eType="#//Variable"
+        changeable="false" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectionsTo" eType="#//FBConnection"
+        changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectionsFrom" eType="#//FBConnection"
+        changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FBDiagram">
+    <eOperations name="addFB">
+      <eParameters name="fb" eType="#//FB"/>
+    </eOperations>
+    <eOperations name="removeFB">
+      <eParameters name="fb" eType="#//FB"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fbs" eType="#//FB" changeable="false"
+        containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>
