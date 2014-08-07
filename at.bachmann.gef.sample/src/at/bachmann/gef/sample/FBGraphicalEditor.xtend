@@ -1,14 +1,18 @@
 package at.bachmann.gef.sample
 
-import org.eclipse.gef.ui.parts.GraphicalEditorWithPalette
-import org.eclipse.core.runtime.IProgressMonitor
-import at.bachmann.gef.sample.controller.FBEditPartFactory
-import org.eclipse.gef.DefaultEditDomain
 import at.bachmann.gef.sample.controller.FBDiagramEditPart
+import at.bachmann.gef.sample.controller.FBEditPartFactory
 import at.bachmann.gef.sample.model.FBDiagram
-import org.eclipse.gef.ui.parts.GraphicalViewerKeyHandler
-import org.eclipse.gef.dnd.TemplateTransferDropTargetListener
+import org.eclipse.core.runtime.IProgressMonitor
+import org.eclipse.draw2d.ConnectionLayer
+import org.eclipse.draw2d.ManhattanConnectionRouter
+import org.eclipse.gef.DefaultEditDomain
+import org.eclipse.gef.LayerConstants
 import org.eclipse.gef.dnd.TemplateTransferDragSourceListener
+import org.eclipse.gef.dnd.TemplateTransferDropTargetListener
+import org.eclipse.gef.editparts.LayerManager
+import org.eclipse.gef.ui.parts.GraphicalEditorWithPalette
+import org.eclipse.gef.ui.parts.GraphicalViewerKeyHandler
 
 class FBGraphicalEditor extends GraphicalEditorWithPalette {
 	
@@ -20,19 +24,20 @@ class FBGraphicalEditor extends GraphicalEditorWithPalette {
 		new FBPaletteRoot
 	}
 	
-	override protected configureGraphicalViewer() {
-		super.configureGraphicalViewer
-		graphicalViewer.editPartFactory = FBEditPartFactory.activeInstance
-		
-		graphicalViewer.addDropTargetListener(new TemplateTransferDropTargetListener(graphicalViewer))
+	def getConnectionLayer() {
+		val layerManager = graphicalViewer.rootEditPart as LayerManager
+		layerManager.getLayer(LayerConstants.CONNECTION_LAYER) as ConnectionLayer
 	}
 	
 	override protected initializeGraphicalViewer() {
 		val diagramEditPart = new FBDiagramEditPart
 		diagramEditPart.model = FBDiagram.activeInstance
-		
-		graphicalViewer.contents = diagramEditPart 
+
+		graphicalViewer.editPartFactory = FBEditPartFactory.activeInstance
+		graphicalViewer.contents = diagramEditPart;
+		connectionLayer.connectionRouter = new ManhattanConnectionRouter
 		graphicalViewer.keyHandler = new GraphicalViewerKeyHandler(graphicalViewer)
+		graphicalViewer.addDropTargetListener(new TemplateTransferDropTargetListener(graphicalViewer))
 	}
 	
 	override protected initializePaletteViewer() {
@@ -41,5 +46,5 @@ class FBGraphicalEditor extends GraphicalEditorWithPalette {
 	}
 	
 	override doSave(IProgressMonitor monitor) {
-	}	
+	}
 }
