@@ -1,24 +1,21 @@
 package at.bachmann.gef.sample.controller
 
-import org.eclipse.gef.editparts.AbstractGraphicalEditPart
-import at.bachmann.gef.sample.view.FBFigure
-import at.bachmann.gef.sample.model.FB
-import org.eclipse.draw2d.geometry.Rectangle
-import org.eclipse.gef.GraphicalEditPart
-import at.bachmann.gef.sample.model.Variable
-import java.util.List
-import org.eclipse.gef.NodeEditPart
-import org.eclipse.gef.ConnectionEditPart
-import org.eclipse.gef.Request
-import org.eclipse.draw2d.ConnectionAnchor
-import org.eclipse.draw2d.ChopboxAnchor
-import org.eclipse.gef.editpolicies.NonResizableEditPolicy
-import org.eclipse.gef.EditPolicy
-import at.bachmann.gef.sample.editpolicy.FBGraphicalNodeEditPolicy
 import at.bachmann.gef.sample.editpolicy.FBComponentEditPolicy
-import java.beans.PropertyChangeListener
+import at.bachmann.gef.sample.editpolicy.FBConnectionComponentEditPolicy
+import at.bachmann.gef.sample.model.FB
+import at.bachmann.gef.sample.view.FBFigure
 import java.beans.PropertyChangeEvent
-import org.eclipse.gef.editpolicies.SelectionEditPolicy
+import java.beans.PropertyChangeListener
+import org.eclipse.draw2d.ChopboxAnchor
+import org.eclipse.draw2d.geometry.Rectangle
+import org.eclipse.gef.ConnectionEditPart
+import org.eclipse.gef.EditPolicy
+import org.eclipse.gef.GraphicalEditPart
+import org.eclipse.gef.NodeEditPart
+import org.eclipse.gef.Request
+import org.eclipse.gef.editparts.AbstractGraphicalEditPart
+import org.eclipse.gef.editpolicies.NonResizableEditPolicy
+import at.bachmann.gef.sample.editpolicy.FBGraphicalNodeEditPolicy
 
 class FBEditPart extends AbstractGraphicalEditPart implements NodeEditPart, PropertyChangeListener {
 	
@@ -38,8 +35,9 @@ class FBEditPart extends AbstractGraphicalEditPart implements NodeEditPart, Prop
 	
 	override protected createEditPolicies() {
 		installEditPolicy(EditPolicy.COMPONENT_ROLE, new FBComponentEditPolicy)
-		installEditPolicy(EditPolicy.GRAPHICAL_NODE_ROLE, new FBGraphicalNodeEditPolicy)
 		installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE, new NonResizableEditPolicy)
+		installEditPolicy(EditPolicy.GRAPHICAL_NODE_ROLE, new FBGraphicalNodeEditPolicy)
+		installEditPolicy(EditPolicy.NODE_ROLE, new FBConnectionComponentEditPolicy )
 	}
 	
 	override protected refreshVisuals() {
@@ -80,16 +78,23 @@ class FBEditPart extends AbstractGraphicalEditPart implements NodeEditPart, Prop
 	override getModelSourceConnections() {
 		val mod = model as FB
 		
-		mod.connectionsFrom
+		mod.connectionsTo
 	}
 	
 	override getModelTargetConnections() {
 		val mod = model as FB
 		
-		mod.connectionsTo
+		mod.connectionsFrom
 	}
 	
 	override propertyChange(PropertyChangeEvent evt) {
-		refreshVisuals	
+		switch evt.propertyName {
+			case FB.CONNECTIONSTO_PROPERTY:
+				refreshSourceConnections
+			case FB.CONNECTIONSFROM_PROPERTY:
+				refreshTargetConnections
+			default:
+				refreshVisuals
+		}	
 	}	
 }

@@ -7,6 +7,6 @@ import org.eclipse.gef.requests.CreateRequest
 class FBDiagramComponentEditPolicy extends ContainerEditPolicy {
 
 	override protected getCreateCommand(CreateRequest request) {
-		new CreateFBCommand
+		new CreateFBCommand(request.location.x, request.location.y)
 	}
 }

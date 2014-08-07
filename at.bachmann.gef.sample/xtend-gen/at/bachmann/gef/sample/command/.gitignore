@@ -8,3 +8,5 @@
 /DeleteFBCommand.java
 /DummyCommand.java
 /FBConnectionCompleteCommand.java
+/.MoveFBCommand.java._trace
+/.FBReconnectCommand.java._trace

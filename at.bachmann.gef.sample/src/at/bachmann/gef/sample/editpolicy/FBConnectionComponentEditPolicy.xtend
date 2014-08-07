@@ -6,6 +6,7 @@ import at.bachmann.gef.sample.command.DeleteConnectionCommand
 import at.bachmann.gef.sample.controller.FBConnectionEditPart
 import at.bachmann.gef.sample.model.FBConnection
 import at.bachmann.gef.sample.model.FB
+import org.eclipse.gef.Request
 
 class FBConnectionComponentEditPolicy extends ConnectionEditPolicy {
 
@@ -15,4 +16,9 @@ class FBConnectionComponentEditPolicy extends ConnectionEditPolicy {
 		new DeleteConnectionCommand(connection.source.model as FB, connection.target.model as FB,
 			connection.model as FBConnection)
 	}
+	
+	override getCommand(Request request) {
+		super.getCommand(request)
+	}
+	
 }

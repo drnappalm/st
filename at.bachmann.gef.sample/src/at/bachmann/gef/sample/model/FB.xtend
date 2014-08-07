@@ -8,14 +8,34 @@ class FB extends ModelBase {
 	
 	public static val CONNECTIONSFROM_PROPERTY = 'CONNECTIONSFROM_PROPERTY'
 	public static val CONNECTIONSTO_PROPERTY = 'CONNECTIONSTO_PROPERTY'
+	public static val X_PROPERTY = 'X_PROPERTY'
+	public static val Y_PROPERTY = 'Y_PROPERTY'
 	
 	@Property String name = 'FunctionBlock'
-	@Property int x = 50
-	@Property int y = 50
 	@Property final List<Variable> variables = new ArrayList<Variable>
 	
+	var x = 50
+	var y = 50
 	final List<FBConnection> connectionsTo = new ArrayList<FBConnection>
 	final List<FBConnection> connectionsFrom = new ArrayList<FBConnection>
+	
+	def getX() {
+		x
+	}
+	
+	def setX(int x) {
+		this.x = x
+		listeners.firePropertyChange(X_PROPERTY, null, null)
+	}
+	
+	def getY() {
+		y
+	}
+	
+	def setY(int y) {
+		this.y = y
+		listeners.firePropertyChange(Y_PROPERTY, null, null)
+	}
 	
 	def getConnectionsTo () {
 		Collections.unmodifiableList(connectionsTo)	

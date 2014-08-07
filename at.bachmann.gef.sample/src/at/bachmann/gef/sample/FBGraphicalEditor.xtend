@@ -7,6 +7,8 @@ import org.eclipse.gef.DefaultEditDomain
 import at.bachmann.gef.sample.controller.FBDiagramEditPart
 import at.bachmann.gef.sample.model.FBDiagram
 import org.eclipse.gef.ui.parts.GraphicalViewerKeyHandler
+import org.eclipse.gef.dnd.TemplateTransferDropTargetListener
+import org.eclipse.gef.dnd.TemplateTransferDragSourceListener
 
 class FBGraphicalEditor extends GraphicalEditorWithPalette {
 	
@@ -20,7 +22,9 @@ class FBGraphicalEditor extends GraphicalEditorWithPalette {
 	
 	override protected configureGraphicalViewer() {
 		super.configureGraphicalViewer
-		graphicalViewer.editPartFactory = new FBEditPartFactory
+		graphicalViewer.editPartFactory = FBEditPartFactory.activeInstance
+		
+		graphicalViewer.addDropTargetListener(new TemplateTransferDropTargetListener(graphicalViewer))
 	}
 	
 	override protected initializeGraphicalViewer() {
@@ -29,6 +33,11 @@ class FBGraphicalEditor extends GraphicalEditorWithPalette {
 		
 		graphicalViewer.contents = diagramEditPart 
 		graphicalViewer.keyHandler = new GraphicalViewerKeyHandler(graphicalViewer)
+	}
+	
+	override protected initializePaletteViewer() {
+		paletteViewer.addDragSourceListener(new TemplateTransferDragSourceListener(paletteViewer))
+		
 	}
 	
 	override doSave(IProgressMonitor monitor) {

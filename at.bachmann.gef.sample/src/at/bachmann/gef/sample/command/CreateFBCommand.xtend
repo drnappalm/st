@@ -9,6 +9,13 @@ class CreateFBCommand extends Command {
 	
 	static AtomicInteger fbNumber = new AtomicInteger(0)
 	protected var FB createdFB
+	val int x
+	val int y
+	
+	new(int x, int y) {
+		this.x = x
+		this.y = y
+	}
 	
 	override execute() {
 		createFB
@@ -25,7 +32,9 @@ class CreateFBCommand extends Command {
 	
 	def createFB () {
 		createdFB = new FB
-		createdFB.name = ''' New FunctionBlock «fbNumber.incrementAndGet»'''		
+		createdFB.name = ''' New FunctionBlock «fbNumber.incrementAndGet»'''
+		createdFB.x = x
+		createdFB.y = y		
 	}
 	
 	def addToDiagram () {

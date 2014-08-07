@@ -8,6 +8,11 @@ import at.bachmann.gef.sample.model.FBDiagram
 import at.bachmann.gef.sample.model.FBConnection
 
 class FBEditPartFactory implements EditPartFactory {
+
+	public static val activeInstance = new FBEditPartFactory
+	
+	private new () {		
+	}
 	
 	override createEditPart(EditPart context, Object model) {
 		var EditPart editPart
