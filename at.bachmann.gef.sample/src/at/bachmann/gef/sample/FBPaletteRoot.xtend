@@ -1,15 +1,14 @@
 package at.bachmann.gef.sample
 
 import at.bachmann.gef.sample.model.FB
+import at.bachmann.gef.sample.model.FBConnection
 import org.eclipse.gef.palette.CombinedTemplateCreationEntry
+import org.eclipse.gef.palette.ConnectionCreationToolEntry
 import org.eclipse.gef.palette.MarqueeToolEntry
 import org.eclipse.gef.palette.PaletteDrawer
 import org.eclipse.gef.palette.PaletteRoot
 import org.eclipse.gef.palette.SelectionToolEntry
 import org.eclipse.gef.requests.SimpleFactory
-import org.eclipse.gef.palette.ConnectionCreationToolEntry
-import at.bachmann.gef.sample.model.FBConnection
-import org.eclipse.gef.tools.ConnectionDragCreationTool
 
 class FBPaletteRoot extends PaletteRoot {
 	

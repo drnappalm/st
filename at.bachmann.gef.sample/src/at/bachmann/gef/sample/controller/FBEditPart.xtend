@@ -97,4 +97,6 @@ class FBEditPart extends AbstractGraphicalEditPart implements NodeEditPart, Prop
 				refreshVisuals
 		}	
 	}	
+	
+	
 }

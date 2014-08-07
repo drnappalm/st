@@ -5,6 +5,7 @@
          point="org.eclipse.ui.editors">
       <editor
             class="at.bachmann.gef.sample.FBGraphicalEditor"
+            contributorClass="at.bachmann.gef.sample.FBActionBarContributor"
             default="true"
             extensions="fb"
             id="at.bachmann.gef.sample.FBEditor"

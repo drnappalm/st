@@ -9,7 +9,6 @@ import java.beans.PropertyChangeListener
 import java.beans.PropertyChangeEvent
 import at.bachmann.gef.sample.editpolicy.FBDiagramComponentEditPolicy
 import at.bachmann.gef.sample.editpolicy.FBDiagramLayoutEditPolicy
-import at.bachmann.gef.sample.editpolicy.FBGraphicalNodeEditPolicy
 
 class FBDiagramEditPart extends AbstractGraphicalEditPart implements PropertyChangeListener {
 	
