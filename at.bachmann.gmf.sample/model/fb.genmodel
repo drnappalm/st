@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/at.bachmann.gmf.sample/src" modelPluginID="at.bachmann.gmf.sample"
+    modelName="Fb" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>fb.ecore</foreignModel>
+  <genPackages prefix="Fb" disposableProviderFactory="true" ecorePackage="fb.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fb.ecore#//DataType">
+      <genEnumLiterals ecoreEnumLiteral="fb.ecore#//DataType/INT"/>
+      <genEnumLiterals ecoreEnumLiteral="fb.ecore#//DataType/BYTE"/>
+      <genEnumLiterals ecoreEnumLiteral="fb.ecore#//DataType/BOOL"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fb.ecore#//Direction">
+      <genEnumLiterals ecoreEnumLiteral="fb.ecore#//Direction/IN"/>
+      <genEnumLiterals ecoreEnumLiteral="fb.ecore#//Direction/OUT"/>
+      <genEnumLiterals ecoreEnumLiteral="fb.ecore#//Direction/INOUT"/>
+    </genEnums>
+    <genClasses ecoreClass="fb.ecore#//Variable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fb.ecore#//Variable/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fb.ecore#//Variable/dataType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fb.ecore#//Variable/direction"/>
+    </genClasses>
+    <genClasses ecoreClass="fb.ecore#//FBConnection"/>
+    <genClasses ecoreClass="fb.ecore#//FB">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fb.ecore#//FB/name"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference fb.ecore#//FB/variables"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference fb.ecore#//FB/connectionsTo"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference fb.ecore#//FB/connectionsFrom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fb.ecore#//FB/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fb.ecore#//FB/y"/>
+      <genOperations ecoreOperation="fb.ecore#//FB/addConnectionTo">
+        <genParameters ecoreParameter="fb.ecore#//FB/addConnectionTo/connection"/>
+      </genOperations>
+      <genOperations ecoreOperation="fb.ecore#//FB/addConnectionFrom">
+        <genParameters ecoreParameter="fb.ecore#//FB/addConnectionFrom/connection"/>
+      </genOperations>
+      <genOperations ecoreOperation="fb.ecore#//FB/removeConnectionTo">
+        <genParameters ecoreParameter="fb.ecore#//FB/removeConnectionTo/connection"/>
+      </genOperations>
+      <genOperations ecoreOperation="fb.ecore#//FB/removeConnectionFrom">
+        <genParameters ecoreParameter="fb.ecore#//FB/removeConnectionFrom/connection"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="fb.ecore#//FBDiagram">
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference fb.ecore#//FBDiagram/fbs"/>
+      <genOperations ecoreOperation="fb.ecore#//FBDiagram/addFB">
+        <genParameters ecoreParameter="fb.ecore#//FBDiagram/addFB/fb"/>
+      </genOperations>
+      <genOperations ecoreOperation="fb.ecore#//FBDiagram/removeFB">
+        <genParameters ecoreParameter="fb.ecore#//FBDiagram/removeFB/fb"/>
+      </genOperations>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
