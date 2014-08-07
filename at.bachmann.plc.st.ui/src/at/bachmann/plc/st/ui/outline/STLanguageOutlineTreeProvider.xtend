@@ -3,11 +3,134 @@
 */
 package at.bachmann.plc.st.ui.outline
 
+import at.bachmann.plc.st.stLanguage.Prog_Decl
+import org.eclipse.xtext.ui.editor.outline.IOutlineNode
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
+import at.bachmann.plc.st.stLanguage.IO_Var_Decls
+import at.bachmann.plc.st.stLanguage.Input_Decls
+import at.bachmann.plc.st.stLanguage.In_Out_Decls
+import at.bachmann.plc.st.stLanguage.Output_Decls
+import at.bachmann.plc.st.stLanguage.Input_Decl
+import at.bachmann.plc.st.stLanguage.Var_Decl_Init
+import javax.swing.InputVerifier
+import org.eclipse.emf.common.util.EList
+import at.bachmann.plc.st.stLanguage.Variable
+import at.bachmann.plc.st.stLanguage.Func_Var_Decls
+import at.bachmann.plc.st.stLanguage.Var_Decls
+import at.bachmann.plc.st.stLanguage.External_Var_Decls
+import at.bachmann.plc.st.stLanguage.Var_Decl
+import at.bachmann.plc.st.stLanguage.POU_Decl
+import at.bachmann.plc.st.stLanguage.Func_Decl
+import at.bachmann.plc.st.stLanguage.FB_Decl
+import at.bachmann.plc.st.stLanguage.Class_Decl
+import at.bachmann.plc.st.stLanguage.Interface_Decl
+import at.bachmann.plc.st.stLanguage.Namespace_Decl
+
 /**
  * Customization of the default outline structure.
  *
  * see http://www.eclipse.org/Xtext/documentation.html#outline
  */
-class STLanguageOutlineTreeProvider extends org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider {
+class STLanguageOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	
+	def dispatch createNode(IOutlineNode parent, Prog_Decl modelElement) {
+		createNode(parent, modelElement.program)
+	}
+	
+	def dispatch createNode(IOutlineNode parent, POU_Decl modelElement) {
+		modelElement.pous.forEach[
+			createNode(parent, it)
+		]
+	}
+		
+	def dispatch createNode(IOutlineNode parent, Func_Var_Decls modelElement) {
+		switch modelElement {
+			External_Var_Decls:
+				modelElement.declarations.forEach[
+					createNodesForDeclaration(parent, it as Var_Decl_Init)					
+				]
+			Var_Decls:
+				modelElement.declarations.forEach[
+					createNodesForDeclaration(parent, it as Var_Decl_Init)					
+				]
+		}
+	}
+	
+	def dispatch createNode(IOutlineNode parent, IO_Var_Decls modelElement) {
+		switch modelElement {
+			Input_Decls:
+				modelElement.declarations.forEach[
+					createNodesForDeclaration(parent, it as Var_Decl_Init)					
+				]
+			Output_Decls:
+				modelElement.declarations.forEach[
+					createNodesForDeclaration(parent, it as Var_Decl_Init)					
+				]
+			In_Out_Decls:
+				modelElement.declarations.forEach[
+					createNodesForDeclaration(parent, it as Var_Decl)					
+				]
+		}
+	}
+
+	def createNodesForDeclaration(IOutlineNode parent, Var_Decl_Init modelElement) {
+		modelElement.variables.variables.forEach[
+			createNode(parent, it)
+		]
+	}
+	
+	def createNodesForDeclaration(IOutlineNode parent, Var_Decl modelElement) {
+		modelElement.variables.variables.forEach[
+			createNode(parent, it)
+		]
+	}
+		
+	def dispatch createChildren(IOutlineNode parent, Prog_Decl modelElement) {
+		modelElement.ios.forEach[
+			createNode(parent, it)		
+		]
+		modelElement.variables.forEach[
+			createNode(parent, it)
+		]
+	}
+	
+	def dispatch createChildren(IOutlineNode parent, Func_Decl modelElement) {
+		modelElement.ios.forEach[
+			createNode(parent, it)		
+		]
+		modelElement.variables.forEach[
+			createNode(parent, it)
+		]
+		modelElement.temps.forEach[
+			createNode(parent, it)
+		]
+	}
+	
+	def dispatch createChildren(IOutlineNode parent, FB_Decl modelElement) {
+		modelElement.ios.forEach[
+			createNode(parent, it)		
+		]
+		modelElement.variables.forEach[
+			createNode(parent, it)
+		]
+		modelElement.temps.forEach[
+			createNode(parent, it)
+		]
+	}	
+	
+	def dispatch createChildren(IOutlineNode parent, Class_Decl modelElement) {
+		modelElement.variables.forEach[
+			createNode(parent, it)
+		]
+	}
+	
+	def dispatch createChildren(IOutlineNode parent, Namespace_Decl modelElement) {
+		modelElement.elements.forEach[
+			createNode(parent, it)
+		]
+	}	
+	
+	def dispatch createChildren(IOutlineNode parent, Interface_Decl modelElement) {
+	}	
 }

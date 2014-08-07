@@ -15,7 +15,7 @@ public class STLanguageParser extends org.eclipse.xtext.parser.antlr.AbstractAnt
 	
 	@Override
 	protected void setInitialHiddenTokens(XtextTokenStream tokenStream) {
-		tokenStream.setInitialHiddenTokens("RULE_COMMENT", "RULE_WS", "RULE_PRAGMA");
+		tokenStream.setInitialHiddenTokens("RULE_WS", "RULE_SL_COMMENT", "RULE_ML_COMMENT_1", "RULE_ML_COMMENT_2", "RULE_PRAGMA");
 	}
 	
 	@Override
@@ -25,7 +25,7 @@ public class STLanguageParser extends org.eclipse.xtext.parser.antlr.AbstractAnt
 	
 	@Override 
 	protected String getDefaultRuleName() {
-		return "test";
+		return "ST";
 	}
 	
 	public STLanguageGrammarAccess getGrammarAccess() {

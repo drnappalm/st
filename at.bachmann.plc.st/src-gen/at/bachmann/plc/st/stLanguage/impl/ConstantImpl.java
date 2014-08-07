@@ -2,57 +2,56 @@
  */
 package at.bachmann.plc.st.stLanguage.impl;
 
+import at.bachmann.plc.st.stLanguage.Constant;
 import at.bachmann.plc.st.stLanguage.StLanguagePackage;
-import at.bachmann.plc.st.stLanguage.test;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>test</b></em>'.
+ * An implementation of the model object '<em><b>Constant</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link at.bachmann.plc.st.stLanguage.impl.testImpl#getTest <em>Test</em>}</li>
+ *   <li>{@link at.bachmann.plc.st.stLanguage.impl.ConstantImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class testImpl extends MinimalEObjectImpl.Container implements test
+public class ConstantImpl extends ExpressionImpl implements Constant
 {
   /**
-   * The default value of the '{@link #getTest() <em>Test</em>}' attribute.
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTest()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected static final String TEST_EDEFAULT = null;
+  protected static final String VALUE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getTest() <em>Test</em>}' attribute.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTest()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected String test = TEST_EDEFAULT;
+  protected String value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected testImpl()
+  protected ConstantImpl()
   {
     super();
   }
@@ -65,7 +64,7 @@ public class testImpl extends MinimalEObjectImpl.Container implements test
   @Override
   protected EClass eStaticClass()
   {
-    return StLanguagePackage.Literals.TEST;
+    return StLanguagePackage.Literals.CONSTANT;
   }
 
   /**
@@ -73,9 +72,9 @@ public class testImpl extends MinimalEObjectImpl.Container implements test
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getTest()
+  public String getValue()
   {
-    return test;
+    return value;
   }
 
   /**
@@ -83,12 +82,12 @@ public class testImpl extends MinimalEObjectImpl.Container implements test
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTest(String newTest)
+  public void setValue(String newValue)
   {
-    String oldTest = test;
-    test = newTest;
+    String oldValue = value;
+    value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, StLanguagePackage.TEST__TEST, oldTest, test));
+      eNotify(new ENotificationImpl(this, Notification.SET, StLanguagePackage.CONSTANT__VALUE, oldValue, value));
   }
 
   /**
@@ -101,8 +100,8 @@ public class testImpl extends MinimalEObjectImpl.Container implements test
   {
     switch (featureID)
     {
-      case StLanguagePackage.TEST__TEST:
-        return getTest();
+      case StLanguagePackage.CONSTANT__VALUE:
+        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -117,8 +116,8 @@ public class testImpl extends MinimalEObjectImpl.Container implements test
   {
     switch (featureID)
     {
-      case StLanguagePackage.TEST__TEST:
-        setTest((String)newValue);
+      case StLanguagePackage.CONSTANT__VALUE:
+        setValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,8 +133,8 @@ public class testImpl extends MinimalEObjectImpl.Container implements test
   {
     switch (featureID)
     {
-      case StLanguagePackage.TEST__TEST:
-        setTest(TEST_EDEFAULT);
+      case StLanguagePackage.CONSTANT__VALUE:
+        setValue(VALUE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -151,8 +150,8 @@ public class testImpl extends MinimalEObjectImpl.Container implements test
   {
     switch (featureID)
     {
-      case StLanguagePackage.TEST__TEST:
-        return TEST_EDEFAULT == null ? test != null : !TEST_EDEFAULT.equals(test);
+      case StLanguagePackage.CONSTANT__VALUE:
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
   }
@@ -168,10 +167,10 @@ public class testImpl extends MinimalEObjectImpl.Container implements test
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (test: ");
-    result.append(test);
+    result.append(" (value: ");
+    result.append(value);
     result.append(')');
     return result.toString();
   }
 
-} //testImpl
+} //ConstantImpl

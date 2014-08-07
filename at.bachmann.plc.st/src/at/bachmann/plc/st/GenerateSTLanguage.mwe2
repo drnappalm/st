@@ -58,6 +58,7 @@ Workflow {
     		// serializer 2.0
     		fragment = serializer.SerializerFragment auto-inject {
     			generateStub = false
+    			generateDebugData = true
     		}
     
     		// a custom ResourceFactory for use with EMF
@@ -72,7 +73,7 @@ Workflow {
     
     		// Xtend-based API for validation
     		fragment = validation.ValidatorFragment auto-inject {
-    		//    composedCheck = "org.eclipse.xtext.validation.ImportUriValidator"
+    			composedCheck = "org.eclipse.xtext.validation.ImportUriValidator"
     		//    composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
     		}
     

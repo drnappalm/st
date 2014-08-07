@@ -4,13 +4,14 @@
 package at.bachmann.plc.st.generator
 
 import org.eclipse.emf.ecore.resource.Resource
-import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
-import at.bachmann.plc.st.stLanguage.impl.ProgramImpl
-import at.bachmann.plc.st.stLanguage.impl.LocalVariablesImpl
-import at.bachmann.plc.st.stLanguage.impl.VariableDeclarationImpl
-import at.bachmann.plc.st.stLanguage.VariableType
-import at.bachmann.plc.st.stLanguage.StringValue
+import org.eclipse.xtext.generator.IGenerator
+import at.bachmann.plc.st.stLanguage.Prog_Decl
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.nodemodel.util.NodeModelUtils
+import at.bachmann.plc.st.stLanguage.POU_Decl
+import org.eclipse.xtext.nodemodel.serialization.SerializationUtil
+import org.eclipse.xtext.resource.XtextResource
 
 /**
  * Generates code from your model files on save.
@@ -20,75 +21,46 @@ import at.bachmann.plc.st.stLanguage.StringValue
 class STLanguageGenerator implements IGenerator {
 	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-		fsa.generateFile('st2ctest.c', generatePOU(resource)); 
+		resource.allContents.forEach[
+			it.generatePOU(fsa)
+		]
 	}
 
-	def generatePOU(Resource resource) {
-		val pou = resource.allContents.next.eAllContents.next
-		switch(pou) {				
-			ProgramImpl:
-				generateProgramCode(pou)
-		}
-	}
-
-	def generateProgramCode(ProgramImpl item) {
+	def generatePOU(EObject pou, IFileSystemAccess fsa) {
+		var name = ''
 		
-		'''
-		#include <mtypes.h>
-		
-		void «item.name»_start() 
-		{
-			«generateProgramBody(item)»		
-		}
-		'''
-	}
-	
-	def generateProgramBody(ProgramImpl item) {
-		'''
-		«FOR element : item.eAllContents.toIterable»
-			«switch(element) {				
-				LocalVariablesImpl:
-					generateCodeForItem(element)				
-			}»
-		«ENDFOR»
-		'''
-	}
-	
-	def generateCodeForItem(LocalVariablesImpl item) {
-		'''
-		«FOR VariableDeclarationImpl variable : item.eAllContents.filter(typeof(VariableDeclarationImpl)).toIterable»
-			«generateCodeForItem(variable)»
-		«ENDFOR»
-		'''
-	}
-	
-	def generateCodeForItem(VariableDeclarationImpl item) {
-		'''«generateCodeForItem(item.dataType)» «item.name»«generateValueAssignment(item.dataType, item.value)»;'''
-	}
-
-	def generateValueAssignment(VariableType type, StringValue value) {
-		if(value === null) {
-			return ''			
+		switch pou {
+			Prog_Decl: {
+				name = pou.program.name
+			}
 		}
 		
-		switch(type.type) {
-			case 'STRING':
-				' = "' + value.value + '"'
-			default:
-				' = ' + value.value
-		}
-	}	
+		fsa.generateFile('''«name».pou.xml''', getPouXML(name, pou))
+	}
 
-	def generateCodeForItem(VariableType item) {
-		switch(item.type) {
-			case 'BOOL':
-				'BOOL8'
-			case 'BYTE':
-				'CHAR'
-			case 'INT':
-				'SINT'
-			case 'STRING':
-				'CHAR*'							
-		}
+	def getPouXML(String pouName, EObject pou) {
+		'''<?xml version="1.0" encoding="ISO-8859-1"?>
+		<pou>
+			<path/>
+			<name>«pouName»</name>
+			<flags>2048</flags>
+			<interface>
+				<![CDATA[PROGRAM PLC_PRG
+					«getXML(pou)»]]>
+			</interface>
+			<st>
+				<body>
+					<![CDATA[]]>
+				</body>
+			</st>
+		</pou>'''
+	}
+	
+	def String getXML(EObject node) {
+		if (node.eAllContents.empty) {
+			NodeModelUtils.compactDump(NodeModelUtils.findActualNodeFor(node), true)
+		} else {		
+			'''«FOR content: node.eContents»«getXML(content)»«ENDFOR»'''	
+		}		
 	}
 }

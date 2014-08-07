@@ -3,9 +3,24 @@
  */
 package at.bachmann.plc.st;
 
-/**
- * Use this class to register components to be used at runtime / without the Equinox extension registry.
- */
-public class STLanguageRuntimeModule extends at.bachmann.plc.st.AbstractSTLanguageRuntimeModule {
+import org.eclipse.xtext.formatting.IFormatter;
+import org.eclipse.xtext.scoping.IGlobalScopeProvider;
+import org.eclipse.xtext.scoping.impl.ImportUriGlobalScopeProvider;
 
+import at.bachmann.plc.st.formatting.STLanguageFormatter;
+
+/**
+ * Use this class to register components to be used at runtime / without the
+ * Equinox extension registry.
+ */
+public class STLanguageRuntimeModule extends
+		at.bachmann.plc.st.AbstractSTLanguageRuntimeModule {
+	@Override
+	public Class<? extends IFormatter> bindIFormatter() {
+		return STLanguageFormatter.class;
+	}
+
+	public Class<? extends IGlobalScopeProvider> bindIGlobalScopeProvider() {
+		return ImportUriGlobalScopeProvider.class;
+	}
 }

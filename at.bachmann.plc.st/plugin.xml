@@ -6,7 +6,7 @@
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
        uri = "http://www.bachmann.at/plc/st/STLanguage" 
-       class = "at.bachmann.plc.st.stLanguage.STLanguagePackage"
+       class = "at.bachmann.plc.st.stLanguage.StLanguagePackage"
        genModel = "model/generated/STLanguage.genmodel" /> 
 	
   </extension>

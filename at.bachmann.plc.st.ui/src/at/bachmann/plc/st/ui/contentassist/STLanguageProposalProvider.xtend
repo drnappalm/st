@@ -3,9 +3,8 @@
  */
 package at.bachmann.plc.st.ui.contentassist
 
-import at.bachmann.plc.st.ui.contentassist.AbstractSTLanguageProposalProvider
 import org.eclipse.emf.ecore.EObject
-import org.eclipse.xtext.RuleCall
+import org.eclipse.xtext.Assignment
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
 
@@ -14,12 +13,12 @@ import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
  */
 class STLanguageProposalProvider extends AbstractSTLanguageProposalProvider {
 	
-	override complete_DATATYPE(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		super.complete_DATATYPE(model, ruleCall, context, acceptor)
-
-		val myDataTypes = #['TestDataType', 'ContentAssistantDataType']
-		myDataTypes.forEach[
-			acceptor.accept(createCompletionProposal(it, context))
-		]		
-	}	
+//	override complete_DATATYPE(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+//		super.complete_DATATYPE(model, ruleCall, context, acceptor)
+//
+//		val myDataTypes = #['TestDataType', 'ContentAssistantDataType']
+//		myDataTypes.forEach[
+//			acceptor.accept(createCompletionProposal(it, context))
+//		]		
+//	}	
 }

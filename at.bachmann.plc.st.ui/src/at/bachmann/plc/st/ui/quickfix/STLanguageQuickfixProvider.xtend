@@ -6,9 +6,7 @@ package at.bachmann.plc.st.ui.quickfix
 import org.eclipse.xtext.ui.editor.quickfix.Fix
 import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor
 import org.eclipse.xtext.validation.Issue
-import org.eclipse.emf.ecore.resource.Resource
-import at.bachmann.plc.st.stLanguage.Variables
-import at.bachmann.plc.st.validation.STLanguageValidator
+import org.eclipse.xtext.diagnostics.Diagnostic
 
 /**
  * Custom quickfixes.
@@ -17,12 +15,11 @@ import at.bachmann.plc.st.validation.STLanguageValidator
  */
 class STLanguageQuickfixProvider extends org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider {
 
-	@Fix(STLanguageValidator::NOTDECLARED_VARIABLE)
+	@Fix(Diagnostic::LINKING_DIAGNOSTIC)
 	def declareVariable(Issue issue, IssueResolutionAcceptor acceptor) {
-		acceptor.accept(issue, 'Declare variable', 'Open the variable declaration dialog.', 'notdeclaredvar.png') [
+		acceptor.accept(issue, 'Declare variable', 'Declare the variable with the given name inferring its type.', 'notdeclaredvar.png') [
 			context |
 			val xtextDocument = context.xtextDocument
-			val resource = xtextDocument.getAdapter(typeof(Resource))
 		]
-	}
+	}	
 }

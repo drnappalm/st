@@ -3,6 +3,11 @@
  */
 package at.bachmann.plc.st.scoping
 
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.EReference
+import org.eclipse.xtext.scoping.IScope
+import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider
+
 /**
  * This class contains custom scoping description.
  * 
@@ -10,6 +15,5 @@ package at.bachmann.plc.st.scoping
  * on how and when to use it 
  *
  */
-class STLanguageScopeProvider extends org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider {
-
+class STLanguageScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
 }
