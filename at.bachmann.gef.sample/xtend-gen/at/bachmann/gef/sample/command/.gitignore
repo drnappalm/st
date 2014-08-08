@@ -12,3 +12,5 @@
 /.FBReconnectCommand.java._trace
 /.FBDiagramChangeRouting.java._trace
 /.FBDiagramChangeRoutingCommand.java._trace
+/FBReconnectCommand.java
+/MoveFBCommand.java

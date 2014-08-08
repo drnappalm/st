@@ -7,7 +7,6 @@ import at.bachmann.gef.sample.model.FBDiagram
 import org.eclipse.gef.EditPolicy
 import java.beans.PropertyChangeListener
 import java.beans.PropertyChangeEvent
-import at.bachmann.gef.sample.editpolicy.FBDiagramComponentEditPolicy
 import at.bachmann.gef.sample.editpolicy.FBDiagramLayoutEditPolicy
 
 class FBDiagramEditPart extends AbstractGraphicalEditPart implements PropertyChangeListener {
@@ -30,7 +29,6 @@ class FBDiagramEditPart extends AbstractGraphicalEditPart implements PropertyCha
 	}
 	
 	override protected createEditPolicies() {
-		installEditPolicy(EditPolicy.CONTAINER_ROLE, new FBDiagramComponentEditPolicy)		
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, new FBDiagramLayoutEditPolicy)
 	}
 	

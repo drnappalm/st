@@ -47,4 +47,8 @@ class FBGraphicalEditor extends GraphicalEditorWithPalette {
 	
 	override doSave(IProgressMonitor monitor) {
 	}
+	
+	override getEditorInput() {
+		super.getEditorInput()
+	}	
 }

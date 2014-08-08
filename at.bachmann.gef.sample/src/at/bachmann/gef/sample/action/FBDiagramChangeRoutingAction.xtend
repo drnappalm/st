@@ -1,18 +1,19 @@
 package at.bachmann.gef.sample.action
 
 import org.eclipse.draw2d.ConnectionLayer
-import org.eclipse.gef.ui.actions.EditorPartAction
-import org.eclipse.ui.IEditorPart
 import at.bachmann.gef.sample.FBGraphicalEditor
 import org.eclipse.draw2d.ConnectionRouter
+import org.eclipse.ui.actions.RetargetAction
+import org.eclipse.ui.IWorkbenchPart
+import org.eclipse.swt.widgets.Event
 
-class FBDiagramChangeRoutingAction extends EditorPartAction {
+class FBDiagramChangeRoutingAction extends RetargetAction {
 	
 	val Class<? extends ConnectionRouter> routerClass
+	var ConnectionLayer connectionLayer = null	
 	
-	new(IEditorPart editor, String text, Class<? extends ConnectionRouter> routerClass) {
-		super(editor)
-		setText(text)
+	new(String text, Class<? extends ConnectionRouter> routerClass) {
+		super(text, text)
 		this.routerClass = routerClass 
 	}
 	
@@ -21,23 +22,37 @@ class FBDiagramChangeRoutingAction extends EditorPartAction {
 	}
 	
 	override run() {
-		connectionLayer.connectionRouter = routerClass.newInstance
+		exec
 	}
 	
-	override protected calculateEnabled() {
-		connectionLayer != null
+	override runWithEvent(Event event) {
+		exec
+	}
+	
+	def exec() {
+		connectionLayer.connectionRouter = RouterFactory.createRouter(connectionLayer.parent, routerClass.name)
+	}
+	
+	
+	override isEnabled() {
+		calculateEnabled
 	}	
 	
-	def ConnectionLayer getConnectionLayer () {
-		var ConnectionLayer connectionLayer = null
-		
-		val innerEditor = editorPart
-		
-		switch innerEditor {
-			FBGraphicalEditor:
-				connectionLayer = innerEditor.connectionLayer
+	override partActivated(IWorkbenchPart part) {
+		if(part instanceof FBGraphicalEditor) {
+			connectionLayer = (part as FBGraphicalEditor).connectionLayer
+		} else {
+			connectionLayer = null
 		}
 		
-		connectionLayer
+		enabled = calculateEnabled 		
+	}
+	
+	override partDeactivated(IWorkbenchPart part) {
+		enabled = calculateEnabled
+	}
+	
+	def calculateEnabled () {
+		connectionLayer != null
 	}
 }
