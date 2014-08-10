@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated fb -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="fb.presentation.FbModelWizardID"
+            name="%_UI_FbModelWizard_label"
+            class="fb.presentation.FbModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/FbModelFile.gif">
+         <description>%_UI_FbModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated fb -->
+      <editor
+            id="fb.presentation.FbEditorID"
+            name="%_UI_FbEditor_label"
+            icon="icons/full/obj16/FbModelFile.gif"
+            extensions="fb"
+            class="fb.presentation.FbEditor"
+            contributorClass="fb.presentation.FbActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

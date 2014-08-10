@@ -1,0 +1,7 @@
+# Tracing options for the at.bachmann.gmf.sample.diagram plug-in
+
+# Common issues
+at.bachmann.gmf.sample.diagram/debug=false
+
+# Visual IDs
+at.bachmann.gmf.sample.diagram/debug/visualID=false
