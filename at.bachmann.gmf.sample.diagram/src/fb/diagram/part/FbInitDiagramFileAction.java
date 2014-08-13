@@ -18,7 +18,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 
-import fb.diagram.edit.parts.FBEditPart;
+import fb.diagram.edit.parts.FBDiagramEditPart;
 
 /**
  * @generated
@@ -90,7 +90,7 @@ public class FbInitDiagramFileAction implements IObjectActionDelegate {
 		Wizard wizard = new FbNewDiagramFileWizard(domainModelURI, diagramRoot,
 				editingDomain);
 		wizard.setWindowTitle(NLS.bind(Messages.InitDiagramFile_WizardTitle,
-				FBEditPart.MODEL_ID));
+				FBDiagramEditPart.MODEL_ID));
 		FbDiagramEditorUtil.runWizard(getShell(), wizard, "InitDiagramFile"); //$NON-NLS-1$
 	}
 }

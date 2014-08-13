@@ -5,19 +5,14 @@ package fb.impl;
 import fb.FB;
 import fb.FBDiagram;
 import fb.FbPackage;
-
-import java.lang.reflect.InvocationTargetException;
-
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,14 +29,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class FBDiagramImpl extends MinimalEObjectImpl.Container implements FBDiagram {
 	/**
-	 * The cached value of the '{@link #getFbs() <em>Fbs</em>}' containment reference.
+	 * The cached value of the '{@link #getFbs() <em>Fbs</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getFbs()
 	 * @generated
 	 * @ordered
 	 */
-	protected FB fbs;
+	protected EList<FB> fbs;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -67,45 +62,11 @@ public class FBDiagramImpl extends MinimalEObjectImpl.Container implements FBDia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FB getFbs() {
-		return fbs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetFbs(FB newFbs, NotificationChain msgs) {
-		FB oldFbs = fbs;
-		fbs = newFbs;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FbPackage.FB_DIAGRAM__FBS, oldFbs, newFbs);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<FB> getFbs() {
+		if (fbs == null) {
+			fbs = new EObjectContainmentEList<FB>(FB.class, this, FbPackage.FB_DIAGRAM__FBS);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void addFB(FB fb) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void removeFB(FB fb) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return fbs;
 	}
 
 	/**
@@ -117,7 +78,7 @@ public class FBDiagramImpl extends MinimalEObjectImpl.Container implements FBDia
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FbPackage.FB_DIAGRAM__FBS:
-				return basicSetFbs(null, msgs);
+				return ((InternalEList<?>)getFbs()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -141,13 +102,16 @@ public class FBDiagramImpl extends MinimalEObjectImpl.Container implements FBDia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
-	public boolean eIsSet(int featureID) {
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FbPackage.FB_DIAGRAM__FBS:
-				return fbs != null;
+				getFbs().clear();
+				getFbs().addAll((Collection<? extends FB>)newValue);
+				return;
 		}
-		return super.eIsSet(featureID);
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -156,16 +120,27 @@ public class FBDiagramImpl extends MinimalEObjectImpl.Container implements FBDia
 	 * @generated
 	 */
 	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case FbPackage.FB_DIAGRAM___ADD_FB__FB:
-				addFB((FB)arguments.get(0));
-				return null;
-			case FbPackage.FB_DIAGRAM___REMOVE_FB__FB:
-				removeFB((FB)arguments.get(0));
-				return null;
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case FbPackage.FB_DIAGRAM__FBS:
+				getFbs().clear();
+				return;
 		}
-		return super.eInvoke(operationID, arguments);
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case FbPackage.FB_DIAGRAM__FBS:
+				return fbs != null && !fbs.isEmpty();
+		}
+		return super.eIsSet(featureID);
 	}
 
 } //FBDiagramImpl

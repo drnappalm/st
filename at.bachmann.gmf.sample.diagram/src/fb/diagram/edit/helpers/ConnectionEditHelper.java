@@ -3,5 +3,5 @@ package fb.diagram.edit.helpers;
 /**
  * @generated
  */
-public class VariableEditHelper extends FbBaseEditHelper {
+public class ConnectionEditHelper extends FbBaseEditHelper {
 }

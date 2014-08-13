@@ -11,45 +11,31 @@
       <genEnumLiterals ecoreEnumLiteral="fb.ecore#//DataType/BYTE"/>
       <genEnumLiterals ecoreEnumLiteral="fb.ecore#//DataType/BOOL"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fb.ecore#//Direction">
-      <genEnumLiterals ecoreEnumLiteral="fb.ecore#//Direction/IN"/>
-      <genEnumLiterals ecoreEnumLiteral="fb.ecore#//Direction/OUT"/>
-      <genEnumLiterals ecoreEnumLiteral="fb.ecore#//Direction/INOUT"/>
-    </genEnums>
     <genClasses ecoreClass="fb.ecore#//Variable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fb.ecore#//Variable/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fb.ecore#//Variable/dataType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fb.ecore#//Variable/direction"/>
     </genClasses>
-    <genClasses ecoreClass="fb.ecore#//FBConnection"/>
     <genClasses ecoreClass="fb.ecore#//FB">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fb.ecore#//FB/name"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference fb.ecore#//FB/variables"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference fb.ecore#//FB/connectionsTo"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference fb.ecore#//FB/connectionsFrom"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fb.ecore#//FB/x"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fb.ecore#//FB/y"/>
-      <genOperations ecoreOperation="fb.ecore#//FB/addConnectionTo">
-        <genParameters ecoreParameter="fb.ecore#//FB/addConnectionTo/connection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fb.ecore#//FB/connections"/>
+      <genOperations ecoreOperation="fb.ecore#//FB/addVariable">
+        <genParameters ecoreParameter="fb.ecore#//FB/addVariable/variable"/>
       </genOperations>
-      <genOperations ecoreOperation="fb.ecore#//FB/addConnectionFrom">
-        <genParameters ecoreParameter="fb.ecore#//FB/addConnectionFrom/connection"/>
-      </genOperations>
-      <genOperations ecoreOperation="fb.ecore#//FB/removeConnectionTo">
-        <genParameters ecoreParameter="fb.ecore#//FB/removeConnectionTo/connection"/>
-      </genOperations>
-      <genOperations ecoreOperation="fb.ecore#//FB/removeConnectionFrom">
-        <genParameters ecoreParameter="fb.ecore#//FB/removeConnectionFrom/connection"/>
+      <genOperations ecoreOperation="fb.ecore#//FB/removeVariable">
+        <genParameters ecoreParameter="fb.ecore#//FB/removeVariable/variable"/>
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="fb.ecore#//FBDiagram">
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference fb.ecore#//FBDiagram/fbs"/>
-      <genOperations ecoreOperation="fb.ecore#//FBDiagram/addFB">
-        <genParameters ecoreParameter="fb.ecore#//FBDiagram/addFB/fb"/>
-      </genOperations>
-      <genOperations ecoreOperation="fb.ecore#//FBDiagram/removeFB">
-        <genParameters ecoreParameter="fb.ecore#//FBDiagram/removeFB/fb"/>
-      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="fb.ecore#//INVariable"/>
+    <genClasses ecoreClass="fb.ecore#//OUTVariable"/>
+    <genClasses ecoreClass="fb.ecore#//Connection">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference fb.ecore#//Connection/target"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference fb.ecore#//Connection/source"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

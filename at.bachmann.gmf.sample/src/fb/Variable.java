@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link fb.Variable#getName <em>Name</em>}</li>
  *   <li>{@link fb.Variable#getDataType <em>Data Type</em>}</li>
- *   <li>{@link fb.Variable#getDirection <em>Direction</em>}</li>
  * </ul>
  * </p>
  *
@@ -77,34 +76,5 @@ public interface Variable extends EObject {
 	 * @generated
 	 */
 	void setDataType(DataType value);
-
-	/**
-	 * Returns the value of the '<em><b>Direction</b></em>' attribute.
-	 * The literals are from the enumeration {@link fb.Direction}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Direction</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Direction</em>' attribute.
-	 * @see fb.Direction
-	 * @see #setDirection(Direction)
-	 * @see fb.FbPackage#getVariable_Direction()
-	 * @model
-	 * @generated
-	 */
-	Direction getDirection();
-
-	/**
-	 * Sets the value of the '{@link fb.Variable#getDirection <em>Direction</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Direction</em>' attribute.
-	 * @see fb.Direction
-	 * @see #getDirection()
-	 * @generated
-	 */
-	void setDirection(Direction value);
 
 } // Variable

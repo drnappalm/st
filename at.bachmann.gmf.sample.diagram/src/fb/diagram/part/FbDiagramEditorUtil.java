@@ -50,8 +50,9 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
 
+import fb.FBDiagram;
 import fb.FbFactory;
-import fb.diagram.edit.parts.FBEditPart;
+import fb.diagram.edit.parts.FBDiagramEditPart;
 
 /**
  * @generated
@@ -155,11 +156,11 @@ public class FbDiagramEditorUtil {
 			protected CommandResult doExecuteWithResult(
 					IProgressMonitor monitor, IAdaptable info)
 					throws ExecutionException {
-				fb.FB model = createInitialModel();
+				FBDiagram model = createInitialModel();
 				attachModelToResource(model, modelResource);
 
 				Diagram diagram = ViewService.createDiagram(model,
-						FBEditPart.MODEL_ID,
+						FBDiagramEditPart.MODEL_ID,
 						FbDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
 				if (diagram != null) {
 					diagramResource.getContents().add(diagram);
@@ -198,8 +199,8 @@ public class FbDiagramEditorUtil {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static fb.FB createInitialModel() {
-		return FbFactory.eINSTANCE.createFB();
+	private static FBDiagram createInitialModel() {
+		return FbFactory.eINSTANCE.createFBDiagram();
 	}
 
 	/**
@@ -208,7 +209,7 @@ public class FbDiagramEditorUtil {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static void attachModelToResource(fb.FB model, Resource resource) {
+	private static void attachModelToResource(FBDiagram model, Resource resource) {
 		resource.getContents().add(model);
 	}
 

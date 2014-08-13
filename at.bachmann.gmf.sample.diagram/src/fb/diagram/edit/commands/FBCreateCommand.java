@@ -12,18 +12,18 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
+import fb.FBDiagram;
 import fb.FbFactory;
-import fb.Variable;
 
 /**
  * @generated
  */
-public class VariableCreateCommand extends EditElementCommand {
+public class FBCreateCommand extends EditElementCommand {
 
 	/**
 	 * @generated
 	 */
-	public VariableCreateCommand(CreateElementRequest req) {
+	public FBCreateCommand(CreateElementRequest req) {
 		super(req.getLabel(), null, req);
 	}
 
@@ -44,23 +44,19 @@ public class VariableCreateCommand extends EditElementCommand {
 	 * @generated
 	 */
 	public boolean canExecute() {
-		fb.FB container = (fb.FB) getElementToEdit();
-		if (container.getVariables() != null) {
-			return false;
-		}
 		return true;
 
 	}
 
 	/**
-	 * @generated NOT
+	 * @generated
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		Variable newElement = FbFactory.eINSTANCE.createVariable();
+		fb.FB newElement = FbFactory.eINSTANCE.createFB();
 
-		fb.FB owner = (fb.FB) getElementToEdit();
-		owner.addVariable(newElement);
+		FBDiagram owner = (FBDiagram) getElementToEdit();
+		owner.getFbs().add(newElement);
 
 		doConfigure(newElement, monitor, info);
 
@@ -71,7 +67,7 @@ public class VariableCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected void doConfigure(Variable newElement, IProgressMonitor monitor,
+	protected void doConfigure(fb.FB newElement, IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
 		IElementType elementType = ((CreateElementRequest) getRequest())
 				.getElementType();

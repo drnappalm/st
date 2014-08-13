@@ -13,13 +13,6 @@ import junit.textui.TestRunner;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>FB Diagram</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following operations are tested:
- * <ul>
- *   <li>{@link fb.FBDiagram#addFB(fb.FB) <em>Add FB</em>}</li>
- *   <li>{@link fb.FBDiagram#removeFB(fb.FB) <em>Remove FB</em>}</li>
- * </ul>
- * </p>
  * @generated
  */
 public class FBDiagramTest extends TestCase {
@@ -91,32 +84,6 @@ public class FBDiagramTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
-	}
-
-	/**
-	 * Tests the '{@link fb.FBDiagram#addFB(fb.FB) <em>Add FB</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fb.FBDiagram#addFB(fb.FB)
-	 * @generated
-	 */
-	public void testAddFB__FB() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link fb.FBDiagram#removeFB(fb.FB) <em>Remove FB</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fb.FBDiagram#removeFB(fb.FB)
-	 * @generated
-	 */
-	public void testRemoveFB__FB() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
 	}
 
 } //FBDiagramTest

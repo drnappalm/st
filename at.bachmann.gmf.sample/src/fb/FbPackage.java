@@ -87,22 +87,13 @@ public interface FbPackage extends EPackage {
 	int VARIABLE__DATA_TYPE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Direction</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE__DIRECTION = 2;
-
-	/**
 	 * The number of structural features of the '<em>Variable</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_FEATURE_COUNT = 3;
+	int VARIABLE_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Variable</em>' class.
@@ -133,7 +124,7 @@ public interface FbPackage extends EPackage {
 	int FB__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Variables</b></em>' containment reference.
+	 * The feature id for the '<em><b>Variables</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -160,22 +151,13 @@ public interface FbPackage extends EPackage {
 	int FB__Y = 3;
 
 	/**
-	 * The feature id for the '<em><b>Fbs To</b></em>' reference.
+	 * The feature id for the '<em><b>Connections</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FB__FBS_TO = 4;
-
-	/**
-	 * The feature id for the '<em><b>Fbs From</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FB__FBS_FROM = 5;
+	int FB__CONNECTIONS = 4;
 
 	/**
 	 * The number of structural features of the '<em>FB</em>' class.
@@ -184,7 +166,7 @@ public interface FbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FB_FEATURE_COUNT = 6;
+	int FB_FEATURE_COUNT = 5;
 
 	/**
 	 * The operation id for the '<em>Add Variable</em>' operation.
@@ -205,49 +187,13 @@ public interface FbPackage extends EPackage {
 	int FB___REMOVE_VARIABLE__VARIABLE = 1;
 
 	/**
-	 * The operation id for the '<em>Add Fb To</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FB___ADD_FB_TO__FB = 2;
-
-	/**
-	 * The operation id for the '<em>Add Fb From</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FB___ADD_FB_FROM__FB = 3;
-
-	/**
-	 * The operation id for the '<em>Remove Fb To</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FB___REMOVE_FB_TO__FB = 4;
-
-	/**
-	 * The operation id for the '<em>Remove Fb From</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FB___REMOVE_FB_FROM__FB = 5;
-
-	/**
 	 * The number of operations of the '<em>FB</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FB_OPERATION_COUNT = 6;
+	int FB_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link fb.impl.FBDiagramImpl <em>FB Diagram</em>}' class.
@@ -260,7 +206,7 @@ public interface FbPackage extends EPackage {
 	int FB_DIAGRAM = 2;
 
 	/**
-	 * The feature id for the '<em><b>Fbs</b></em>' containment reference.
+	 * The feature id for the '<em><b>Fbs</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -278,31 +224,151 @@ public interface FbPackage extends EPackage {
 	int FB_DIAGRAM_FEATURE_COUNT = 1;
 
 	/**
-	 * The operation id for the '<em>Add FB</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FB_DIAGRAM___ADD_FB__FB = 0;
-
-	/**
-	 * The operation id for the '<em>Remove FB</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FB_DIAGRAM___REMOVE_FB__FB = 1;
-
-	/**
 	 * The number of operations of the '<em>FB Diagram</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FB_DIAGRAM_OPERATION_COUNT = 2;
+	int FB_DIAGRAM_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link fb.impl.INVariableImpl <em>IN Variable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fb.impl.INVariableImpl
+	 * @see fb.impl.FbPackageImpl#getINVariable()
+	 * @generated
+	 */
+	int IN_VARIABLE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IN_VARIABLE__NAME = VARIABLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Data Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IN_VARIABLE__DATA_TYPE = VARIABLE__DATA_TYPE;
+
+	/**
+	 * The number of structural features of the '<em>IN Variable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IN_VARIABLE_FEATURE_COUNT = VARIABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>IN Variable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IN_VARIABLE_OPERATION_COUNT = VARIABLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link fb.impl.OUTVariableImpl <em>OUT Variable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fb.impl.OUTVariableImpl
+	 * @see fb.impl.FbPackageImpl#getOUTVariable()
+	 * @generated
+	 */
+	int OUT_VARIABLE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUT_VARIABLE__NAME = VARIABLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Data Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUT_VARIABLE__DATA_TYPE = VARIABLE__DATA_TYPE;
+
+	/**
+	 * The number of structural features of the '<em>OUT Variable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUT_VARIABLE_FEATURE_COUNT = VARIABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>OUT Variable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUT_VARIABLE_OPERATION_COUNT = VARIABLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link fb.impl.ConnectionImpl <em>Connection</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fb.impl.ConnectionImpl
+	 * @see fb.impl.FbPackageImpl#getConnection()
+	 * @generated
+	 */
+	int CONNECTION = 5;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTION__TARGET = 0;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTION__SOURCE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Connection</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTION_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Connection</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTION_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link fb.DataType <em>Data Type</em>}' enum.
@@ -312,18 +378,7 @@ public interface FbPackage extends EPackage {
 	 * @see fb.impl.FbPackageImpl#getDataType()
 	 * @generated
 	 */
-	int DATA_TYPE = 3;
-
-	/**
-	 * The meta object id for the '{@link fb.Direction <em>Direction</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fb.Direction
-	 * @see fb.impl.FbPackageImpl#getDirection()
-	 * @generated
-	 */
-	int DIRECTION = 4;
-
+	int DATA_TYPE = 6;
 
 	/**
 	 * Returns the meta object for class '{@link fb.Variable <em>Variable</em>}'.
@@ -358,17 +413,6 @@ public interface FbPackage extends EPackage {
 	EAttribute getVariable_DataType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link fb.Variable#getDirection <em>Direction</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Direction</em>'.
-	 * @see fb.Variable#getDirection()
-	 * @see #getVariable()
-	 * @generated
-	 */
-	EAttribute getVariable_Direction();
-
-	/**
 	 * Returns the meta object for class '{@link fb.FB <em>FB</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -390,10 +434,10 @@ public interface FbPackage extends EPackage {
 	EAttribute getFB_Name();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link fb.FB#getVariables <em>Variables</em>}'.
+	 * Returns the meta object for the containment reference list '{@link fb.FB#getVariables <em>Variables</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Variables</em>'.
+	 * @return the meta object for the containment reference list '<em>Variables</em>'.
 	 * @see fb.FB#getVariables()
 	 * @see #getFB()
 	 * @generated
@@ -423,26 +467,15 @@ public interface FbPackage extends EPackage {
 	EAttribute getFB_Y();
 
 	/**
-	 * Returns the meta object for the reference '{@link fb.FB#getFbsTo <em>Fbs To</em>}'.
+	 * Returns the meta object for the containment reference '{@link fb.FB#getConnections <em>Connections</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Fbs To</em>'.
-	 * @see fb.FB#getFbsTo()
+	 * @return the meta object for the containment reference '<em>Connections</em>'.
+	 * @see fb.FB#getConnections()
 	 * @see #getFB()
 	 * @generated
 	 */
-	EReference getFB_FbsTo();
-
-	/**
-	 * Returns the meta object for the reference '{@link fb.FB#getFbsFrom <em>Fbs From</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Fbs From</em>'.
-	 * @see fb.FB#getFbsFrom()
-	 * @see #getFB()
-	 * @generated
-	 */
-	EReference getFB_FbsFrom();
+	EReference getFB_Connections();
 
 	/**
 	 * Returns the meta object for the '{@link fb.FB#addVariable(fb.Variable) <em>Add Variable</em>}' operation.
@@ -465,46 +498,6 @@ public interface FbPackage extends EPackage {
 	EOperation getFB__RemoveVariable__Variable();
 
 	/**
-	 * Returns the meta object for the '{@link fb.FB#addFbTo(fb.FB) <em>Add Fb To</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Fb To</em>' operation.
-	 * @see fb.FB#addFbTo(fb.FB)
-	 * @generated
-	 */
-	EOperation getFB__AddFbTo__FB();
-
-	/**
-	 * Returns the meta object for the '{@link fb.FB#addFbFrom(fb.FB) <em>Add Fb From</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Fb From</em>' operation.
-	 * @see fb.FB#addFbFrom(fb.FB)
-	 * @generated
-	 */
-	EOperation getFB__AddFbFrom__FB();
-
-	/**
-	 * Returns the meta object for the '{@link fb.FB#removeFbTo(fb.FB) <em>Remove Fb To</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Remove Fb To</em>' operation.
-	 * @see fb.FB#removeFbTo(fb.FB)
-	 * @generated
-	 */
-	EOperation getFB__RemoveFbTo__FB();
-
-	/**
-	 * Returns the meta object for the '{@link fb.FB#removeFbFrom(fb.FB) <em>Remove Fb From</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Remove Fb From</em>' operation.
-	 * @see fb.FB#removeFbFrom(fb.FB)
-	 * @generated
-	 */
-	EOperation getFB__RemoveFbFrom__FB();
-
-	/**
 	 * Returns the meta object for class '{@link fb.FBDiagram <em>FB Diagram</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -515,10 +508,10 @@ public interface FbPackage extends EPackage {
 	EClass getFBDiagram();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link fb.FBDiagram#getFbs <em>Fbs</em>}'.
+	 * Returns the meta object for the containment reference list '{@link fb.FBDiagram#getFbs <em>Fbs</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Fbs</em>'.
+	 * @return the meta object for the containment reference list '<em>Fbs</em>'.
 	 * @see fb.FBDiagram#getFbs()
 	 * @see #getFBDiagram()
 	 * @generated
@@ -526,24 +519,56 @@ public interface FbPackage extends EPackage {
 	EReference getFBDiagram_Fbs();
 
 	/**
-	 * Returns the meta object for the '{@link fb.FBDiagram#addFB(fb.FB) <em>Add FB</em>}' operation.
+	 * Returns the meta object for class '{@link fb.INVariable <em>IN Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add FB</em>' operation.
-	 * @see fb.FBDiagram#addFB(fb.FB)
+	 * @return the meta object for class '<em>IN Variable</em>'.
+	 * @see fb.INVariable
 	 * @generated
 	 */
-	EOperation getFBDiagram__AddFB__FB();
+	EClass getINVariable();
 
 	/**
-	 * Returns the meta object for the '{@link fb.FBDiagram#removeFB(fb.FB) <em>Remove FB</em>}' operation.
+	 * Returns the meta object for class '{@link fb.OUTVariable <em>OUT Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Remove FB</em>' operation.
-	 * @see fb.FBDiagram#removeFB(fb.FB)
+	 * @return the meta object for class '<em>OUT Variable</em>'.
+	 * @see fb.OUTVariable
 	 * @generated
 	 */
-	EOperation getFBDiagram__RemoveFB__FB();
+	EClass getOUTVariable();
+
+	/**
+	 * Returns the meta object for class '{@link fb.Connection <em>Connection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Connection</em>'.
+	 * @see fb.Connection
+	 * @generated
+	 */
+	EClass getConnection();
+
+	/**
+	 * Returns the meta object for the reference '{@link fb.Connection#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see fb.Connection#getSource()
+	 * @see #getConnection()
+	 * @generated
+	 */
+	EReference getConnection_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link fb.Connection#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see fb.Connection#getTarget()
+	 * @see #getConnection()
+	 * @generated
+	 */
+	EReference getConnection_Target();
 
 	/**
 	 * Returns the meta object for enum '{@link fb.DataType <em>Data Type</em>}'.
@@ -554,16 +579,6 @@ public interface FbPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getDataType();
-
-	/**
-	 * Returns the meta object for enum '{@link fb.Direction <em>Direction</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Direction</em>'.
-	 * @see fb.Direction
-	 * @generated
-	 */
-	EEnum getDirection();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -615,14 +630,6 @@ public interface FbPackage extends EPackage {
 		EAttribute VARIABLE__DATA_TYPE = eINSTANCE.getVariable_DataType();
 
 		/**
-		 * The meta object literal for the '<em><b>Direction</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute VARIABLE__DIRECTION = eINSTANCE.getVariable_Direction();
-
-		/**
 		 * The meta object literal for the '{@link fb.impl.FBImpl <em>FB</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -641,7 +648,7 @@ public interface FbPackage extends EPackage {
 		EAttribute FB__NAME = eINSTANCE.getFB_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Variables</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Variables</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -665,20 +672,12 @@ public interface FbPackage extends EPackage {
 		EAttribute FB__Y = eINSTANCE.getFB_Y();
 
 		/**
-		 * The meta object literal for the '<em><b>Fbs To</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Connections</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FB__FBS_TO = eINSTANCE.getFB_FbsTo();
-
-		/**
-		 * The meta object literal for the '<em><b>Fbs From</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FB__FBS_FROM = eINSTANCE.getFB_FbsFrom();
+		EReference FB__CONNECTIONS = eINSTANCE.getFB_Connections();
 
 		/**
 		 * The meta object literal for the '<em><b>Add Variable</b></em>' operation.
@@ -697,38 +696,6 @@ public interface FbPackage extends EPackage {
 		EOperation FB___REMOVE_VARIABLE__VARIABLE = eINSTANCE.getFB__RemoveVariable__Variable();
 
 		/**
-		 * The meta object literal for the '<em><b>Add Fb To</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation FB___ADD_FB_TO__FB = eINSTANCE.getFB__AddFbTo__FB();
-
-		/**
-		 * The meta object literal for the '<em><b>Add Fb From</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation FB___ADD_FB_FROM__FB = eINSTANCE.getFB__AddFbFrom__FB();
-
-		/**
-		 * The meta object literal for the '<em><b>Remove Fb To</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation FB___REMOVE_FB_TO__FB = eINSTANCE.getFB__RemoveFbTo__FB();
-
-		/**
-		 * The meta object literal for the '<em><b>Remove Fb From</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation FB___REMOVE_FB_FROM__FB = eINSTANCE.getFB__RemoveFbFrom__FB();
-
-		/**
 		 * The meta object literal for the '{@link fb.impl.FBDiagramImpl <em>FB Diagram</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -739,7 +706,7 @@ public interface FbPackage extends EPackage {
 		EClass FB_DIAGRAM = eINSTANCE.getFBDiagram();
 
 		/**
-		 * The meta object literal for the '<em><b>Fbs</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Fbs</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -747,20 +714,50 @@ public interface FbPackage extends EPackage {
 		EReference FB_DIAGRAM__FBS = eINSTANCE.getFBDiagram_Fbs();
 
 		/**
-		 * The meta object literal for the '<em><b>Add FB</b></em>' operation.
+		 * The meta object literal for the '{@link fb.impl.INVariableImpl <em>IN Variable</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see fb.impl.INVariableImpl
+		 * @see fb.impl.FbPackageImpl#getINVariable()
 		 * @generated
 		 */
-		EOperation FB_DIAGRAM___ADD_FB__FB = eINSTANCE.getFBDiagram__AddFB__FB();
+		EClass IN_VARIABLE = eINSTANCE.getINVariable();
 
 		/**
-		 * The meta object literal for the '<em><b>Remove FB</b></em>' operation.
+		 * The meta object literal for the '{@link fb.impl.OUTVariableImpl <em>OUT Variable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fb.impl.OUTVariableImpl
+		 * @see fb.impl.FbPackageImpl#getOUTVariable()
+		 * @generated
+		 */
+		EClass OUT_VARIABLE = eINSTANCE.getOUTVariable();
+
+		/**
+		 * The meta object literal for the '{@link fb.impl.ConnectionImpl <em>Connection</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fb.impl.ConnectionImpl
+		 * @see fb.impl.FbPackageImpl#getConnection()
+		 * @generated
+		 */
+		EClass CONNECTION = eINSTANCE.getConnection();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation FB_DIAGRAM___REMOVE_FB__FB = eINSTANCE.getFBDiagram__RemoveFB__FB();
+		EReference CONNECTION__SOURCE = eINSTANCE.getConnection_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONNECTION__TARGET = eINSTANCE.getConnection_Target();
 
 		/**
 		 * The meta object literal for the '{@link fb.DataType <em>Data Type</em>}' enum.
@@ -771,16 +768,6 @@ public interface FbPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum DATA_TYPE = eINSTANCE.getDataType();
-
-		/**
-		 * The meta object literal for the '{@link fb.Direction <em>Direction</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see fb.Direction
-		 * @see fb.impl.FbPackageImpl#getDirection()
-		 * @generated
-		 */
-		EEnum DIRECTION = eINSTANCE.getDirection();
 
 	}
 

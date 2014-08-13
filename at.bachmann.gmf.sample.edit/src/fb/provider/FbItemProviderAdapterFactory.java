@@ -141,6 +141,75 @@ public class FbItemProviderAdapterFactory extends FbAdapterFactory implements Co
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link fb.INVariable} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected INVariableItemProvider inVariableItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fb.INVariable}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createINVariableAdapter() {
+		if (inVariableItemProvider == null) {
+			inVariableItemProvider = new INVariableItemProvider(this);
+		}
+
+		return inVariableItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fb.OUTVariable} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OUTVariableItemProvider outVariableItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fb.OUTVariable}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOUTVariableAdapter() {
+		if (outVariableItemProvider == null) {
+			outVariableItemProvider = new OUTVariableItemProvider(this);
+		}
+
+		return outVariableItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fb.Connection} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConnectionItemProvider connectionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fb.Connection}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConnectionAdapter() {
+		if (connectionItemProvider == null) {
+			connectionItemProvider = new ConnectionItemProvider(this);
+		}
+
+		return connectionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -242,6 +311,9 @@ public class FbItemProviderAdapterFactory extends FbAdapterFactory implements Co
 		if (variableItemProvider != null) variableItemProvider.dispose();
 		if (fbItemProvider != null) fbItemProvider.dispose();
 		if (fbDiagramItemProvider != null) fbDiagramItemProvider.dispose();
+		if (inVariableItemProvider != null) inVariableItemProvider.dispose();
+		if (outVariableItemProvider != null) outVariableItemProvider.dispose();
+		if (connectionItemProvider != null) connectionItemProvider.dispose();
 	}
 
 }

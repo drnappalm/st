@@ -4,18 +4,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="Variable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataType" eType="#//DataType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" eType="#//Direction"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="outputTo" eType="#//FB"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DataType">
     <eLiterals name="INT"/>
     <eLiterals name="BYTE" value="1"/>
     <eLiterals name="BOOL" value="2"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="Direction">
-    <eLiterals name="IN"/>
-    <eLiterals name="OUT" value="2"/>
-    <eLiterals name="INOUT"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FB">
     <eOperations name="addVariable">
@@ -24,33 +17,22 @@
     <eOperations name="removeVariable">
       <eParameters name="variable" eType="#//Variable"/>
     </eOperations>
-    <eOperations name="addFbTo">
-      <eParameters name="fb" eType="#//FB"/>
-    </eOperations>
-    <eOperations name="addFbFrom">
-      <eParameters name="fb" eType="#//FB"/>
-    </eOperations>
-    <eOperations name="removeFbTo">
-      <eParameters name="fb" eType="#//FB"/>
-    </eOperations>
-    <eOperations name="removeFbFrom">
-      <eParameters name="fb" eType="#//FB"/>
-    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
         eType="#//Variable" changeable="false" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="inputFrom" eType="#//Variable"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connections" eType="#//Connection"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FBDiagram">
-    <eOperations name="addFB">
-      <eParameters name="fb" eType="#//FB"/>
-    </eOperations>
-    <eOperations name="removeFB">
-      <eParameters name="fb" eType="#//FB"/>
-    </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="fbs" eType="#//FB" changeable="false"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fbs" upperBound="-1" eType="#//FB"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="INVariable" eSuperTypes="#//Variable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OUTVariable" eSuperTypes="#//Variable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Connection">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Variable"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Variable"/>
   </eClassifiers>
 </ecore:EPackage>

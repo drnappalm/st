@@ -12,7 +12,7 @@ public class FbNavigatorSorter extends ViewerSorter {
 	/**
 	 * @generated
 	 */
-	private static final int GROUP_CATEGORY = 2003;
+	private static final int GROUP_CATEGORY = 7003;
 
 	/**
 	 * @generated

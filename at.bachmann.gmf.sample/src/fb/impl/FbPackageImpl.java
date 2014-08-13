@@ -2,20 +2,20 @@
  */
 package fb.impl;
 
+import fb.Connection;
 import fb.DataType;
-import fb.Direction;
 import fb.FBDiagram;
 import fb.FbFactory;
 import fb.FbPackage;
+import fb.INVariable;
+import fb.OUTVariable;
 import fb.Variable;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -51,14 +51,28 @@ public class FbPackageImpl extends EPackageImpl implements FbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum dataTypeEEnum = null;
+	private EClass inVariableEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum directionEEnum = null;
+	private EClass outVariableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass connectionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum dataTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -153,15 +167,6 @@ public class FbPackageImpl extends EPackageImpl implements FbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getVariable_Direction() {
-		return (EAttribute)variableEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getFB() {
 		return fbEClass;
 	}
@@ -207,17 +212,8 @@ public class FbPackageImpl extends EPackageImpl implements FbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFB_FbsTo() {
+	public EReference getFB_Connections() {
 		return (EReference)fbEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFB_FbsFrom() {
-		return (EReference)fbEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -243,42 +239,6 @@ public class FbPackageImpl extends EPackageImpl implements FbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFB__AddFbTo__FB() {
-		return fbEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getFB__AddFbFrom__FB() {
-		return fbEClass.getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getFB__RemoveFbTo__FB() {
-		return fbEClass.getEOperations().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getFB__RemoveFbFrom__FB() {
-		return fbEClass.getEOperations().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getFBDiagram() {
 		return fbDiagramEClass;
 	}
@@ -297,8 +257,8 @@ public class FbPackageImpl extends EPackageImpl implements FbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFBDiagram__AddFB__FB() {
-		return fbDiagramEClass.getEOperations().get(0);
+	public EClass getINVariable() {
+		return inVariableEClass;
 	}
 
 	/**
@@ -306,8 +266,35 @@ public class FbPackageImpl extends EPackageImpl implements FbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFBDiagram__RemoveFB__FB() {
-		return fbDiagramEClass.getEOperations().get(1);
+	public EClass getOUTVariable() {
+		return outVariableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConnection() {
+		return connectionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConnection_Source() {
+		return (EReference)connectionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConnection_Target() {
+		return (EReference)connectionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -317,15 +304,6 @@ public class FbPackageImpl extends EPackageImpl implements FbPackage {
 	 */
 	public EEnum getDataType() {
 		return dataTypeEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EEnum getDirection() {
-		return directionEEnum;
 	}
 
 	/**
@@ -359,30 +337,29 @@ public class FbPackageImpl extends EPackageImpl implements FbPackage {
 		variableEClass = createEClass(VARIABLE);
 		createEAttribute(variableEClass, VARIABLE__NAME);
 		createEAttribute(variableEClass, VARIABLE__DATA_TYPE);
-		createEAttribute(variableEClass, VARIABLE__DIRECTION);
 
 		fbEClass = createEClass(FB);
 		createEAttribute(fbEClass, FB__NAME);
 		createEReference(fbEClass, FB__VARIABLES);
 		createEAttribute(fbEClass, FB__X);
 		createEAttribute(fbEClass, FB__Y);
-		createEReference(fbEClass, FB__FBS_TO);
-		createEReference(fbEClass, FB__FBS_FROM);
+		createEReference(fbEClass, FB__CONNECTIONS);
 		createEOperation(fbEClass, FB___ADD_VARIABLE__VARIABLE);
 		createEOperation(fbEClass, FB___REMOVE_VARIABLE__VARIABLE);
-		createEOperation(fbEClass, FB___ADD_FB_TO__FB);
-		createEOperation(fbEClass, FB___ADD_FB_FROM__FB);
-		createEOperation(fbEClass, FB___REMOVE_FB_TO__FB);
-		createEOperation(fbEClass, FB___REMOVE_FB_FROM__FB);
 
 		fbDiagramEClass = createEClass(FB_DIAGRAM);
 		createEReference(fbDiagramEClass, FB_DIAGRAM__FBS);
-		createEOperation(fbDiagramEClass, FB_DIAGRAM___ADD_FB__FB);
-		createEOperation(fbDiagramEClass, FB_DIAGRAM___REMOVE_FB__FB);
+
+		inVariableEClass = createEClass(IN_VARIABLE);
+
+		outVariableEClass = createEClass(OUT_VARIABLE);
+
+		connectionEClass = createEClass(CONNECTION);
+		createEReference(connectionEClass, CONNECTION__TARGET);
+		createEReference(connectionEClass, CONNECTION__SOURCE);
 
 		// Create enums
 		dataTypeEEnum = createEEnum(DATA_TYPE);
-		directionEEnum = createEEnum(DIRECTION);
 	}
 
 	/**
@@ -413,20 +390,20 @@ public class FbPackageImpl extends EPackageImpl implements FbPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		inVariableEClass.getESuperTypes().add(this.getVariable());
+		outVariableEClass.getESuperTypes().add(this.getVariable());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVariable_DataType(), this.getDataType(), "dataType", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getVariable_Direction(), this.getDirection(), "direction", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fbEClass, fb.FB.class, "FB", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFB_Name(), ecorePackage.getEString(), "name", null, 0, 1, fb.FB.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFB_Variables(), this.getVariable(), null, "variables", null, 0, 1, fb.FB.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFB_Variables(), this.getVariable(), null, "variables", null, 0, -1, fb.FB.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFB_X(), ecorePackage.getEInt(), "x", null, 0, 1, fb.FB.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFB_Y(), ecorePackage.getEInt(), "y", null, 0, 1, fb.FB.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFB_FbsTo(), this.getFB(), this.getFB_FbsFrom(), "fbsTo", null, 0, 1, fb.FB.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFB_FbsFrom(), this.getFB(), this.getFB_FbsTo(), "fbsFrom", null, 0, 1, fb.FB.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFB_Connections(), this.getConnection(), null, "connections", null, 0, 1, fb.FB.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getFB__AddVariable__Variable(), null, "addVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getVariable(), "variable", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -434,37 +411,22 @@ public class FbPackageImpl extends EPackageImpl implements FbPackage {
 		op = initEOperation(getFB__RemoveVariable__Variable(), null, "removeVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getVariable(), "variable", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getFB__AddFbTo__FB(), null, "addFbTo", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getFB(), "fb", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getFB__AddFbFrom__FB(), null, "addFbFrom", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getFB(), "fb", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getFB__RemoveFbTo__FB(), null, "removeFbTo", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getFB(), "fb", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getFB__RemoveFbFrom__FB(), null, "removeFbFrom", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getFB(), "fb", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(fbDiagramEClass, FBDiagram.class, "FBDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFBDiagram_Fbs(), this.getFB(), null, "fbs", null, 0, 1, FBDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFBDiagram_Fbs(), this.getFB(), null, "fbs", null, 0, -1, FBDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getFBDiagram__AddFB__FB(), null, "addFB", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getFB(), "fb", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEClass(inVariableEClass, INVariable.class, "INVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = initEOperation(getFBDiagram__RemoveFB__FB(), null, "removeFB", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getFB(), "fb", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEClass(outVariableEClass, OUTVariable.class, "OUTVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(connectionEClass, Connection.class, "Connection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getConnection_Target(), this.getVariable(), null, "target", null, 0, 1, Connection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConnection_Source(), this.getVariable(), null, "source", null, 0, 1, Connection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(dataTypeEEnum, DataType.class, "DataType");
 		addEEnumLiteral(dataTypeEEnum, DataType.INT);
 		addEEnumLiteral(dataTypeEEnum, DataType.BYTE);
 		addEEnumLiteral(dataTypeEEnum, DataType.BOOL);
-
-		initEEnum(directionEEnum, Direction.class, "Direction");
-		addEEnumLiteral(directionEEnum, Direction.IN);
-		addEEnumLiteral(directionEEnum, Direction.OUT);
-		addEEnumLiteral(directionEEnum, Direction.INOUT);
 
 		// Create resource
 		createResource(eNS_URI);

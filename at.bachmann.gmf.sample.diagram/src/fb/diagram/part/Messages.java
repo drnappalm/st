@@ -248,6 +248,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String Connection2Group_title;
+
+	/**
+	 * @generated
+	 */
 	public static String FB1CreationTool_title;
 
 	/**
@@ -258,47 +263,77 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String FBVariables2CreationTool_title;
+	public static String INVariable2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String FBVariables2CreationTool_desc;
+	public static String INVariable2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Variable3CreationTool_title;
+	public static String OUTVariable3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Variable3CreationTool_desc;
+	public static String OUTVariable3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String FBFbsTo4CreationTool_title;
+	public static String Connection1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String FBFbsTo4CreationTool_desc;
+	public static String Connection1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String FBFbsFrom5CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String FBFbsFrom5CreationTool_desc;
+	public static String FBVariablesCompartmentEditPart_title;
 
 	/**
 	 * @generated
 	 */
 	public static String CommandName_OpenDiagram;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_FBDiagram_1000_links;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_INVariable_3002_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_INVariable_3002_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_OUTVariable_3003_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_OUTVariable_3003_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Connection_4001_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Connection_4001_source;
 
 	/**
 	 * @generated

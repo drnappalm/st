@@ -18,10 +18,6 @@ import junit.textui.TestRunner;
  * <ul>
  *   <li>{@link fb.FB#addVariable(fb.Variable) <em>Add Variable</em>}</li>
  *   <li>{@link fb.FB#removeVariable(fb.Variable) <em>Remove Variable</em>}</li>
- *   <li>{@link fb.FB#addFbTo(fb.FB) <em>Add Fb To</em>}</li>
- *   <li>{@link fb.FB#addFbFrom(fb.FB) <em>Add Fb From</em>}</li>
- *   <li>{@link fb.FB#removeFbTo(fb.FB) <em>Remove Fb To</em>}</li>
- *   <li>{@link fb.FB#removeFbFrom(fb.FB) <em>Remove Fb From</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -118,58 +114,6 @@ public class FBTest extends TestCase {
 	 * @generated
 	 */
 	public void testRemoveVariable__Variable() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link fb.FB#addFbTo(fb.FB) <em>Add Fb To</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fb.FB#addFbTo(fb.FB)
-	 * @generated
-	 */
-	public void testAddFbTo__FB() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link fb.FB#addFbFrom(fb.FB) <em>Add Fb From</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fb.FB#addFbFrom(fb.FB)
-	 * @generated
-	 */
-	public void testAddFbFrom__FB() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link fb.FB#removeFbTo(fb.FB) <em>Remove Fb To</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fb.FB#removeFbTo(fb.FB)
-	 * @generated
-	 */
-	public void testRemoveFbTo__FB() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link fb.FB#removeFbFrom(fb.FB) <em>Remove Fb From</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fb.FB#removeFbFrom(fb.FB)
-	 * @generated
-	 */
-	public void testRemoveFbFrom__FB() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

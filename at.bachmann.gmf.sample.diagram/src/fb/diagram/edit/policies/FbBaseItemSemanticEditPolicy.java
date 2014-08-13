@@ -32,6 +32,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.helpers.GeneratedEditHelperBase;
 
+import fb.Connection;
+import fb.Variable;
+import fb.diagram.part.FbDiagramEditorPlugin;
 import fb.diagram.part.FbVisualIDRegistry;
 import fb.diagram.providers.FbElementTypes;
 
@@ -290,6 +293,53 @@ public class FbBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 				continue;
 			}
 			cmd.add(new DeleteCommand(getEditingDomain(), nextView));
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	public static LinkConstraints getLinkConstraints() {
+		LinkConstraints cached = FbDiagramEditorPlugin.getInstance()
+				.getLinkConstraints();
+		if (cached == null) {
+			FbDiagramEditorPlugin.getInstance().setLinkConstraints(
+					cached = new LinkConstraints());
+		}
+		return cached;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static class LinkConstraints {
+
+		/**
+		 * @generated
+		 */
+		LinkConstraints() {
+			// use static method #getLinkConstraints() to access instance
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canCreateConnection_4001(fb.FB container,
+				Variable source, Variable target) {
+			if (container != null) {
+				if (container.getConnections() != null) {
+					return false;
+				}
+			}
+			return canExistConnection_4001(container, null, source, target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistConnection_4001(fb.FB container,
+				Connection linkInstance, Variable source, Variable target) {
+			return true;
 		}
 	}
 

@@ -32,7 +32,6 @@ public class FbTests extends TestSuite {
 	public static Test suite() {
 		TestSuite suite = new FbTests("fb Tests");
 		suite.addTestSuite(FBTest.class);
-		suite.addTestSuite(FBDiagramTest.class);
 		return suite;
 	}
 

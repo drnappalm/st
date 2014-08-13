@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -13,12 +15,12 @@ import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.gmf.runtime.diagram.core.preferences.PreferencesHint;
-import org.eclipse.gmf.tooling.runtime.LogHelper;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
+import fb.diagram.edit.policies.FbBaseItemSemanticEditPolicy;
 import fb.diagram.providers.ElementInitializers;
 import fb.provider.FbItemProviderAdapterFactory;
 
@@ -31,11 +33,6 @@ public class FbDiagramEditorPlugin extends AbstractUIPlugin {
 	 * @generated
 	 */
 	public static final String ID = "at.bachmann.gmf.sample.diagram"; //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
-	private LogHelper myLogHelper;
 
 	/**
 	 * @generated
@@ -61,6 +58,11 @@ public class FbDiagramEditorPlugin extends AbstractUIPlugin {
 	/**
 	 * @generated
 	 */
+	private FbBaseItemSemanticEditPolicy.LinkConstraints linkConstraints;
+
+	/**
+	 * @generated
+	 */
 	private ElementInitializers initializers;
 
 	/**
@@ -75,7 +77,6 @@ public class FbDiagramEditorPlugin extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		instance = this;
-		myLogHelper = new LogHelper(this);
 		PreferencesHint.registerPreferenceStore(DIAGRAM_PREFERENCES_HINT,
 				getPreferenceStore());
 		adapterFactory = createAdapterFactory();
@@ -87,6 +88,7 @@ public class FbDiagramEditorPlugin extends AbstractUIPlugin {
 	public void stop(BundleContext context) throws Exception {
 		adapterFactory.dispose();
 		adapterFactory = null;
+		linkConstraints = null;
 		initializers = null;
 		instance = null;
 		super.stop(context);
@@ -207,6 +209,21 @@ public class FbDiagramEditorPlugin extends AbstractUIPlugin {
 	/**
 	 * @generated
 	 */
+	public FbBaseItemSemanticEditPolicy.LinkConstraints getLinkConstraints() {
+		return linkConstraints;
+	}
+
+	/**
+	 * @generated
+	 */
+	public void setLinkConstraints(
+			FbBaseItemSemanticEditPolicy.LinkConstraints lc) {
+		this.linkConstraints = lc;
+	}
+
+	/**
+	 * @generated
+	 */
 	public ElementInitializers getElementInitializers() {
 		return initializers;
 	}
@@ -222,35 +239,54 @@ public class FbDiagramEditorPlugin extends AbstractUIPlugin {
 	 * @generated
 	 */
 	public void logError(String error) {
-		getLogHelper().logError(error, null);
+		logError(error, null);
 	}
 
 	/**
 	 * @generated
 	 */
 	public void logError(String error, Throwable throwable) {
-		getLogHelper().logError(error, throwable);
+		if (error == null && throwable != null) {
+			error = throwable.getMessage();
+		}
+		getLog().log(
+				new Status(IStatus.ERROR, FbDiagramEditorPlugin.ID, IStatus.OK,
+						error, throwable));
+		debug(error, throwable);
 	}
 
 	/**
 	 * @generated
 	 */
 	public void logInfo(String message) {
-		getLogHelper().logInfo(message, null);
+		logInfo(message, null);
 	}
 
 	/**
 	 * @generated
 	 */
 	public void logInfo(String message, Throwable throwable) {
-		getLogHelper().logInfo(message, throwable);
+		if (message == null && throwable != null) {
+			message = throwable.getMessage();
+		}
+		getLog().log(
+				new Status(IStatus.INFO, FbDiagramEditorPlugin.ID, IStatus.OK,
+						message, throwable));
+		debug(message, throwable);
 	}
 
 	/**
 	 * @generated
 	 */
-	public LogHelper getLogHelper() {
-		return myLogHelper;
+	private void debug(String message, Throwable throwable) {
+		if (!isDebugging()) {
+			return;
+		}
+		if (message != null) {
+			System.err.println(message);
+		}
+		if (throwable != null) {
+			throwable.printStackTrace();
+		}
 	}
-
 }

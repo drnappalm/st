@@ -102,7 +102,7 @@ public class FbCreationWizard extends Wizard implements INewWizard {
 	 */
 	public void addPages() {
 		diagramModelFilePage = new FbCreationWizardPage(
-				"DiagramModelFile", getSelection(), "fb_diagram"); //$NON-NLS-1$ //$NON-NLS-2$
+				"DiagramModelFile", getSelection(), "fbd"); //$NON-NLS-1$ //$NON-NLS-2$
 		diagramModelFilePage
 				.setTitle(Messages.FbCreationWizard_DiagramModelFilePageTitle);
 		diagramModelFilePage
@@ -115,8 +115,8 @@ public class FbCreationWizard extends Wizard implements INewWizard {
 			public void setVisible(boolean visible) {
 				if (visible) {
 					String fileName = diagramModelFilePage.getFileName();
-					fileName = fileName.substring(0, fileName.length()
-							- ".fb_diagram".length()); //$NON-NLS-1$
+					fileName = fileName.substring(0,
+							fileName.length() - ".fbd".length()); //$NON-NLS-1$
 					setFileName(FbDiagramEditorUtil.getUniqueFileName(
 							getContainerFullPath(), fileName, "fb")); //$NON-NLS-1$
 				}

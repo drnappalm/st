@@ -20,8 +20,9 @@ public class FbModelingAssistantProviderOfFBEditPart extends
 	 */
 	@Override
 	public List<IElementType> getTypesForPopupBar(IAdaptable host) {
-		List<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(FbElementTypes.Variable_2001);
+		List<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(FbElementTypes.OUTVariable_3003);
+		types.add(FbElementTypes.INVariable_3002);
 		return types;
 	}
 

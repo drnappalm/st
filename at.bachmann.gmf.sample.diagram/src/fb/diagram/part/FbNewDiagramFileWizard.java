@@ -28,7 +28,7 @@ import org.eclipse.osgi.util.NLS;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 
-import fb.diagram.edit.parts.FBEditPart;
+import fb.diagram.edit.parts.FBDiagramEditPart;
 
 /**
  * @generated
@@ -66,7 +66,7 @@ public class FbNewDiagramFileWizard extends Wizard {
 				.setTitle(Messages.FbNewDiagramFileWizard_CreationPageTitle);
 		myFileCreationPage.setDescription(NLS.bind(
 				Messages.FbNewDiagramFileWizard_CreationPageDescription,
-				FBEditPart.MODEL_ID));
+				FBDiagramEditPart.MODEL_ID));
 		IPath filePath;
 		String fileName = URI.decode(domainModelURI.trimFileExtension()
 				.lastSegment());
@@ -82,7 +82,7 @@ public class FbNewDiagramFileWizard extends Wizard {
 		}
 		myFileCreationPage.setContainerFullPath(filePath);
 		myFileCreationPage.setFileName(FbDiagramEditorUtil.getUniqueFileName(
-				filePath, fileName, "fb_diagram")); //$NON-NLS-1$
+				filePath, fileName, "fbd")); //$NON-NLS-1$
 
 		diagramRootElementSelectionPage = new DiagramRootElementSelectionPage(
 				Messages.FbNewDiagramFileWizard_RootSelectionPageName);
@@ -127,13 +127,13 @@ public class FbNewDiagramFileWizard extends Wizard {
 				int diagramVID = FbVisualIDRegistry
 						.getDiagramVisualID(diagramRootElementSelectionPage
 								.getModelElement());
-				if (diagramVID != FBEditPart.VISUAL_ID) {
+				if (diagramVID != FBDiagramEditPart.VISUAL_ID) {
 					return CommandResult
 							.newErrorCommandResult(Messages.FbNewDiagramFileWizard_IncorrectRootError);
 				}
 				Diagram diagram = ViewService.createDiagram(
 						diagramRootElementSelectionPage.getModelElement(),
-						FBEditPart.MODEL_ID,
+						FBDiagramEditPart.MODEL_ID,
 						FbDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
 				diagramResource.getContents().add(diagram);
 				return CommandResult.newOKCommandResult();
@@ -187,7 +187,7 @@ public class FbNewDiagramFileWizard extends Wizard {
 			}
 			boolean result = ViewService.getInstance().provides(
 					new CreateDiagramViewOperation(new EObjectAdapter(
-							getModelElement()), FBEditPart.MODEL_ID,
+							getModelElement()), FBDiagramEditPart.MODEL_ID,
 							FbDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT));
 			setErrorMessage(result ? null
 					: Messages.FbNewDiagramFileWizard_RootSelectionPageInvalidSelectionMessage);

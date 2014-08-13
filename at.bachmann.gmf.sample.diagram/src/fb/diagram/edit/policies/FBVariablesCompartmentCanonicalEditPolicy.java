@@ -2,7 +2,6 @@ package fb.diagram.edit.policies;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -23,7 +22,8 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
 import fb.FbPackage;
-import fb.diagram.edit.parts.VariableEditPart;
+import fb.diagram.edit.parts.INVariableEditPart;
+import fb.diagram.edit.parts.OUTVariableEditPart;
 import fb.diagram.part.FbDiagramUpdater;
 import fb.diagram.part.FbNodeDescriptor;
 import fb.diagram.part.FbVisualIDRegistry;
@@ -31,7 +31,8 @@ import fb.diagram.part.FbVisualIDRegistry;
 /**
  * @generated
  */
-public class FBCanonicalEditPolicy extends CanonicalEditPolicy {
+public class FBVariablesCompartmentCanonicalEditPolicy extends
+		CanonicalEditPolicy {
 
 	/**
 	 * @generated
@@ -60,7 +61,7 @@ public class FBCanonicalEditPolicy extends CanonicalEditPolicy {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<FbNodeDescriptor> childDescriptors = FbDiagramUpdater
-				.getFB_1000SemanticChildren(viewObject);
+				.getFBVariablesCompartment_7001SemanticChildren(viewObject);
 		for (FbNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -80,8 +81,9 @@ public class FBCanonicalEditPolicy extends CanonicalEditPolicy {
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		return VariableEditPart.VISUAL_ID == FbVisualIDRegistry
-				.getVisualID(view);
+		int visualID = FbVisualIDRegistry.getVisualID(view);
+		return visualID == OUTVariableEditPart.VISUAL_ID
+				|| visualID == INVariableEditPart.VISUAL_ID;
 	}
 
 	/**
@@ -93,7 +95,8 @@ public class FBCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<FbNodeDescriptor> childDescriptors = FbDiagramUpdater
-				.getFB_1000SemanticChildren((View) getHost().getModel());
+				.getFBVariablesCompartment_7001SemanticChildren((View) getHost()
+						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours
 		LinkedList<View> knownViewChildren = new LinkedList<View>();
@@ -160,7 +163,6 @@ public class FBCanonicalEditPolicy extends CanonicalEditPolicy {
 		if (changed || createdViews.size() > 0) {
 			postProcessRefreshSemantic(createdViews);
 		}
-
 		if (createdViews.size() > 1) {
 			// perform a layout of the container
 			DeferredLayoutCommand layoutCmd = new DeferredLayoutCommand(host()
@@ -169,35 +171,5 @@ public class FBCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 
 		makeViewsImmutable(createdViews);
-	}
-
-	/**
-	 * @generated
-	 */
-	@SuppressWarnings("serial")
-	protected static class Domain2Notation extends HashMap<EObject, View> {
-		/**
-		 * @generated
-		 */
-		public boolean containsDomainElement(EObject domainElement) {
-			return this.containsKey(domainElement);
-		}
-
-		/**
-		 * @generated
-		 */
-		public View getHinted(EObject domainEObject, String hint) {
-			return this.get(domainEObject);
-		}
-
-		/**
-		 * @generated
-		 */
-		public void putView(EObject domainElement, View view) {
-			if (!containsKey(view.getElement())) {
-				this.put(domainElement, view);
-			}
-		}
-
 	}
 }

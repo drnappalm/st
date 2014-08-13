@@ -2,6 +2,7 @@
  */
 package fb;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -16,8 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link fb.FB#getVariables <em>Variables</em>}</li>
  *   <li>{@link fb.FB#getX <em>X</em>}</li>
  *   <li>{@link fb.FB#getY <em>Y</em>}</li>
- *   <li>{@link fb.FB#getFbsTo <em>Fbs To</em>}</li>
- *   <li>{@link fb.FB#getFbsFrom <em>Fbs From</em>}</li>
+ *   <li>{@link fb.FB#getConnections <em>Connections</em>}</li>
  * </ul>
  * </p>
  *
@@ -53,19 +53,20 @@ public interface FB extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Variables</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Variables</b></em>' containment reference list.
+	 * The list contents are of type {@link fb.Variable}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Variables</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Variables</em>' containment reference.
+	 * @return the value of the '<em>Variables</em>' containment reference list.
 	 * @see fb.FbPackage#getFB_Variables()
 	 * @model containment="true" changeable="false"
 	 * @generated
 	 */
-	Variable getVariables();
+	EList<Variable> getVariables();
 
 	/**
 	 * Returns the value of the '<em><b>X</b></em>' attribute.
@@ -120,38 +121,30 @@ public interface FB extends EObject {
 	void setY(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Fbs To</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link fb.FB#getFbsFrom <em>Fbs From</em>}'.
+	 * Returns the value of the '<em><b>Connections</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Fbs To</em>' reference isn't clear,
+	 * If the meaning of the '<em>Connections</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Fbs To</em>' reference.
-	 * @see fb.FbPackage#getFB_FbsTo()
-	 * @see fb.FB#getFbsFrom
-	 * @model opposite="fbsFrom" changeable="false"
+	 * @return the value of the '<em>Connections</em>' containment reference.
+	 * @see #setConnections(Connection)
+	 * @see fb.FbPackage#getFB_Connections()
+	 * @model containment="true"
 	 * @generated
 	 */
-	FB getFbsTo();
+	Connection getConnections();
 
 	/**
-	 * Returns the value of the '<em><b>Fbs From</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link fb.FB#getFbsTo <em>Fbs To</em>}'.
+	 * Sets the value of the '{@link fb.FB#getConnections <em>Connections</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Fbs From</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Fbs From</em>' reference.
-	 * @see fb.FbPackage#getFB_FbsFrom()
-	 * @see fb.FB#getFbsTo
-	 * @model opposite="fbsTo" changeable="false"
+	 * @param value the new value of the '<em>Connections</em>' containment reference.
+	 * @see #getConnections()
 	 * @generated
 	 */
-	FB getFbsFrom();
+	void setConnections(Connection value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -168,37 +161,5 @@ public interface FB extends EObject {
 	 * @generated
 	 */
 	void removeVariable(Variable variable);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void addFbTo(FB fb);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void addFbFrom(FB fb);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void removeFbTo(FB fb);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void removeFbFrom(FB fb);
 
 } // FB

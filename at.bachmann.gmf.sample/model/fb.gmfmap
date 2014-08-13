@@ -3,35 +3,108 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:gmfmap="http://www.eclipse.org/gmf/2008/mappings"
     xmlns:gmftool="http://www.eclipse.org/gmf/2005/ToolDefinition">
   <nodes>
     <containmentFeature
-        href="fb.ecore#//FB/variables"/>
+        href="fb.ecore#//FBDiagram/fbs"/>
     <ownedChild>
       <domainMetaElement
-          href="fb.ecore#//Variable"/>
+          href="fb.ecore#//FB"/>
       <labelMappings
-          xsi:type="gmfmap:FeatureLabelMapping">
+          xsi:type="gmfmap:FeatureLabelMapping"
+          viewPattern=""
+          editorPattern="">
         <diagramLabel
-            href="fb.gmfgraph#VariableName"/>
+            href="fb.gmfgraph#FBName"/>
         <features
-            href="fb.ecore#//Variable/name"/>
+            href="fb.ecore#//FB/name"/>
+        <editableFeatures
+            href="fb.ecore#//FB/name"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
           href="fb.gmftool#//@palette/@tools.0/@tools.0"/>
       <diagramNode
-          href="fb.gmfgraph#Variable2"/>
+          href="fb.gmfgraph#FB"/>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="fb.ecore#//FB/variables"/>
+        <ownedChild>
+          <domainMetaElement
+              href="fb.ecore#//OUTVariable"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="fb.gmfgraph#VariableName"/>
+            <features
+                href="fb.ecore#//Variable/name"/>
+            <editableFeatures
+                href="fb.ecore#//Variable/name"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="fb.gmftool#//@palette/@tools.0/@tools.2"/>
+          <diagramNode
+              href="fb.gmfgraph#OUTVariable"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="fb.ecore#//FB/variables"/>
+        <ownedChild>
+          <domainMetaElement
+              href="fb.ecore#//INVariable"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="fb.gmfgraph#VariableName"/>
+            <features
+                href="fb.ecore#//Variable/name"/>
+            <editableFeatures
+                href="fb.ecore#//Variable/name"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="fb.gmftool#//@palette/@tools.0/@tools.1"/>
+          <diagramNode
+              href="fb.gmfgraph#INVariable"/>
+        </ownedChild>
+      </children>
+      <compartments
+          children="//@nodes.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.1">
+        <compartment
+            href="fb.gmfgraph#VariablesCompartment"/>
+      </compartments>
     </ownedChild>
   </nodes>
+  <links>
+    <domainMetaElement
+        href="fb.ecore#//Connection"/>
+    <containmentFeature
+        href="fb.ecore#//FB/connections"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="fb.gmftool#//@palette/@tools.1/@tools.0"/>
+    <diagramLink
+        href="fb.gmfgraph#FBConnection"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="fb.ecore#//Connection/source"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="fb.ecore#//Connection/target"/>
+  </links>
   <diagram>
     <diagramCanvas
         href="fb.gmfgraph#fb"/>
     <domainModel
         href="fb.ecore#/"/>
     <domainMetaElement
-        href="fb.ecore#//FB"/>
+        href="fb.ecore#//FBDiagram"/>
     <palette
         href="fb.gmftool#//@palette"/>
   </diagram>

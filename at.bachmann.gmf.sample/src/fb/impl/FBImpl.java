@@ -2,6 +2,7 @@
  */
 package fb.impl;
 
+import fb.Connection;
 import fb.FB;
 import fb.FbPackage;
 import fb.Variable;
@@ -16,6 +17,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,8 +31,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link fb.impl.FBImpl#getVariables <em>Variables</em>}</li>
  *   <li>{@link fb.impl.FBImpl#getX <em>X</em>}</li>
  *   <li>{@link fb.impl.FBImpl#getY <em>Y</em>}</li>
- *   <li>{@link fb.impl.FBImpl#getFbsTo <em>Fbs To</em>}</li>
- *   <li>{@link fb.impl.FBImpl#getFbsFrom <em>Fbs From</em>}</li>
+ *   <li>{@link fb.impl.FBImpl#getConnections <em>Connections</em>}</li>
  * </ul>
  * </p>
  *
@@ -57,14 +59,14 @@ public class FBImpl extends MinimalEObjectImpl.Container implements FB {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference.
+	 * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getVariables()
 	 * @generated
 	 * @ordered
 	 */
-	protected Variable variables;
+	protected EList<Variable> variables;
 
 	/**
 	 * The default value of the '{@link #getX() <em>X</em>}' attribute.
@@ -107,24 +109,14 @@ public class FBImpl extends MinimalEObjectImpl.Container implements FB {
 	protected int y = Y_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getFbsTo() <em>Fbs To</em>}' reference.
+	 * The cached value of the '{@link #getConnections() <em>Connections</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFbsTo()
+	 * @see #getConnections()
 	 * @generated
 	 * @ordered
 	 */
-	protected FB fbsTo;
-
-	/**
-	 * The cached value of the '{@link #getFbsFrom() <em>Fbs From</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFbsFrom()
-	 * @generated
-	 * @ordered
-	 */
-	protected FB fbsFrom;
+	protected Connection connections;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -171,23 +163,11 @@ public class FBImpl extends MinimalEObjectImpl.Container implements FB {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Variable getVariables() {
-		return variables;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetVariables(Variable newVariables, NotificationChain msgs) {
-		Variable oldVariables = variables;
-		variables = newVariables;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FbPackage.FB__VARIABLES, oldVariables, newVariables);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<Variable> getVariables() {
+		if (variables == null) {
+			variables = new EObjectContainmentEList<Variable>(Variable.class, this, FbPackage.FB__VARIABLES);
 		}
-		return msgs;
+		return variables;
 	}
 
 	/**
@@ -237,16 +217,8 @@ public class FBImpl extends MinimalEObjectImpl.Container implements FB {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FB getFbsTo() {
-		if (fbsTo != null && fbsTo.eIsProxy()) {
-			InternalEObject oldFbsTo = (InternalEObject)fbsTo;
-			fbsTo = (FB)eResolveProxy(oldFbsTo);
-			if (fbsTo != oldFbsTo) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FbPackage.FB__FBS_TO, oldFbsTo, fbsTo));
-			}
-		}
-		return fbsTo;
+	public Connection getConnections() {
+		return connections;
 	}
 
 	/**
@@ -254,20 +226,11 @@ public class FBImpl extends MinimalEObjectImpl.Container implements FB {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FB basicGetFbsTo() {
-		return fbsTo;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetFbsTo(FB newFbsTo, NotificationChain msgs) {
-		FB oldFbsTo = fbsTo;
-		fbsTo = newFbsTo;
+	public NotificationChain basicSetConnections(Connection newConnections, NotificationChain msgs) {
+		Connection oldConnections = connections;
+		connections = newConnections;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FbPackage.FB__FBS_TO, oldFbsTo, newFbsTo);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FbPackage.FB__CONNECTIONS, oldConnections, newConnections);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -278,40 +241,18 @@ public class FBImpl extends MinimalEObjectImpl.Container implements FB {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FB getFbsFrom() {
-		if (fbsFrom != null && fbsFrom.eIsProxy()) {
-			InternalEObject oldFbsFrom = (InternalEObject)fbsFrom;
-			fbsFrom = (FB)eResolveProxy(oldFbsFrom);
-			if (fbsFrom != oldFbsFrom) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FbPackage.FB__FBS_FROM, oldFbsFrom, fbsFrom));
-			}
+	public void setConnections(Connection newConnections) {
+		if (newConnections != connections) {
+			NotificationChain msgs = null;
+			if (connections != null)
+				msgs = ((InternalEObject)connections).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FbPackage.FB__CONNECTIONS, null, msgs);
+			if (newConnections != null)
+				msgs = ((InternalEObject)newConnections).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FbPackage.FB__CONNECTIONS, null, msgs);
+			msgs = basicSetConnections(newConnections, msgs);
+			if (msgs != null) msgs.dispatch();
 		}
-		return fbsFrom;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FB basicGetFbsFrom() {
-		return fbsFrom;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetFbsFrom(FB newFbsFrom, NotificationChain msgs) {
-		FB oldFbsFrom = fbsFrom;
-		fbsFrom = newFbsFrom;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FbPackage.FB__FBS_FROM, oldFbsFrom, newFbsFrom);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FbPackage.FB__CONNECTIONS, newConnections, newConnections));
 	}
 
 	/**
@@ -341,79 +282,13 @@ public class FBImpl extends MinimalEObjectImpl.Container implements FB {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void addFbTo(FB fb) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void addFbFrom(FB fb) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void removeFbTo(FB fb) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void removeFbFrom(FB fb) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case FbPackage.FB__FBS_TO:
-				if (fbsTo != null)
-					msgs = ((InternalEObject)fbsTo).eInverseRemove(this, FbPackage.FB__FBS_FROM, FB.class, msgs);
-				return basicSetFbsTo((FB)otherEnd, msgs);
-			case FbPackage.FB__FBS_FROM:
-				if (fbsFrom != null)
-					msgs = ((InternalEObject)fbsFrom).eInverseRemove(this, FbPackage.FB__FBS_TO, FB.class, msgs);
-				return basicSetFbsFrom((FB)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FbPackage.FB__VARIABLES:
-				return basicSetVariables(null, msgs);
-			case FbPackage.FB__FBS_TO:
-				return basicSetFbsTo(null, msgs);
-			case FbPackage.FB__FBS_FROM:
-				return basicSetFbsFrom(null, msgs);
+				return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
+			case FbPackage.FB__CONNECTIONS:
+				return basicSetConnections(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -434,12 +309,8 @@ public class FBImpl extends MinimalEObjectImpl.Container implements FB {
 				return getX();
 			case FbPackage.FB__Y:
 				return getY();
-			case FbPackage.FB__FBS_TO:
-				if (resolve) return getFbsTo();
-				return basicGetFbsTo();
-			case FbPackage.FB__FBS_FROM:
-				if (resolve) return getFbsFrom();
-				return basicGetFbsFrom();
+			case FbPackage.FB__CONNECTIONS:
+				return getConnections();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -460,6 +331,9 @@ public class FBImpl extends MinimalEObjectImpl.Container implements FB {
 				return;
 			case FbPackage.FB__Y:
 				setY((Integer)newValue);
+				return;
+			case FbPackage.FB__CONNECTIONS:
+				setConnections((Connection)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -482,6 +356,9 @@ public class FBImpl extends MinimalEObjectImpl.Container implements FB {
 			case FbPackage.FB__Y:
 				setY(Y_EDEFAULT);
 				return;
+			case FbPackage.FB__CONNECTIONS:
+				setConnections((Connection)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -497,15 +374,13 @@ public class FBImpl extends MinimalEObjectImpl.Container implements FB {
 			case FbPackage.FB__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case FbPackage.FB__VARIABLES:
-				return variables != null;
+				return variables != null && !variables.isEmpty();
 			case FbPackage.FB__X:
 				return x != X_EDEFAULT;
 			case FbPackage.FB__Y:
 				return y != Y_EDEFAULT;
-			case FbPackage.FB__FBS_TO:
-				return fbsTo != null;
-			case FbPackage.FB__FBS_FROM:
-				return fbsFrom != null;
+			case FbPackage.FB__CONNECTIONS:
+				return connections != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -523,18 +398,6 @@ public class FBImpl extends MinimalEObjectImpl.Container implements FB {
 				return null;
 			case FbPackage.FB___REMOVE_VARIABLE__VARIABLE:
 				removeVariable((Variable)arguments.get(0));
-				return null;
-			case FbPackage.FB___ADD_FB_TO__FB:
-				addFbTo((FB)arguments.get(0));
-				return null;
-			case FbPackage.FB___ADD_FB_FROM__FB:
-				addFbFrom((FB)arguments.get(0));
-				return null;
-			case FbPackage.FB___REMOVE_FB_TO__FB:
-				removeFbTo((FB)arguments.get(0));
-				return null;
-			case FbPackage.FB___REMOVE_FB_FROM__FB:
-				removeFbFrom((FB)arguments.get(0));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

@@ -22,14 +22,33 @@ public class FbEditPartFactory implements EditPartFactory {
 			View view = (View) model;
 			switch (FbVisualIDRegistry.getVisualID(view)) {
 
+			case FBDiagramEditPart.VISUAL_ID:
+				return new FBDiagramEditPart(view);
+
 			case FBEditPart.VISUAL_ID:
 				return new FBEditPart(view);
 
-			case VariableEditPart.VISUAL_ID:
-				return new VariableEditPart(view);
+			case FBNameEditPart.VISUAL_ID:
+				return new FBNameEditPart(view);
 
-			case VariableNameEditPart.VISUAL_ID:
-				return new VariableNameEditPart(view);
+			case OUTVariableEditPart.VISUAL_ID:
+				return new OUTVariableEditPart(view);
+
+			case OUTVariableNameEditPart.VISUAL_ID:
+				return new OUTVariableNameEditPart(view);
+
+			case INVariableEditPart.VISUAL_ID:
+				return new INVariableEditPart(view);
+
+			case INVariableNameEditPart.VISUAL_ID:
+				return new INVariableNameEditPart(view);
+
+			case FBVariablesCompartmentEditPart.VISUAL_ID:
+				return new FBVariablesCompartmentEditPart(view);
+
+			case ConnectionEditPart.VISUAL_ID:
+				return new ConnectionEditPart(view);
+
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

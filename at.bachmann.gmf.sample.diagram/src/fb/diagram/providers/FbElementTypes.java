@@ -15,8 +15,11 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
 
 import fb.FbPackage;
+import fb.diagram.edit.parts.ConnectionEditPart;
+import fb.diagram.edit.parts.FBDiagramEditPart;
 import fb.diagram.edit.parts.FBEditPart;
-import fb.diagram.edit.parts.VariableEditPart;
+import fb.diagram.edit.parts.INVariableEditPart;
+import fb.diagram.edit.parts.OUTVariableEditPart;
 import fb.diagram.part.FbDiagramEditorPlugin;
 
 /**
@@ -50,11 +53,23 @@ public class FbElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType FB_1000 = getElementType("at.bachmann.gmf.sample.diagram.FB_1000"); //$NON-NLS-1$
+	public static final IElementType FBDiagram_1000 = getElementType("at.bachmann.gmf.sample.diagram.FBDiagram_1000"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType Variable_2001 = getElementType("at.bachmann.gmf.sample.diagram.Variable_2001"); //$NON-NLS-1$
+	public static final IElementType FB_2001 = getElementType("at.bachmann.gmf.sample.diagram.FB_2001"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType OUTVariable_3003 = getElementType("at.bachmann.gmf.sample.diagram.OUTVariable_3003"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType INVariable_3002 = getElementType("at.bachmann.gmf.sample.diagram.INVariable_3002"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType Connection_4001 = getElementType("at.bachmann.gmf.sample.diagram.Connection_4001"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -94,9 +109,15 @@ public class FbElementTypes {
 		if (elements == null) {
 			elements = new IdentityHashMap<IElementType, ENamedElement>();
 
-			elements.put(FB_1000, FbPackage.eINSTANCE.getFB());
+			elements.put(FBDiagram_1000, FbPackage.eINSTANCE.getFBDiagram());
 
-			elements.put(Variable_2001, FbPackage.eINSTANCE.getVariable());
+			elements.put(FB_2001, FbPackage.eINSTANCE.getFB());
+
+			elements.put(OUTVariable_3003, FbPackage.eINSTANCE.getOUTVariable());
+
+			elements.put(INVariable_3002, FbPackage.eINSTANCE.getINVariable());
+
+			elements.put(Connection_4001, FbPackage.eINSTANCE.getConnection());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -114,8 +135,11 @@ public class FbElementTypes {
 	public static boolean isKnownElementType(IElementType elementType) {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
-			KNOWN_ELEMENT_TYPES.add(FB_1000);
-			KNOWN_ELEMENT_TYPES.add(Variable_2001);
+			KNOWN_ELEMENT_TYPES.add(FBDiagram_1000);
+			KNOWN_ELEMENT_TYPES.add(FB_2001);
+			KNOWN_ELEMENT_TYPES.add(OUTVariable_3003);
+			KNOWN_ELEMENT_TYPES.add(INVariable_3002);
+			KNOWN_ELEMENT_TYPES.add(Connection_4001);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -125,10 +149,16 @@ public class FbElementTypes {
 	 */
 	public static IElementType getElementType(int visualID) {
 		switch (visualID) {
+		case FBDiagramEditPart.VISUAL_ID:
+			return FBDiagram_1000;
 		case FBEditPart.VISUAL_ID:
-			return FB_1000;
-		case VariableEditPart.VISUAL_ID:
-			return Variable_2001;
+			return FB_2001;
+		case OUTVariableEditPart.VISUAL_ID:
+			return OUTVariable_3003;
+		case INVariableEditPart.VISUAL_ID:
+			return INVariable_3002;
+		case ConnectionEditPart.VISUAL_ID:
+			return Connection_4001;
 		}
 		return null;
 	}

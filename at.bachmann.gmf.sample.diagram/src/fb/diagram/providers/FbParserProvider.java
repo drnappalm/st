@@ -14,7 +14,9 @@ import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
 import fb.FbPackage;
-import fb.diagram.edit.parts.VariableNameEditPart;
+import fb.diagram.edit.parts.FBNameEditPart;
+import fb.diagram.edit.parts.INVariableNameEditPart;
+import fb.diagram.edit.parts.OUTVariableNameEditPart;
 import fb.diagram.parsers.MessageFormatParser;
 import fb.diagram.part.FbVisualIDRegistry;
 
@@ -27,19 +29,64 @@ public class FbParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser variableName_5001Parser;
+	private IParser fBName_5001Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getVariableName_5001Parser() {
-		if (variableName_5001Parser == null) {
+	private IParser getFBName_5001Parser() {
+		if (fBName_5001Parser == null) {
+			EAttribute[] features = new EAttribute[] { FbPackage.eINSTANCE
+					.getFB_Name() };
+			EAttribute[] editableFeatures = new EAttribute[] { FbPackage.eINSTANCE
+					.getFB_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features,
+					editableFeatures);
+			fBName_5001Parser = parser;
+		}
+		return fBName_5001Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser oUTVariableName_5004Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getOUTVariableName_5004Parser() {
+		if (oUTVariableName_5004Parser == null) {
 			EAttribute[] features = new EAttribute[] { FbPackage.eINSTANCE
 					.getVariable_Name() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			variableName_5001Parser = parser;
+			EAttribute[] editableFeatures = new EAttribute[] { FbPackage.eINSTANCE
+					.getVariable_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features,
+					editableFeatures);
+			oUTVariableName_5004Parser = parser;
 		}
-		return variableName_5001Parser;
+		return oUTVariableName_5004Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser iNVariableName_5003Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getINVariableName_5003Parser() {
+		if (iNVariableName_5003Parser == null) {
+			EAttribute[] features = new EAttribute[] { FbPackage.eINSTANCE
+					.getVariable_Name() };
+			EAttribute[] editableFeatures = new EAttribute[] { FbPackage.eINSTANCE
+					.getVariable_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features,
+					editableFeatures);
+			iNVariableName_5003Parser = parser;
+		}
+		return iNVariableName_5003Parser;
 	}
 
 	/**
@@ -47,8 +94,12 @@ public class FbParserProvider extends AbstractProvider implements
 	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
-		case VariableNameEditPart.VISUAL_ID:
-			return getVariableName_5001Parser();
+		case FBNameEditPart.VISUAL_ID:
+			return getFBName_5001Parser();
+		case OUTVariableNameEditPart.VISUAL_ID:
+			return getOUTVariableName_5004Parser();
+		case INVariableNameEditPart.VISUAL_ID:
+			return getINVariableName_5003Parser();
 		}
 		return null;
 	}

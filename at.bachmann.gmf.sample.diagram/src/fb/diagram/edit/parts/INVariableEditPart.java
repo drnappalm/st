@@ -5,13 +5,17 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.ToolbarLayout;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ConstrainedToolbarLayoutEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.FlowLayoutEditPolicy;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
@@ -21,18 +25,19 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
-import fb.diagram.edit.policies.VariableItemSemanticEditPolicy;
+import fb.diagram.edit.policies.FbTextSelectionEditPolicy;
+import fb.diagram.edit.policies.INVariableItemSemanticEditPolicy;
 import fb.diagram.part.FbVisualIDRegistry;
 
 /**
  * @generated
  */
-public class VariableEditPart extends ShapeNodeEditPart {
+public class INVariableEditPart extends ShapeNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2001;
+	public static final int VISUAL_ID = 3002;
 
 	/**
 	 * @generated
@@ -47,7 +52,7 @@ public class VariableEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public VariableEditPart(View view) {
+	public INVariableEditPart(View view) {
 		super(view);
 	}
 
@@ -57,7 +62,7 @@ public class VariableEditPart extends ShapeNodeEditPart {
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new VariableItemSemanticEditPolicy());
+				new INVariableItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -68,19 +73,15 @@ public class VariableEditPart extends ShapeNodeEditPart {
 	 */
 	protected LayoutEditPolicy createLayoutEditPolicy() {
 
-		FlowLayoutEditPolicy lep = new FlowLayoutEditPolicy() {
+		ConstrainedToolbarLayoutEditPolicy lep = new ConstrainedToolbarLayoutEditPolicy() {
 
-			protected Command createAddCommand(EditPart child, EditPart after) {
-				return null;
-			}
-
-			protected Command createMoveChildCommand(EditPart child,
-					EditPart after) {
-				return null;
-			}
-
-			protected Command getCreateCommand(CreateRequest request) {
-				return null;
+			protected EditPolicy createChildEditPolicy(EditPart child) {
+				if (child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE) == null) {
+					if (child instanceof ITextAwareEditPart) {
+						return new FbTextSelectionEditPolicy();
+					}
+				}
+				return super.createChildEditPolicy(child);
 			}
 		};
 		return lep;
@@ -104,8 +105,8 @@ public class VariableEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof VariableNameEditPart) {
-			((VariableNameEditPart) childEditPart).setLabel(getPrimaryShape()
+		if (childEditPart instanceof INVariableNameEditPart) {
+			((INVariableNameEditPart) childEditPart).setLabel(getPrimaryShape()
 					.getFigureVariableNameFigure());
 			return true;
 		}
@@ -116,7 +117,7 @@ public class VariableEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof VariableNameEditPart) {
+		if (childEditPart instanceof INVariableNameEditPart) {
 			return true;
 		}
 		return false;
@@ -153,15 +154,15 @@ public class VariableEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(-1, 10);
 		return result;
 	}
 
 	/**
 	 * Creates figure for this edit part.
 	 * 
-	 * Body of this method does not depend on settings in generation model
-	 * so you may safely remove <i>generated</i> tag and modify it.
+	 * Body of this method does not depend on settings in generation model so
+	 * you may safely remove <i>generated</i> tag and modify it.
 	 * 
 	 * @generated
 	 */
@@ -175,9 +176,11 @@ public class VariableEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * Default implementation treats passed figure as content pane.
-	 * Respects layout one may have set for generated figure.
-	 * @param nodeShape instance of generated figure class
+	 * Default implementation treats passed figure as content pane. Respects
+	 * layout one may have set for generated figure.
+	 * 
+	 * @param nodeShape
+	 *            instance of generated figure class
 	 * @generated
 	 */
 	protected IFigure setupContentPane(IFigure nodeShape) {
@@ -240,7 +243,7 @@ public class VariableEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(FbVisualIDRegistry
-				.getType(VariableNameEditPart.VISUAL_ID));
+				.getType(INVariableNameEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -252,31 +255,26 @@ public class VariableEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private WrappingLabel fFigureVariableNameFigure;
-		/**
-		 * @generated
-		 */
-		private WrappingLabel fFigureVariableDataTypeFigure;
-		/**
-		 * @generated
-		 */
-		private WrappingLabel fFigureVariableDirectionFigure;
 
 		/**
 		 * @generated
 		 */
 		public VariableFigure() {
 
-			FlowLayout layoutThis = new FlowLayout();
+			ToolbarLayout layoutThis = new ToolbarLayout();
 			layoutThis.setStretchMinorAxis(false);
-			layoutThis.setMinorAlignment(FlowLayout.ALIGN_LEFTTOP);
+			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
 
-			layoutThis.setMajorAlignment(FlowLayout.ALIGN_LEFTTOP);
-			layoutThis.setMajorSpacing(5);
-			layoutThis.setMinorSpacing(5);
-			layoutThis.setHorizontal(true);
+			layoutThis.setSpacing(0);
+			layoutThis.setVertical(false);
 
 			this.setLayoutManager(layoutThis);
 
+			this.setFill(false);
+			this.setOutline(false);
+			this.setLineWidth(0);
+			this.setMaximumSize(new Dimension(getMapMode().DPtoLP(-1),
+					getMapMode().DPtoLP(12)));
 			createContents();
 		}
 
@@ -287,21 +285,9 @@ public class VariableEditPart extends ShapeNodeEditPart {
 
 			fFigureVariableNameFigure = new WrappingLabel();
 
-			fFigureVariableNameFigure.setText("<...>");
+			fFigureVariableNameFigure.setText("<..>");
 
 			this.add(fFigureVariableNameFigure);
-
-			fFigureVariableDataTypeFigure = new WrappingLabel();
-
-			fFigureVariableDataTypeFigure.setText("<...>");
-
-			this.add(fFigureVariableDataTypeFigure);
-
-			fFigureVariableDirectionFigure = new WrappingLabel();
-
-			fFigureVariableDirectionFigure.setText("<...>");
-
-			this.add(fFigureVariableDirectionFigure);
 
 		}
 
@@ -310,20 +296,6 @@ public class VariableEditPart extends ShapeNodeEditPart {
 		 */
 		public WrappingLabel getFigureVariableNameFigure() {
 			return fFigureVariableNameFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		public WrappingLabel getFigureVariableDataTypeFigure() {
-			return fFigureVariableDataTypeFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		public WrappingLabel getFigureVariableDirectionFigure() {
-			return fFigureVariableDirectionFigure;
 		}
 
 	}

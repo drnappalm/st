@@ -20,8 +20,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="FBVariables"
-          description="Create new Variable">
+          title="INVariable"
+          description="Create new INVariable">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -29,26 +29,21 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Variable"
-          description="Create new Variable">
+          title="OUTVariable"
+          description="Create new OUTVariable">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
             xsi:type="gmftool:DefaultImage"/>
       </tools>
+    </tools>
+    <tools
+        xsi:type="gmftool:ToolGroup"
+        title="Connection">
       <tools
           xsi:type="gmftool:CreationTool"
-          title="FBFbsTo"
-          description="Create new FBFbsTo">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="FBFbsFrom"
-          description="Create new FBFbsFrom">
+          title="Connection"
+          description="Create a new Connection">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

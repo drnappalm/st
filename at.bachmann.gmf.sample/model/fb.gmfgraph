@@ -7,121 +7,128 @@
     name="fb">
   <figures
       name="Default">
-    <figures
-        xsi:type="gmfgraph:PolylineDecoration"
-        name="FBFbsToTargetDecoration"/>
-    <figures
-        xsi:type="gmfgraph:PolylineDecoration"
-        name="FBFbsFromTargetDecoration"/>
-    <figures
-        xsi:type="gmfgraph:PolylineDecoration"
-        name="FBVariablesTargetDecoration"/>
     <descriptors
         name="FBFigure">
       <actualFigure
-          xsi:type="gmfgraph:Rectangle"
+          xsi:type="gmfgraph:RoundedRectangle"
           name="FBFigure">
         <layout
-            xsi:type="gmfgraph:FlowLayout"/>
+            xsi:type="gmfgraph:FlowLayout"
+            vertical="true"
+            matchMinorSize="true"
+            forceSingleLine="true"
+            majorSpacing="0"
+            minorSpacing="0"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="204"/>
+        <maximumSize
+            dx="100"
+            dy="-1"/>
+        <minimumSize
+            dx="100"
+            dy="50"/>
         <children
             xsi:type="gmfgraph:Label"
             name="FBNameFigure"
-            text="&lt;...>"/>
+            text="&lt;..>"/>
         <children
-            xsi:type="gmfgraph:LabeledContainer"
-            name="FBVariables">
+            xsi:type="gmfgraph:Rectangle"
+            name="VariablesFigure"
+            outline="false"
+            lineWidth="0">
           <layout
-              xsi:type="gmfgraph:FlowLayout"/>
+              xsi:type="gmfgraph:FlowLayout"
+              vertical="true"
+              matchMinorSize="true"
+              forceSingleLine="true"
+              majorAlignment="CENTER"
+              minorAlignment="CENTER"
+              majorSpacing="0"
+              minorSpacing="0"/>
+          <maximumSize
+              dx="-1"
+              dy="12"/>
         </children>
       </actualFigure>
       <accessors
+          accessor="getFigureVariablesFigure"
+          figure="//@figures.0/@descriptors.0/@actualFigure/@children.1"/>
+      <accessors
           figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
-    </descriptors>
-    <descriptors
-        name="FBFbsToFigure">
-      <actualFigure
-          xsi:type="gmfgraph:PolylineConnection"
-          name="FBFbsToFigure"
-          targetDecoration="//@figures.0/@figures.0"/>
-    </descriptors>
-    <descriptors
-        name="FBFbsFromFigure">
-      <actualFigure
-          xsi:type="gmfgraph:PolylineConnection"
-          name="FBFbsFromFigure"
-          targetDecoration="//@figures.0/@figures.1"/>
-    </descriptors>
-    <descriptors
-        name="Variable">
-      <actualFigure
-          xsi:type="gmfgraph:Label"
-          name="VariableFigure"
-          text="&lt;...>"/>
     </descriptors>
     <descriptors
         name="VariableFigure">
       <actualFigure
           xsi:type="gmfgraph:Rectangle"
-          name="VariableFigure">
+          name=""
+          outline="false"
+          fill="false"
+          lineWidth="0">
         <layout
-            xsi:type="gmfgraph:FlowLayout"/>
+            xsi:type="gmfgraph:FlowLayout"
+            forceSingleLine="true"
+            majorAlignment="CENTER"
+            minorAlignment="CENTER"
+            majorSpacing="0"
+            minorSpacing="0"/>
         <children
             xsi:type="gmfgraph:Label"
             name="VariableNameFigure"
-            text="&lt;...>"/>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="VariableDataTypeFigure"
-            text="&lt;...>"/>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="VariableDirectionFigure"
-            text="&lt;...>"/>
+            text="&lt;..>"/>
       </actualFigure>
       <accessors
-          figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
-      <accessors
-          figure="//@figures.0/@descriptors.4/@actualFigure/@children.1"/>
-      <accessors
-          figure="//@figures.0/@descriptors.4/@actualFigure/@children.2"/>
+          accessor="getFigureVariableNameFigure"
+          figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
-        name="FBVariablesFigure">
+        name="Connection">
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
-          name="FBVariablesFigure"
-          targetDecoration="//@figures.0/@figures.2"/>
+          name="FBConnection"/>
     </descriptors>
   </figures>
   <nodes
       name="FB"
-      figure="FBFigure"/>
+      figure="FBFigure"
+      resizeConstraint="NONE"
+      contentPane="//@figures.0/@descriptors.0/@accessors.0"/>
   <nodes
-      name="Variable2"
-      figure="VariableFigure"/>
+      name="INVariable"
+      figure="VariableFigure">
+    <facets
+        xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize
+          dx="-1"
+          dy="10"/>
+    </facets>
+  </nodes>
+  <nodes
+      name="OUTVariable"
+      figure="VariableFigure">
+    <facets
+        xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize
+          dx="-1"
+          dy="10"/>
+    </facets>
+  </nodes>
   <connections
-      name="FBFbsTo"
-      figure="FBFbsToFigure"/>
-  <connections
-      name="FBFbsFrom"
-      figure="FBFbsFromFigure"/>
-  <connections
-      name="FBVariables"
-      figure="FBVariablesFigure"/>
+      name="FBConnection"
+      figure="Connection"/>
+  <compartments
+      name="VariablesCompartment"
+      figure="FBFigure"/>
   <labels
       name="FBName"
       figure="FBFigure"
-      accessor="//@figures.0/@descriptors.0/@accessors.0"/>
+      contentPane="//@figures.0/@descriptors.0/@accessors.0"
+      accessor="//@figures.0/@descriptors.0/@accessors.1"/>
   <labels
       name="VariableName"
       figure="VariableFigure"
-      accessor="//@figures.0/@descriptors.4/@accessors.0"/>
-  <labels
-      name="VariableDataType"
-      figure="VariableFigure"
-      accessor="//@figures.0/@descriptors.4/@accessors.1"/>
-  <labels
-      name="VariableDirection"
-      figure="VariableFigure"
-      accessor="//@figures.0/@descriptors.4/@accessors.2"/>
+      affixedParentSide="NSEW"
+      accessor="//@figures.0/@descriptors.1/@accessors.0"
+      container="//@figures.0/@descriptors.0/@accessors.0"/>
 </gmfgraph:Canvas>

@@ -4,6 +4,7 @@ package fb.provider;
 
 
 import fb.FB;
+import fb.FbFactory;
 import fb.FbPackage;
 
 import java.util.Collection;
@@ -65,8 +66,6 @@ public class FBItemProvider
 			addNamePropertyDescriptor(object);
 			addXPropertyDescriptor(object);
 			addYPropertyDescriptor(object);
-			addFbsToPropertyDescriptor(object);
-			addFbsFromPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -138,50 +137,6 @@ public class FBItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Fbs To feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addFbsToPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_FB_fbsTo_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_FB_fbsTo_feature", "_UI_FB_type"),
-				 FbPackage.Literals.FB__FBS_TO,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Fbs From feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addFbsFromPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_FB_fbsFrom_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_FB_fbsFrom_feature", "_UI_FB_type"),
-				 FbPackage.Literals.FB__FBS_FROM,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -194,6 +149,7 @@ public class FBItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(FbPackage.Literals.FB__VARIABLES);
+			childrenFeatures.add(FbPackage.Literals.FB__CONNECTIONS);
 		}
 		return childrenFeatures;
 	}
@@ -255,6 +211,7 @@ public class FBItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case FbPackage.FB__VARIABLES:
+			case FbPackage.FB__CONNECTIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -271,6 +228,11 @@ public class FBItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FbPackage.Literals.FB__CONNECTIONS,
+				 FbFactory.eINSTANCE.createConnection()));
 	}
 
 	/**

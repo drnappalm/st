@@ -3,14 +3,10 @@
 package fb.impl;
 
 import fb.DataType;
-import fb.Direction;
 import fb.FbPackage;
 import fb.Variable;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -23,7 +19,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link fb.impl.VariableImpl#getName <em>Name</em>}</li>
  *   <li>{@link fb.impl.VariableImpl#getDataType <em>Data Type</em>}</li>
- *   <li>{@link fb.impl.VariableImpl#getDirection <em>Direction</em>}</li>
  * </ul>
  * </p>
  *
@@ -69,26 +64,6 @@ public class VariableImpl extends MinimalEObjectImpl.Container implements Variab
 	 * @ordered
 	 */
 	protected DataType dataType = DATA_TYPE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getDirection() <em>Direction</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDirection()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Direction DIRECTION_EDEFAULT = Direction.IN;
-
-	/**
-	 * The cached value of the '{@link #getDirection() <em>Direction</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDirection()
-	 * @generated
-	 * @ordered
-	 */
-	protected Direction direction = DIRECTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -156,27 +131,6 @@ public class VariableImpl extends MinimalEObjectImpl.Container implements Variab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Direction getDirection() {
-		return direction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDirection(Direction newDirection) {
-		Direction oldDirection = direction;
-		direction = newDirection == null ? DIRECTION_EDEFAULT : newDirection;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FbPackage.VARIABLE__DIRECTION, oldDirection, direction));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -184,8 +138,6 @@ public class VariableImpl extends MinimalEObjectImpl.Container implements Variab
 				return getName();
 			case FbPackage.VARIABLE__DATA_TYPE:
 				return getDataType();
-			case FbPackage.VARIABLE__DIRECTION:
-				return getDirection();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -203,9 +155,6 @@ public class VariableImpl extends MinimalEObjectImpl.Container implements Variab
 				return;
 			case FbPackage.VARIABLE__DATA_TYPE:
 				setDataType((DataType)newValue);
-				return;
-			case FbPackage.VARIABLE__DIRECTION:
-				setDirection((Direction)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -225,9 +174,6 @@ public class VariableImpl extends MinimalEObjectImpl.Container implements Variab
 			case FbPackage.VARIABLE__DATA_TYPE:
 				setDataType(DATA_TYPE_EDEFAULT);
 				return;
-			case FbPackage.VARIABLE__DIRECTION:
-				setDirection(DIRECTION_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -244,8 +190,6 @@ public class VariableImpl extends MinimalEObjectImpl.Container implements Variab
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case FbPackage.VARIABLE__DATA_TYPE:
 				return dataType != DATA_TYPE_EDEFAULT;
-			case FbPackage.VARIABLE__DIRECTION:
-				return direction != DIRECTION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -264,8 +208,6 @@ public class VariableImpl extends MinimalEObjectImpl.Container implements Variab
 		result.append(name);
 		result.append(", dataType: ");
 		result.append(dataType);
-		result.append(", direction: ");
-		result.append(direction);
 		result.append(')');
 		return result.toString();
 	}

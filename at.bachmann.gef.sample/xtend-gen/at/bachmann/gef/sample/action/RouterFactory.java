@@ -15,35 +15,35 @@ public class RouterFactory {
     boolean _matched = false;
     if (!_matched) {
       String _name = ConnectionRouter.NullConnectionRouter.class.getName();
-      if (Objects.equal(routerType,_name)) {
+      if (Objects.equal(routerType, _name)) {
         _matched=true;
         _switchResult = ConnectionRouter.NULL;
       }
     }
     if (!_matched) {
       String _name_1 = FanRouter.class.getName();
-      if (Objects.equal(routerType,_name_1)) {
+      if (Objects.equal(routerType, _name_1)) {
         _matched=true;
         _switchResult = new FanRouter();
       }
     }
     if (!_matched) {
       String _name_2 = ManhattanConnectionRouter.class.getName();
-      if (Objects.equal(routerType,_name_2)) {
+      if (Objects.equal(routerType, _name_2)) {
         _matched=true;
         _switchResult = new ManhattanConnectionRouter();
       }
     }
     if (!_matched) {
       String _name_3 = ShortestPathConnectionRouter.class.getName();
-      if (Objects.equal(routerType,_name_3)) {
+      if (Objects.equal(routerType, _name_3)) {
         _matched=true;
         _switchResult = new ShortestPathConnectionRouter(container);
       }
     }
     if (!_matched) {
       String _name_4 = BendpointConnectionRouter.class.getName();
-      if (Objects.equal(routerType,_name_4)) {
+      if (Objects.equal(routerType, _name_4)) {
         _matched=true;
         _switchResult = new BendpointConnectionRouter();
       }

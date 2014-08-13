@@ -22,7 +22,7 @@ import org.eclipse.ui.navigator.ICommonActionExtensionSite;
 import org.eclipse.ui.navigator.ICommonViewerWorkbenchSite;
 import org.eclipse.ui.part.FileEditorInput;
 
-import fb.diagram.edit.parts.FBEditPart;
+import fb.diagram.edit.parts.FBDiagramEditPart;
 import fb.diagram.part.FbDiagramEditor;
 import fb.diagram.part.FbDiagramEditorPlugin;
 import fb.diagram.part.FbVisualIDRegistry;
@@ -124,7 +124,7 @@ public class FbNavigatorActionProvider extends CommonActionProvider {
 				}
 				if (selectedElement instanceof Diagram) {
 					Diagram diagram = (Diagram) selectedElement;
-					if (FBEditPart.MODEL_ID.equals(FbVisualIDRegistry
+					if (FBDiagramEditPart.MODEL_ID.equals(FbVisualIDRegistry
 							.getModelID(diagram))) {
 						myDiagram = diagram;
 					}

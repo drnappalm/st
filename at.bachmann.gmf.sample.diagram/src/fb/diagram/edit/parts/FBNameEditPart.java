@@ -33,6 +33,7 @@ import org.eclipse.gmf.runtime.emf.ui.services.parser.ISemanticParser;
 import org.eclipse.gmf.runtime.notation.FontStyle;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.directedit.TextDirectEditManager2;
 import org.eclipse.gmf.tooling.runtime.draw2d.labels.SimpleLabelDelegate;
 import org.eclipse.gmf.tooling.runtime.edit.policies.DefaultNodeLabelDragPolicy;
 import org.eclipse.gmf.tooling.runtime.edit.policies.labels.IRefreshableFeedbackEditPolicy;
@@ -52,7 +53,7 @@ import fb.diagram.providers.FbParserProvider;
 /**
  * @generated
  */
-public class VariableNameEditPart extends CompartmentEditPart implements
+public class FBNameEditPart extends CompartmentEditPart implements
 		ITextAwareEditPart {
 
 	/**
@@ -88,7 +89,7 @@ public class VariableNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public VariableNameEditPart(View view) {
+	public FBNameEditPart(View view) {
 		super(view);
 	}
 
@@ -308,10 +309,10 @@ public class VariableNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = FbParserProvider
 					.getParser(
-							FbElementTypes.Variable_2001,
+							FbElementTypes.FB_2001,
 							getParserElement(),
 							FbVisualIDRegistry
-									.getType(fb.diagram.edit.parts.VariableNameEditPart.VISUAL_ID));
+									.getType(fb.diagram.edit.parts.FBNameEditPart.VISUAL_ID));
 		}
 		return parser;
 	}
@@ -321,7 +322,7 @@ public class VariableNameEditPart extends CompartmentEditPart implements
 	 */
 	protected DirectEditManager getManager() {
 		if (manager == null) {
-			setManager(new TextDirectEditManager(this, null,
+			setManager(new TextDirectEditManager2(this, null,
 					FbEditPartFactory.getTextCellEditorLocator(this)));
 		}
 		return manager;
@@ -345,8 +346,8 @@ public class VariableNameEditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	protected void performDirectEdit(Point eventLocation) {
-		if (getManager().getClass() == TextDirectEditManager.class) {
-			((TextDirectEditManager) getManager()).show(eventLocation
+		if (getManager().getClass() == TextDirectEditManager2.class) {
+			((TextDirectEditManager2) getManager()).show(eventLocation
 					.getSWTPoint());
 		}
 	}
@@ -357,6 +358,9 @@ public class VariableNameEditPart extends CompartmentEditPart implements
 	private void performDirectEdit(char initialCharacter) {
 		if (getManager() instanceof TextDirectEditManager) {
 			((TextDirectEditManager) getManager()).show(initialCharacter);
+		} else // 
+		if (getManager() instanceof TextDirectEditManager2) {
+			((TextDirectEditManager2) getManager()).show(initialCharacter);
 		} else //
 		{
 			performDirectEdit();

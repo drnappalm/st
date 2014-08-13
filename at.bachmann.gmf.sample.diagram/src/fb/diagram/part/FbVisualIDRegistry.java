@@ -7,10 +7,17 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 
+import fb.FBDiagram;
 import fb.FbPackage;
+import fb.diagram.edit.parts.ConnectionEditPart;
+import fb.diagram.edit.parts.FBDiagramEditPart;
 import fb.diagram.edit.parts.FBEditPart;
-import fb.diagram.edit.parts.VariableEditPart;
-import fb.diagram.edit.parts.VariableNameEditPart;
+import fb.diagram.edit.parts.FBNameEditPart;
+import fb.diagram.edit.parts.FBVariablesCompartmentEditPart;
+import fb.diagram.edit.parts.INVariableEditPart;
+import fb.diagram.edit.parts.INVariableNameEditPart;
+import fb.diagram.edit.parts.OUTVariableEditPart;
+import fb.diagram.edit.parts.OUTVariableNameEditPart;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -31,8 +38,8 @@ public class FbVisualIDRegistry {
 	 */
 	public static int getVisualID(View view) {
 		if (view instanceof Diagram) {
-			if (FBEditPart.MODEL_ID.equals(view.getType())) {
-				return FBEditPart.VISUAL_ID;
+			if (FBDiagramEditPart.MODEL_ID.equals(view.getType())) {
+				return FBDiagramEditPart.VISUAL_ID;
 			} else {
 				return -1;
 			}
@@ -86,9 +93,10 @@ public class FbVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
-		if (FbPackage.eINSTANCE.getFB().isSuperTypeOf(domainElement.eClass())
-				&& isDiagram((fb.FB) domainElement)) {
-			return FBEditPart.VISUAL_ID;
+		if (FbPackage.eINSTANCE.getFBDiagram().isSuperTypeOf(
+				domainElement.eClass())
+				&& isDiagram((FBDiagram) domainElement)) {
+			return FBDiagramEditPart.VISUAL_ID;
 		}
 		return -1;
 	}
@@ -102,25 +110,35 @@ public class FbVisualIDRegistry {
 		}
 		String containerModelID = fb.diagram.part.FbVisualIDRegistry
 				.getModelID(containerView);
-		if (!FBEditPart.MODEL_ID.equals(containerModelID)) {
+		if (!FBDiagramEditPart.MODEL_ID.equals(containerModelID)) {
 			return -1;
 		}
 		int containerVisualID;
-		if (FBEditPart.MODEL_ID.equals(containerModelID)) {
+		if (FBDiagramEditPart.MODEL_ID.equals(containerModelID)) {
 			containerVisualID = fb.diagram.part.FbVisualIDRegistry
 					.getVisualID(containerView);
 		} else {
 			if (containerView instanceof Diagram) {
-				containerVisualID = FBEditPart.VISUAL_ID;
+				containerVisualID = FBDiagramEditPart.VISUAL_ID;
 			} else {
 				return -1;
 			}
 		}
 		switch (containerVisualID) {
-		case FBEditPart.VISUAL_ID:
-			if (FbPackage.eINSTANCE.getVariable().isSuperTypeOf(
+		case FBDiagramEditPart.VISUAL_ID:
+			if (FbPackage.eINSTANCE.getFB().isSuperTypeOf(
 					domainElement.eClass())) {
-				return VariableEditPart.VISUAL_ID;
+				return FBEditPart.VISUAL_ID;
+			}
+			break;
+		case FBVariablesCompartmentEditPart.VISUAL_ID:
+			if (FbPackage.eINSTANCE.getOUTVariable().isSuperTypeOf(
+					domainElement.eClass())) {
+				return OUTVariableEditPart.VISUAL_ID;
+			}
+			if (FbPackage.eINSTANCE.getINVariable().isSuperTypeOf(
+					domainElement.eClass())) {
+				return INVariableEditPart.VISUAL_ID;
 			}
 			break;
 		}
@@ -133,28 +151,49 @@ public class FbVisualIDRegistry {
 	public static boolean canCreateNode(View containerView, int nodeVisualID) {
 		String containerModelID = fb.diagram.part.FbVisualIDRegistry
 				.getModelID(containerView);
-		if (!FBEditPart.MODEL_ID.equals(containerModelID)) {
+		if (!FBDiagramEditPart.MODEL_ID.equals(containerModelID)) {
 			return false;
 		}
 		int containerVisualID;
-		if (FBEditPart.MODEL_ID.equals(containerModelID)) {
+		if (FBDiagramEditPart.MODEL_ID.equals(containerModelID)) {
 			containerVisualID = fb.diagram.part.FbVisualIDRegistry
 					.getVisualID(containerView);
 		} else {
 			if (containerView instanceof Diagram) {
-				containerVisualID = FBEditPart.VISUAL_ID;
+				containerVisualID = FBDiagramEditPart.VISUAL_ID;
 			} else {
 				return false;
 			}
 		}
 		switch (containerVisualID) {
-		case FBEditPart.VISUAL_ID:
-			if (VariableEditPart.VISUAL_ID == nodeVisualID) {
+		case FBDiagramEditPart.VISUAL_ID:
+			if (FBEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case VariableEditPart.VISUAL_ID:
-			if (VariableNameEditPart.VISUAL_ID == nodeVisualID) {
+		case FBEditPart.VISUAL_ID:
+			if (FBNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (FBVariablesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case OUTVariableEditPart.VISUAL_ID:
+			if (OUTVariableNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case INVariableEditPart.VISUAL_ID:
+			if (INVariableNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case FBVariablesCompartmentEditPart.VISUAL_ID:
+			if (OUTVariableEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (INVariableEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -169,6 +208,10 @@ public class FbVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
+		if (FbPackage.eINSTANCE.getConnection().isSuperTypeOf(
+				domainElement.eClass())) {
+			return ConnectionEditPart.VISUAL_ID;
+		}
 		return -1;
 	}
 
@@ -178,7 +221,7 @@ public class FbVisualIDRegistry {
 	 * 
 	 * @generated
 	 */
-	private static boolean isDiagram(fb.FB element) {
+	private static boolean isDiagram(FBDiagram element) {
 		return true;
 	}
 
@@ -199,6 +242,12 @@ public class FbVisualIDRegistry {
 	 * @generated
 	 */
 	public static boolean isCompartmentVisualID(int visualID) {
+		switch (visualID) {
+		case FBVariablesCompartmentEditPart.VISUAL_ID:
+			return true;
+		default:
+			break;
+		}
 		return false;
 	}
 
@@ -207,9 +256,10 @@ public class FbVisualIDRegistry {
 	 */
 	public static boolean isSemanticLeafVisualID(int visualID) {
 		switch (visualID) {
-		case FBEditPart.VISUAL_ID:
+		case FBDiagramEditPart.VISUAL_ID:
 			return false;
-		case VariableEditPart.VISUAL_ID:
+		case INVariableEditPart.VISUAL_ID:
+		case OUTVariableEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

@@ -60,6 +60,9 @@ public class FbFactoryImpl extends EFactoryImpl implements FbFactory {
 			case FbPackage.VARIABLE: return createVariable();
 			case FbPackage.FB: return createFB();
 			case FbPackage.FB_DIAGRAM: return createFBDiagram();
+			case FbPackage.IN_VARIABLE: return createINVariable();
+			case FbPackage.OUT_VARIABLE: return createOUTVariable();
+			case FbPackage.CONNECTION: return createConnection();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -75,8 +78,6 @@ public class FbFactoryImpl extends EFactoryImpl implements FbFactory {
 		switch (eDataType.getClassifierID()) {
 			case FbPackage.DATA_TYPE:
 				return createDataTypeFromString(eDataType, initialValue);
-			case FbPackage.DIRECTION:
-				return createDirectionFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -92,8 +93,6 @@ public class FbFactoryImpl extends EFactoryImpl implements FbFactory {
 		switch (eDataType.getClassifierID()) {
 			case FbPackage.DATA_TYPE:
 				return convertDataTypeToString(eDataType, instanceValue);
-			case FbPackage.DIRECTION:
-				return convertDirectionToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -134,6 +133,36 @@ public class FbFactoryImpl extends EFactoryImpl implements FbFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public INVariable createINVariable() {
+		INVariableImpl inVariable = new INVariableImpl();
+		return inVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OUTVariable createOUTVariable() {
+		OUTVariableImpl outVariable = new OUTVariableImpl();
+		return outVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Connection createConnection() {
+		ConnectionImpl connection = new ConnectionImpl();
+		return connection;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DataType createDataTypeFromString(EDataType eDataType, String initialValue) {
 		DataType result = DataType.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -146,26 +175,6 @@ public class FbFactoryImpl extends EFactoryImpl implements FbFactory {
 	 * @generated
 	 */
 	public String convertDataTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Direction createDirectionFromString(EDataType eDataType, String initialValue) {
-		Direction result = Direction.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertDirectionToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
