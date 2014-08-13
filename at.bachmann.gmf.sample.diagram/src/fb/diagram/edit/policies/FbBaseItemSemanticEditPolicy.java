@@ -33,6 +33,9 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.helpers.GeneratedEditHelperBase;
 
 import fb.Connection;
+import fb.FB;
+import fb.INVariable;
+import fb.OUTVariable;
 import fb.Variable;
 import fb.diagram.part.FbDiagramEditorPlugin;
 import fb.diagram.part.FbVisualIDRegistry;
@@ -45,6 +48,7 @@ public class FbBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 
 	/**
 	 * Extended request data key to hold editpart visual id.
+	 * 
 	 * @generated
 	 */
 	public static final String VISUAL_ID_KEY = "visual_id"; //$NON-NLS-1$
@@ -62,11 +66,11 @@ public class FbBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 	}
 
 	/**
-	 * Extended request data key to hold editpart visual id.
-	 * Add visual id of edited editpart to extended data of the request
-	 * so command switch can decide what kind of diagram element is being edited.
-	 * It is done in those cases when it's not possible to deduce diagram
-	 * element kind from domain element.
+	 * Extended request data key to hold editpart visual id. Add visual id of
+	 * edited editpart to extended data of the request so command switch can
+	 * decide what kind of diagram element is being edited. It is done in those
+	 * cases when it's not possible to deduce diagram element kind from domain
+	 * element.
 	 * 
 	 * @generated
 	 */
@@ -85,6 +89,7 @@ public class FbBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 
 	/**
 	 * Returns visual id from request parameters.
+	 * 
 	 * @generated
 	 */
 	protected int getVisualID(IEditCommandRequest request) {
@@ -274,6 +279,7 @@ public class FbBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 
 	/**
 	 * Returns editing domain from the host edit part.
+	 * 
 	 * @generated
 	 */
 	protected TransactionalEditingDomain getEditingDomain() {
@@ -282,6 +288,7 @@ public class FbBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 
 	/**
 	 * Clean all shortcuts to the host element from the same diagram
+	 * 
 	 * @generated
 	 */
 	protected void addDestroyShortcutsCommand(ICompositeCommand cmd, View view) {
@@ -326,20 +333,52 @@ public class FbBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		 */
 		public boolean canCreateConnection_4001(fb.FB container,
 				Variable source, Variable target) {
-			if (container != null) {
-				if (container.getConnections() != null) {
-					return false;
-				}
-			}
 			return canExistConnection_4001(container, null, source, target);
 		}
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		public boolean canExistConnection_4001(fb.FB container,
 				Connection linkInstance, Variable source, Variable target) {
-			return true;
+			try {
+				if (container.getConnections().size() >= getINOUTVariablesCount(container)) {
+					return false;
+				}
+
+				if (source != null) {
+					if (target != null) {
+						if (source.eContainer() != target.eContainer()) {
+							return source instanceof OUTVariable
+									&& target instanceof INVariable;
+						} else {
+							return false;
+						}
+					} else {
+						return source instanceof OUTVariable;
+					}
+				} else if (target != null) {
+					return target instanceof INVariable;
+				} else {
+					return false;
+				}
+			} catch (Exception e) {
+				FbDiagramEditorPlugin.getInstance().logError(
+						"Link constraint evaluation error", e); //$NON-NLS-1$
+				return false;
+			}
+		}
+
+		private int getINOUTVariablesCount(FB container) {
+			int count = 0;
+
+			for (Variable var : container.getVariables()) {
+				if (var instanceof INVariable || var instanceof OUTVariable) {
+					count++;
+				}
+			}
+
+			return count;
 		}
 	}
 

@@ -273,8 +273,6 @@ public class INVariableEditPart extends ShapeNodeEditPart {
 			this.setFill(false);
 			this.setOutline(false);
 			this.setLineWidth(0);
-			this.setMaximumSize(new Dimension(getMapMode().DPtoLP(-1),
-					getMapMode().DPtoLP(12)));
 			createContents();
 		}
 

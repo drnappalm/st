@@ -279,15 +279,23 @@ public class FbDiagramUpdater {
 	private static Collection<FbLinkDescriptor> getContainedTypeModelFacetLinks_Connection_4001(
 			fb.FB container) {
 		LinkedList<FbLinkDescriptor> result = new LinkedList<FbLinkDescriptor>();
-		Connection link = container.getConnections();
-		if (ConnectionEditPart.VISUAL_ID != FbVisualIDRegistry
-				.getLinkWithClassVisualID(link)) {
-			return result;
+		for (Iterator<?> links = container.getConnections().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof Connection) {
+				continue;
+			}
+			Connection link = (Connection) linkObject;
+			if (ConnectionEditPart.VISUAL_ID != FbVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			Variable dst = link.getTarget();
+			Variable src = link.getSource();
+			result.add(new FbLinkDescriptor(src, dst, link,
+					FbElementTypes.Connection_4001,
+					ConnectionEditPart.VISUAL_ID));
 		}
-		Variable dst = link.getTarget();
-		Variable src = link.getSource();
-		result.add(new FbLinkDescriptor(src, dst, link,
-				FbElementTypes.Connection_4001, ConnectionEditPart.VISUAL_ID));
 		return result;
 	}
 
@@ -338,18 +346,26 @@ public class FbDiagramUpdater {
 			return Collections.emptyList();
 		}
 		LinkedList<FbLinkDescriptor> result = new LinkedList<FbLinkDescriptor>();
-		Connection link = container.getConnections();
-		if (ConnectionEditPart.VISUAL_ID != FbVisualIDRegistry
-				.getLinkWithClassVisualID(link)) {
-			return result;
+		for (Iterator<?> links = container.getConnections().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof Connection) {
+				continue;
+			}
+			Connection link = (Connection) linkObject;
+			if (ConnectionEditPart.VISUAL_ID != FbVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			Variable dst = link.getTarget();
+			Variable src = link.getSource();
+			if (src != source) {
+				continue;
+			}
+			result.add(new FbLinkDescriptor(src, dst, link,
+					FbElementTypes.Connection_4001,
+					ConnectionEditPart.VISUAL_ID));
 		}
-		Variable dst = link.getTarget();
-		Variable src = link.getSource();
-		if (src != source) {
-			return result;
-		}
-		result.add(new FbLinkDescriptor(src, dst, link,
-				FbElementTypes.Connection_4001, ConnectionEditPart.VISUAL_ID));
 		return result;
 	}
 

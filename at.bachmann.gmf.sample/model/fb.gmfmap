@@ -108,4 +108,22 @@
     <palette
         href="fb.gmftool#//@palette"/>
   </diagram>
+  <audits
+      id=""
+      name="Connections Audits">
+    <audits
+        name="Orphaned FB"
+        description=""
+        id="at.bachmann.gmf.sample.orphanedfb"
+        useInLiveMode="true"
+        message="This FB is not being used in the diagram. Add some connections from/to it or remove it from the diagram.">
+      <rule
+          body="self.connections->isEmpty()"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="fb.ecore#//FB"/>
+      </target>
+    </audits>
+  </audits>
 </gmfmap:Mapping>

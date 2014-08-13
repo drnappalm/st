@@ -151,7 +151,7 @@ public interface FbPackage extends EPackage {
 	int FB__Y = 3;
 
 	/**
-	 * The feature id for the '<em><b>Connections</b></em>' containment reference.
+	 * The feature id for the '<em><b>Connections</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -467,10 +467,10 @@ public interface FbPackage extends EPackage {
 	EAttribute getFB_Y();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link fb.FB#getConnections <em>Connections</em>}'.
+	 * Returns the meta object for the containment reference list '{@link fb.FB#getConnections <em>Connections</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Connections</em>'.
+	 * @return the meta object for the containment reference list '<em>Connections</em>'.
 	 * @see fb.FB#getConnections()
 	 * @see #getFB()
 	 * @generated
@@ -672,7 +672,7 @@ public interface FbPackage extends EPackage {
 		EAttribute FB__Y = eINSTANCE.getFB_Y();
 
 		/**
-		 * The meta object literal for the '<em><b>Connections</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Connections</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

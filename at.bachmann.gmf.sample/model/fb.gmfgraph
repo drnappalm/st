@@ -86,7 +86,12 @@
         name="Connection">
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
-          name="FBConnection"/>
+          name="FBConnection"
+          targetDecoration="//@figures.0/@descriptors.2/@actualFigure/@children.0">
+        <children
+            xsi:type="gmfgraph:PolylineDecoration"
+            name="TargetConnection"/>
+      </actualFigure>
     </descriptors>
   </figures>
   <nodes

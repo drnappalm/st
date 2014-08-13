@@ -121,30 +121,20 @@ public interface FB extends EObject {
 	void setY(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Connections</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Connections</b></em>' containment reference list.
+	 * The list contents are of type {@link fb.Connection}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Connections</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Connections</em>' containment reference.
-	 * @see #setConnections(Connection)
+	 * @return the value of the '<em>Connections</em>' containment reference list.
 	 * @see fb.FbPackage#getFB_Connections()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Connection getConnections();
-
-	/**
-	 * Sets the value of the '{@link fb.FB#getConnections <em>Connections</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Connections</em>' containment reference.
-	 * @see #getConnections()
-	 * @generated
-	 */
-	void setConnections(Connection value);
+	EList<Connection> getConnections();
 
 	/**
 	 * <!-- begin-user-doc -->

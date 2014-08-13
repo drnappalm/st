@@ -21,6 +21,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
 import fb.diagram.edit.policies.FbBaseItemSemanticEditPolicy;
+import fb.diagram.expressions.FbOCLFactory;
 import fb.diagram.providers.ElementInitializers;
 import fb.provider.FbItemProviderAdapterFactory;
 
@@ -68,6 +69,11 @@ public class FbDiagramEditorPlugin extends AbstractUIPlugin {
 	/**
 	 * @generated
 	 */
+	private FbOCLFactory oclFactory;
+
+	/**
+	 * @generated
+	 */
 	public FbDiagramEditorPlugin() {
 	}
 
@@ -90,6 +96,7 @@ public class FbDiagramEditorPlugin extends AbstractUIPlugin {
 		adapterFactory = null;
 		linkConstraints = null;
 		initializers = null;
+		oclFactory = null;
 		instance = null;
 		super.stop(context);
 	}
@@ -140,11 +147,12 @@ public class FbDiagramEditorPlugin extends AbstractUIPlugin {
 	}
 
 	/**
-	 * Returns an image descriptor for the image file at the given
-	 * plug-in relative path.
-	 *
+	 * Returns an image descriptor for the image file at the given plug-in
+	 * relative path.
+	 * 
 	 * @generated
-	 * @param path the path
+	 * @param path
+	 *            the path
 	 * @return the image descriptor
 	 */
 	public static ImageDescriptor getBundledImageDescriptor(String path) {
@@ -152,12 +160,14 @@ public class FbDiagramEditorPlugin extends AbstractUIPlugin {
 	}
 
 	/**
-	 * Respects images residing in any plug-in. If path is relative,
-	 * then this bundle is looked up for the image, otherwise, for absolute 
-	 * path, first segment is taken as id of plug-in with image
-	 *
+	 * Respects images residing in any plug-in. If path is relative, then this
+	 * bundle is looked up for the image, otherwise, for absolute path, first
+	 * segment is taken as id of plug-in with image
+	 * 
 	 * @generated
-	 * @param path the path to image, either absolute (with plug-in id as first segment), or relative for bundled images
+	 * @param path
+	 *            the path to image, either absolute (with plug-in id as first
+	 *            segment), or relative for bundled images
 	 * @return the image descriptor
 	 */
 	public static ImageDescriptor findImageDescriptor(String path) {
@@ -172,10 +182,12 @@ public class FbDiagramEditorPlugin extends AbstractUIPlugin {
 
 	/**
 	 * Returns an image for the image file at the given plug-in relative path.
-	 * Client do not need to dispose this image. Images will be disposed automatically.
-	 *
+	 * Client do not need to dispose this image. Images will be disposed
+	 * automatically.
+	 * 
 	 * @generated
-	 * @param path the path
+	 * @param path
+	 *            the path
 	 * @return image instance
 	 */
 	public Image getBundledImage(String path) {
@@ -189,7 +201,7 @@ public class FbDiagramEditorPlugin extends AbstractUIPlugin {
 
 	/**
 	 * Returns string from plug-in's resource bundle
-	 *
+	 * 
 	 * @generated
 	 */
 	public static String getString(String key) {
@@ -233,6 +245,20 @@ public class FbDiagramEditorPlugin extends AbstractUIPlugin {
 	 */
 	public void setElementInitializers(ElementInitializers i) {
 		this.initializers = i;
+	}
+
+	/**
+	 * @generated
+	 */
+	public FbOCLFactory getFbOCLFactory() {
+		return oclFactory;
+	}
+
+	/**
+	 * @generated
+	 */
+	public void setFbOCLFactory(FbOCLFactory f) {
+		this.oclFactory = f;
 	}
 
 	/**

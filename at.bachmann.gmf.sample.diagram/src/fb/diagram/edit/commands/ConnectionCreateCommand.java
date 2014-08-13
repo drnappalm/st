@@ -84,7 +84,7 @@ public class ConnectionCreateCommand extends EditElementCommand {
 		}
 
 		Connection newElement = FbFactory.eINSTANCE.createConnection();
-		getContainer().setConnections(newElement);
+		getContainer().getConnections().add(newElement);
 		newElement.setSource(getSource());
 		newElement.setTarget(getTarget());
 		doConfigure(newElement, monitor, info);

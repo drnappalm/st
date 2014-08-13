@@ -8,6 +8,7 @@ import fb.FbPackage;
 import fb.Variable;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -109,14 +110,14 @@ public class FBImpl extends MinimalEObjectImpl.Container implements FB {
 	protected int y = Y_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getConnections() <em>Connections</em>}' containment reference.
+	 * The cached value of the '{@link #getConnections() <em>Connections</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getConnections()
 	 * @generated
 	 * @ordered
 	 */
-	protected Connection connections;
+	protected EList<Connection> connections;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -217,42 +218,11 @@ public class FBImpl extends MinimalEObjectImpl.Container implements FB {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Connection getConnections() {
+	public EList<Connection> getConnections() {
+		if (connections == null) {
+			connections = new EObjectContainmentEList<Connection>(Connection.class, this, FbPackage.FB__CONNECTIONS);
+		}
 		return connections;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetConnections(Connection newConnections, NotificationChain msgs) {
-		Connection oldConnections = connections;
-		connections = newConnections;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FbPackage.FB__CONNECTIONS, oldConnections, newConnections);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setConnections(Connection newConnections) {
-		if (newConnections != connections) {
-			NotificationChain msgs = null;
-			if (connections != null)
-				msgs = ((InternalEObject)connections).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FbPackage.FB__CONNECTIONS, null, msgs);
-			if (newConnections != null)
-				msgs = ((InternalEObject)newConnections).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FbPackage.FB__CONNECTIONS, null, msgs);
-			msgs = basicSetConnections(newConnections, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FbPackage.FB__CONNECTIONS, newConnections, newConnections));
 	}
 
 	/**
@@ -288,7 +258,7 @@ public class FBImpl extends MinimalEObjectImpl.Container implements FB {
 			case FbPackage.FB__VARIABLES:
 				return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
 			case FbPackage.FB__CONNECTIONS:
-				return basicSetConnections(null, msgs);
+				return ((InternalEList<?>)getConnections()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -320,6 +290,7 @@ public class FBImpl extends MinimalEObjectImpl.Container implements FB {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -333,7 +304,8 @@ public class FBImpl extends MinimalEObjectImpl.Container implements FB {
 				setY((Integer)newValue);
 				return;
 			case FbPackage.FB__CONNECTIONS:
-				setConnections((Connection)newValue);
+				getConnections().clear();
+				getConnections().addAll((Collection<? extends Connection>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -357,7 +329,7 @@ public class FBImpl extends MinimalEObjectImpl.Container implements FB {
 				setY(Y_EDEFAULT);
 				return;
 			case FbPackage.FB__CONNECTIONS:
-				setConnections((Connection)null);
+				getConnections().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -380,7 +352,7 @@ public class FBImpl extends MinimalEObjectImpl.Container implements FB {
 			case FbPackage.FB__Y:
 				return y != Y_EDEFAULT;
 			case FbPackage.FB__CONNECTIONS:
-				return connections != null;
+				return connections != null && !connections.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

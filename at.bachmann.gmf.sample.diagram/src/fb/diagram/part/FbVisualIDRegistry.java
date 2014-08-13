@@ -21,8 +21,8 @@ import fb.diagram.edit.parts.OUTVariableNameEditPart;
 
 /**
  * This registry is used to determine which type of visual object should be
- * created for the corresponding Diagram, Node, ChildNode or Link represented
- * by a domain model object.
+ * created for the corresponding Diagram, Node, ChildNode or Link represented by
+ * a domain model object.
  * 
  * @generated
  */
