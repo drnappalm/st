@@ -29,6 +29,7 @@ import fb.diagram.edit.parts.FBEditPart;
 import fb.diagram.edit.parts.FBVariablesCompartmentEditPart;
 import fb.diagram.edit.parts.INVariableEditPart;
 import fb.diagram.edit.parts.OUTVariableEditPart;
+import fb.diagram.edit.parts.VariableEditPart;
 import fb.diagram.part.FbVisualIDRegistry;
 import fb.diagram.part.Messages;
 
@@ -233,6 +234,10 @@ public class FbNavigatorContentProvider implements ICommonContentProvider {
 					FbVisualIDRegistry.getType(FBEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					FbVisualIDRegistry.getType(VariableEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
 			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
 					FbVisualIDRegistry.getType(ConnectionEditPart.VISUAL_ID));
 			links.addChildren(createNavigatorItems(connectedViews, links, false));
@@ -260,6 +265,33 @@ public class FbNavigatorContentProvider implements ICommonContentProvider {
 					FbVisualIDRegistry.getType(INVariableEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
+			return result.toArray();
+		}
+
+		case VariableEditPart.VISUAL_ID: {
+			LinkedList<FbAbstractNavigatorItem> result = new LinkedList<FbAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			FbNavigatorGroup incominglinks = new FbNavigatorGroup(
+					Messages.NavigatorGroupName_Variable_2002_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			FbNavigatorGroup outgoinglinks = new FbNavigatorGroup(
+					Messages.NavigatorGroupName_Variable_2002_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					FbVisualIDRegistry.getType(ConnectionEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					FbVisualIDRegistry.getType(ConnectionEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
 			return result.toArray();
 		}
 
@@ -328,12 +360,20 @@ public class FbNavigatorContentProvider implements ICommonContentProvider {
 					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					FbVisualIDRegistry.getType(VariableEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
 					FbVisualIDRegistry.getType(OUTVariableEditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(sv),
 					FbVisualIDRegistry.getType(INVariableEditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					FbVisualIDRegistry.getType(VariableEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(sv),
 					FbVisualIDRegistry.getType(OUTVariableEditPart.VISUAL_ID));

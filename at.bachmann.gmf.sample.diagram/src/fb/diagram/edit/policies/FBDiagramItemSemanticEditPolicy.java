@@ -8,6 +8,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 
 import fb.diagram.edit.commands.FBCreateCommand;
+import fb.diagram.edit.commands.VariableCreateCommand;
 import fb.diagram.providers.FbElementTypes;
 
 /**
@@ -29,6 +30,9 @@ public class FBDiagramItemSemanticEditPolicy extends
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (FbElementTypes.FB_2001 == req.getElementType()) {
 			return getGEFWrapper(new FBCreateCommand(req));
+		}
+		if (FbElementTypes.Variable_2002 == req.getElementType()) {
+			return getGEFWrapper(new VariableCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

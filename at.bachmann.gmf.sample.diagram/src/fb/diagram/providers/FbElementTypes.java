@@ -20,6 +20,7 @@ import fb.diagram.edit.parts.FBDiagramEditPart;
 import fb.diagram.edit.parts.FBEditPart;
 import fb.diagram.edit.parts.INVariableEditPart;
 import fb.diagram.edit.parts.OUTVariableEditPart;
+import fb.diagram.edit.parts.VariableEditPart;
 import fb.diagram.part.FbDiagramEditorPlugin;
 
 /**
@@ -58,6 +59,11 @@ public class FbElementTypes {
 	 * @generated
 	 */
 	public static final IElementType FB_2001 = getElementType("at.bachmann.gmf.sample.diagram.FB_2001"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType Variable_2002 = getElementType("at.bachmann.gmf.sample.diagram.Variable_2002"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
@@ -113,6 +119,8 @@ public class FbElementTypes {
 
 			elements.put(FB_2001, FbPackage.eINSTANCE.getFB());
 
+			elements.put(Variable_2002, FbPackage.eINSTANCE.getVariable());
+
 			elements.put(OUTVariable_3003, FbPackage.eINSTANCE.getOUTVariable());
 
 			elements.put(INVariable_3002, FbPackage.eINSTANCE.getINVariable());
@@ -137,6 +145,7 @@ public class FbElementTypes {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
 			KNOWN_ELEMENT_TYPES.add(FBDiagram_1000);
 			KNOWN_ELEMENT_TYPES.add(FB_2001);
+			KNOWN_ELEMENT_TYPES.add(Variable_2002);
 			KNOWN_ELEMENT_TYPES.add(OUTVariable_3003);
 			KNOWN_ELEMENT_TYPES.add(INVariable_3002);
 			KNOWN_ELEMENT_TYPES.add(Connection_4001);
@@ -153,6 +162,8 @@ public class FbElementTypes {
 			return FBDiagram_1000;
 		case FBEditPart.VISUAL_ID:
 			return FB_2001;
+		case VariableEditPart.VISUAL_ID:
+			return Variable_2002;
 		case OUTVariableEditPart.VISUAL_ID:
 			return OUTVariable_3003;
 		case INVariableEditPart.VISUAL_ID:

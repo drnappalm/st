@@ -81,6 +81,28 @@
       </compartments>
     </ownedChild>
   </nodes>
+  <nodes>
+    <containmentFeature
+        href="fb.ecore#//FBDiagram/variables"/>
+    <ownedChild>
+      <domainMetaElement
+          href="fb.ecore#//Variable"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="fb.gmfgraph#DiagramVariableName"/>
+        <features
+            href="fb.ecore#//Variable/name"/>
+        <editableFeatures
+            href="fb.ecore#//Variable/name"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="fb.gmftool#//@palette/@tools.0/@tools.3"/>
+      <diagramNode
+          href="fb.gmfgraph#DiagramVariable"/>
+    </ownedChild>
+  </nodes>
   <links>
     <domainMetaElement
         href="fb.ecore#//Connection"/>
@@ -90,7 +112,7 @@
         xsi:type="gmftool:CreationTool"
         href="fb.gmftool#//@palette/@tools.1/@tools.0"/>
     <diagramLink
-        href="fb.gmfgraph#FBConnection"/>
+        href="fb.gmfgraph#Connection"/>
     <sourceMetaFeature
         xsi:type="ecore:EReference"
         href="fb.ecore#//Connection/source"/>
@@ -114,15 +136,29 @@
     <audits
         name="Orphaned FB"
         description=""
-        id="at.bachmann.gmf.sample.orphanedfb"
-        useInLiveMode="true"
+        id="orphanedfb"
         message="This FB is not being used in the diagram. Add some connections from/to it or remove it from the diagram.">
       <rule
-          body="self.connections->isEmpty()"/>
+          body="self.getConnections().size() > 0"
+          language="java"/>
       <target
           xsi:type="gmfmap:DomainElementTarget">
         <element
             href="fb.ecore#//FB"/>
+      </target>
+    </audits>
+    <audits
+        name="Empty Diagram Variable Name"
+        id="emptydiagramvarname"
+        useInLiveMode="true"
+        message="The diagram variable name can't be empty.">
+      <rule
+          body="self.name != &quot;&quot;"
+          language="java"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="fb.ecore#//Variable"/>
       </target>
     </audits>
   </audits>

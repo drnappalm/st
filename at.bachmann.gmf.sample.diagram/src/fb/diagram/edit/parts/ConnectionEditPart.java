@@ -47,25 +47,25 @@ public class ConnectionEditPart extends ConnectionNodeEditPart implements
 	 * @generated
 	 */
 	protected Connection createConnectionFigure() {
-		return new Connection();
+		return new VarsConnection();
 	}
 
 	/**
 	 * @generated
 	 */
-	public Connection getPrimaryShape() {
-		return (Connection) getFigure();
+	public VarsConnection getPrimaryShape() {
+		return (VarsConnection) getFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public class Connection extends PolylineConnectionEx {
+	public class VarsConnection extends PolylineConnectionEx {
 
 		/**
 		 * @generated
 		 */
-		public Connection() {
+		public VarsConnection() {
 
 			setTargetDecoration(createTargetDecoration());
 		}

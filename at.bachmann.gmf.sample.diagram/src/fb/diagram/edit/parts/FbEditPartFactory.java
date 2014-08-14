@@ -31,6 +31,12 @@ public class FbEditPartFactory implements EditPartFactory {
 			case FBNameEditPart.VISUAL_ID:
 				return new FBNameEditPart(view);
 
+			case VariableEditPart.VISUAL_ID:
+				return new VariableEditPart(view);
+
+			case WrappingLabelEditPart.VISUAL_ID:
+				return new WrappingLabelEditPart(view);
+
 			case OUTVariableEditPart.VISUAL_ID:
 				return new OUTVariableEditPart(view);
 

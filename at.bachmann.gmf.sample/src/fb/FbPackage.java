@@ -215,13 +215,22 @@ public interface FbPackage extends EPackage {
 	int FB_DIAGRAM__FBS = 0;
 
 	/**
+	 * The feature id for the '<em><b>Variables</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FB_DIAGRAM__VARIABLES = 1;
+
+	/**
 	 * The number of structural features of the '<em>FB Diagram</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FB_DIAGRAM_FEATURE_COUNT = 1;
+	int FB_DIAGRAM_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>FB Diagram</em>' class.
@@ -519,6 +528,17 @@ public interface FbPackage extends EPackage {
 	EReference getFBDiagram_Fbs();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link fb.FBDiagram#getVariables <em>Variables</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Variables</em>'.
+	 * @see fb.FBDiagram#getVariables()
+	 * @see #getFBDiagram()
+	 * @generated
+	 */
+	EReference getFBDiagram_Variables();
+
+	/**
 	 * Returns the meta object for class '{@link fb.INVariable <em>IN Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -712,6 +732,14 @@ public interface FbPackage extends EPackage {
 		 * @generated
 		 */
 		EReference FB_DIAGRAM__FBS = eINSTANCE.getFBDiagram_Fbs();
+
+		/**
+		 * The meta object literal for the '<em><b>Variables</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FB_DIAGRAM__VARIABLES = eINSTANCE.getFBDiagram_Variables();
 
 		/**
 		 * The meta object literal for the '{@link fb.impl.INVariableImpl <em>IN Variable</em>}' class.

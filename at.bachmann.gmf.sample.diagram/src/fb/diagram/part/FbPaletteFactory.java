@@ -38,6 +38,7 @@ public class FbPaletteFactory {
 		paletteContainer.add(createFB1CreationTool());
 		paletteContainer.add(createINVariable2CreationTool());
 		paletteContainer.add(createOUTVariable3CreationTool());
+		paletteContainer.add(createDiagramVariable4CreationTool());
 		return paletteContainer;
 	}
 
@@ -93,6 +94,21 @@ public class FbPaletteFactory {
 		entry.setId("createOUTVariable3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(FbElementTypes
 				.getImageDescriptor(FbElementTypes.OUTVariable_3003));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createDiagramVariable4CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.DiagramVariable4CreationTool_title,
+				Messages.DiagramVariable4CreationTool_desc,
+				Collections.singletonList(FbElementTypes.Variable_2002));
+		entry.setId("createDiagramVariable4CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(FbElementTypes
+				.getImageDescriptor(FbElementTypes.Variable_2002));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

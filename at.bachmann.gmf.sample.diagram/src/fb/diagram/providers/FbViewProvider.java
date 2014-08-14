@@ -52,6 +52,8 @@ import fb.diagram.edit.parts.INVariableEditPart;
 import fb.diagram.edit.parts.INVariableNameEditPart;
 import fb.diagram.edit.parts.OUTVariableEditPart;
 import fb.diagram.edit.parts.OUTVariableNameEditPart;
+import fb.diagram.edit.parts.VariableEditPart;
+import fb.diagram.edit.parts.WrappingLabelEditPart;
 import fb.diagram.part.FbVisualIDRegistry;
 
 /**
@@ -143,6 +145,7 @@ public class FbViewProvider extends AbstractProvider implements IViewProvider {
 				}
 				switch (visualID) {
 				case FBEditPart.VISUAL_ID:
+				case VariableEditPart.VISUAL_ID:
 				case OUTVariableEditPart.VISUAL_ID:
 				case INVariableEditPart.VISUAL_ID:
 					if (domainElement == null
@@ -157,6 +160,7 @@ public class FbViewProvider extends AbstractProvider implements IViewProvider {
 			}
 		}
 		return FBEditPart.VISUAL_ID == visualID
+				|| VariableEditPart.VISUAL_ID == visualID
 				|| OUTVariableEditPart.VISUAL_ID == visualID
 				|| INVariableEditPart.VISUAL_ID == visualID;
 	}
@@ -217,6 +221,9 @@ public class FbViewProvider extends AbstractProvider implements IViewProvider {
 		switch (visualID) {
 		case FBEditPart.VISUAL_ID:
 			return createFB_2001(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case VariableEditPart.VISUAL_ID:
+			return createVariable_2002(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case OUTVariableEditPart.VISUAL_ID:
 			return createOUTVariable_3003(domainElement, containerView, index,
@@ -290,6 +297,49 @@ public class FbViewProvider extends AbstractProvider implements IViewProvider {
 				FbVisualIDRegistry
 						.getType(FBVariablesCompartmentEditPart.VISUAL_ID),
 				false, false, true, true);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createVariable_2002(EObject domainElement, View containerView,
+			int index, boolean persisted, PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(FbVisualIDRegistry.getType(VariableEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Node label5005 = createLabel(node,
+				FbVisualIDRegistry.getType(WrappingLabelEditPart.VISUAL_ID));
 		return node;
 	}
 

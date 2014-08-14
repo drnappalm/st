@@ -17,6 +17,7 @@ import fb.FbPackage;
 import fb.diagram.edit.parts.FBNameEditPart;
 import fb.diagram.edit.parts.INVariableNameEditPart;
 import fb.diagram.edit.parts.OUTVariableNameEditPart;
+import fb.diagram.edit.parts.WrappingLabelEditPart;
 import fb.diagram.parsers.MessageFormatParser;
 import fb.diagram.part.FbVisualIDRegistry;
 
@@ -45,6 +46,27 @@ public class FbParserProvider extends AbstractProvider implements
 			fBName_5001Parser = parser;
 		}
 		return fBName_5001Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser variableName_5005Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getVariableName_5005Parser() {
+		if (variableName_5005Parser == null) {
+			EAttribute[] features = new EAttribute[] { FbPackage.eINSTANCE
+					.getVariable_Name() };
+			EAttribute[] editableFeatures = new EAttribute[] { FbPackage.eINSTANCE
+					.getVariable_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features,
+					editableFeatures);
+			variableName_5005Parser = parser;
+		}
+		return variableName_5005Parser;
 	}
 
 	/**
@@ -96,6 +118,8 @@ public class FbParserProvider extends AbstractProvider implements
 		switch (visualID) {
 		case FBNameEditPart.VISUAL_ID:
 			return getFBName_5001Parser();
+		case WrappingLabelEditPart.VISUAL_ID:
+			return getVariableName_5005Parser();
 		case OUTVariableNameEditPart.VISUAL_ID:
 			return getOUTVariableName_5004Parser();
 		case INVariableNameEditPart.VISUAL_ID:

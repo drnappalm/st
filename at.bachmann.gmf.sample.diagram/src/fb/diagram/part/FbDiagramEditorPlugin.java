@@ -21,7 +21,6 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
 import fb.diagram.edit.policies.FbBaseItemSemanticEditPolicy;
-import fb.diagram.expressions.FbOCLFactory;
 import fb.diagram.providers.ElementInitializers;
 import fb.provider.FbItemProviderAdapterFactory;
 
@@ -69,11 +68,6 @@ public class FbDiagramEditorPlugin extends AbstractUIPlugin {
 	/**
 	 * @generated
 	 */
-	private FbOCLFactory oclFactory;
-
-	/**
-	 * @generated
-	 */
 	public FbDiagramEditorPlugin() {
 	}
 
@@ -96,7 +90,6 @@ public class FbDiagramEditorPlugin extends AbstractUIPlugin {
 		adapterFactory = null;
 		linkConstraints = null;
 		initializers = null;
-		oclFactory = null;
 		instance = null;
 		super.stop(context);
 	}
@@ -245,20 +238,6 @@ public class FbDiagramEditorPlugin extends AbstractUIPlugin {
 	 */
 	public void setElementInitializers(ElementInitializers i) {
 		this.initializers = i;
-	}
-
-	/**
-	 * @generated
-	 */
-	public FbOCLFactory getFbOCLFactory() {
-		return oclFactory;
-	}
-
-	/**
-	 * @generated
-	 */
-	public void setFbOCLFactory(FbOCLFactory f) {
-		this.oclFactory = f;
 	}
 
 	/**

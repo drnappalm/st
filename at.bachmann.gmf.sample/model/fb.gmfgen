@@ -10,14 +10,13 @@
         id=""
         name="Connections Audits"
         path="//@audits/@categories.0"
-        audits="//@audits/@rules.0"/>
+        audits="//@audits/@rules.0 //@audits/@rules.1"/>
     <rules
         name="Orphaned FB"
         description=""
-        id="at.bachmann.gmf.sample.orphanedfb"
+        id="orphanedfb"
         rule="//@expressionProviders/@providers.0/@expressions.0"
         message="This FB is not being used in the diagram. Add some connections from/to it or remove it from the diagram."
-        useInLiveMode="true"
         category="//@audits/@categories.0">
       <target
           xsi:type="gmfgen:GenDomainElementTarget"
@@ -26,8 +25,22 @@
             href="fb.genmodel#//fb/FB"/>
       </target>
     </rules>
+    <rules
+        name="Empty Diagram Variable Name"
+        id="emptydiagramvarname"
+        rule="//@expressionProviders/@providers.0/@expressions.1"
+        message="The diagram variable name can't be empty."
+        useInLiveMode="true"
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="fb.genmodel#//fb/Variable"/>
+      </target>
+    </rules>
     <clientContexts
-        ruleTargets="//@audits/@rules.0/@target"/>
+        ruleTargets="//@audits/@rules.0/@target //@audits/@rules.1/@target"/>
   </audits>
   <diagram
       visualID="1000"
@@ -219,11 +232,68 @@
         </modelFacet>
       </labels>
     </topLevelNodes>
+    <topLevelNodes
+        visualID="2002"
+        editPartClassName="VariableEditPart"
+        itemSemanticEditPolicyClassName="VariableItemSemanticEditPolicy"
+        notationViewFactoryClassName="VariableViewFactory"
+        canonicalEditPolicyClassName="VariableCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="VariableGraphicalNodeEditPolicy"
+        createCommandClassName="VariableCreateCommand">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="VariableEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          layoutType="TOOLBAR_LAYOUT"
+          className="DiagramVariableFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class DiagramVariableFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureDiagramVariableNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public DiagramVariableFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(0);&#xA;&#x9;layoutThis.setVertical(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureDiagramVariableNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureDiagramVariableNameFigure.setText(&quot;&lt;..>&quot;);&#xA;&#xA;this.add(fFigureDiagramVariableNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureDiagramVariableNameFigure() {&#xA;&#x9;&#x9;return fFigureDiagramVariableNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 92, 132, 235);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedBackground="true"/>
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="-1"
+            height="10"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="fb.genmodel#//fb/Variable"/>
+        <containmentMetaFeature
+            href="fb.genmodel#//fb/FBDiagram/variables"/>
+        <childMetaFeature
+            href="fb.genmodel#//fb/FBDiagram/variables"/>
+      </modelFacet>
+      <labels
+          visualID="5005"
+          editPartClassName="WrappingLabelEditPart"
+          itemSemanticEditPolicyClassName="WrappingLabelItemSemanticEditPolicy"
+          notationViewFactoryClassName="VariableLabelViewFactory"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureDiagramVariableNameFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="fb.genmodel#//fb/Variable/name"/>
+          <editableMetaFeatures
+              href="fb.genmodel#//fb/Variable/name"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
     <links
         visualID="4001"
         editPartClassName="ConnectionEditPart"
         itemSemanticEditPolicyClassName="ConnectionItemSemanticEditPolicy"
         notationViewFactoryClassName="ConnectionViewFactory"
+        incomingCreationAllowed="true"
         createCommandClassName="ConnectionCreateCommand"
         reorientCommandClassName="ConnectionReorientCommand">
       <diagramRunTimeClass
@@ -233,8 +303,8 @@
           editHelperClassName="ConnectionEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
-          className="Connection"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class Connection extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public Connection() {&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolylineDecoration df = new org.eclipse.draw2d.PolylineDecoration();&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          className="VarsConnection"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class VarsConnection extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public VarsConnection() {&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolylineDecoration df = new org.eclipse.draw2d.PolylineDecoration();&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet
           xsi:type="gmfgen:TypeLinkModelFacet">
         <metaClass
@@ -256,7 +326,7 @@
         notationViewFactoryClassName="FBVariablesCompartmentViewFactory"
         canonicalEditPolicyClassName="FBVariablesCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.1"
-        title="VariablesCompartment"
+        title=""
         canCollapse="false"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.0">
@@ -289,6 +359,11 @@
             title="OUTVariable"
             description="Create new OUTVariable"
             genNodes="//@diagram/@childNodes.0"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Diagram Variable"
+            description="Create new Diagram Variable"
+            genNodes="//@diagram/@topLevelNodes.1"/>
       </groups>
       <groups
           title="Connection">
@@ -346,9 +421,24 @@
         child="//@diagram/@topLevelNodes.0"/>
     <childReferences
         parent="//@diagram"
+        child="//@diagram/@topLevelNodes.1"/>
+    <childReferences
+        parent="//@diagram"
         child="//@diagram/@links.0"
         groupName="links"
         groupIcon="icons/linksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.0"
+        child="//@diagram/@topLevelNodes.1"
+        referenceType="out_target"
+        groupName="target"
+        groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.1"
+        child="//@diagram/@links.0"
+        referenceType="in_source"
+        groupName="incoming links"
+        groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.0"
         child="//@diagram/@childNodes.0"
@@ -373,6 +463,18 @@
         referenceType="in_source"
         groupName="incoming links"
         groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.0"
+        child="//@diagram/@topLevelNodes.1"
+        referenceType="in_source"
+        groupName="source"
+        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.1"
+        child="//@diagram/@links.0"
+        referenceType="out_target"
+        groupName="outgoing links"
+        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.0"
         child="//@diagram/@childNodes.0"
@@ -422,17 +524,20 @@
       href="fb.genmodel#/"/>
   <expressionProviders>
     <providers
-        xsi:type="gmfgen:GenExpressionInterpreter">
+        xsi:type="gmfgen:GenJavaExpressionProvider">
       <expressions
           xsi:type="gmfgen:GenConstraint"
-          body="self.connections->isEmpty()"/>
+          body="self.getConnections().size() > 0"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="self.name != &quot;&quot;"/>
     </providers>
   </expressionProviders>
   <labelParsers
       extensibleViaService="true">
     <implementations
         xsi:type="gmfgen:PredefinedParser"
-        uses="//@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet"/>
+        uses="//@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet"/>
   </labelParsers>
   <contextMenus
       context="//@diagram">

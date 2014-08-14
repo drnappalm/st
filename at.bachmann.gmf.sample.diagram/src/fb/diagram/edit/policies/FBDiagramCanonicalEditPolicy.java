@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import java.util.Set;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -35,6 +37,7 @@ import fb.diagram.edit.parts.FBDiagramEditPart;
 import fb.diagram.edit.parts.FBEditPart;
 import fb.diagram.edit.parts.INVariableEditPart;
 import fb.diagram.edit.parts.OUTVariableEditPart;
+import fb.diagram.edit.parts.VariableEditPart;
 import fb.diagram.part.FbDiagramUpdater;
 import fb.diagram.part.FbLinkDescriptor;
 import fb.diagram.part.FbNodeDescriptor;
@@ -44,6 +47,11 @@ import fb.diagram.part.FbVisualIDRegistry;
  * @generated
  */
 public class FBDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
+
+	/**
+	 * @generated
+	 */
+	private Set<EStructuralFeature> myFeaturesToSynchronize;
 
 	/**
 	 * @generated
@@ -60,8 +68,14 @@ public class FBDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
-	protected EStructuralFeature getFeatureToSynchronize() {
-		return FbPackage.eINSTANCE.getFBDiagram_Fbs();
+	protected Set getFeaturesToSynchronize() {
+		if (myFeaturesToSynchronize == null) {
+			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
+			myFeaturesToSynchronize.add(FbPackage.eINSTANCE.getFBDiagram_Fbs());
+			myFeaturesToSynchronize.add(FbPackage.eINSTANCE
+					.getFBDiagram_Variables());
+		}
+		return myFeaturesToSynchronize;
 	}
 
 	/**
@@ -92,7 +106,9 @@ public class FBDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		return FBEditPart.VISUAL_ID == FbVisualIDRegistry.getVisualID(view);
+		int visualID = FbVisualIDRegistry.getVisualID(view);
+		return visualID == FBEditPart.VISUAL_ID
+				|| visualID == VariableEditPart.VISUAL_ID;
 	}
 
 	/**
@@ -251,6 +267,14 @@ public class FBDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 		case FBEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(FbDiagramUpdater.getFB_2001ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case VariableEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(FbDiagramUpdater
+						.getVariable_2002ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

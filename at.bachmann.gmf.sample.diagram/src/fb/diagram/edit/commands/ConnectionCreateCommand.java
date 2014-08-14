@@ -14,6 +14,8 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 
 import fb.Connection;
 import fb.FbFactory;
+import fb.INVariable;
+import fb.OUTVariable;
 import fb.Variable;
 import fb.diagram.edit.policies.FbBaseItemSemanticEditPolicy;
 
@@ -33,9 +35,9 @@ public class ConnectionCreateCommand extends EditElementCommand {
 	private final EObject target;
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
-	private final fb.FB container;
+	private fb.FB container;
 
 	/**
 	 * @generated
@@ -49,28 +51,65 @@ public class ConnectionCreateCommand extends EditElementCommand {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean canExecute() {
+		boolean result = false;
+
 		if (source == null && target == null) {
-			return false;
+			result = false;
 		}
-		if (source != null && false == source instanceof Variable) {
-			return false;
+		if (source != null && !isValidSource(source)) {
+			result = false;
 		}
-		if (target != null && false == target instanceof Variable) {
-			return false;
+		if (target != null && !isValidTarget(target)) {
+			result = false;
+		}
+		if (source != null && target != null
+				&& !areConnectionEndsOk(source, target)) {
+			result = false;
 		}
 		if (getSource() == null) {
-			return true; // link creation is in progress; source is not defined yet
+			result = true; // link creation is in progress; source is not
+							// defined
+							// yet
 		}
-		// target may be null here but it's possible to check constraint
-		if (getContainer() == null) {
-			return false;
+
+		if (!result) {
+			// target may be null here but it's possible to check constraint
+			if (getContainer() == null) {
+				if (isValidSource(source)) {
+					if (target != null) {
+						// invert the container
+						container = deduceContainer(target, source);
+					} else {
+						result = false;
+					}
+				} else {
+					result = false;
+				}
+			}
+			result = FbBaseItemSemanticEditPolicy.getLinkConstraints()
+					.canCreateConnection_4001(getContainer(), getSource(),
+							getTarget());
 		}
-		return FbBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canCreateConnection_4001(getContainer(), getSource(),
-						getTarget());
+
+		return result;
+	}
+
+	// at least one should be a FB
+	private boolean areConnectionEndsOk(EObject source, EObject target) {
+		return source instanceof OUTVariable || target instanceof INVariable;
+	}
+
+	private boolean isValidSource(EObject source) {
+		return (source != null)
+				&& (source instanceof Variable || source instanceof OUTVariable);
+	}
+
+	private boolean isValidTarget(EObject target) {
+		return (target != null)
+				&& (target instanceof Variable || target instanceof INVariable);
 	}
 
 	/**
@@ -145,8 +184,9 @@ public class ConnectionCreateCommand extends EditElementCommand {
 	}
 
 	/**
-	 * Default approach is to traverse ancestors of the source to find instance of container.
-	 * Modify with appropriate logic.
+	 * Default approach is to traverse ancestors of the source to find instance
+	 * of container. Modify with appropriate logic.
+	 * 
 	 * @generated
 	 */
 	private static fb.FB deduceContainer(EObject source, EObject target) {

@@ -3,7 +3,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/at.bachmann.gmf.sample/src" modelPluginID="at.bachmann.gmf.sample"
     modelName="Fb" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
-    operationReflection="true" importOrganizing="true">
+    language="" operationReflection="true" importOrganizing="true">
   <foreignModel>fb.ecore</foreignModel>
   <genPackages prefix="Fb" disposableProviderFactory="true" ecorePackage="fb.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="fb.ecore#//DataType">
@@ -30,6 +30,7 @@
     </genClasses>
     <genClasses ecoreClass="fb.ecore#//FBDiagram">
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference fb.ecore#//FBDiagram/fbs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fb.ecore#//FBDiagram/variables"/>
     </genClasses>
     <genClasses ecoreClass="fb.ecore#//INVariable"/>
     <genClasses ecoreClass="fb.ecore#//OUTVariable"/>

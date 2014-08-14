@@ -342,23 +342,26 @@ public class FbBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		public boolean canExistConnection_4001(fb.FB container,
 				Connection linkInstance, Variable source, Variable target) {
 			try {
-				if (container.getConnections().size() >= getINOUTVariablesCount(container)) {
-					return false;
+				// the source may be a diagram variable
+				if (container != null) {
+					if (container.getConnections().size() >= getINOUTVariablesCount(container)) {
+						return false;
+					}
 				}
 
 				if (source != null) {
 					if (target != null) {
 						if (source.eContainer() != target.eContainer()) {
-							return source instanceof OUTVariable
-									&& target instanceof INVariable;
+							return isSourceVariable(source)
+									&& isTargetVariable(target);
 						} else {
 							return false;
 						}
 					} else {
-						return source instanceof OUTVariable;
+						return isSourceVariable(source);
 					}
 				} else if (target != null) {
-					return target instanceof INVariable;
+					return isTargetVariable(target);
 				} else {
 					return false;
 				}
@@ -367,6 +370,14 @@ public class FbBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 						"Link constraint evaluation error", e); //$NON-NLS-1$
 				return false;
 			}
+		}
+
+		private boolean isSourceVariable(Variable variable) {
+			return !(variable instanceof INVariable);
+		}
+
+		private boolean isTargetVariable(Variable variable) {
+			return !(variable instanceof OUTVariable);
 		}
 
 		private int getINOUTVariablesCount(FB container) {

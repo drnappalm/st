@@ -17,7 +17,7 @@ import fb.diagram.providers.FbModelingAssistantProvider;
 /**
  * @generated
  */
-public class FbModelingAssistantProviderOfINVariableEditPart extends
+public class FbModelingAssistantProviderOfVariableEditPart extends
 		FbModelingAssistantProvider {
 
 	/**
@@ -27,13 +27,13 @@ public class FbModelingAssistantProviderOfINVariableEditPart extends
 	public List<IElementType> getRelTypesOnSource(IAdaptable source) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
-		return doGetRelTypesOnSource((INVariableEditPart) sourceEditPart);
+		return doGetRelTypesOnSource((VariableEditPart) sourceEditPart);
 	}
 
 	/**
 	 * @generated
 	 */
-	public List<IElementType> doGetRelTypesOnSource(INVariableEditPart source) {
+	public List<IElementType> doGetRelTypesOnSource(VariableEditPart source) {
 		List<IElementType> types = new ArrayList<IElementType>(1);
 		types.add(FbElementTypes.Connection_4001);
 		return types;
@@ -50,14 +50,14 @@ public class FbModelingAssistantProviderOfINVariableEditPart extends
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
 		return doGetRelTypesOnSourceAndTarget(
-				(INVariableEditPart) sourceEditPart, targetEditPart);
+				(VariableEditPart) sourceEditPart, targetEditPart);
 	}
 
 	/**
 	 * @generated
 	 */
 	public List<IElementType> doGetRelTypesOnSourceAndTarget(
-			INVariableEditPart source, IGraphicalEditPart targetEditPart) {
+			VariableEditPart source, IGraphicalEditPart targetEditPart) {
 		List<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof VariableEditPart) {
 			types.add(FbElementTypes.Connection_4001);
@@ -79,14 +79,14 @@ public class FbModelingAssistantProviderOfINVariableEditPart extends
 			IElementType relationshipType) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
-		return doGetTypesForTarget((INVariableEditPart) sourceEditPart,
+		return doGetTypesForTarget((VariableEditPart) sourceEditPart,
 				relationshipType);
 	}
 
 	/**
 	 * @generated
 	 */
-	public List<IElementType> doGetTypesForTarget(INVariableEditPart source,
+	public List<IElementType> doGetTypesForTarget(VariableEditPart source,
 			IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
 		if (relationshipType == FbElementTypes.Connection_4001) {
@@ -104,13 +104,13 @@ public class FbModelingAssistantProviderOfINVariableEditPart extends
 	public List<IElementType> getRelTypesOnTarget(IAdaptable target) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
-		return doGetRelTypesOnTarget((INVariableEditPart) targetEditPart);
+		return doGetRelTypesOnTarget((VariableEditPart) targetEditPart);
 	}
 
 	/**
 	 * @generated
 	 */
-	public List<IElementType> doGetRelTypesOnTarget(INVariableEditPart target) {
+	public List<IElementType> doGetRelTypesOnTarget(VariableEditPart target) {
 		List<IElementType> types = new ArrayList<IElementType>(1);
 		types.add(FbElementTypes.Connection_4001);
 		return types;
@@ -124,14 +124,14 @@ public class FbModelingAssistantProviderOfINVariableEditPart extends
 			IElementType relationshipType) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
-		return doGetTypesForSource((INVariableEditPart) targetEditPart,
+		return doGetTypesForSource((VariableEditPart) targetEditPart,
 				relationshipType);
 	}
 
 	/**
 	 * @generated
 	 */
-	public List<IElementType> doGetTypesForSource(INVariableEditPart target,
+	public List<IElementType> doGetTypesForSource(VariableEditPart target,
 			IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
 		if (relationshipType == FbElementTypes.Connection_4001) {

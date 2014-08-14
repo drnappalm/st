@@ -227,7 +227,7 @@
       <viewProvider class="fb.diagram.providers.FbViewProvider">
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Fb"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,3003,3002"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002,3003,3002"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001"/>
       </viewProvider>
    </extension>
@@ -240,13 +240,13 @@
             <method name="getType()" value="Fb"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="2001,3003,3002"/>
+            <method name="getType()" value="2001,2002,3003,3002"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value="4001"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="5001,5004,5003"/>
+            <method name="getType()" value="5001,5005,5004,5003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
             <method name="getType()" value="7001"/>
@@ -267,6 +267,11 @@
          <Priority name="Lowest"/>
          <object class="fb.diagram.edit.parts.FBEditPart" id="FB_2001"/>
          <context elements="FB_2001"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="fb.diagram.providers.assistants.FbModelingAssistantProviderOfVariableEditPart">
+         <Priority name="Lowest"/>
+         <object class="fb.diagram.edit.parts.VariableEditPart" id="Variable_2002"/>
+         <context elements="Variable_2002"/>
       </modelingAssistantProvider>
             <modelingAssistantProvider class="fb.diagram.providers.assistants.FbModelingAssistantProviderOfOUTVariableEditPart">
          <Priority name="Lowest"/>
@@ -320,6 +325,16 @@
       </metamodel>
       <metamodel nsURI="http://www.bachmann.at/gmf/sample/fb">
          <metamodelType
+               id="at.bachmann.gmf.sample.diagram.Variable_2002"
+               name="%metatype.name.Variable_2002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Variable"
+               edithelper="fb.diagram.edit.helpers.VariableEditHelper">
+            <param name="semanticHint" value="2002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.bachmann.at/gmf/sample/fb">
+         <metamodelType
                id="at.bachmann.gmf.sample.diagram.OUTVariable_3003"
                name="%metatype.name.OUTVariable_3003"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
@@ -362,6 +377,7 @@
       <binding context="at.bachmann.gmf.sample.diagram.TypeContext">
          <elementType ref="at.bachmann.gmf.sample.diagram.FBDiagram_1000"/>
          <elementType ref="at.bachmann.gmf.sample.diagram.FB_2001"/>
+         <elementType ref="at.bachmann.gmf.sample.diagram.Variable_2002"/>
          <elementType ref="at.bachmann.gmf.sample.diagram.OUTVariable_3003"/>
          <elementType ref="at.bachmann.gmf.sample.diagram.INVariable_3002"/>
          <elementType ref="at.bachmann.gmf.sample.diagram.Connection_4001"/>
@@ -561,15 +577,25 @@
       <constraintProvider cache="true">
          <package namespaceUri="http://www.bachmann.at/gmf/sample/fb"/>
                <constraints categories="">
-                  <constraint id="at.bachmann.gmf.sample.orphanedfb"
-            lang="OCL"
+                  <constraint id="orphanedfb"
+            lang="Java" class="fb.diagram.providers.FbValidationProvider$Adapter1"
             name="Orphaned FB"
-            mode="Live"
+            mode="Batch"
             severity="ERROR" statusCode="200">
-            <![CDATA[self.connections->isEmpty()]]>
+            
             <description><![CDATA[]]></description>
             <message><![CDATA[This FB is not being used in the diagram. Add some connections from/to it or remove it from the diagram.]]></message>
             <target class="fb.FB"/>
+         </constraint>
+                  <constraint id="emptydiagramvarname"
+            lang="Java" class="fb.diagram.providers.FbValidationProvider$Adapter2"
+            name="Empty Diagram Variable Name"
+            mode="Live"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[]]></description>
+            <message><![CDATA[The diagram variable name can't be empty.]]></message>
+            <target class="fb.Variable"/>
          </constraint>
                   </constraints>
       </constraintProvider>
@@ -581,7 +607,8 @@
          <selector class="fb.diagram.providers.FbValidationProvider$DefaultCtx"/>
       </clientContext>
       <binding context="at.bachmann.gmf.sample.diagramDefaultCtx">
-                  <constraint ref="at.bachmann.gmf.sample.diagram.at.bachmann.gmf.sample.orphanedfb"/>
+                  <constraint ref="at.bachmann.gmf.sample.diagram.orphanedfb"/>
+                  <constraint ref="at.bachmann.gmf.sample.diagram.emptydiagramvarname"/>
                </binding>
 
    </extension>

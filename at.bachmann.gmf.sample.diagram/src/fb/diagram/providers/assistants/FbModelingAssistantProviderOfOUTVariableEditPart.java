@@ -10,6 +10,7 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 
 import fb.diagram.edit.parts.INVariableEditPart;
 import fb.diagram.edit.parts.OUTVariableEditPart;
+import fb.diagram.edit.parts.VariableEditPart;
 import fb.diagram.providers.FbElementTypes;
 import fb.diagram.providers.FbModelingAssistantProvider;
 
@@ -58,6 +59,9 @@ public class FbModelingAssistantProviderOfOUTVariableEditPart extends
 	public List<IElementType> doGetRelTypesOnSourceAndTarget(
 			OUTVariableEditPart source, IGraphicalEditPart targetEditPart) {
 		List<IElementType> types = new LinkedList<IElementType>();
+		if (targetEditPart instanceof VariableEditPart) {
+			types.add(FbElementTypes.Connection_4001);
+		}
 		if (targetEditPart instanceof OUTVariableEditPart) {
 			types.add(FbElementTypes.Connection_4001);
 		}
@@ -86,6 +90,7 @@ public class FbModelingAssistantProviderOfOUTVariableEditPart extends
 			IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
 		if (relationshipType == FbElementTypes.Connection_4001) {
+			types.add(FbElementTypes.Variable_2002);
 			types.add(FbElementTypes.OUTVariable_3003);
 			types.add(FbElementTypes.INVariable_3002);
 		}
@@ -130,6 +135,7 @@ public class FbModelingAssistantProviderOfOUTVariableEditPart extends
 			IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
 		if (relationshipType == FbElementTypes.Connection_4001) {
+			types.add(FbElementTypes.Variable_2002);
 			types.add(FbElementTypes.OUTVariable_3003);
 			types.add(FbElementTypes.INVariable_3002);
 		}

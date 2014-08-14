@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link fb.FBDiagram#getFbs <em>Fbs</em>}</li>
+ *   <li>{@link fb.FBDiagram#getVariables <em>Variables</em>}</li>
  * </ul>
  * </p>
  *
@@ -37,5 +38,21 @@ public interface FBDiagram extends EObject {
 	 * @generated
 	 */
 	EList<FB> getFbs();
+
+	/**
+	 * Returns the value of the '<em><b>Variables</b></em>' containment reference list.
+	 * The list contents are of type {@link fb.Variable}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Variables</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Variables</em>' containment reference list.
+	 * @see fb.FbPackage#getFBDiagram_Variables()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Variable> getVariables();
 
 } // FBDiagram

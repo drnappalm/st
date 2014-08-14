@@ -83,15 +83,40 @@
           figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
-        name="Connection">
+        name="VarsConnection">
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
-          name="FBConnection"
+          name="VarsConnection"
           targetDecoration="//@figures.0/@descriptors.2/@actualFigure/@children.0">
         <children
             xsi:type="gmfgraph:PolylineDecoration"
             name="TargetConnection"/>
       </actualFigure>
+    </descriptors>
+    <descriptors
+        name="DiagramVariableFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"
+            forceSingleLine="true"
+            majorAlignment="CENTER"
+            minorAlignment="CENTER"
+            majorSpacing="0"
+            minorSpacing="0"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="92"
+            green="132"
+            blue="235"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="DiagramVariableNameFigure"
+            text="&lt;..>"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureDiagramVariableNameFigure"
+          figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
     </descriptors>
   </figures>
   <nodes
@@ -119,9 +144,19 @@
           dy="10"/>
     </facets>
   </nodes>
+  <nodes
+      name="DiagramVariable"
+      figure="DiagramVariableFigure">
+    <facets
+        xsi:type="gmfgraph:DefaultSizeFacet">
+      <defaultSize
+          dx="-1"
+          dy="10"/>
+    </facets>
+  </nodes>
   <connections
-      name="FBConnection"
-      figure="Connection"/>
+      name="Connection"
+      figure="VarsConnection"/>
   <compartments
       name="VariablesCompartment"
       figure="FBFigure"/>
@@ -136,4 +171,8 @@
       affixedParentSide="NSEW"
       accessor="//@figures.0/@descriptors.1/@accessors.0"
       container="//@figures.0/@descriptors.0/@accessors.0"/>
+  <labels
+      name="DiagramVariableName"
+      figure="DiagramVariableFigure"
+      accessor="//@figures.0/@descriptors.3/@accessors.0"/>
 </gmfgraph:Canvas>

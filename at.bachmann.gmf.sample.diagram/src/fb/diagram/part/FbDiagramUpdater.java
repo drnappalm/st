@@ -25,6 +25,7 @@ import fb.diagram.edit.parts.FBEditPart;
 import fb.diagram.edit.parts.FBVariablesCompartmentEditPart;
 import fb.diagram.edit.parts.INVariableEditPart;
 import fb.diagram.edit.parts.OUTVariableEditPart;
+import fb.diagram.edit.parts.VariableEditPart;
 import fb.diagram.providers.FbElementTypes;
 
 /**
@@ -40,7 +41,7 @@ public class FbDiagramUpdater {
 		case FBDiagramEditPart.VISUAL_ID:
 			return getFBDiagram_1000SemanticChildren(view);
 		case FBVariablesCompartmentEditPart.VISUAL_ID:
-			return getFBVariablesCompartment_7001SemanticChildren(view);
+			return getFBCompartment_7001SemanticChildren(view);
 		}
 		return Collections.emptyList();
 	}
@@ -64,13 +65,23 @@ public class FbDiagramUpdater {
 				continue;
 			}
 		}
+		for (Iterator<?> it = modelElement.getVariables().iterator(); it
+				.hasNext();) {
+			Variable childElement = (Variable) it.next();
+			int visualID = FbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == VariableEditPart.VISUAL_ID) {
+				result.add(new FbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<FbNodeDescriptor> getFBVariablesCompartment_7001SemanticChildren(
+	public static List<FbNodeDescriptor> getFBCompartment_7001SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -107,6 +118,8 @@ public class FbDiagramUpdater {
 			return getFBDiagram_1000ContainedLinks(view);
 		case FBEditPart.VISUAL_ID:
 			return getFB_2001ContainedLinks(view);
+		case VariableEditPart.VISUAL_ID:
+			return getVariable_2002ContainedLinks(view);
 		case OUTVariableEditPart.VISUAL_ID:
 			return getOUTVariable_3003ContainedLinks(view);
 		case INVariableEditPart.VISUAL_ID:
@@ -124,6 +137,8 @@ public class FbDiagramUpdater {
 		switch (FbVisualIDRegistry.getVisualID(view)) {
 		case FBEditPart.VISUAL_ID:
 			return getFB_2001IncomingLinks(view);
+		case VariableEditPart.VISUAL_ID:
+			return getVariable_2002IncomingLinks(view);
 		case OUTVariableEditPart.VISUAL_ID:
 			return getOUTVariable_3003IncomingLinks(view);
 		case INVariableEditPart.VISUAL_ID:
@@ -141,6 +156,8 @@ public class FbDiagramUpdater {
 		switch (FbVisualIDRegistry.getVisualID(view)) {
 		case FBEditPart.VISUAL_ID:
 			return getFB_2001OutgoingLinks(view);
+		case VariableEditPart.VISUAL_ID:
+			return getVariable_2002OutgoingLinks(view);
 		case OUTVariableEditPart.VISUAL_ID:
 			return getOUTVariable_3003OutgoingLinks(view);
 		case INVariableEditPart.VISUAL_ID:
@@ -172,6 +189,14 @@ public class FbDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<FbLinkDescriptor> getVariable_2002ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<FbLinkDescriptor> getOUTVariable_3003ContainedLinks(
 			View view) {
 		return Collections.emptyList();
@@ -198,6 +223,19 @@ public class FbDiagramUpdater {
 	 */
 	public static List<FbLinkDescriptor> getFB_2001IncomingLinks(View view) {
 		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<FbLinkDescriptor> getVariable_2002IncomingLinks(View view) {
+		Variable modelElement = (Variable) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<FbLinkDescriptor> result = new LinkedList<FbLinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_Connection_4001(
+				modelElement, crossReferences));
+		return result;
 	}
 
 	/**
@@ -241,6 +279,16 @@ public class FbDiagramUpdater {
 	 */
 	public static List<FbLinkDescriptor> getFB_2001OutgoingLinks(View view) {
 		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<FbLinkDescriptor> getVariable_2002OutgoingLinks(View view) {
+		Variable modelElement = (Variable) view.getElement();
+		LinkedList<FbLinkDescriptor> result = new LinkedList<FbLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_Connection_4001(modelElement));
+		return result;
 	}
 
 	/**

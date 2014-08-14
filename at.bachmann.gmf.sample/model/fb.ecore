@@ -28,6 +28,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="FBDiagram">
     <eStructuralFeatures xsi:type="ecore:EReference" name="fbs" upperBound="-1" eType="#//FB"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
+        eType="#//Variable" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="INVariable" eSuperTypes="#//Variable"/>
   <eClassifiers xsi:type="ecore:EClass" name="OUTVariable" eSuperTypes="#//Variable"/>

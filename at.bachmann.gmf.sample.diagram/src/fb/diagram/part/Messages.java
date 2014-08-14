@@ -283,6 +283,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String DiagramVariable4CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String DiagramVariable4CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String Connection1CreationTool_title;
 
 	/**
@@ -304,6 +314,16 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_FBDiagram_1000_links;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Variable_2002_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Variable_2002_outgoinglinks;
 
 	/**
 	 * @generated

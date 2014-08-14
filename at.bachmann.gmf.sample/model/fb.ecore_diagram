@@ -208,4 +208,16 @@
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_LLTzUCIoEeSu4uxE9QfKYQ" id="(0.24107142857142858,1.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_LLTzUSIoEeSu4uxE9QfKYQ" id="(0.49382716049382713,0.0)"/>
   </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_gk0igCNwEeSaBMDYp1SVkw" type="4003" source="_HtnNxh8sEeShTfQftV1bMQ" target="_VLabwCInEeSu4uxE9QfKYQ">
+    <children xmi:type="notation:DecorationNode" xmi:id="_gk0igyNwEeSaBMDYp1SVkw" type="6002">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_gk0ihCNwEeSaBMDYp1SVkw" y="40"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_gk0ihSNwEeSaBMDYp1SVkw" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_gk0ihiNwEeSaBMDYp1SVkw" y="60"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_gk0igSNwEeSaBMDYp1SVkw" fontName="Segoe UI"/>
+    <element xmi:type="ecore:EReference" href="fb.ecore#//FBDiagram/variables"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_gk0igiNwEeSaBMDYp1SVkw" points="[-3, 11, 105, -387]$[-97, 384, 11, -14]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_gk0ihyNwEeSaBMDYp1SVkw" id="(0.2857142857142857,0.7884615384615384)"/>
+  </edges>
 </notation:Diagram>

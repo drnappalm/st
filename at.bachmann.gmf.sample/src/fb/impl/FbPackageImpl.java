@@ -257,6 +257,15 @@ public class FbPackageImpl extends EPackageImpl implements FbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getFBDiagram_Variables() {
+		return (EReference)fbDiagramEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getINVariable() {
 		return inVariableEClass;
 	}
@@ -349,6 +358,7 @@ public class FbPackageImpl extends EPackageImpl implements FbPackage {
 
 		fbDiagramEClass = createEClass(FB_DIAGRAM);
 		createEReference(fbDiagramEClass, FB_DIAGRAM__FBS);
+		createEReference(fbDiagramEClass, FB_DIAGRAM__VARIABLES);
 
 		inVariableEClass = createEClass(IN_VARIABLE);
 
@@ -413,6 +423,7 @@ public class FbPackageImpl extends EPackageImpl implements FbPackage {
 
 		initEClass(fbDiagramEClass, FBDiagram.class, "FBDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFBDiagram_Fbs(), this.getFB(), null, "fbs", null, 0, -1, FBDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFBDiagram_Variables(), this.getVariable(), null, "variables", null, 0, -1, FBDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(inVariableEClass, INVariable.class, "INVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

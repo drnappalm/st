@@ -24,6 +24,8 @@ import fb.diagram.edit.parts.INVariableEditPart;
 import fb.diagram.edit.parts.INVariableNameEditPart;
 import fb.diagram.edit.parts.OUTVariableEditPart;
 import fb.diagram.edit.parts.OUTVariableNameEditPart;
+import fb.diagram.edit.parts.VariableEditPart;
+import fb.diagram.edit.parts.WrappingLabelEditPart;
 import fb.diagram.part.FbDiagramEditorPlugin;
 import fb.diagram.part.FbVisualIDRegistry;
 import fb.diagram.providers.FbElementTypes;
@@ -94,6 +96,9 @@ public class FbNavigatorLabelProvider extends LabelProvider implements
 		case FBEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://www.bachmann.at/gmf/sample/fb?FB", FbElementTypes.FB_2001); //$NON-NLS-1$
+		case VariableEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://www.bachmann.at/gmf/sample/fb?Variable", FbElementTypes.Variable_2002); //$NON-NLS-1$
 		case INVariableEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://www.bachmann.at/gmf/sample/fb?INVariable", FbElementTypes.INVariable_3002); //$NON-NLS-1$
@@ -159,6 +164,8 @@ public class FbNavigatorLabelProvider extends LabelProvider implements
 			return getFBDiagram_1000Text(view);
 		case FBEditPart.VISUAL_ID:
 			return getFB_2001Text(view);
+		case VariableEditPart.VISUAL_ID:
+			return getVariable_2002Text(view);
 		case INVariableEditPart.VISUAL_ID:
 			return getINVariable_3002Text(view);
 		case OUTVariableEditPart.VISUAL_ID:
@@ -190,6 +197,25 @@ public class FbNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			FbDiagramEditorPlugin.getInstance().logError(
 					"Parser was not found for label " + 5001); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getVariable_2002Text(View view) {
+		IParser parser = FbParserProvider.getParser(
+				FbElementTypes.Variable_2002,
+				view.getElement() != null ? view.getElement() : view,
+				FbVisualIDRegistry.getType(WrappingLabelEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			FbDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5005); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

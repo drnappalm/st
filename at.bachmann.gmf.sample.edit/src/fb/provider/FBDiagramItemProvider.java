@@ -4,6 +4,7 @@ package fb.provider;
 
 
 import fb.FBDiagram;
+import fb.FbFactory;
 import fb.FbPackage;
 
 import java.util.Collection;
@@ -77,6 +78,7 @@ public class FBDiagramItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(FbPackage.Literals.FB_DIAGRAM__FBS);
+			childrenFeatures.add(FbPackage.Literals.FB_DIAGRAM__VARIABLES);
 		}
 		return childrenFeatures;
 	}
@@ -130,6 +132,7 @@ public class FBDiagramItemProvider
 
 		switch (notification.getFeatureID(FBDiagram.class)) {
 			case FbPackage.FB_DIAGRAM__FBS:
+			case FbPackage.FB_DIAGRAM__VARIABLES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -146,6 +149,21 @@ public class FBDiagramItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FbPackage.Literals.FB_DIAGRAM__VARIABLES,
+				 FbFactory.eINSTANCE.createVariable()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FbPackage.Literals.FB_DIAGRAM__VARIABLES,
+				 FbFactory.eINSTANCE.createINVariable()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FbPackage.Literals.FB_DIAGRAM__VARIABLES,
+				 FbFactory.eINSTANCE.createOUTVariable()));
 	}
 
 	/**

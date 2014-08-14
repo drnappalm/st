@@ -5,6 +5,7 @@ package fb.impl;
 import fb.FB;
 import fb.FBDiagram;
 import fb.FbPackage;
+import fb.Variable;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -22,6 +23,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link fb.impl.FBDiagramImpl#getFbs <em>Fbs</em>}</li>
+ *   <li>{@link fb.impl.FBDiagramImpl#getVariables <em>Variables</em>}</li>
  * </ul>
  * </p>
  *
@@ -37,6 +39,16 @@ public class FBDiagramImpl extends MinimalEObjectImpl.Container implements FBDia
 	 * @ordered
 	 */
 	protected EList<FB> fbs;
+
+	/**
+	 * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVariables()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Variable> variables;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -74,11 +86,25 @@ public class FBDiagramImpl extends MinimalEObjectImpl.Container implements FBDia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Variable> getVariables() {
+		if (variables == null) {
+			variables = new EObjectContainmentEList<Variable>(Variable.class, this, FbPackage.FB_DIAGRAM__VARIABLES);
+		}
+		return variables;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FbPackage.FB_DIAGRAM__FBS:
 				return ((InternalEList<?>)getFbs()).basicRemove(otherEnd, msgs);
+			case FbPackage.FB_DIAGRAM__VARIABLES:
+				return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -93,6 +119,8 @@ public class FBDiagramImpl extends MinimalEObjectImpl.Container implements FBDia
 		switch (featureID) {
 			case FbPackage.FB_DIAGRAM__FBS:
 				return getFbs();
+			case FbPackage.FB_DIAGRAM__VARIABLES:
+				return getVariables();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -110,6 +138,10 @@ public class FBDiagramImpl extends MinimalEObjectImpl.Container implements FBDia
 				getFbs().clear();
 				getFbs().addAll((Collection<? extends FB>)newValue);
 				return;
+			case FbPackage.FB_DIAGRAM__VARIABLES:
+				getVariables().clear();
+				getVariables().addAll((Collection<? extends Variable>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -125,6 +157,9 @@ public class FBDiagramImpl extends MinimalEObjectImpl.Container implements FBDia
 			case FbPackage.FB_DIAGRAM__FBS:
 				getFbs().clear();
 				return;
+			case FbPackage.FB_DIAGRAM__VARIABLES:
+				getVariables().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -139,6 +174,8 @@ public class FBDiagramImpl extends MinimalEObjectImpl.Container implements FBDia
 		switch (featureID) {
 			case FbPackage.FB_DIAGRAM__FBS:
 				return fbs != null && !fbs.isEmpty();
+			case FbPackage.FB_DIAGRAM__VARIABLES:
+				return variables != null && !variables.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

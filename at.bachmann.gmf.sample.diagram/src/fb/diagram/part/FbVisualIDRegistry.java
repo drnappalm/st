@@ -18,6 +18,8 @@ import fb.diagram.edit.parts.INVariableEditPart;
 import fb.diagram.edit.parts.INVariableNameEditPart;
 import fb.diagram.edit.parts.OUTVariableEditPart;
 import fb.diagram.edit.parts.OUTVariableNameEditPart;
+import fb.diagram.edit.parts.VariableEditPart;
+import fb.diagram.edit.parts.WrappingLabelEditPart;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -130,6 +132,10 @@ public class FbVisualIDRegistry {
 					domainElement.eClass())) {
 				return FBEditPart.VISUAL_ID;
 			}
+			if (FbPackage.eINSTANCE.getVariable().isSuperTypeOf(
+					domainElement.eClass())) {
+				return VariableEditPart.VISUAL_ID;
+			}
 			break;
 		case FBVariablesCompartmentEditPart.VISUAL_ID:
 			if (FbPackage.eINSTANCE.getOUTVariable().isSuperTypeOf(
@@ -170,12 +176,20 @@ public class FbVisualIDRegistry {
 			if (FBEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (VariableEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case FBEditPart.VISUAL_ID:
 			if (FBNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (FBVariablesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case VariableEditPart.VISUAL_ID:
+			if (WrappingLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -258,6 +272,7 @@ public class FbVisualIDRegistry {
 		switch (visualID) {
 		case FBDiagramEditPart.VISUAL_ID:
 			return false;
+		case VariableEditPart.VISUAL_ID:
 		case INVariableEditPart.VISUAL_ID:
 		case OUTVariableEditPart.VISUAL_ID:
 			return true;
