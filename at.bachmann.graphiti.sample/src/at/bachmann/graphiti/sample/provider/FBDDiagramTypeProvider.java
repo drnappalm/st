@@ -11,4 +11,24 @@ public class FBDDiagramTypeProvider extends AbstractDiagramTypeProvider
 	public FBDDiagramTypeProvider() {
 		setFeatureProvider(new FBDFeatureProvider(this));
 	}
+	
+	@Override
+	public boolean isAutoUpdateAtReset() {
+		return true;
+	}
+	
+	@Override
+	public boolean isAutoUpdateAtRuntimeWhenEditorIsSaved() {
+		return true;
+	}
+	
+	@Override
+	public boolean isAutoUpdateAtRuntime() {
+		return true;
+	}
+	
+	@Override
+	public boolean isAutoUpdateAtStartup() {
+		return true;
+	}
 }
