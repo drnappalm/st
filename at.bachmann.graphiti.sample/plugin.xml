@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.graphiti.ui.diagramTypes">
+      <diagramType
+            id="at.bachmann.graphiti.sample.diagramtype.fbd"
+            name="FBD Diagram"
+            type="at.bachmann.graphiti.sample.diagramtype.fbd">
+      </diagramType>
+   </extension>
+   <extension
+         point="org.eclipse.graphiti.ui.diagramTypeProviders">
+      <diagramTypeProvider
+            class="at.bachmann.graphiti.sample.provider.FBDDiagramTypeProvider"
+            context="org.eclipse.graphiti.ui.diagramEditor"
+            id="at.bachmann.graphiti.sample.diagramtypeprovider.fbd"
+            name="FBD Diagram Type Provider">
+         <diagramType
+               id="at.bachmann.graphiti.sample.diagramtype.fbd">
+         </diagramType>
+         <imageProvider
+               id="at.bachmann.graphiti.sample.imageprovider.fbd">
+         </imageProvider>
+      </diagramTypeProvider>
+   </extension>
+   <extension
+         point="org.eclipse.graphiti.ui.imageProviders">
+      <imageProvider
+            class="at.bachmann.graphiti.sample.provider.FBDImageProvider"
+            id="at.bachmann.graphiti.sample.imageprovider.fbd">
+      </imageProvider>
+   </extension>
+
+</plugin>
