@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="at.bachmann.gmf.sample.diagram.custom.validatefbdcommand"
+            contextId="fb.diagram.ui.diagramContext"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M4+V">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            categoryId="at.bachmann.gmf.sample.diagram.custom.fbdcategory"
+            id="at.bachmann.gmf.sample.diagram.custom.validatefbdcommand"
+            name="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX">
+      </command>
+      <category
+            id="at.bachmann.gmf.sample.diagram.custom.fbdcategory"
+            name="FBD Commands">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="false"
+            id="at.bachmann.gmf.sample.diagram.custom.objectContribution2"
+            objectClass="fb.diagram.edit.parts.FBDiagramEditPart">
+         <menu
+               id="at.bachmann.gmf.sample.diagram.custom.fbdmenu2"
+               label="FBD Validation"
+               path="additions">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               class="at.bachmann.gmf.sample.diagram.custom.actions.CustomValidateAction"
+               definitionId="at.bachmann.gmf.sample.diagram.custom.validatefbdcommand"
+               icon="icons/FbDiagramFile.gif"
+               id="at.bachmann.gmf.sample.diagram.custom.validatefbdaction2"
+               label="Validate FBD Diagram"
+               menubarPath="at.bachmann.gmf.sample.diagram.custom.fbdmenu2/group1">
+         </action>
+      </objectContribution>
+   </extension>
+   <extension
+         point="org.eclipse.gmf.runtime.diagram.ui.layoutProviders">
+      <layoutProvider
+            class="at.bachmann.gmf.sample.diagram.custom.layout.FBDLeftToRightProvider">
+         <Priority
+               name="Medium">
+         </Priority>
+      </layoutProvider>
+      <layoutProvider
+            class="at.bachmann.gmf.sample.diagram.custom.layout.FBDTopDownProvider">
+         <Priority
+               name="Medium">
+         </Priority>
+      </layoutProvider>
+   </extension>
+
+</plugin>
