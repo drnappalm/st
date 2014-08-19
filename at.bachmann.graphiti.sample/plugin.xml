@@ -31,5 +31,36 @@
             id="at.bachmann.graphiti.sample.imageprovider.fbd">
       </imageProvider>
    </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="at.bachmann.graphiti.sample.FBDiagramEditor"
+            default="true"
+            extensions="gfbd"
+            icon="icons/gfbdicon.png"
+            id="at.bachmann.graphiti.sample.fbdiagrameditor"
+            name="FB Diagram Editor">
+         <contentTypeBinding
+               contentTypeId="at.bachmann.graphiti.sample.fbdiagram">
+         </contentTypeBinding>
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            class="at.bachmann.graphiti.sample.wizard.CreateDiagramWizard"
+            icon="icons/gfbdicon.png"
+            id="at.bachmann.graphiti.sample.newgfbd"
+            name="New GFB Diagram">
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            class="at.bachmann.graphiti.sample.NewWizard1"
+            id="at.bachmann.graphiti.sample.newgfbd"
+            name="New GFB Diagram">
+      </wizard>
+   </extension>
 
 </plugin>
